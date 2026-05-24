@@ -1,7 +1,7 @@
 <template>
-  <nav class="navbar"></nav>
+  <nav class="navbar">dedddd</nav>
 </template>
 
 <script setup>
-import { RouterLink } from "vue-router";
+
 </script>
