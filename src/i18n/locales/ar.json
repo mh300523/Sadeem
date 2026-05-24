@@ -1,0 +1,10 @@
+{
+  "header": {
+    "welcome_user": "مرحبًا شمس حسان,",
+    "welcome_planet": "مرحبًا بك في كوكب سديم!"
+  },
+  "lang": {
+    "ar": "العربية",
+    "en": "English"
+  }
+}

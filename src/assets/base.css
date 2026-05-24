@@ -1,4 +1,54 @@
-/* color palette from <https://github.com/vuejs/theme> */
+@layer base{
+  @font-face {
+      font-family: 'Neo Sans Arabic';
+      src: url('./fonts/NeoSansArabic.woff2') format('woff2'),
+          url('./fonts/NeoSansArabic.woff') format('woff'),
+          url('./fonts/NeoSansArabic.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Neo Sans Arabic';
+      src: url('./fonts/NeoSansArabic-Black.woff2') format('woff2'),
+          url('./fonts/NeoSansArabic-Black.woff') format('woff'),
+          url('./fonts/NeoSansArabic-Black.ttf') format('truetype');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Neo Sans Arabic';
+      src: url('./fonts/NeoSansArabic-Bold.woff2') format('woff2'),
+          url('./fonts/NeoSansArabic-Bold.woff') format('woff'),
+          url('./fonts/NeoSansArabic-Bold.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Neo Sans Arabic';
+      src: url('./fonts/NeoSansArabic-Light.woff2') format('woff2'),
+          url('./fonts/NeoSansArabic-Light.woff') format('woff'),
+          url('./fonts/NeoSansArabic-Light.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Neo Sans Arabic';
+      src: url('./fonts/NeoSansArabic-Medium.woff2') format('woff2'),
+          url('./fonts/NeoSansArabic-Medium.woff') format('woff'),
+          url('./fonts/NeoSansArabic-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+  }
+}
 :root {
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
@@ -55,32 +105,15 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  font-weight: normal;
 }
 
 body {
-  min-height: 100vh;
+  font-family: 'Neo Sans Arabic', sans-serif;
   color: var(--color-text);
   background: var(--color-background);
   transition:
     color 0.5s,
     background-color 0.5s;
   line-height: 1.6;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
-  font-size: 15px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
 }
