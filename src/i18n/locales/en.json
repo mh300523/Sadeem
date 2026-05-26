@@ -6,5 +6,9 @@
   "lang": {
     "ar": "العربية",
     "en": "English"
+  },
+  "dashboard": {
+    "idea_evaluation_dashboard": "Idea Evaluation Dashboard",
+    "ideas_table": "Ideas Table"
   }
 }

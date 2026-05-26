@@ -1,0 +1,484 @@
+{
+  "dashboard": {
+    "stats": [
+      {
+        "id": 1,
+        "value": "024",
+        "title": {
+          "ar": "الأفكار الجديدة",
+          "en": "New Ideas"
+        },
+        "icon": "lightbulb",
+        "status": "new"
+      },
+      {
+        "id": 2,
+        "value": "008",
+        "title": {
+          "ar": "بانتظار تقييمي",
+          "en": "Waiting for Evaluation"
+        },
+        "icon": "hourglass",
+        "status": "waiting"
+      },
+      {
+        "id": 3,
+        "value": "036",
+        "title": {
+          "ar": "الأفكار التي قيمتها",
+          "en": "Evaluated Ideas"
+        },
+        "icon": "check-circle",
+        "status": "evaluated"
+      },
+      {
+        "id": 4,
+        "value": "012",
+        "title": {
+          "ar": "قيد تقييم الفريق",
+          "en": "Under Team Evaluation"
+        },
+        "icon": "settings",
+        "status": "team_review"
+      },
+      {
+        "id": 5,
+        "value": "009",
+        "title": {
+          "ar": "الأفكار المجدية",
+          "en": "Feasible Ideas"
+        },
+        "icon": "cup",
+        "status": "feasible"
+      },
+      {
+        "id": 6,
+        "value": "007",
+        "title": {
+          "ar": "الأفكار غير المجدية",
+          "en": "Infeasible Ideas"
+        },
+        "icon": "cross",
+        "status": "infeasible"
+      },
+      {
+        "id": 7,
+        "value": "004",
+        "title": {
+          "ar": "تحولت إلى مشاريع",
+          "en": "Turned into Projects"
+        },
+        "icon": "presentation",
+        "status": "converted"
+      },
+      {
+        "id": 8,
+        "value": "003",
+        "title": {
+          "ar": "متأخرة عن موعد التقييم",
+          "en": "Late for Evaluation"
+        },
+        "icon": "warning",
+        "status": "late"
+      }
+    ],
+    "ideas": [
+      {
+        "id": "IDEA-1023",
+        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "title_en": "Smart system to improve energy consumption using AI",
+        "submitter_ar": "أحمد خالد",
+        "submitter_en": "Ahmed Khaled",
+        "department_ar": "الطاقة",
+        "department_en": "Energy",
+        "innovationType_ar": "تحسيني",
+        "innovationType_en": "Improvement",
+        "timeHorizon": "H2",
+        "track_ar": "المسار 3 - تحسين العمليات",
+        "track_en": "Track 3 - Process Improvement",
+        "evaluatorsCount": 4,
+        "averageRating": 82,
+        "status": "new",
+        "submittedAt_ar": "منذ يومين",
+        "submittedAt_en": "2 days ago"
+      },
+      {
+        "id": "IDEA-1024",
+        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "title_en": "Smart system to improve energy consumption using AI",
+        "submitter_ar": "أحمد خالد",
+        "submitter_en": "Ahmed Khaled",
+        "department_ar": "الصحة",
+        "department_en": "Health",
+        "innovationType_ar": "خارق",
+        "innovationType_en": "Disruptive",
+        "timeHorizon": "H1",
+        "track_ar": "المسار 5 - التحول الرقمي",
+        "track_en": "Track 5 - Digital Transformation",
+        "evaluatorsCount": 4,
+        "averageRating": 82,
+        "status": "waiting",
+        "submittedAt_ar": "منذ أسبوع",
+        "submittedAt_en": "1 week ago"
+      },
+      {
+        "id": "IDEA-1025",
+        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "title_en": "Smart system to improve energy consumption using AI",
+        "submitter_ar": "أحمد خالد",
+        "submitter_en": "Ahmed Khaled",
+        "department_ar": "الطاقة",
+        "department_en": "Energy",
+        "innovationType_ar": "مزعزع",
+        "innovationType_en": "Radical",
+        "timeHorizon": "H3",
+        "track_ar": "المسار 2 - تحسين العمليات",
+        "track_en": "Track 2 - Process Improvement",
+        "evaluatorsCount": 4,
+        "averageRating": 82,
+        "status": "under_evaluation",
+        "submittedAt_ar": "منذ 3 أيام",
+        "submittedAt_en": "3 days ago"
+      },
+      {
+        "id": "IDEA-1026",
+        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "title_en": "Smart system to improve energy consumption using AI",
+        "submitter_ar": "أحمد خالد",
+        "submitter_en": "Ahmed Khaled",
+        "department_ar": "الصحة",
+        "department_en": "Health",
+        "innovationType_ar": "تحويلي",
+        "innovationType_en": "Transformational",
+        "timeHorizon": "H2",
+        "track_ar": "المسار 4 - البنية التحتية الذكية",
+        "track_en": "Track 4 - Smart Infrastructure",
+        "evaluatorsCount": 4,
+        "averageRating": 82,
+        "status": "feasible",
+        "submittedAt_ar": "منذ 5 أيام",
+        "submittedAt_en": "5 days ago"
+      },
+      {
+        "id": "IDEA-1027",
+        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "title_en": "Smart system to improve energy consumption using AI",
+        "submitter_ar": "أحمد خالد",
+        "submitter_en": "Ahmed Khaled",
+        "department_ar": "الطاقة",
+        "department_en": "Energy",
+        "innovationType_ar": "مزعزع",
+        "innovationType_en": "Radical",
+        "timeHorizon": "H1",
+        "track_ar": "المسار 3 - تحسين العمليات",
+        "track_en": "Track 3 - Process Improvement",
+        "evaluatorsCount": 4,
+        "averageRating": 82,
+        "status": "evaluated",
+        "submittedAt_ar": "منذ 5 أيام",
+        "submittedAt_en": "5 days ago"
+      },
+      {
+        "id": "IDEA-1028",
+        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "title_en": "Smart system to improve energy consumption using AI",
+        "submitter_ar": "أحمد خالد",
+        "submitter_en": "Ahmed Khaled",
+        "department_ar": "الطاقة",
+        "department_en": "Energy",
+        "innovationType_ar": "خارق",
+        "innovationType_en": "Disruptive",
+        "timeHorizon": "H1",
+        "track_ar": "المسار 3 - تحسين العمليات",
+        "track_en": "Track 3 - Process Improvement",
+        "evaluatorsCount": 4,
+        "averageRating": 82,
+        "status": "late",
+        "submittedAt_ar": "منذ 5 أيام",
+        "submittedAt_en": "5 days ago"
+      },
+      {
+        "id": "IDEA-1029",
+        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "title_en": "Smart system to improve energy consumption using AI",
+        "submitter_ar": "أحمد خالد",
+        "submitter_en": "Ahmed Khaled",
+        "department_ar": "الطاقة",
+        "department_en": "Energy",
+        "innovationType_ar": "تحسيني",
+        "innovationType_en": "Improvement",
+        "timeHorizon": "H1",
+        "track_ar": "المسار 3 - تحسين العمليات",
+        "track_en": "Track 3 - Process Improvement",
+        "evaluatorsCount": 4,
+        "averageRating": 82,
+        "status": "project",
+        "submittedAt_ar": "منذ 5 أيام",
+        "submittedAt_en": "5 days ago"
+      },
+      {
+        "id": "IDEA-1030",
+        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "title_en": "Smart system to improve energy consumption using AI",
+        "submitter_ar": "أحمد خالد",
+        "submitter_en": "Ahmed Khaled",
+        "department_ar": "الطاقة",
+        "department_en": "Energy",
+        "innovationType_ar": "تحويلي",
+        "innovationType_en": "Transformational",
+        "timeHorizon": "H1",
+        "track_ar": "المسار 3 - تحسين العمليات",
+        "track_en": "Track 3 - Process Improvement",
+        "evaluatorsCount": 4,
+        "averageRating": 82,
+        "status": "infeasible",
+        "submittedAt_ar": "منذ 5 أيام",
+        "submittedAt_en": "5 days ago"
+      }
+    ],
+    "filters": [
+      {
+        "id": "department",
+        "field": "department_en",
+        "label": { "ar": "القسم", "en": "Department" },
+        "options": [
+          { "value": "all", "label": { "ar": "الكل", "en": "All" } },
+          { "value": "Energy", "label": { "ar": "الطاقة", "en": "Energy" } },
+          { "value": "Health", "label": { "ar": "الصحة", "en": "Health" } }
+        ]
+      },
+      {
+        "id": "innovationType",
+        "field": "innovationType_en",
+        "label": { "ar": "نوع الابتكار", "en": "Innovation Type" },
+        "options": [
+          { "value": "all", "label": { "ar": "الكل", "en": "All" } },
+          {
+            "value": "Improvement",
+            "label": { "ar": "تحسيني", "en": "Improvement" }
+          },
+          {
+            "value": "Disruptive",
+            "label": { "ar": "خارق", "en": "Disruptive" }
+          },
+          { "value": "Radical", "label": { "ar": "مزعزع", "en": "Radical" } },
+          {
+            "value": "Transformational",
+            "label": { "ar": "تحويلي", "en": "Transformational" }
+          }
+        ]
+      },
+      {
+        "id": "timeHorizon",
+        "field": "timeHorizon",
+        "label": { "ar": "الأفق الزمني", "en": "Time Horizon" },
+        "options": [
+          { "value": "all", "label": { "ar": "الكل", "en": "All" } },
+          { "value": "H1", "label": { "ar": "H1", "en": "H1" } },
+          { "value": "H2", "label": { "ar": "H2", "en": "H2" } },
+          { "value": "H3", "label": { "ar": "H3", "en": "H3" } }
+        ]
+      },
+      {
+        "id": "track",
+        "field": "track_en",
+        "label": { "ar": "المسار الابتكاري", "en": "Innovation Track" },
+        "options": [
+          { "value": "all", "label": { "ar": "الكل", "en": "All" } },
+          {
+            "value": "Track 2 - Process Improvement",
+            "label": { "ar": "المسار 2", "en": "Track 2" }
+          },
+          {
+            "value": "Track 3 - Process Improvement",
+            "label": { "ar": "المسار 3", "en": "Track 3" }
+          },
+          {
+            "value": "Track 4 - Smart Infrastructure",
+            "label": { "ar": "المسار 4", "en": "Track 4" }
+          },
+          {
+            "value": "Track 5 - Digital Transformation",
+            "label": { "ar": "المسار 5", "en": "Track 5" }
+          }
+        ]
+      },
+      {
+        "id": "priority",
+        "field": "priority",
+        "label": { "ar": "الأولوية", "en": "Priority" },
+        "options": [
+          { "value": "all", "label": { "ar": "الكل", "en": "All" } },
+          { "value": "high", "label": { "ar": "عالية", "en": "High" } },
+          { "value": "medium", "label": { "ar": "متوسطة", "en": "Medium" } },
+          { "value": "low", "label": { "ar": "منخفضة", "en": "Low" } }
+        ]
+      },
+      {
+        "id": "dateRangeFrom",
+        "type": "date",
+        "label": { "ar": "من تاريخ", "en": "Date From" },
+        "options": [
+          { "value": "all", "label": { "ar": "الكل", "en": "All" } },
+          {
+            "value": "2025-01",
+            "label": { "ar": "يناير 2025", "en": "Jan 2025" }
+          },
+          {
+            "value": "2025-02",
+            "label": { "ar": "فبراير 2025", "en": "Feb 2025" }
+          },
+          {
+            "value": "2025-03",
+            "label": { "ar": "مارس 2025", "en": "Mar 2025" }
+          }
+        ]
+      },
+      {
+        "id": "dateRangeTo",
+        "type": "date",
+        "label": { "ar": "إلى تاريخ", "en": "Date To" },
+        "options": [
+          { "value": "all", "label": { "ar": "الكل", "en": "All" } },
+          {
+            "value": "2026-03",
+            "label": { "ar": "مارس 2026", "en": "Mar 2026" }
+          },
+          {
+            "value": "2026-04",
+            "label": { "ar": "أبريل 2026", "en": "Apr 2026" }
+          },
+          {
+            "value": "2026-05",
+            "label": { "ar": "مايو 2026", "en": "May 2026" }
+          }
+        ]
+      }
+    ],
+    "headers": [
+      { "key": "id", "label": { "ar": "رقم الفكرة", "en": "Idea ID" } },
+      { "key": "title", "label": { "ar": "عنوان الفكرة", "en": "Idea Title" } },
+      {
+        "key": "submitter",
+        "label": { "ar": "مقدم الفكرة", "en": "Submitter" }
+      },
+      { "key": "department", "label": { "ar": "القسم", "en": "Department" } },
+      {
+        "key": "innovationType",
+        "label": { "ar": "نوع الابتكار", "en": "Innovation Type" }
+      },
+      {
+        "key": "timeHorizon",
+        "label": { "ar": "الأفق الزمني", "en": "Time Horizon" }
+      },
+      {
+        "key": "track",
+        "label": { "ar": "مسار الابتكار", "en": "Innovation Track" }
+      },
+      {
+        "key": "evaluatorsCount",
+        "label": { "ar": "عدد المقيمين", "en": "Evaluators" }
+      },
+      {
+        "key": "averageRating",
+        "label": { "ar": "متوسط التقييم", "en": "Avg Rating" }
+      },
+      {
+        "key": "status",
+        "label": { "ar": "الحالة", "en": "Status" },
+        "align": "center"
+      },
+      {
+        "key": "submittedAt",
+        "label": { "ar": "تاريخ التقديم", "en": "Submitted At" }
+      },
+      {
+        "key": "action",
+        "label": { "ar": "الإجراء", "en": "Action" },
+        "viewLabel": { "ar": "عرض", "en": "View" }
+      }
+    ],
+    "statusConfigs": {
+      "new": {
+        "ar": "فكرة جديدة",
+        "en": "New Idea",
+        "bgClass": "bg-[#FF6B35]/15",
+        "borderClass": "border-[#FF6B35]/40",
+        "textClass": "text-white",
+        "iconBgClass": "bg-[#FF6B35]",
+        "iconColorClass": "text-white",
+        "iconPath": "M9.663 17h4.673M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707-.707M12 5a7 7 0 00-7 7c0 2.9 1.77 5.39 4.3 6.45V19a1 1 0 001 1h3a1 1 0 001-1v-.55c2.53-1.06 4.3-3.55 4.3-6.45a7 7 0 00-7-7z"
+      },
+      "waiting": {
+        "ar": "بانتظار التقييم",
+        "en": "Waiting Eval",
+        "bgClass": "bg-[#895AF7]/15",
+        "borderClass": "border-[#895AF7]/40",
+        "textClass": "text-white",
+        "iconBgClass": "bg-[#895AF7]",
+        "iconColorClass": "text-white",
+        "iconPath": "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+      },
+      "under_evaluation": {
+        "ar": "قيد التقييم",
+        "en": "Under Eval",
+        "bgClass": "bg-[#009DFE]/15",
+        "borderClass": "border-[#009DFE]/40",
+        "textClass": "text-white",
+        "iconBgClass": "bg-[#009DFE]",
+        "iconColorClass": "text-white",
+        "iconPath": "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+      },
+      "feasible": {
+        "ar": "مجدية",
+        "en": "Feasible",
+        "bgClass": "bg-[#EEB252]/15",
+        "borderClass": "border-[#EEB252]/40",
+        "textClass": "text-white",
+        "iconBgClass": "bg-[#EEB252]",
+        "iconColorClass": "text-white",
+        "iconPath": "M12 15a3 3 0 100-6 3 3 0 000 6z M18 3H6a2 2 0 00-2 2v2c0 4.42 3.58 8 8 8s8-3.58 8-8V5a2 2 0 00-2-2zM4 7h2m12 0h2M12 15v4M8 21h8"
+      },
+      "evaluated": {
+        "ar": "تم التقييم",
+        "en": "Evaluated",
+        "bgClass": "bg-[#32BEA6]/15",
+        "borderClass": "border-[#32BEA6]/40",
+        "textClass": "text-white",
+        "iconBgClass": "bg-[#32BEA6]",
+        "iconColorClass": "text-white",
+        "iconPath": "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+      },
+      "late": {
+        "ar": "متأخر",
+        "en": "Late",
+        "bgClass": "bg-[#FFD215]/15",
+        "borderClass": "border-[#FFD215]/40",
+        "textClass": "text-white",
+        "iconBgClass": "bg-[#FFD215]",
+        "iconColorClass": "text-black",
+        "iconPath": "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+      },
+      "project": {
+        "ar": "تحولت لمشروع",
+        "en": "Project",
+        "bgClass": "bg-[#00E2FF]/15",
+        "borderClass": "border-[#00E2FF]/40",
+        "textClass": "text-white",
+        "iconBgClass": "bg-[#00E2FF]",
+        "iconColorClass": "text-black",
+        "iconPath": "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+      },
+      "infeasible": {
+        "ar": "غير مجدية",
+        "en": "Infeasible",
+        "bgClass": "bg-[#EA0000]/15",
+        "borderClass": "border-[#EA0000]/40",
+        "textClass": "text-white",
+        "iconBgClass": "bg-[#EA0000]",
+        "iconColorClass": "text-white",
+        "iconPath": "M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+      }
+    }
+  }
+}

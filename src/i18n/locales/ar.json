@@ -1,10 +1,14 @@
 {
   "header": {
-    "welcome_user": "مرحبًا شمس حسان,",
+    "welcome_user": "مرحبًا",
     "welcome_planet": "مرحبًا بك في كوكب سديم!"
   },
   "lang": {
     "ar": "العربية",
     "en": "English"
+  },
+  "dashboard": {
+    "idea_evaluation_dashboard": "لوحة تقييم الأفكار",
+    "ideas_table": "جدول الأفكار"
   }
 }

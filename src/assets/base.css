@@ -1,52 +1,57 @@
-@layer base{
+@layer base {
   @font-face {
-      font-family: 'Neo Sans Arabic';
-      src: url('./fonts/NeoSansArabic.woff2') format('woff2'),
-          url('./fonts/NeoSansArabic.woff') format('woff'),
-          url('./fonts/NeoSansArabic.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
+    font-family: "Neo Sans Arabic";
+    src:
+      url("./fonts/NeoSansArabic.woff2") format("woff2"),
+      url("./fonts/NeoSansArabic.woff") format("woff"),
+      url("./fonts/NeoSansArabic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
-      font-family: 'Neo Sans Arabic';
-      src: url('./fonts/NeoSansArabic-Black.woff2') format('woff2'),
-          url('./fonts/NeoSansArabic-Black.woff') format('woff'),
-          url('./fonts/NeoSansArabic-Black.ttf') format('truetype');
-      font-weight: 900;
-      font-style: normal;
-      font-display: swap;
+    font-family: "Neo Sans Arabic";
+    src:
+      url("./fonts/NeoSansArabic-Black.woff2") format("woff2"),
+      url("./fonts/NeoSansArabic-Black.woff") format("woff"),
+      url("./fonts/NeoSansArabic-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
-      font-family: 'Neo Sans Arabic';
-      src: url('./fonts/NeoSansArabic-Bold.woff2') format('woff2'),
-          url('./fonts/NeoSansArabic-Bold.woff') format('woff'),
-          url('./fonts/NeoSansArabic-Bold.ttf') format('truetype');
-      font-weight: bold;
-      font-style: normal;
-      font-display: swap;
+    font-family: "Neo Sans Arabic";
+    src:
+      url("./fonts/NeoSansArabic-Bold.woff2") format("woff2"),
+      url("./fonts/NeoSansArabic-Bold.woff") format("woff"),
+      url("./fonts/NeoSansArabic-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
-      font-family: 'Neo Sans Arabic';
-      src: url('./fonts/NeoSansArabic-Light.woff2') format('woff2'),
-          url('./fonts/NeoSansArabic-Light.woff') format('woff'),
-          url('./fonts/NeoSansArabic-Light.ttf') format('truetype');
-      font-weight: 300;
-      font-style: normal;
-      font-display: swap;
+    font-family: "Neo Sans Arabic";
+    src:
+      url("./fonts/NeoSansArabic-Light.woff2") format("woff2"),
+      url("./fonts/NeoSansArabic-Light.woff") format("woff"),
+      url("./fonts/NeoSansArabic-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
-      font-family: 'Neo Sans Arabic';
-      src: url('./fonts/NeoSansArabic-Medium.woff2') format('woff2'),
-          url('./fonts/NeoSansArabic-Medium.woff') format('woff'),
-          url('./fonts/NeoSansArabic-Medium.ttf') format('truetype');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
+    font-family: "Neo Sans Arabic";
+    src:
+      url("./fonts/NeoSansArabic-Medium.woff2") format("woff2"),
+      url("./fonts/NeoSansArabic-Medium.woff") format("woff"),
+      url("./fonts/NeoSansArabic-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
   }
 }
 :root {
@@ -104,11 +109,10 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
 }
 
 body {
-  font-family: 'Neo Sans Arabic', sans-serif;
+  font-family: "Neo Sans Arabic", sans-serif;
   color: var(--color-text);
   background: var(--color-background);
   transition:
