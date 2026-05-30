@@ -1,8 +1,5 @@
 <script setup>
-import { useI18n } from "vue-i18n";
 import SvgIcon from "../ui/SvgIcon.vue";
-
-const { locale } = useI18n();
 
 const props = defineProps({
   stats: {
@@ -96,7 +93,7 @@ const statStyles = {
         </h3>
       </div>
       <h4 class="font-medium text-sm text-gray-400">
-        {{ stat.title[locale] }}
+        {{ stat.title }}
       </h4>
     </div>
   </div>

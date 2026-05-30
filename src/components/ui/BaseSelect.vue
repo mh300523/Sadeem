@@ -10,8 +10,6 @@ import {
 
 const model = defineModel();
 
-const { locale } = useI18n();
-
 const props = defineProps({
   options: {
     type: Array,
@@ -44,7 +42,7 @@ const displayValue = computed(() => {
     (opt) => opt[props.optionValue] === model.value,
   );
 
-  return selected?.[props.optionLabel]?.[locale.value] ?? props.placeholder;
+  return selected?.[props.optionLabel] ?? props.placeholder;
 });
 </script>
 
@@ -104,7 +102,7 @@ const displayValue = computed(() => {
                   'block truncate',
                 ]"
               >
-                {{ option[optionLabel]?.[locale] }}
+                {{ option[optionLabel] }}
               </span>
             </li>
           </ListboxOption>

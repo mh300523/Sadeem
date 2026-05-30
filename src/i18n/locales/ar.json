@@ -10,5 +10,26 @@
   "dashboard": {
     "idea_evaluation_dashboard": "لوحة تقييم الأفكار",
     "ideas_table": "جدول الأفكار"
+  },
+  "details": {
+    "back_to_dashboard": "الرجوع للوحة التقييم",
+    "view": "عرض",
+    "save_draft": "حفظ كمسودة",
+    "start_evaluation": "بدء التقييم",
+    "invite_evaluator": "دعوة مقيم",
+    "coming_soon": "قريباً",
+    "coming_soon_desc": "هذا القسم قيد التطوير وسيتوفر في المراحل القادمة.",
+    "active_evaluators": "مقيمين",
+    "average_rating": "التقييم الأولي للذكاء الاصطناعي",
+    "tabs": {
+      "overview": "نظرة عامة",
+      "story": "قصة الفكرة",
+      "business_model": "نموذج العمل التجاري",
+      "alignment": "المواءمة الاستراتيجية",
+      "ip": "الملكية الفكرية المتوقعة",
+      "classification": "التصنيف",
+      "evaluation": "التقييم",
+      "decision": "القرار"
+    }
   }
 }

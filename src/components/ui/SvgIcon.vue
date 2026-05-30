@@ -18,10 +18,15 @@ const props = defineProps({
 });
 
 const icon = defineAsyncComponent(() => {
-  return import(`../../assets/images/${props.path}/${props.name}.svg`);
+  return import(`../../assets/images/icons/${props.name}.svg`);
 });
 </script>
 
 <template>
-  <component :is="icon" :class="classes" />
+  <component
+    :is="icon"
+    fill="currentColor"
+    :class="classes"
+    class="flex-shrink-0"
+  />
 </template>

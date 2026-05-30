@@ -1,6 +1,5 @@
 <script setup>
 import { reactive, watch } from "vue";
-import { useI18n } from "vue-i18n";
 import BaseSelect from "../ui/BaseSelect.vue";
 
 const props = defineProps({
@@ -11,8 +10,6 @@ const props = defineProps({
 });
 
 const emit = defineEmits(["update:filters"]);
-
-const { locale } = useI18n();
 
 const selectedValues = reactive({});
 
@@ -30,7 +27,7 @@ watch(
       emit("update:filters", { ...selectedValues });
     }
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 function onFilterChange(filterId, value) {
@@ -47,7 +44,7 @@ function onFilterChange(filterId, value) {
       :modelValue="selectedValues[filter.id]"
       @update:modelValue="onFilterChange(filter.id, $event)"
       :options="filter.options"
-      :label="filter.label[locale]"
+      :label="filter.label"
       optionLabel="label"
       optionValue="value"
     />

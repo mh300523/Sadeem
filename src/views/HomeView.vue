@@ -1,7 +1,5 @@
 <template>
-  <main
-    class="min-h-screen mt-[-40px] p-6 rounded-tl-[40px] rounded-tr-[40px] bg-[linear-gradient(to_right,rgba(2,20,45,0.8)_29%,rgba(0,0,0,0.248)_100%),url('@/assets/images/Header-bg.png')] bg-cover bg-center bg-no-repeat bg-fixed"
-  >
+  <div>
     <MainTitle :name="$t('dashboard.idea_evaluation_dashboard')" />
 
     <div class="mt-3">
@@ -24,7 +22,7 @@
         :statusConfigs="dashboardData.statusConfigs"
       />
     </div>
-  </main>
+  </div>
 </template>
 
 <script setup>

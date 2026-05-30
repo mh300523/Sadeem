@@ -4,80 +4,56 @@
       {
         "id": 1,
         "value": "024",
-        "title": {
-          "ar": "الأفكار الجديدة",
-          "en": "New Ideas"
-        },
+        "title": "الأفكار الجديدة",
         "icon": "lightbulb",
         "status": "new"
       },
       {
         "id": 2,
         "value": "008",
-        "title": {
-          "ar": "بانتظار تقييمي",
-          "en": "Waiting for Evaluation"
-        },
+        "title": "بانتظار تقييمي",
         "icon": "hourglass",
         "status": "waiting"
       },
       {
         "id": 3,
         "value": "036",
-        "title": {
-          "ar": "الأفكار التي قيمتها",
-          "en": "Evaluated Ideas"
-        },
+        "title": "الأفكار التي قيمتها",
         "icon": "check-circle",
         "status": "evaluated"
       },
       {
         "id": 4,
         "value": "012",
-        "title": {
-          "ar": "قيد تقييم الفريق",
-          "en": "Under Team Evaluation"
-        },
+        "title": "قيد تقييم الفريق",
         "icon": "settings",
         "status": "team_review"
       },
       {
         "id": 5,
         "value": "009",
-        "title": {
-          "ar": "الأفكار المجدية",
-          "en": "Feasible Ideas"
-        },
+        "title": "الأفكار المجدية",
         "icon": "cup",
         "status": "feasible"
       },
       {
         "id": 6,
         "value": "007",
-        "title": {
-          "ar": "الأفكار غير المجدية",
-          "en": "Infeasible Ideas"
-        },
+        "title": "الأفكار غير المجدية",
         "icon": "cross",
         "status": "infeasible"
       },
       {
         "id": 7,
         "value": "004",
-        "title": {
-          "ar": "تحولت إلى مشاريع",
-          "en": "Turned into Projects"
-        },
+        "title": "تحولت إلى مشاريع",
         "icon": "presentation",
         "status": "converted"
       },
       {
         "id": 8,
         "value": "003",
-        "title": {
-          "ar": "متأخرة عن موعد التقييم",
-          "en": "Late for Evaluation"
-        },
+        "title": "متأخرة عن موعد التقييم",
         "icon": "warning",
         "status": "late"
       }
@@ -85,400 +61,2000 @@
     "ideas": [
       {
         "id": "IDEA-1023",
-        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-        "title_en": "Smart system to improve energy consumption using AI",
-        "submitter_ar": "أحمد خالد",
-        "submitter_en": "Ahmed Khaled",
-        "department_ar": "الطاقة",
-        "department_en": "Energy",
-        "innovationType_ar": "تحسيني",
-        "innovationType_en": "Improvement",
+        "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "submitter": "أحمد خالد",
+        "department": "الطاقة",
+        "innovationType": "تحسيني",
         "timeHorizon": "H2",
-        "track_ar": "المسار 3 - تحسين العمليات",
-        "track_en": "Track 3 - Process Improvement",
+        "track": "المسار 3 - تحسين العمليات",
+        "priority": "high",
         "evaluatorsCount": 4,
         "averageRating": 82,
-        "status": "new",
-        "submittedAt_ar": "منذ يومين",
-        "submittedAt_en": "2 days ago"
+        "status": {
+          "id": "under_evaluation",
+          "name": "قيد التقييم"
+        },
+        "submittedAt": "منذ يومين",
+        "aiScore": 78
       },
       {
         "id": "IDEA-1024",
-        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-        "title_en": "Smart system to improve energy consumption using AI",
-        "submitter_ar": "أحمد خالد",
-        "submitter_en": "Ahmed Khaled",
-        "department_ar": "الصحة",
-        "department_en": "Health",
-        "innovationType_ar": "خارق",
-        "innovationType_en": "Disruptive",
+        "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "submitter": "أحمد خالد",
+        "department": "الصحة",
+        "innovationType": "خارق",
         "timeHorizon": "H1",
-        "track_ar": "المسار 5 - التحول الرقمي",
-        "track_en": "Track 5 - Digital Transformation",
+        "track": "المسار 5 - التحول الرقمي",
+        "priority": "medium",
         "evaluatorsCount": 4,
         "averageRating": 82,
-        "status": "waiting",
-        "submittedAt_ar": "منذ أسبوع",
-        "submittedAt_en": "1 week ago"
+        "status": {
+          "id": "waiting",
+          "name": "بانتظار التقييم"
+        },
+        "submittedAt": "منذ أسبوع",
+        "aiScore": 70
       },
       {
         "id": "IDEA-1025",
-        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-        "title_en": "Smart system to improve energy consumption using AI",
-        "submitter_ar": "أحمد خالد",
-        "submitter_en": "Ahmed Khaled",
-        "department_ar": "الطاقة",
-        "department_en": "Energy",
-        "innovationType_ar": "مزعزع",
-        "innovationType_en": "Radical",
+        "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "submitter": "أحمد خالد",
+        "department": "الطاقة",
+        "innovationType": "مزعزع",
         "timeHorizon": "H3",
-        "track_ar": "المسار 2 - تحسين العمليات",
-        "track_en": "Track 2 - Process Improvement",
+        "track": "المسار 2 - تحسين العمليات",
+        "priority": "low",
         "evaluatorsCount": 4,
         "averageRating": 82,
-        "status": "under_evaluation",
-        "submittedAt_ar": "منذ 3 أيام",
-        "submittedAt_en": "3 days ago"
+        "status": {
+          "id": "under_evaluation",
+          "name": "قيد التقييم"
+        },
+        "submittedAt": "منذ 3 أيام",
+        "aiScore": 78
       },
       {
         "id": "IDEA-1026",
-        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-        "title_en": "Smart system to improve energy consumption using AI",
-        "submitter_ar": "أحمد خالد",
-        "submitter_en": "Ahmed Khaled",
-        "department_ar": "الصحة",
-        "department_en": "Health",
-        "innovationType_ar": "تحويلي",
-        "innovationType_en": "Transformational",
+        "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "submitter": "أحمد خالد",
+        "department": "الصحة",
+        "innovationType": "تحويلي",
         "timeHorizon": "H2",
-        "track_ar": "المسار 4 - البنية التحتية الذكية",
-        "track_en": "Track 4 - Smart Infrastructure",
+        "track": "المسار 4 - البنية التحتية الذكية",
+        "priority": "high",
         "evaluatorsCount": 4,
         "averageRating": 82,
-        "status": "feasible",
-        "submittedAt_ar": "منذ 5 أيام",
-        "submittedAt_en": "5 days ago"
+        "status": {
+          "id": "feasible",
+          "name": "مجدية"
+        },
+        "submittedAt": "منذ 5 أيام",
+        "aiScore": 78
       },
       {
         "id": "IDEA-1027",
-        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-        "title_en": "Smart system to improve energy consumption using AI",
-        "submitter_ar": "أحمد خالد",
-        "submitter_en": "Ahmed Khaled",
-        "department_ar": "الطاقة",
-        "department_en": "Energy",
-        "innovationType_ar": "مزعزع",
-        "innovationType_en": "Radical",
+        "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "submitter": "أحمد خالد",
+        "department": "الطاقة",
+        "innovationType": "مزعزع",
         "timeHorizon": "H1",
-        "track_ar": "المسار 3 - تحسين العمليات",
-        "track_en": "Track 3 - Process Improvement",
+        "track": "المسار 3 - تحسين العمليات",
+        "priority": "medium",
         "evaluatorsCount": 4,
         "averageRating": 82,
-        "status": "evaluated",
-        "submittedAt_ar": "منذ 5 أيام",
-        "submittedAt_en": "5 days ago"
+        "status": {
+          "id": "evaluated",
+          "name": "تم التقييم"
+        },
+        "submittedAt": "منذ 5 أيام",
+        "aiScore": 78
       },
       {
         "id": "IDEA-1028",
-        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-        "title_en": "Smart system to improve energy consumption using AI",
-        "submitter_ar": "أحمد خالد",
-        "submitter_en": "Ahmed Khaled",
-        "department_ar": "الطاقة",
-        "department_en": "Energy",
-        "innovationType_ar": "خارق",
-        "innovationType_en": "Disruptive",
+        "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "submitter": "أحمد خالد",
+        "department": "الطاقة",
+        "innovationType": "خارق",
         "timeHorizon": "H1",
-        "track_ar": "المسار 3 - تحسين العمليات",
-        "track_en": "Track 3 - Process Improvement",
+        "track": "المسار 3 - تحسين العمليات",
+        "priority": "low",
         "evaluatorsCount": 4,
         "averageRating": 82,
-        "status": "late",
-        "submittedAt_ar": "منذ 5 أيام",
-        "submittedAt_en": "5 days ago"
+        "status": {
+          "id": "late",
+          "name": "متأخر"
+        },
+        "submittedAt": "منذ 5 أيام",
+        "aiScore": 78
       },
       {
         "id": "IDEA-1029",
-        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-        "title_en": "Smart system to improve energy consumption using AI",
-        "submitter_ar": "أحمد خالد",
-        "submitter_en": "Ahmed Khaled",
-        "department_ar": "الطاقة",
-        "department_en": "Energy",
-        "innovationType_ar": "تحسيني",
-        "innovationType_en": "Improvement",
+        "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "submitter": "أحمد خالد",
+        "department": "الطاقة",
+        "innovationType": "تحسيني",
         "timeHorizon": "H1",
-        "track_ar": "المسار 3 - تحسين العمليات",
-        "track_en": "Track 3 - Process Improvement",
+        "track": "المسار 3 - تحسين العمليات",
+        "priority": "high",
         "evaluatorsCount": 4,
         "averageRating": 82,
-        "status": "project",
-        "submittedAt_ar": "منذ 5 أيام",
-        "submittedAt_en": "5 days ago"
+        "status": {
+          "id": "project",
+          "name": "تحولت لمشروع"
+        },
+        "submittedAt": "منذ 5 أيام",
+        "aiScore": 78
       },
       {
         "id": "IDEA-1030",
-        "title_ar": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-        "title_en": "Smart system to improve energy consumption using AI",
-        "submitter_ar": "أحمد خالد",
-        "submitter_en": "Ahmed Khaled",
-        "department_ar": "الطاقة",
-        "department_en": "Energy",
-        "innovationType_ar": "تحويلي",
-        "innovationType_en": "Transformational",
+        "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+        "submitter": "أحمد خالد",
+        "department": "الطاقة",
+        "innovationType": "تحويلي",
         "timeHorizon": "H1",
-        "track_ar": "المسار 3 - تحسين العمليات",
-        "track_en": "Track 3 - Process Improvement",
+        "track": "المسار 3 - تحسين العمليات",
+        "priority": "medium",
         "evaluatorsCount": 4,
         "averageRating": 82,
-        "status": "infeasible",
-        "submittedAt_ar": "منذ 5 أيام",
-        "submittedAt_en": "5 days ago"
+        "status": {
+          "id": "infeasible",
+          "name": "غير مجدية"
+        },
+        "submittedAt": "منذ 5 أيام",
+        "aiScore": 78
       }
     ],
     "filters": [
       {
         "id": "department",
-        "field": "department_en",
-        "label": { "ar": "القسم", "en": "Department" },
+        "field": "department",
+        "label": "القسم",
         "options": [
-          { "value": "all", "label": { "ar": "الكل", "en": "All" } },
-          { "value": "Energy", "label": { "ar": "الطاقة", "en": "Energy" } },
-          { "value": "Health", "label": { "ar": "الصحة", "en": "Health" } }
+          {
+            "value": "all",
+            "label": "الكل"
+          },
+          {
+            "value": "الطاقة",
+            "label": "الطاقة"
+          },
+          {
+            "value": "الصحة",
+            "label": "الصحة"
+          }
         ]
       },
       {
         "id": "innovationType",
-        "field": "innovationType_en",
-        "label": { "ar": "نوع الابتكار", "en": "Innovation Type" },
+        "field": "innovationType",
+        "label": "نوع الابتكار",
         "options": [
-          { "value": "all", "label": { "ar": "الكل", "en": "All" } },
           {
-            "value": "Improvement",
-            "label": { "ar": "تحسيني", "en": "Improvement" }
+            "value": "all",
+            "label": "الكل"
           },
           {
-            "value": "Disruptive",
-            "label": { "ar": "خارق", "en": "Disruptive" }
+            "value": "تحسيني",
+            "label": "تحسيني"
           },
-          { "value": "Radical", "label": { "ar": "مزعزع", "en": "Radical" } },
           {
-            "value": "Transformational",
-            "label": { "ar": "تحويلي", "en": "Transformational" }
+            "value": "خارق",
+            "label": "خارق"
+          },
+          {
+            "value": "مزعزع",
+            "label": "مزعزع"
+          },
+          {
+            "value": "تحويلي",
+            "label": "تحويلي"
           }
         ]
       },
       {
         "id": "timeHorizon",
         "field": "timeHorizon",
-        "label": { "ar": "الأفق الزمني", "en": "Time Horizon" },
+        "label": "الأفق الزمني",
         "options": [
-          { "value": "all", "label": { "ar": "الكل", "en": "All" } },
-          { "value": "H1", "label": { "ar": "H1", "en": "H1" } },
-          { "value": "H2", "label": { "ar": "H2", "en": "H2" } },
-          { "value": "H3", "label": { "ar": "H3", "en": "H3" } }
+          {
+            "value": "all",
+            "label": "الكل"
+          },
+          {
+            "value": "H1",
+            "label": "H1"
+          },
+          {
+            "value": "H2",
+            "label": "H2"
+          },
+          {
+            "value": "H3",
+            "label": "H3"
+          }
         ]
       },
       {
         "id": "track",
-        "field": "track_en",
-        "label": { "ar": "المسار الابتكاري", "en": "Innovation Track" },
+        "field": "track",
+        "label": "المسار الابتكاري",
         "options": [
-          { "value": "all", "label": { "ar": "الكل", "en": "All" } },
           {
-            "value": "Track 2 - Process Improvement",
-            "label": { "ar": "المسار 2", "en": "Track 2" }
+            "value": "all",
+            "label": "الكل"
           },
           {
-            "value": "Track 3 - Process Improvement",
-            "label": { "ar": "المسار 3", "en": "Track 3" }
+            "value": "المسار 2 - تحسين العمليات",
+            "label": "المسار 2"
           },
           {
-            "value": "Track 4 - Smart Infrastructure",
-            "label": { "ar": "المسار 4", "en": "Track 4" }
+            "value": "المسار 3 - تحسين العمليات",
+            "label": "المسار 3"
           },
           {
-            "value": "Track 5 - Digital Transformation",
-            "label": { "ar": "المسار 5", "en": "Track 5" }
+            "value": "المسار 4 - البنية التحتية الذكية",
+            "label": "المسار 4"
+          },
+          {
+            "value": "المسار 5 - التحول الرقمي",
+            "label": "المسار 5"
           }
         ]
       },
       {
         "id": "priority",
         "field": "priority",
-        "label": { "ar": "الأولوية", "en": "Priority" },
+        "label": "الأولوية",
         "options": [
-          { "value": "all", "label": { "ar": "الكل", "en": "All" } },
-          { "value": "high", "label": { "ar": "عالية", "en": "High" } },
-          { "value": "medium", "label": { "ar": "متوسطة", "en": "Medium" } },
-          { "value": "low", "label": { "ar": "منخفضة", "en": "Low" } }
+          {
+            "value": "all",
+            "label": "الكل"
+          },
+          {
+            "value": "high",
+            "label": "عالية"
+          },
+          {
+            "value": "medium",
+            "label": "متوسطة"
+          },
+          {
+            "value": "low",
+            "label": "منخفضة"
+          }
         ]
       },
       {
         "id": "dateRangeFrom",
         "type": "date",
-        "label": { "ar": "من تاريخ", "en": "Date From" },
+        "label": "من تاريخ",
         "options": [
-          { "value": "all", "label": { "ar": "الكل", "en": "All" } },
+          {
+            "value": "all",
+            "label": "الكل"
+          },
           {
             "value": "2025-01",
-            "label": { "ar": "يناير 2025", "en": "Jan 2025" }
+            "label": "يناير 2025"
           },
           {
             "value": "2025-02",
-            "label": { "ar": "فبراير 2025", "en": "Feb 2025" }
+            "label": "فبراير 2025"
           },
           {
             "value": "2025-03",
-            "label": { "ar": "مارس 2025", "en": "Mar 2025" }
+            "label": "مارس 2025"
           }
         ]
       },
       {
         "id": "dateRangeTo",
         "type": "date",
-        "label": { "ar": "إلى تاريخ", "en": "Date To" },
+        "label": "إلى تاريخ",
         "options": [
-          { "value": "all", "label": { "ar": "الكل", "en": "All" } },
+          {
+            "value": "all",
+            "label": "الكل"
+          },
           {
             "value": "2026-03",
-            "label": { "ar": "مارس 2026", "en": "Mar 2026" }
+            "label": "مارس 2026"
           },
           {
             "value": "2026-04",
-            "label": { "ar": "أبريل 2026", "en": "Apr 2026" }
+            "label": "أبريل 2026"
           },
           {
             "value": "2026-05",
-            "label": { "ar": "مايو 2026", "en": "May 2026" }
+            "label": "مايو 2026"
           }
         ]
       }
     ],
     "headers": [
-      { "key": "id", "label": { "ar": "رقم الفكرة", "en": "Idea ID" } },
-      { "key": "title", "label": { "ar": "عنوان الفكرة", "en": "Idea Title" } },
+      {
+        "key": "id",
+        "label": "رقم الفكرة"
+      },
+      {
+        "key": "title",
+        "label": "عنوان الفكرة"
+      },
       {
         "key": "submitter",
-        "label": { "ar": "مقدم الفكرة", "en": "Submitter" }
+        "label": "مقدم الفكرة"
       },
-      { "key": "department", "label": { "ar": "القسم", "en": "Department" } },
+      {
+        "key": "department",
+        "label": "القسم"
+      },
       {
         "key": "innovationType",
-        "label": { "ar": "نوع الابتكار", "en": "Innovation Type" }
+        "label": "نوع الابتكار"
       },
       {
         "key": "timeHorizon",
-        "label": { "ar": "الأفق الزمني", "en": "Time Horizon" }
+        "label": "الأفق الزمني"
       },
       {
         "key": "track",
-        "label": { "ar": "مسار الابتكار", "en": "Innovation Track" }
+        "label": "مسار الابتكار"
       },
       {
         "key": "evaluatorsCount",
-        "label": { "ar": "عدد المقيمين", "en": "Evaluators" }
+        "label": "عدد المقيمين"
       },
       {
         "key": "averageRating",
-        "label": { "ar": "متوسط التقييم", "en": "Avg Rating" }
+        "label": "متوسط التقييم"
       },
       {
         "key": "status",
-        "label": { "ar": "الحالة", "en": "Status" },
-        "align": "center"
+        "label": "الحالة"
       },
       {
         "key": "submittedAt",
-        "label": { "ar": "تاريخ التقديم", "en": "Submitted At" }
+        "label": "تاريخ التقديم"
       },
       {
         "key": "action",
-        "label": { "ar": "الإجراء", "en": "Action" },
-        "viewLabel": { "ar": "عرض", "en": "View" }
+        "label": "الإجراء",
+        "viewLabel": "عرض"
       }
     ],
     "statusConfigs": {
       "new": {
-        "ar": "فكرة جديدة",
-        "en": "New Idea",
-        "bgClass": "bg-[#FF6B35]/15",
-        "borderClass": "border-[#FF6B35]/40",
-        "textClass": "text-white",
-        "iconBgClass": "bg-[#FF6B35]",
-        "iconColorClass": "text-white",
-        "iconPath": "M9.663 17h4.673M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707-.707M12 5a7 7 0 00-7 7c0 2.9 1.77 5.39 4.3 6.45V19a1 1 0 001 1h3a1 1 0 001-1v-.55c2.53-1.06 4.3-3.55 4.3-6.45a7 7 0 00-7-7z"
+        "bgClass": "bg-[#FF6B35]",
+        "iconName": "solar_lightbulb-bolt"
       },
       "waiting": {
-        "ar": "بانتظار التقييم",
-        "en": "Waiting Eval",
-        "bgClass": "bg-[#895AF7]/15",
-        "borderClass": "border-[#895AF7]/40",
-        "textClass": "text-white",
-        "iconBgClass": "bg-[#895AF7]",
-        "iconColorClass": "text-white",
-        "iconPath": "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+        "bgClass": "bg-[#895AF7]",
+        "iconName": "solar_hourglass-line"
       },
       "under_evaluation": {
-        "ar": "قيد التقييم",
-        "en": "Under Eval",
-        "bgClass": "bg-[#009DFE]/15",
-        "borderClass": "border-[#009DFE]/40",
-        "textClass": "text-white",
-        "iconBgClass": "bg-[#009DFE]",
-        "iconColorClass": "text-white",
-        "iconPath": "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+        "bgClass": "bg-[#009DFE]",
+        "iconName": "solar_settings"
       },
       "feasible": {
-        "ar": "مجدية",
-        "en": "Feasible",
-        "bgClass": "bg-[#EEB252]/15",
-        "borderClass": "border-[#EEB252]/40",
-        "textClass": "text-white",
-        "iconBgClass": "bg-[#EEB252]",
-        "iconColorClass": "text-white",
-        "iconPath": "M12 15a3 3 0 100-6 3 3 0 000 6z M18 3H6a2 2 0 00-2 2v2c0 4.42 3.58 8 8 8s8-3.58 8-8V5a2 2 0 00-2-2zM4 7h2m12 0h2M12 15v4M8 21h8"
+        "bgClass": "bg-[#EEB252]",
+        "iconName": "solar_cup-star"
       },
       "evaluated": {
-        "ar": "تم التقييم",
-        "en": "Evaluated",
-        "bgClass": "bg-[#32BEA6]/15",
-        "borderClass": "border-[#32BEA6]/40",
-        "textClass": "text-white",
-        "iconBgClass": "bg-[#32BEA6]",
-        "iconColorClass": "text-white",
-        "iconPath": "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+        "bgClass": "bg-[#32BEA6]",
+        "iconName": "solar_check-circle"
       },
       "late": {
-        "ar": "متأخر",
-        "en": "Late",
-        "bgClass": "bg-[#FFD215]/15",
-        "borderClass": "border-[#FFD215]/40",
-        "textClass": "text-white",
-        "iconBgClass": "bg-[#FFD215]",
-        "iconColorClass": "text-black",
-        "iconPath": "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+        "bgClass": "bg-[#FFD215]",
+        "iconName": "solar_danger-triangle"
       },
       "project": {
-        "ar": "تحولت لمشروع",
-        "en": "Project",
-        "bgClass": "bg-[#00E2FF]/15",
-        "borderClass": "border-[#00E2FF]/40",
-        "textClass": "text-white",
-        "iconBgClass": "bg-[#00E2FF]",
-        "iconColorClass": "text-black",
-        "iconPath": "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+        "bgClass": "bg-[#00E2FF]",
+        "iconName": "solar_city"
       },
       "infeasible": {
-        "ar": "غير مجدية",
-        "en": "Infeasible",
-        "bgClass": "bg-[#EA0000]/15",
-        "borderClass": "border-[#EA0000]/40",
-        "textClass": "text-white",
-        "iconBgClass": "bg-[#EA0000]",
-        "iconColorClass": "text-white",
-        "iconPath": "M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+        "bgClass": "bg-[#EC0000]",
+        "iconName": "solar_close-circle"
       }
+    }
+  },
+  "details": {
+    "default": {
+      "id": "DEFAULT-IDEA",
+      "title": "فكرة افتراضية",
+      "submitter": "غير معروف",
+      "department": "غير محدد",
+      "status": {
+        "id": "new",
+        "name": "فكرة جديدة"
+      },
+      "averageRating": 0,
+      "evaluatorsCount": 0,
+      "aiScore": 78,
+      "tabs": [
+        {
+          "key": "overview",
+          "label": "details.tabs.overview",
+          "icon": "overview",
+          "data": {
+            "sidebar": {
+              "owner": {
+                "label": "مقدم الفكرة",
+                "name": ""
+              },
+              "team": {
+                "label": "اعضاء فريق الفكرة",
+                "members": []
+              },
+              "targetAudience": {
+                "label": "الفئة المستهدفة",
+                "items": []
+              },
+              "sector": {
+                "label": "القطاع المعني بالفكرة",
+                "items": ["القطاع الحكومي"]
+              },
+              "technologies": {
+                "label": "التقنيات المرتبطة بالفكرة",
+                "items": []
+              },
+              "impact": {
+                "label": "نطاق الأثر",
+                "items": []
+              },
+              "readiness": {
+                "label": "مستوى الجاهزية الحالية",
+                "value": "غير محدد"
+              },
+              "attachments": {
+                "label": "الملفات المرفقة",
+                "files": []
+              }
+            },
+            "overview": {
+              "explanation": {
+                "label": "شرح الفكرة",
+                "text": ""
+              },
+              "details": {
+                "label": "تفاصيل الفكرة",
+                "items": [
+                  {
+                    "key": "targetChallenge",
+                    "label": "التحدي المستهدف",
+                    "value": "-"
+                  },
+                  {
+                    "key": "problemType",
+                    "label": "نوع المشكلة",
+                    "value": "-"
+                  },
+                  {
+                    "key": "strategicGoal",
+                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
+                    "value": "-"
+                  }
+                ],
+                "requirements": {
+                  "label": "متطلبات التنفيذ",
+                  "items": []
+                },
+                "outputs": {
+                  "label": "مخرجات الابتكار المتوقعة",
+                  "items": []
+                }
+              }
+            }
+          }
+        },
+        {
+          "key": "story",
+          "label": "details.tabs.story",
+          "icon": "story",
+          "data": {
+            "intro": {
+              "label": "فكرة في طور التكوين...",
+              "audioLabel": "استمع الى قصة الفكرة",
+              "audioDuration": "0:00",
+              "journeyBtn": "رحلة الابتكار"
+            },
+            "timeline": [],
+            "sidebar": {
+              "journey": {
+                "title": "رحلة الابتكار",
+                "steps": []
+              },
+              "features": {
+                "title": "ميزات الفكرة",
+                "items": []
+              }
+            }
+          }
+        },
+        {
+          "key": "business_model",
+          "label": "details.tabs.business_model",
+          "icon": "business",
+          "data": {}
+        },
+        {
+          "key": "alignment",
+          "label": "details.tabs.alignment",
+          "icon": "alignment",
+          "data": {}
+        },
+        {
+          "key": "ip",
+          "label": "details.tabs.ip",
+          "icon": "ip",
+          "data": {}
+        },
+        {
+          "key": "classification",
+          "label": "details.tabs.classification",
+          "icon": "classification",
+          "data": {}
+        },
+        {
+          "key": "evaluation",
+          "label": "details.tabs.evaluation",
+          "icon": "evaluation",
+          "data": {}
+        },
+        {
+          "key": "decision",
+          "label": "details.tabs.decision",
+          "icon": "decision",
+          "data": {}
+        }
+      ]
+    },
+    "IDEA-1023": {
+      "id": "IDEA-1023",
+      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+      "submitter": "أحمد خالد",
+      "department": "الطاقة",
+      "status": {
+        "id": "under_evaluation",
+        "name": "قيد التقييم"
+      },
+      "averageRating": 82,
+      "evaluatorsCount": 4,
+      "aiScore": 78,
+      "tabs": [
+        {
+          "key": "overview",
+          "label": "details.tabs.overview",
+          "icon": "overview",
+          "data": {
+            "sidebar": {
+              "owner": {
+                "label": "مقدم الفكرة",
+                "name": "شمس سمير حسان"
+              },
+              "team": {
+                "label": "اعضاء فريق الفكرة",
+                "members": [
+                  "ليلى عمرو محمود",
+                  "نهى سليم الشرفا",
+                  "سلمى محمود حسان"
+                ]
+              },
+              "targetAudience": {
+                "label": "الفئة المستهدفة",
+                "items": [
+                  "إدارات المرافق",
+                  "المؤسسات الحكومية",
+                  "برامج الاستدامة البيئية"
+                ]
+              },
+              "sector": {
+                "label": "القطاع المعني بالفكرة",
+                "items": ["القطاع الحكومي"]
+              },
+              "technologies": {
+                "label": "التقنيات المرتبطة بالفكرة",
+                "items": ["الذكاء الاصطناعي", "إنترنت الأشياء"]
+              },
+              "impact": {
+                "label": "نطاق الأثر",
+                "items": [
+                  "خفض تكاليف الطاقة",
+                  "تحسين الاستدامة البيئية",
+                  "رفع كفاءة العمليات"
+                ]
+              },
+              "readiness": {
+                "label": "مستوى الجاهزية الحالية",
+                "value": "نموذج أولي"
+              },
+              "attachments": {
+                "label": "الملفات المرفقة",
+                "files": [
+                  {
+                    "name": "نموذج_الطاقة_AI.pdf",
+                    "type": "pdf"
+                  },
+                  {
+                    "name": "عرض_تقديمي_لنظام_الطاقة.pptx",
+                    "type": "pptx"
+                  }
+                ]
+              }
+            },
+            "overview": {
+              "explanation": {
+                "label": "شرح الفكرة",
+                "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة. بناءً على ذلك، يقدم توصيات ذكية مثل تعديل أوقات تشغيل الأجهزة، تحسين أنظمة التكييف، أو تقليل الاستهلاك في أوقات الذروة. يساهم هذا النظام في خفض التكاليف التشغيلية، تقليل البصمة الكربونية، ودعم توجهات الاستدامة داخل المؤسسة. مع إمكانية التكامل مع الأنظمة الحالية لإدارة الطاقة. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة. بناءً على ذلك، يقدم توصيات ذكية مثل تعديل أوقات تشغيل الأجهزة، تحسين أنظمة التكييف، أو تقليل الاستهلاك في أوقات الذروة بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار."
+              },
+              "details": {
+                "label": "تفاصيل الفكرة",
+                "items": [
+                  {
+                    "key": "targetChallenge",
+                    "label": "التحدي المستهدف",
+                    "value": "تقليل هدر الطاقة في المباني الحكومية الناتج عن ضعف مراقبة الاستهلاك."
+                  },
+                  {
+                    "key": "problemType",
+                    "label": "نوع المشكلة",
+                    "value": "عدم وجود نظام ذكي لتحليل استهلاك الطاقة بشكل فوري."
+                  },
+                  {
+                    "key": "strategicGoal",
+                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
+                    "value": "تحسين مستوى الاداء في القطاع الحكومي."
+                  },
+                  {
+                    "key": "origin",
+                    "label": "منشأ ومصدر الفكرة الابتكارية",
+                    "value": "ورشة الابتكار الداخلية للمؤسسة"
+                  },
+                  {
+                    "key": "goals",
+                    "label": "أهداف تطبيق الفكرة",
+                    "value": "تهدف هذه الفكرة إلى تحسين كفاءة استهلاك الطاقة داخل المنشآت من خلال استخدام تقنيات الذكاء الاصطناعي لتحليل أنماط الاستخدام والتنبؤ بالاستهلاك المستقبلي. يسعى النظام إلى تقليل الهدر في الطاقة وخفض التكاليف التشغيلية عبر تقديم توصيات ذكية مبنية على البيانات الفعلية. تهدف هذه الفكرة إلى تحسين كفاءة استهلاك الطاقة داخل المنشآت من خلال استخدام تقنيات الذكاء الاصطناعي لتحليل أنماط الاستخدام والتنبؤ بالاستهلاك المستقبلي. يسعى النظام إلى تقليل الهدر في الطاقة وخفض التكاليف التشغيلية عبر تقديم توصيات ذكية مبنية على البيانات الفعلية."
+                  }
+                ],
+                "requirements": {
+                  "label": "متطلبات التنفيذ",
+                  "items": ["بيانات", "تشريعات", "شركاء"]
+                },
+                "outputs": {
+                  "label": "مخرجات الابتكار المتوقعة",
+                  "items": [
+                    "ابتكار في الخدمة",
+                    "ابتكار في التكنولوجيا",
+                    "ابتكار في تجربة العميل",
+                    "ابتكار في التسويق",
+                    "ابتكار في التصميم"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "key": "story",
+          "label": "details.tabs.story",
+          "icon": "story",
+          "data": {
+            "intro": {
+              "label": "فكرة في طور التكوين...",
+              "audioLabel": "استمع الى قصة الفكرة",
+              "audioDuration": "0:42",
+              "journeyBtn": "رحلة الابتكار"
+            },
+            "timeline": [
+              {
+                "id": 1,
+                "title": "الليلة الماطرة",
+                "subtitle": "حيث بدأت القصة في لحظة حرجة غيرت كل شيء",
+                "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة. بناءً على ذلك، يقدم توصيات ذكية مثل تعديل أوقات تشغيل الأجهزة، تحسين أنظمة التكييف، أو تقليل الاستهلاك في أوقات الذروة. يساهم هذا النظام في خفض التكاليف التشغيلية، تقليل البصمة الكربونية، ودعم توجهات الاستدامة داخل المؤسسة. مع إمكانية التكامل مع الأنظمة الحالية لإدارة الطاقة. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة.",
+                "card": {
+                  "type": "sammy",
+                  "avatar": "سامي",
+                  "title": "سامي المسعف المتفاني",
+                  "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر."
+                }
+              },
+              {
+                "id": 2,
+                "title": "لحظة الالهام",
+                "subtitle": "من رحم الألم تولد أعظم الأفكار",
+                "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة.",
+                "card": {
+                  "type": "quote",
+                  "title": "هكذا ولدت فكرة \"نظارة المسعف الذكية\"",
+                  "text": "بناءً على ذلك، يقدم توصيات ذكية مثل تعديل أوقات تشغيل الأجهزة، تحسين أنظمة التكييف، أو تقليل الاستهلاك في أوقات الذروة. يساهم هذا النظام في خفض التكاليف التشغيلية، تقليل البصمة الكربونية، ودعم توجهات الاستدامة داخل المؤسسة. مع إمكانية التكامل مع الأنظمة الحالية لإدارة الطاقة. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة."
+                },
+                "interactive": {
+                  "question": "ماذا لو كانت هذه التقنية متاحة؟",
+                  "answer": "تخيل التأثير على حياة المرضى والمسعفين.",
+                  "tags": [
+                    {
+                      "name": "اكتشف الأثير",
+                      "icon": "sparkles"
+                    },
+                    {
+                      "name": "التقنية المستخدمة",
+                      "icon": "cpu"
+                    },
+                    {
+                      "name": "رؤية المستقبل",
+                      "icon": "eye"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 3,
+                "title": "الرؤية والأمل",
+                "subtitle": "نحو مستقبل أكثر إشراقاً في الطب الطارئ",
+                "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة.",
+                "card": {
+                  "type": "quote",
+                  "title": "الابتكار الحقيقي يولد من رحم المعاناة الانسانية"
+                }
+              },
+              {
+                "id": 4,
+                "title": "الخاتمة",
+                "subtitle": "في كل قطرة مطر بذرة أمل",
+                "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة.",
+                "card": {
+                  "type": "quote",
+                  "title": "في كل قطرة مطر تلك الليلة، كانت بذرة أمل لمستقبل أكثر إشراقاً"
+                }
+              }
+            ],
+            "sidebar": {
+              "journey": {
+                "title": "رحلة الابتكار",
+                "steps": [
+                  {
+                    "title": "لحظة الالهام"
+                  },
+                  {
+                    "title": "ولادة الفكرة"
+                  },
+                  {
+                    "title": "التطوير والابتكار"
+                  },
+                  {
+                    "title": "المستقبل المأمول",
+                    "highlight": "عالم يصبح فيه كل مسعف أكثر دقة وفعالية، حيث لا يضطر أحد لقول \"لو كنا عرفنا أسرع\""
+                  }
+                ]
+              },
+              "features": {
+                "title": "مميزات الفكرة",
+                "items": [
+                  "ليست مجرد فكرة خيالية، بل يمكن تطويرها تدريجياً",
+                  "تقليل الشعور بالعجز أو الاعتماد على الآخرين",
+                  "تساعد في أداء الأنشطة اليومية بشكل أسهل",
+                  "تحسين جودة الحياة اليومية",
+                  "تساعد كبار السن في الاعتماد على أنفسهم",
+                  "إمكانية سماع المعلومات بدلاً من قراءتها",
+                  "تقديم معلومات فورية بناءً على ما يراه المستخدم",
+                  "تساعد المستخدم على رؤية التفاصيل بوضوح أكبر",
+                  "تقديم معلومات فورية بناءً على ما يراه المستخدم",
+                  "تقليل الحاجة لمساعدة الآخرين في المهام اليومية"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "business_model",
+          "label": "details.tabs.business_model",
+          "icon": "business",
+          "data": {}
+        },
+        {
+          "key": "alignment",
+          "label": "details.tabs.alignment",
+          "icon": "alignment",
+          "data": {}
+        },
+        {
+          "key": "ip",
+          "label": "details.tabs.ip",
+          "icon": "ip",
+          "data": {}
+        },
+        {
+          "key": "classification",
+          "label": "details.tabs.classification",
+          "icon": "classification",
+          "data": {}
+        },
+        {
+          "key": "evaluation",
+          "label": "details.tabs.evaluation",
+          "icon": "evaluation",
+          "data": {}
+        },
+        {
+          "key": "decision",
+          "label": "details.tabs.decision",
+          "icon": "decision",
+          "data": {}
+        }
+      ]
+    },
+    "IDEA-1024": {
+      "id": "IDEA-1024",
+      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+      "submitter": "أحمد خالد",
+      "department": "الصحة",
+      "status": {
+        "id": "waiting",
+        "name": "بانتظار التقييم"
+      },
+      "averageRating": 82,
+      "evaluatorsCount": 4,
+      "aiScore": 70,
+      "tabs": [
+        {
+          "key": "overview",
+          "label": "details.tabs.overview",
+          "icon": "overview",
+          "data": {
+            "sidebar": {
+              "owner": {
+                "label": "مقدم الفكرة",
+                "name": "شمس سمير حسان"
+              },
+              "team": {
+                "label": "اعضاء فريق الفكرة",
+                "members": [
+                  "ليلى عمرو محمود",
+                  "نهى سليم الشرفا",
+                  "سلمى محمود حسان"
+                ]
+              },
+              "targetAudience": {
+                "label": "الفئة المستهدفة",
+                "items": [
+                  "إدارات المرافق",
+                  "المؤسسات الحكومية",
+                  "برامج الاستدامة البيئية"
+                ]
+              },
+              "sector": {
+                "label": "القطاع المعني بالفكرة",
+                "items": ["القطاع الحكومي"]
+              },
+              "technologies": {
+                "label": "التقنيات المرتبطة بالفكرة",
+                "items": ["الذكاء الاصطناعي", "إنترنت الأشياء"]
+              },
+              "impact": {
+                "label": "نطاق الأثر",
+                "items": [
+                  "خفض تكاليف الطاقة",
+                  "تحسين الاستدامة البيئية",
+                  "رفع كفاءة العمليات"
+                ]
+              },
+              "readiness": {
+                "label": "مستوى الجاهزية الحالية",
+                "value": "نموذج أولي"
+              },
+              "attachments": {
+                "label": "الملفات المرفقة",
+                "files": [
+                  {
+                    "name": "نموذج_الطاقة_AI.pdf",
+                    "type": "pdf"
+                  },
+                  {
+                    "name": "عرض_تقديمي_لنظام_الطاقة.pptx",
+                    "type": "pptx"
+                  }
+                ]
+              }
+            },
+            "overview": {
+              "explanation": {
+                "label": "شرح الفكرة",
+                "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة. بناءً على ذلك، يقدم توصيات ذكية مثل تعديل أوقات تشغيل الأجهزة، تحسين أنظمة التكييف، أو تقليل الاستهلاك في أوقات الذروة. يساهم هذا النظام في خفض التكاليف التشغيلية، تقليل البصمة الكربونية، ودعم توجهات الاستدامة داخل المؤسسة. مع إمكانية التكامل مع الأنظمة الحالية لإدارة الطاقة. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة. بناءً على ذلك، يقدم توصيات ذكية مثل تعديل أوقات تشغيل الأجهزة، تحسين أنظمة التكييف، أو تقليل الاستهلاك في أوقات الذروة بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار."
+              },
+              "details": {
+                "label": "تفاصيل الفكرة",
+                "items": [
+                  {
+                    "key": "targetChallenge",
+                    "label": "التحدي المستهدف",
+                    "value": "تقليل هدر الطاقة في المباني الحكومية الناتج عن ضعف مراقبة الاستهلاك."
+                  },
+                  {
+                    "key": "problemType",
+                    "label": "نوع المشكلة",
+                    "value": "عدم وجود نظام ذكي لتحليل استهلاك الطاقة بشكل فوري."
+                  },
+                  {
+                    "key": "strategicGoal",
+                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
+                    "value": "تحسين مستوى الاداء في القطاع الحكومي."
+                  },
+                  {
+                    "key": "origin",
+                    "label": "منشأ ومصدر الفكرة الابتكارية",
+                    "value": "ورشة الابتكار الداخلية للمؤسسة"
+                  },
+                  {
+                    "key": "goals",
+                    "label": "أهداف تطبيق الفكرة",
+                    "value": "تهدف هذه الفكرة إلى تحسين كفاءة استهلاك الطاقة داخل المنشآت من خلال استخدام تقنيات الذكاء الاصطناعي لتحليل أنماط الاستخدام والتنبؤ بالاستهلاك المستقبلي. يسعى النظام إلى تقليل الهدر في الطاقة وخفض التكاليف التشغيلية عبر تقديم توصيات ذكية مبنية على البيانات الفعلية. تهدف هذه الفكرة إلى تحسين كفاءة استهلاك الطاقة داخل المنشآت من خلال استخدام تقنيات الذكاء الاصطناعي لتحليل أنماط الاستخدام والتنبؤ بالاستهلاك المستقبلي. يسعى النظام إلى تقليل الهدر في الطاقة وخفض التكاليف التشغيلية عبر تقديم توصيات ذكية مبنية على البيانات الفعلية."
+                  }
+                ],
+                "requirements": {
+                  "label": "متطلبات التنفيذ",
+                  "items": ["بيانات", "تشريعات", "شركاء"]
+                },
+                "outputs": {
+                  "label": "مخرجات الابتكار المتوقعة",
+                  "items": [
+                    "ابتكار في الخدمة",
+                    "ابتكار في التكنولوجيا",
+                    "ابتكار في تجربة العميل",
+                    "ابتكار في التسويق",
+                    "ابتكار في التصميم"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "key": "story",
+          "label": "details.tabs.story",
+          "icon": "story",
+          "data": {
+            "intro": {
+              "label": "فكرة في طور التكوين...",
+              "audioLabel": "استمع الى قصة الفكرة",
+              "audioDuration": "0:42",
+              "journeyBtn": "رحلة الابتكار"
+            },
+            "timeline": [
+              {
+                "id": 1,
+                "title": "الليلة الماطرة",
+                "subtitle": "حيث بدأت القصة في لحظة حرجة غيرت كل شيء",
+                "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة. بناءً على ذلك، يقدم توصيات ذكية مثل تعديل أوقات تشغيل الأجهزة، تحسين أنظمة التكييف، أو تقليل الاستهلاك في أوقات الذروة. يساهم هذا النظام في خفض التكاليف التشغيلية، تقليل البصمة الكربونية، ودعم توجهات الاستدامة داخل المؤسسة. مع إمكانية التكامل مع الأنظمة الحالية لإدارة الطاقة. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة.",
+                "card": {
+                  "type": "sammy",
+                  "avatar": "سامي",
+                  "title": "سامي المسعف المتفاني",
+                  "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر."
+                }
+              },
+              {
+                "id": 2,
+                "title": "لحظة الالهام",
+                "subtitle": "من رحم الألم تولد أعظم الأفكار",
+                "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة.",
+                "card": {
+                  "type": "quote",
+                  "title": "هكذا ولدت فكرة \"نظارة المسعف الذكية\"",
+                  "text": "بناءً على ذلك، يقدم توصيات ذكية مثل تعديل أوقات تشغيل الأجهزة، تحسين أنظمة التكييف، أو تقليل الاستهلاك في أوقات الذروة. يساهم هذا النظام في خفض التكاليف التشغيلية، تقليل البصمة الكربونية، ودعم توجهات الاستدامة داخل المؤسسة. مع إمكانية التكامل مع الأنظمة الحالية لإدارة الطاقة. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة."
+                },
+                "interactive": {
+                  "question": "ماذا لو كانت هذه التقنية متاحة؟",
+                  "answer": "تخيل التأثير على حياة المرضى والمسعفين.",
+                  "tags": [
+                    {
+                      "name": "اكتشف الأثير",
+                      "icon": "sparkles"
+                    },
+                    {
+                      "name": "التقنية المستخدمة",
+                      "icon": "cpu"
+                    },
+                    {
+                      "name": "رؤية المستقبل",
+                      "icon": "eye"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 3,
+                "title": "الرؤية والأمل",
+                "subtitle": "نحو مستقبل أكثر إشراقاً في الطب الطارئ",
+                "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة.",
+                "card": {
+                  "type": "quote",
+                  "title": "الابتكار الحقيقي يولد من رحم المعاناة الانسانية"
+                }
+              },
+              {
+                "id": 4,
+                "title": "الخاتمة",
+                "subtitle": "في كل قطرة مطر بذرة أمل",
+                "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة.",
+                "card": {
+                  "type": "quote",
+                  "title": "في كل قطرة مطر تلك الليلة، كانت بذرة أمل لمستقبل أكثر إشراقاً"
+                }
+              }
+            ],
+            "sidebar": {
+              "journey": {
+                "title": "رحلة الابتكار",
+                "steps": [
+                  {
+                    "title": "لحظة الالهام"
+                  },
+                  {
+                    "title": "ولادة الفكرة"
+                  },
+                  {
+                    "title": "التطوير والابتكار"
+                  },
+                  {
+                    "title": "المستقبل المأمول",
+                    "highlight": "عالم يصبح فيه كل مسعف أكثر دقة وفعالية، حيث لا يضطر أحد لقول \"لو كنا عرفنا أسرع\""
+                  }
+                ]
+              },
+              "features": {
+                "title": "مميزات الفكرة",
+                "items": [
+                  "ليست مجرد فكرة خيالية، بل يمكن تطويرها تدريجياً",
+                  "تقليل الشعور بالعجز أو الاعتماد على الآخرين",
+                  "تساعد في أداء الأنشطة اليومية بشكل أسهل",
+                  "تحسين جودة الحياة اليومية",
+                  "تساعد كبار السن في الاعتماد على أنفسهم",
+                  "إمكانية سماع المعلومات بدلاً من قراءتها",
+                  "تقديم معلومات فورية بناءً على ما يراه المستخدم",
+                  "تساعد المستخدم على رؤية التفاصيل بوضوح أكبر",
+                  "تقديم معلومات فورية بناءً على ما يراه المستخدم",
+                  "تقليل الحاجة لمساعدة الآخرين في المهام اليومية"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "key": "business_model",
+          "label": "details.tabs.business_model",
+          "icon": "business",
+          "data": {}
+        },
+        {
+          "key": "alignment",
+          "label": "details.tabs.alignment",
+          "icon": "alignment",
+          "data": {}
+        },
+        {
+          "key": "ip",
+          "label": "details.tabs.ip",
+          "icon": "ip",
+          "data": {}
+        },
+        {
+          "key": "classification",
+          "label": "details.tabs.classification",
+          "icon": "classification",
+          "data": {}
+        },
+        {
+          "key": "evaluation",
+          "label": "details.tabs.evaluation",
+          "icon": "evaluation",
+          "data": {}
+        },
+        {
+          "key": "decision",
+          "label": "details.tabs.decision",
+          "icon": "decision",
+          "data": {}
+        }
+      ]
+    },
+    "IDEA-1025": {
+      "id": "IDEA-1025",
+      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+      "submitter": "أحمد خالد",
+      "department": "الطاقة",
+      "status": {
+        "id": "under_evaluation",
+        "name": "قيد التقييم"
+      },
+      "averageRating": 82,
+      "evaluatorsCount": 4,
+      "aiScore": 78,
+      "tabs": [
+        {
+          "key": "overview",
+          "label": "details.tabs.overview",
+          "icon": "overview",
+          "data": {
+            "sidebar": {
+              "owner": {
+                "label": "مقدم الفكرة",
+                "name": "أحمد خالد"
+              },
+              "team": {
+                "label": "اعضاء فريق الفكرة",
+                "members": []
+              },
+              "targetAudience": {
+                "label": "الفئة المستهدفة",
+                "items": ["الطاقة"]
+              },
+              "sector": {
+                "label": "القطاع المعني بالفكرة",
+                "items": ["القطاع الحكومي"]
+              },
+              "technologies": {
+                "label": "التقنيات المرتبطة بالفكرة",
+                "items": []
+              },
+              "impact": {
+                "label": "نطاق الأثر",
+                "items": []
+              },
+              "readiness": {
+                "label": "مستوى الجاهزية الحالية",
+                "value": "غير محدد"
+              },
+              "attachments": {
+                "label": "الملفات المرفقة",
+                "files": []
+              }
+            },
+            "overview": {
+              "explanation": {
+                "label": "شرح الفكرة",
+                "text": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي"
+              },
+              "details": {
+                "label": "تفاصيل الفكرة",
+                "items": [
+                  {
+                    "key": "targetChallenge",
+                    "label": "التحدي المستهدف",
+                    "value": "-"
+                  },
+                  {
+                    "key": "problemType",
+                    "label": "نوع المشكلة",
+                    "value": "-"
+                  },
+                  {
+                    "key": "strategicGoal",
+                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
+                    "value": "-"
+                  }
+                ],
+                "requirements": {
+                  "label": "متطلبات التنفيذ",
+                  "items": []
+                },
+                "outputs": {
+                  "label": "مخرجات الابتكار المتوقعة",
+                  "items": []
+                }
+              }
+            }
+          }
+        },
+        {
+          "key": "story",
+          "label": "details.tabs.story",
+          "icon": "story",
+          "data": {
+            "intro": {
+              "label": "فكرة في طور التكوين...",
+              "audioLabel": "استمع الى قصة الفكرة",
+              "audioDuration": "0:00",
+              "journeyBtn": "رحلة الابتكار"
+            },
+            "timeline": [],
+            "sidebar": {
+              "journey": {
+                "title": "رحلة الابتكار",
+                "steps": []
+              },
+              "features": {
+                "title": "ميزات الفكرة",
+                "items": []
+              }
+            }
+          }
+        },
+        {
+          "key": "business_model",
+          "label": "details.tabs.business_model",
+          "icon": "business",
+          "data": {}
+        },
+        {
+          "key": "alignment",
+          "label": "details.tabs.alignment",
+          "icon": "alignment",
+          "data": {}
+        },
+        {
+          "key": "ip",
+          "label": "details.tabs.ip",
+          "icon": "ip",
+          "data": {}
+        },
+        {
+          "key": "classification",
+          "label": "details.tabs.classification",
+          "icon": "classification",
+          "data": {}
+        },
+        {
+          "key": "evaluation",
+          "label": "details.tabs.evaluation",
+          "icon": "evaluation",
+          "data": {}
+        },
+        {
+          "key": "decision",
+          "label": "details.tabs.decision",
+          "icon": "decision",
+          "data": {}
+        }
+      ]
+    },
+    "IDEA-1026": {
+      "id": "IDEA-1026",
+      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+      "submitter": "أحمد خالد",
+      "department": "الصحة",
+      "status": {
+        "id": "feasible",
+        "name": "مجدية"
+      },
+      "averageRating": 82,
+      "evaluatorsCount": 4,
+      "aiScore": 78,
+      "tabs": [
+        {
+          "key": "overview",
+          "label": "details.tabs.overview",
+          "icon": "overview",
+          "data": {
+            "sidebar": {
+              "owner": {
+                "label": "مقدم الفكرة",
+                "name": "أحمد خالد"
+              },
+              "team": {
+                "label": "اعضاء فريق الفكرة",
+                "members": []
+              },
+              "targetAudience": {
+                "label": "الفئة المستهدفة",
+                "items": ["الصحة"]
+              },
+              "sector": {
+                "label": "القطاع المعني بالفكرة",
+                "items": ["القطاع الحكومي"]
+              },
+              "technologies": {
+                "label": "التقنيات المرتبطة بالفكرة",
+                "items": []
+              },
+              "impact": {
+                "label": "نطاق الأثر",
+                "items": []
+              },
+              "readiness": {
+                "label": "مستوى الجاهزية الحالية",
+                "value": "غير محدد"
+              },
+              "attachments": {
+                "label": "الملفات المرفقة",
+                "files": []
+              }
+            },
+            "overview": {
+              "explanation": {
+                "label": "شرح الفكرة",
+                "text": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي"
+              },
+              "details": {
+                "label": "تفاصيل الفكرة",
+                "items": [
+                  {
+                    "key": "targetChallenge",
+                    "label": "التحدي المستهدف",
+                    "value": "-"
+                  },
+                  {
+                    "key": "problemType",
+                    "label": "نوع المشكلة",
+                    "value": "-"
+                  },
+                  {
+                    "key": "strategicGoal",
+                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
+                    "value": "-"
+                  }
+                ],
+                "requirements": {
+                  "label": "متطلبات التنفيذ",
+                  "items": []
+                },
+                "outputs": {
+                  "label": "مخرجات الابتكار المتوقعة",
+                  "items": []
+                }
+              }
+            }
+          }
+        },
+        {
+          "key": "story",
+          "label": "details.tabs.story",
+          "icon": "story",
+          "data": {
+            "intro": {
+              "label": "فكرة في طور التكوين...",
+              "audioLabel": "استمع الى قصة الفكرة",
+              "audioDuration": "0:00",
+              "journeyBtn": "رحلة الابتكار"
+            },
+            "timeline": [],
+            "sidebar": {
+              "journey": {
+                "title": "رحلة الابتكار",
+                "steps": []
+              },
+              "features": {
+                "title": "ميزات الفكرة",
+                "items": []
+              }
+            }
+          }
+        },
+        {
+          "key": "business_model",
+          "label": "details.tabs.business_model",
+          "icon": "business",
+          "data": {}
+        },
+        {
+          "key": "alignment",
+          "label": "details.tabs.alignment",
+          "icon": "alignment",
+          "data": {}
+        },
+        {
+          "key": "ip",
+          "label": "details.tabs.ip",
+          "icon": "ip",
+          "data": {}
+        },
+        {
+          "key": "classification",
+          "label": "details.tabs.classification",
+          "icon": "classification",
+          "data": {}
+        },
+        {
+          "key": "evaluation",
+          "label": "details.tabs.evaluation",
+          "icon": "evaluation",
+          "data": {}
+        },
+        {
+          "key": "decision",
+          "label": "details.tabs.decision",
+          "icon": "decision",
+          "data": {}
+        }
+      ]
+    },
+    "IDEA-1027": {
+      "id": "IDEA-1027",
+      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+      "submitter": "أحمد خالد",
+      "department": "الطاقة",
+      "status": {
+        "id": "evaluated",
+        "name": "تم التقييم"
+      },
+      "averageRating": 82,
+      "evaluatorsCount": 4,
+      "aiScore": 78,
+      "tabs": [
+        {
+          "key": "overview",
+          "label": "details.tabs.overview",
+          "icon": "overview",
+          "data": {
+            "sidebar": {
+              "owner": {
+                "label": "مقدم الفكرة",
+                "name": "أحمد خالد"
+              },
+              "team": {
+                "label": "اعضاء فريق الفكرة",
+                "members": []
+              },
+              "targetAudience": {
+                "label": "الفئة المستهدفة",
+                "items": ["الطاقة"]
+              },
+              "sector": {
+                "label": "القطاع المعني بالفكرة",
+                "items": ["القطاع الحكومي"]
+              },
+              "technologies": {
+                "label": "التقنيات المرتبطة بالفكرة",
+                "items": []
+              },
+              "impact": {
+                "label": "نطاق الأثر",
+                "items": []
+              },
+              "readiness": {
+                "label": "مستوى الجاهزية الحالية",
+                "value": "غير محدد"
+              },
+              "attachments": {
+                "label": "الملفات المرفقة",
+                "files": []
+              }
+            },
+            "overview": {
+              "explanation": {
+                "label": "شرح الفكرة",
+                "text": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي"
+              },
+              "details": {
+                "label": "تفاصيل الفكرة",
+                "items": [
+                  {
+                    "key": "targetChallenge",
+                    "label": "التحدي المستهدف",
+                    "value": "-"
+                  },
+                  {
+                    "key": "problemType",
+                    "label": "نوع المشكلة",
+                    "value": "-"
+                  },
+                  {
+                    "key": "strategicGoal",
+                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
+                    "value": "-"
+                  }
+                ],
+                "requirements": {
+                  "label": "متطلبات التنفيذ",
+                  "items": []
+                },
+                "outputs": {
+                  "label": "مخرجات الابتكار المتوقعة",
+                  "items": []
+                }
+              }
+            }
+          }
+        },
+        {
+          "key": "story",
+          "label": "details.tabs.story",
+          "icon": "story",
+          "data": {
+            "intro": {
+              "label": "فكرة في طور التكوين...",
+              "audioLabel": "استمع الى قصة الفكرة",
+              "audioDuration": "0:00",
+              "journeyBtn": "رحلة الابتكار"
+            },
+            "timeline": [],
+            "sidebar": {
+              "journey": {
+                "title": "رحلة الابتكار",
+                "steps": []
+              },
+              "features": {
+                "title": "ميزات الفكرة",
+                "items": []
+              }
+            }
+          }
+        },
+        {
+          "key": "business_model",
+          "label": "details.tabs.business_model",
+          "icon": "business",
+          "data": {}
+        },
+        {
+          "key": "alignment",
+          "label": "details.tabs.alignment",
+          "icon": "alignment",
+          "data": {}
+        },
+        {
+          "key": "ip",
+          "label": "details.tabs.ip",
+          "icon": "ip",
+          "data": {}
+        },
+        {
+          "key": "classification",
+          "label": "details.tabs.classification",
+          "icon": "classification",
+          "data": {}
+        },
+        {
+          "key": "evaluation",
+          "label": "details.tabs.evaluation",
+          "icon": "evaluation",
+          "data": {}
+        },
+        {
+          "key": "decision",
+          "label": "details.tabs.decision",
+          "icon": "decision",
+          "data": {}
+        }
+      ]
+    },
+    "IDEA-1028": {
+      "id": "IDEA-1028",
+      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+      "submitter": "أحمد خالد",
+      "department": "الطاقة",
+      "status": {
+        "id": "late",
+        "name": "متأخر"
+      },
+      "averageRating": 82,
+      "evaluatorsCount": 4,
+      "aiScore": 78,
+      "tabs": [
+        {
+          "key": "overview",
+          "label": "details.tabs.overview",
+          "icon": "overview",
+          "data": {
+            "sidebar": {
+              "owner": {
+                "label": "مقدم الفكرة",
+                "name": "أحمد خالد"
+              },
+              "team": {
+                "label": "اعضاء فريق الفكرة",
+                "members": []
+              },
+              "targetAudience": {
+                "label": "الفئة المستهدفة",
+                "items": ["الطاقة"]
+              },
+              "sector": {
+                "label": "القطاع المعني بالفكرة",
+                "items": ["القطاع الحكومي"]
+              },
+              "technologies": {
+                "label": "التقنيات المرتبطة بالفكرة",
+                "items": []
+              },
+              "impact": {
+                "label": "نطاق الأثر",
+                "items": []
+              },
+              "readiness": {
+                "label": "مستوى الجاهزية الحالية",
+                "value": "غير محدد"
+              },
+              "attachments": {
+                "label": "الملفات المرفقة",
+                "files": []
+              }
+            },
+            "overview": {
+              "explanation": {
+                "label": "شرح الفكرة",
+                "text": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي"
+              },
+              "details": {
+                "label": "تفاصيل الفكرة",
+                "items": [
+                  {
+                    "key": "targetChallenge",
+                    "label": "التحدي المستهدف",
+                    "value": "-"
+                  },
+                  {
+                    "key": "problemType",
+                    "label": "نوع المشكلة",
+                    "value": "-"
+                  },
+                  {
+                    "key": "strategicGoal",
+                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
+                    "value": "-"
+                  }
+                ],
+                "requirements": {
+                  "label": "متطلبات التنفيذ",
+                  "items": []
+                },
+                "outputs": {
+                  "label": "مخرجات الابتكار المتوقعة",
+                  "items": []
+                }
+              }
+            }
+          }
+        },
+        {
+          "key": "story",
+          "label": "details.tabs.story",
+          "icon": "story",
+          "data": {
+            "intro": {
+              "label": "فكرة في طور التكوين...",
+              "audioLabel": "استمع الى قصة الفكرة",
+              "audioDuration": "0:00",
+              "journeyBtn": "رحلة الابتكار"
+            },
+            "timeline": [],
+            "sidebar": {
+              "journey": {
+                "title": "رحلة الابتكار",
+                "steps": []
+              },
+              "features": {
+                "title": "ميزات الفكرة",
+                "items": []
+              }
+            }
+          }
+        },
+        {
+          "key": "business_model",
+          "label": "details.tabs.business_model",
+          "icon": "business",
+          "data": {}
+        },
+        {
+          "key": "alignment",
+          "label": "details.tabs.alignment",
+          "icon": "alignment",
+          "data": {}
+        },
+        {
+          "key": "ip",
+          "label": "details.tabs.ip",
+          "icon": "ip",
+          "data": {}
+        },
+        {
+          "key": "classification",
+          "label": "details.tabs.classification",
+          "icon": "classification",
+          "data": {}
+        },
+        {
+          "key": "evaluation",
+          "label": "details.tabs.evaluation",
+          "icon": "evaluation",
+          "data": {}
+        },
+        {
+          "key": "decision",
+          "label": "details.tabs.decision",
+          "icon": "decision",
+          "data": {}
+        }
+      ]
+    },
+    "IDEA-1029": {
+      "id": "IDEA-1029",
+      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+      "submitter": "أحمد خالد",
+      "department": "الطاقة",
+      "status": {
+        "id": "project",
+        "name": "تحولت لمشروع"
+      },
+      "averageRating": 82,
+      "evaluatorsCount": 4,
+      "aiScore": 78,
+      "tabs": [
+        {
+          "key": "overview",
+          "label": "details.tabs.overview",
+          "icon": "overview",
+          "data": {
+            "sidebar": {
+              "owner": {
+                "label": "مقدم الفكرة",
+                "name": "أحمد خالد"
+              },
+              "team": {
+                "label": "اعضاء فريق الفكرة",
+                "members": []
+              },
+              "targetAudience": {
+                "label": "الفئة المستهدفة",
+                "items": ["الطاقة"]
+              },
+              "sector": {
+                "label": "القطاع المعني بالفكرة",
+                "items": ["القطاع الحكومي"]
+              },
+              "technologies": {
+                "label": "التقنيات المرتبطة بالفكرة",
+                "items": []
+              },
+              "impact": {
+                "label": "نطاق الأثر",
+                "items": []
+              },
+              "readiness": {
+                "label": "مستوى الجاهزية الحالية",
+                "value": "غير محدد"
+              },
+              "attachments": {
+                "label": "الملفات المرفقة",
+                "files": []
+              }
+            },
+            "overview": {
+              "explanation": {
+                "label": "شرح الفكرة",
+                "text": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي"
+              },
+              "details": {
+                "label": "تفاصيل الفكرة",
+                "items": [
+                  {
+                    "key": "targetChallenge",
+                    "label": "التحدي المستهدف",
+                    "value": "-"
+                  },
+                  {
+                    "key": "problemType",
+                    "label": "نوع المشكلة",
+                    "value": "-"
+                  },
+                  {
+                    "key": "strategicGoal",
+                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
+                    "value": "-"
+                  }
+                ],
+                "requirements": {
+                  "label": "متطلبات التنفيذ",
+                  "items": []
+                },
+                "outputs": {
+                  "label": "مخرجات الابتكار المتوقعة",
+                  "items": []
+                }
+              }
+            }
+          }
+        },
+        {
+          "key": "story",
+          "label": "details.tabs.story",
+          "icon": "story",
+          "data": {
+            "intro": {
+              "label": "فكرة في طور التكوين...",
+              "audioLabel": "استمع الى قصة الفكرة",
+              "audioDuration": "0:00",
+              "journeyBtn": "رحلة الابتكار"
+            },
+            "timeline": [],
+            "sidebar": {
+              "journey": {
+                "title": "رحلة الابتكار",
+                "steps": []
+              },
+              "features": {
+                "title": "ميزات الفكرة",
+                "items": []
+              }
+            }
+          }
+        },
+        {
+          "key": "business_model",
+          "label": "details.tabs.business_model",
+          "icon": "business",
+          "data": {}
+        },
+        {
+          "key": "alignment",
+          "label": "details.tabs.alignment",
+          "icon": "alignment",
+          "data": {}
+        },
+        {
+          "key": "ip",
+          "label": "details.tabs.ip",
+          "icon": "ip",
+          "data": {}
+        },
+        {
+          "key": "classification",
+          "label": "details.tabs.classification",
+          "icon": "classification",
+          "data": {}
+        },
+        {
+          "key": "evaluation",
+          "label": "details.tabs.evaluation",
+          "icon": "evaluation",
+          "data": {}
+        },
+        {
+          "key": "decision",
+          "label": "details.tabs.decision",
+          "icon": "decision",
+          "data": {}
+        }
+      ]
+    },
+    "IDEA-1030": {
+      "id": "IDEA-1030",
+      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+      "submitter": "أحمد خالد",
+      "department": "الطاقة",
+      "status": {
+        "id": "infeasible",
+        "name": "غير مجدية"
+      },
+      "averageRating": 82,
+      "evaluatorsCount": 4,
+      "aiScore": 78,
+      "tabs": [
+        {
+          "key": "overview",
+          "label": "details.tabs.overview",
+          "icon": "overview",
+          "data": {
+            "sidebar": {
+              "owner": {
+                "label": "مقدم الفكرة",
+                "name": "أحمد خالد"
+              },
+              "team": {
+                "label": "اعضاء فريق الفكرة",
+                "members": []
+              },
+              "targetAudience": {
+                "label": "الفئة المستهدفة",
+                "items": ["الطاقة"]
+              },
+              "sector": {
+                "label": "القطاع المعني بالفكرة",
+                "items": ["القطاع الحكومي"]
+              },
+              "technologies": {
+                "label": "التقنيات المرتبطة بالفكرة",
+                "items": []
+              },
+              "impact": {
+                "label": "نطاق الأثر",
+                "items": []
+              },
+              "readiness": {
+                "label": "مستوى الجاهزية الحالية",
+                "value": "غير محدد"
+              },
+              "attachments": {
+                "label": "الملفات المرفقة",
+                "files": []
+              }
+            },
+            "overview": {
+              "explanation": {
+                "label": "شرح الفكرة",
+                "text": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي"
+              },
+              "details": {
+                "label": "تفاصيل الفكرة",
+                "items": [
+                  {
+                    "key": "targetChallenge",
+                    "label": "التحدي المستهدف",
+                    "value": "-"
+                  },
+                  {
+                    "key": "problemType",
+                    "label": "نوع المشكلة",
+                    "value": "-"
+                  },
+                  {
+                    "key": "strategicGoal",
+                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
+                    "value": "-"
+                  }
+                ],
+                "requirements": {
+                  "label": "متطلبات التنفيذ",
+                  "items": []
+                },
+                "outputs": {
+                  "label": "مخرجات الابتكار المتوقعة",
+                  "items": []
+                }
+              }
+            }
+          }
+        },
+        {
+          "key": "story",
+          "label": "details.tabs.story",
+          "icon": "story",
+          "data": {
+            "intro": {
+              "label": "فكرة في طور التكوين...",
+              "audioLabel": "استمع الى قصة الفكرة",
+              "audioDuration": "0:00",
+              "journeyBtn": "رحلة الابتكار"
+            },
+            "timeline": [],
+            "sidebar": {
+              "journey": {
+                "title": "رحلة الابتكار",
+                "steps": []
+              },
+              "features": {
+                "title": "ميزات الفكرة",
+                "items": []
+              }
+            }
+          }
+        },
+        {
+          "key": "business_model",
+          "label": "details.tabs.business_model",
+          "icon": "business",
+          "data": {}
+        },
+        {
+          "key": "alignment",
+          "label": "details.tabs.alignment",
+          "icon": "alignment",
+          "data": {}
+        },
+        {
+          "key": "ip",
+          "label": "details.tabs.ip",
+          "icon": "ip",
+          "data": {}
+        },
+        {
+          "key": "classification",
+          "label": "details.tabs.classification",
+          "icon": "classification",
+          "data": {}
+        },
+        {
+          "key": "evaluation",
+          "label": "details.tabs.evaluation",
+          "icon": "evaluation",
+          "data": {}
+        },
+        {
+          "key": "decision",
+          "label": "details.tabs.decision",
+          "icon": "decision",
+          "data": {}
+        }
+      ]
     }
   }
 }

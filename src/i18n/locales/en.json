@@ -10,5 +10,26 @@
   "dashboard": {
     "idea_evaluation_dashboard": "Idea Evaluation Dashboard",
     "ideas_table": "Ideas Table"
+  },
+  "details": {
+    "back_to_dashboard": "Back to Dashboard",
+    "view": "View",
+    "save_draft": "Save Draft",
+    "start_evaluation": "Start Evaluation",
+    "invite_evaluator": "Invite Evaluator",
+    "coming_soon": "Coming Soon",
+    "coming_soon_desc": "This section is under development and will be available in future releases.",
+    "active_evaluators": "evaluators",
+    "average_rating": "Initial AI Rating",
+    "tabs": {
+      "overview": "Overview",
+      "story": "Idea Story",
+      "business_model": "Business Model",
+      "alignment": "Strategic Alignment",
+      "ip": "Expected IP",
+      "classification": "Classification",
+      "evaluation": "Evaluation",
+      "decision": "Decision"
+    }
   }
 }
