@@ -126,20 +126,20 @@ const tabsList = computed(() => {
         >
           <!-- Invite Evaluator Button -->
           <BaseButton
-            class="bg-gradient-to-r from-[#FF6B35] to-[#FF8E53] text-white shadow-[0_30px_30px_0_rgba(255,107,53,0.3)]"
+            class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#FF6B35] to-[#FF8E53] text-white shadow-[0_30px_30px_0_rgba(255,107,53,0.3)]"
           >
             {{ $t("details.invite_evaluator") }}
           </BaseButton>
           <!-- Start Evaluation Button -->
           <BaseButton
-            class="bg-gradient-to-r from-[#018AAF] to-[#7F4FFF] text-white shadow-[0_5px_15px_0_rgba(1,138,175,0.3)]"
+            class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#018AAF] to-[#7F4FFF] text-white shadow-[0_5px_15px_0_rgba(1,138,175,0.3)]"
           >
             {{ $t("details.start_evaluation") }}
           </BaseButton>
 
           <!-- Save Draft Button -->
           <BaseButton
-            class="bg-gradient-to-r from-[rgba(1,138,175,0.2)] to-[rgba(127,79,255,0.2)] text-[#7F4FFF] backdrop-blur-2xl"
+            class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[rgba(1,138,175,0.2)] to-[rgba(127,79,255,0.2)] text-[#7F4FFF] backdrop-blur-2xl"
           >
             {{ $t("details.save_draft") }}
           </BaseButton>

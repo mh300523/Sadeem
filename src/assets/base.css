@@ -121,3 +121,17 @@ body {
   line-height: 1.6;
   font-size: 14px;
 }
+
+html[dir="ltr"] {
+  --gradient-angle-multiplier: 1;
+}
+
+html[dir="rtl"] {
+  --gradient-angle-multiplier: -1;
+}
+
+.dynamic-gradient-angle {
+  --resolved-angle: calc(
+    180deg + (var(--gradient-angle) - 180deg) * var(--gradient-angle-multiplier)
+  );
+}

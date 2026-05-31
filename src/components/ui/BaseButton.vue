@@ -7,6 +7,6 @@
 <script setup>
 const props = defineProps({
   classes: String,
-  text: String,
+  default: "",
 });
 </script>

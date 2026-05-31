@@ -76,14 +76,9 @@ function handleTabChange(index) {
     </div>
 
     <TabPanels
-      class="border border-white/10 rounded-[20px] p-6 bg-gradient-to-l from-[#1E293B]/60 to-[#1E293B]/30"
+      class="border border-white/10 rounded-[20px] p-6 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30"
     >
-      <TabPanel
-        v-for="tab in resolvedTabs"
-        :key="tab.key"
-        :unmount="true"
-        class="focus:outline-none"
-      >
+      <TabPanel v-for="tab in resolvedTabs" :key="tab.key" :unmount="true">
         <component :is="tab.component" :data="tab.data" />
       </TabPanel>
     </TabPanels>
