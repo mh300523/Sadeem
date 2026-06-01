@@ -2,7 +2,7 @@
 const props = defineProps({
   label: {
     type: String,
-    required: true,
+    default: "",
   },
 
   items: {
@@ -22,7 +22,7 @@ const props = defineProps({
 
 <template>
   <div class="py-3">
-    <h4 class="text-white-50 text-xs tracking-wide uppercase mb-3">
+    <h4 v-if="label" class="text-white-50 text-xs tracking-wide uppercase mb-3">
       {{ label }}
     </h4>
 

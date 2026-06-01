@@ -41,12 +41,12 @@ defineProps({
         <tr
           v-for="(item, index) in items"
           :key="item.id || index"
-          class="group transition-all duration-300 hover:translate-y-[-1px]"
+          class="group rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30 backdrop-blur-xl"
         >
           <td
             v-for="header in headers"
             :key="header.key"
-            class="p-3 bg-[#0d1b34]/35 group-hover:bg-[#122548]/55 border-y border-[#1e293b]/30 group-hover:border-[#334155]/50 first:border-s first:rounded-s-2xl last:border-e last:rounded-e-2xl transition-all duration-300"
+            class="p-3 border-y border-white/10 group-hover:border-white/20 first:border-s first:rounded-s-[20px] last:border-e last:rounded-e-[20px] transition-all duration-300"
           >
             <!-- Slot for custom cell rendering -->
             <slot
