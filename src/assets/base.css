@@ -54,6 +54,7 @@
     font-display: swap;
   }
 }
+
 :root {
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
@@ -122,6 +123,36 @@ body {
   font-size: 14px;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(217, 217, 217, 0.3);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 5px;
+}
+
+a,
+button,
+img,
+input,
+select,
+textarea {
+  transition: 0.3s ease-in-out;
+}
+
 html[dir="ltr"] {
   --gradient-angle-multiplier: 1;
 }
@@ -131,7 +162,5 @@ html[dir="rtl"] {
 }
 
 .dynamic-gradient-angle {
-  --resolved-angle: calc(
-    180deg + (var(--gradient-angle) - 180deg) * var(--gradient-angle-multiplier)
-  );
+  --resolved-angle: calc(180deg + (var(--gradient-angle) - 180deg) * var(--gradient-angle-multiplier));
 }

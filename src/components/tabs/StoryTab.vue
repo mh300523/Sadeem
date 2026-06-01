@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from "vue";
 import SvgIcon from "@/components/ui/SvgIcon.vue";
+import BaseTagList from "@/components/ui/BaseTagList.vue";
 
 const props = defineProps({
   data: {
@@ -27,10 +28,10 @@ function togglePlay() {
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
     <!-- Sidebar Column -->
     <div
-      class="lg:col-span-3 bg-[url('@/assets/images/storytab-side-bg.png')] rounded-[16px]"
+      class="lg:col-span-3 bg-[url('@/assets/images/storytab-side-bg.png')] rounded-[16px] px-4 py-5"
     >
       <!-- Audio Player Card -->
-      <div class="rounded-[24px] px-4 py-5">
+      <div class="rounded-[24px]">
         <h3
           class="text-transparent bg-clip-text rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35] uppercase tracking-wider font-bold text-xl mb-4"
         >
@@ -91,7 +92,7 @@ function togglePlay() {
       </div>
 
       <!-- Innovation Journey Sidebar Stepper -->
-      <div class="px-4 py-3">
+      <div class="py-3">
         <h4
           class="py-4 px-5 rounded-2xl rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#FF8E53] to-[#FF6B35] text-white font-medium mb-4"
         >
@@ -127,92 +128,53 @@ function togglePlay() {
       </div>
 
       <!-- Features checklist card -->
-      <div
-        class="border border-[#1e293b]/30 bg-[#060e1d]/50 rounded-[24px] p-5 backdrop-blur-xl shadow-lg flex flex-col gap-4"
-      >
-        <h5 class="text-slate-400 text-xs font-bold uppercase tracking-wider">
+      <div class="">
+        <h4
+          class="py-4 px-5 rounded-2xl rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#FF8E53] to-[#FF6B35] text-white font-medium mb-4"
+        >
           {{ sidebarData.features?.title }}
-        </h5>
+        </h4>
 
-        <div class="flex flex-col gap-2.5">
-          <div
-            v-for="(feat, idx) in sidebarData.features?.items"
-            :key="idx"
-            class="flex items-start gap-2.5 py-1"
-          >
-            <!-- Check Circle SVG -->
-            <div
-              class="w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400 shrink-0 mt-0.5 shadow-inner"
-            >
-              <svg
-                class="w-3 h-3"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="3"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-            </div>
-            <span
-              class="text-slate-300 text-xs font-medium leading-relaxed text-right"
-            >
-              {{ feat }}
-            </span>
-          </div>
-        </div>
+        <BaseTagList
+          v-if="sidebarData.features?.items?.length"
+          :items="sidebarData.features.items"
+          class="rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30] rounded-xl overflow-hidden p-[14px] backdrop-blur-xl border border-white/6"
+          :classes="{
+            pill: 'bg-[#06B6D4]/10 text-white/76',
+            icon: 'border-[#06B6D4] text-[#06B6D4]',
+          }"
+        />
       </div>
     </div>
     <!-- Main Story Timeline Column -->
     <div class="lg:col-span-9">
-      <!-- Vertical Connecting Line behind timeline numbers -->
-      <div
-        class="absolute top-8 bottom-8 w-0.5 bg-gradient-to-b from-[#FF6B35]/50 via-[#895AF7]/40 to-blue-500/20"
-      ></div>
-
       <!-- Timeline Steps -->
       <div
         v-for="step in storyData.timeline"
         :key="step.id"
-        class="relative flex gap-6"
+        class="border border-white/10 backdrop-blur-xl p-6 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/70 to-[#1E293B]/30 rounded-2xl mb-6 last:mb-0"
       >
-        <!-- Circle Step Number badge -->
-        <span
-          class="absolute top-1 w-12 h-12 rounded-full border bg-[#060e1d] flex items-center justify-center text-lg font-bold shadow-lg transition-transform duration-300 hover:scale-110 z-10 shrink-0"
-          :class="[
-            step.id === 1
-              ? 'border-[#FF6B35] text-[#FF6B35] shadow-[#FF6B35]/10'
-              : step.id === 2
-                ? 'border-[#895AF7] text-[#895AF7] shadow-[#895AF7]/10'
-                : step.id === 3
-                  ? 'border-blue-500 text-blue-400 shadow-blue-500/10'
-                  : 'border-teal-500 text-teal-400 shadow-teal-500/10',
-          ]"
-        >
-          {{ step.id }}
-        </span>
-
         <!-- Step content card -->
-        <div
-          class="flex-1 flex flex-col gap-4 border border-[#1e293b]/25 bg-[#060e1d]/50 p-6 rounded-3xl backdrop-blur-xl shadow-md"
-        >
+        <div class="">
           <!-- Step Title and Subtitle -->
-          <div class="flex flex-col gap-1">
-            <h4 class="text-white text-lg font-bold flex items-center gap-2">
-              {{ step.title }}
-            </h4>
-            <span class="text-slate-400 text-xs font-semibold leading-relaxed">
-              {{ step.subtitle }}
+          <div class="flex gap-2 mb-[14px]">
+            <!-- Circle Step Number badge -->
+            <span
+              class="w-10 h-10 rounded-full bg-[#FF6B35] text-white flex items-center justify-center text-lg font-medium shrink-0"
+            >
+              {{ step.id }}
             </span>
+            <h4 class="text-white text-xl font-bold flex items-center gap-2">
+              {{ step.title }}
+              <span class="text-white/50 text-xs font-normal leading-relaxed">
+                ({{ step.subtitle }})
+              </span>
+            </h4>
           </div>
 
           <!-- Description Text -->
           <p
-            class="text-slate-300 text-sm md:text-base leading-relaxed text-justify whitespace-pre-line font-light"
+            class="text-white text-xs md:text-sm leading-relaxed text-justify whitespace-pre-line"
           >
             {{ step.text }}
           </p>
@@ -220,39 +182,19 @@ function togglePlay() {
           <!-- Sammy Card -->
           <div
             v-if="step.card && step.card.type === 'sammy'"
-            class="flex items-center gap-4.5 p-4.5 rounded-2xl border border-[#895AF7]/30 bg-[#131131]/80 mt-2"
+            class="flex items-center gap-4.5 py-[30px] px-5 rounded-2xl border border-white/10 bg-[url('@/assets/images/sammy-card-bg.png')] bg-cover bg-center bg-no-repeat mt-4"
           >
             <div
-              class="relative w-16 h-16 rounded-2xl rtl:bg-gradient-to-br ltr:bg-gradient-to-bl from-indigo-600 to-[#895AF7] border border-[#895AF7]/40 flex flex-col items-center justify-center shrink-0 shadow-lg text-white font-bold overflow-hidden select-none"
-            >
-              <svg
-                class="w-8 h-8 text-white/95"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15.59 14.37a6 6 0 01-5.84 0l-2.07-1.42a2 2 0 00-2.24 0L3 14.75V21h18v-6.25l-2.44-1.8a2 2 0 00-2.24 0l-2.07 1.42z"
-                />
-              </svg>
-            </div>
-
-            <div class="h-10 w-[1px] bg-[#895AF7]/40 shrink-0"></div>
-
-            <div
-              class="w-16 h-16 rounded-full bg-[#32BEA6] text-white flex items-center justify-center shrink-0 font-bold text-sm shadow-md"
+              class="w-[100px] h-[100px] rounded-full rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#0A2A40] to-[#1B4D72] backdrop-blur-xl text-white flex items-center justify-center shrink-0 font-bold text-[22px] shadow-md"
             >
               {{ step.card.avatar }}
             </div>
 
             <div class="flex-1 flex flex-col gap-1 text-right">
-              <h5 class="text-white text-base font-bold">
+              <h3 class="text-white text-xl font-bold">
                 {{ step.card.title }}
-              </h5>
-              <p class="text-slate-300 text-xs font-light leading-relaxed">
+              </h3>
+              <p class="text-white leading-relaxed">
                 {{ step.card.text }}
               </p>
             </div>
@@ -261,66 +203,40 @@ function togglePlay() {
           <!-- Quote Card -->
           <div
             v-else-if="step.card && step.card.type === 'quote'"
-            class="p-5 rounded-2xl border border-[#1e293b]/50 bg-[#070e1a]/80 mt-2 flex flex-col gap-2.5 text-center items-center justify-center"
+            class="mt-[14px] mb-6 p-7 rounded-2xl border border-white/10 bg-[url('@/assets/images/quote-bg.png')] bg-cover bg-top bg-no-repeat mt-2 text-center"
           >
-            <h5 class="text-white text-base md:text-lg font-bold">
+            <h3 class="text-white text-lg md:text-xl font-bold">
               {{ step.card.title }}
-            </h5>
-            <p
-              v-if="step.card.text"
-              class="text-slate-300 text-xs md:text-sm font-light leading-relaxed text-justify"
-            >
-              {{ step.card.text }}
-            </p>
+            </h3>
           </div>
+
+          <!-- Paragraph after card (specifically for quote type where we want the description outside the card) -->
+          <p
+            v-if="step.card && step.card.type === 'quote' && step.card.text"
+            class="text-white text-xs md:text-sm leading-relaxed text-justify whitespace-pre-line mt-4 mb-6"
+          >
+            {{ step.card.text }}
+          </p>
 
           <!-- Step 2 Interactive Box -->
           <div
             v-if="step.interactive"
-            class="flex flex-col gap-4.5 p-5 rounded-2xl border border-[#895AF7]/30 bg-[#895AF7]/10 shadow-md mt-2"
+            class="p-5 rounded-[20px] rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#FF6B35] to-[#8B5CF6] flex flex-col items-center"
           >
-            <div class="flex flex-col gap-1">
-              <h5
-                class="text-white text-sm md:text-base font-bold flex items-center gap-2"
-              >
-                <span
-                  class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"
-                ></span>
-                {{ step.interactive.question }}
-              </h5>
-              <p class="text-slate-200 text-xs md:text-sm font-light">
-                {{ step.interactive.answer }}
-              </p>
-            </div>
+            <h4 class="text-white text-sm md:text-lg font-bold">
+              {{ step.interactive.question }}
+            </h4>
+            <p class="text-white text-xs md:text-sm my-2">
+              {{ step.interactive.answer }}
+            </p>
 
             <!-- Tags -->
             <div class="flex flex-wrap gap-3">
               <button
                 v-for="(tag, idx) in step.interactive.tags"
                 :key="idx"
-                class="inline-flex items-center gap-1.5 px-4.5 py-2 rounded-full text-xs font-extrabold bg-white shadow-md hover:scale-105 transition-all duration-300 cursor-pointer"
-                :class="[
-                  tag.icon === 'sparkles'
-                    ? 'text-[#FF6B35] border border-[#FF6B35]'
-                    : 'text-slate-700 border border-slate-300',
-                ]"
+                class="inline-flex items-center gap-1.5 px-4.5 py-2 rounded-full text-sm font-bold bg-white text-[#0A2A40] shadow-md cursor-pointer"
               >
-                <span
-                  class="w-4 h-4 rounded-full border flex items-center justify-center shrink-0"
-                  :class="[
-                    tag.icon === 'sparkles'
-                      ? 'border-[#FF6B35]'
-                      : 'border-slate-400',
-                  ]"
-                >
-                  <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20">
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </span>
                 <span>{{ tag.name }}</span>
               </button>
             </div>
