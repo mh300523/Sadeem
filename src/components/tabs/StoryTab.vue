@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from "vue";
-import SvgIcon from "@/components/ui/SvgIcon.vue";
 import BaseTagList from "@/components/ui/BaseTagList.vue";
+import TimelineStepper from "@/components/tabsBlocks/TimelineStepper.vue";
 
 const props = defineProps({
   data: {
@@ -28,122 +28,95 @@ function togglePlay() {
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
     <!-- Sidebar Column -->
     <div
-      class="lg:col-span-3 bg-[url('@/assets/images/storytab-side-bg.png')] rounded-[16px] px-4 py-5"
+      class="lg:col-span-3 bg-[url('@/assets/images/storytab-side-bg.png')] bg-cover bg-center bg-no-repeat rounded-[16px] px-4 py-5"
     >
-      <!-- Audio Player Card -->
-      <div class="rounded-[24px]">
-        <h3
-          class="text-transparent bg-clip-text rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35] uppercase tracking-wider font-bold text-xl mb-4"
-        >
-          {{ storyData.intro?.label }}
-        </h3>
+      <div class="sidebar-container relative">
+        <!-- Audio Player Card -->
+        <div class="rounded-[24px]">
+          <h3
+            class="text-transparent bg-clip-text rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35] uppercase tracking-wider font-bold text-xl mb-4"
+          >
+            {{ storyData.intro?.label }}
+          </h3>
 
-        <!-- Premium Wave Audio Player UI -->
-        <div
-          class="p-4 rounded-2xl rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4]/90 via-[#3B82F6] to-[#FF6B35]/50"
-        >
-          <h4 class="text-white mb-2">
-            {{ storyData.intro?.audioLabel }}
+          <!-- Premium Wave Audio Player UI -->
+          <div
+            class="p-4 rounded-2xl rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4]/90 via-[#3B82F6] to-[#FF6B35]/50"
+          >
+            <h4 class="text-white mb-2">
+              {{ storyData.intro?.audioLabel }}
+            </h4>
+
+            <div class="flex items-center gap-3">
+              <!-- Play/Pause Button -->
+              <button
+                @click="togglePlay"
+                class="w-10 h-10 rounded-full bg-white text-[#FF6B35] flex items-center justify-center shrink-0 cursor-pointer"
+              >
+                <svg
+                  v-if="!isPlaying"
+                  class="w-5 h-5 translate-x-[1px]"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                <svg
+                  v-else
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                </svg>
+              </button>
+
+              <!-- Waveform Animation -->
+              <div
+                class="flex-1 h-8 w-full flex items-center justify-center gap-[3px] px-2 overflow-hidden"
+              >
+                <div
+                  v-for="i in 30"
+                  :key="i"
+                  class="w-[3px] rounded-full bg-gradient-to-t from-orange-400 to-amber-500 transition-all duration-300"
+                  :class="isPlaying ? 'animate-wave-bar' : 'h-3'"
+                  :style="{
+                    animationDelay: `${i * 0.15}s`,
+                    height: !isPlaying
+                      ? `${Math.max(6, (i % 5) * 6)}px`
+                      : undefined,
+                  }"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Innovation Journey Sidebar Stepper -->
+        <TimelineStepper
+          v-if="sidebarData.journey?.steps?.length"
+          :title="storyData.intro?.journeyBtn"
+          :steps="sidebarData.journey.steps"
+        />
+
+        <!-- Features checklist card -->
+        <div class="">
+          <h4
+            class="py-4 px-5 rounded-2xl rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#FF8E53] to-[#FF6B35] text-white font-medium mb-4"
+          >
+            {{ sidebarData.features?.title }}
           </h4>
 
-          <div class="flex items-center gap-3">
-            <!-- Play/Pause Button -->
-            <button
-              @click="togglePlay"
-              class="w-10 h-10 rounded-full bg-white text-[#FF6B35] flex items-center justify-center shrink-0 cursor-pointer"
-            >
-              <svg
-                v-if="!isPlaying"
-                class="w-5 h-5 translate-x-[1px]"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M8 5v14l11-7z" />
-              </svg>
-              <svg
-                v-else
-                class="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-              </svg>
-            </button>
-
-            <!-- Waveform Animation -->
-            <div
-              class="flex-1 h-8 w-full flex items-center justify-center gap-[3px] px-2 overflow-hidden"
-            >
-              <div
-                v-for="i in 30"
-                :key="i"
-                class="w-[3px] rounded-full bg-gradient-to-t from-orange-400 to-amber-500 transition-all duration-300"
-                :class="isPlaying ? 'animate-wave-bar' : 'h-3'"
-                :style="{
-                  animationDelay: `${i * 0.15}s`,
-                  height: !isPlaying
-                    ? `${Math.max(6, (i % 5) * 6)}px`
-                    : undefined,
-                }"
-              ></div>
-            </div>
-          </div>
+          <BaseTagList
+            v-if="sidebarData.features?.items?.length"
+            :items="sidebarData.features.items"
+            class="rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30] rounded-xl overflow-hidden p-[14px] backdrop-blur-xl border border-white/6"
+            :classes="{
+              pill: 'bg-[#06B6D4]/10 text-white/76',
+              icon: 'border-[#06B6D4] text-[#06B6D4]',
+            }"
+          />
         </div>
-      </div>
-
-      <!-- Innovation Journey Sidebar Stepper -->
-      <div class="py-3">
-        <h4
-          class="py-4 px-5 rounded-2xl rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#FF8E53] to-[#FF6B35] text-white font-medium mb-4"
-        >
-          {{ storyData.intro?.journeyBtn }}
-        </h4>
-
-        <!-- Stepper -->
-        <div class="">
-          <div
-            v-for="(step, idx) in sidebarData.journey?.steps"
-            :key="idx"
-            class="relative mb-5 last:mb-0 step-wrapper"
-          >
-            <!-- Icon -->
-            <div class="absolute start-0 top-6 z-10 rounded-full bg-[#1B2A52]">
-              <SvgIcon :name="step.icon" />
-            </div>
-
-            <!-- Card -->
-            <div
-              class="step-card relative z-10 ms-6 rounded-xl border border-white/16 backdrop-blur-xl p-3 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/70 to-[#1E293B]/30"
-            >
-              <h4 class="mb-2 text-white">
-                {{ step.title }}
-              </h4>
-
-              <p class="text-white/50">
-                {{ step.description }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Features checklist card -->
-      <div class="">
-        <h4
-          class="py-4 px-5 rounded-2xl rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#FF8E53] to-[#FF6B35] text-white font-medium mb-4"
-        >
-          {{ sidebarData.features?.title }}
-        </h4>
-
-        <BaseTagList
-          v-if="sidebarData.features?.items?.length"
-          :items="sidebarData.features.items"
-          class="rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30] rounded-xl overflow-hidden p-[14px] backdrop-blur-xl border border-white/6"
-          :classes="{
-            pill: 'bg-[#06B6D4]/10 text-white/76',
-            icon: 'border-[#06B6D4] text-[#06B6D4]',
-          }"
-        />
       </div>
     </div>
     <!-- Main Story Timeline Column -->
@@ -261,30 +234,20 @@ function togglePlay() {
 .animate-wave-bar {
   animation: wave 1.2s ease-in-out infinite;
 }
-.step-wrapper:not(:last-child)::before {
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: calc(100% - 1.5rem);
-  border-inline-end: 1px dashed white;
-  top: 55px;
-  inset-inline-start: 5px;
+.sidebar-container {
+  z-index: 1;
 }
-.step-card {
-  position: relative;
-}
-.step-card::before {
+.sidebar-container::before {
   content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-image: url("@/assets/images/icons/robot.svg");
   position: absolute;
-  top: 24px;
-  inset-inline-start: -6px;
-  background-color: beige;
-  width: 10px;
-  height: 10px;
-  background-color: transparent;
-  border-block-start: 1px solid rgba(255, 255, 255, 0.16);
-  border-inline-start: 1px solid rgba(255, 255, 255, 0.16);
-  background-color: #1e293b;
-  transform: rotate(45deg);
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+html[dir="ltr"] .sidebar-container::before {
+  transform: rotateY(180deg);
 }
 </style>

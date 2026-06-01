@@ -2,12 +2,14 @@ import OverviewTab from "@/components/tabs/OverviewTab.vue";
 import StoryTab from "@/components/tabs/StoryTab.vue";
 import BusinessModelTab from "@/components/tabs/BusinessModelTab.vue";
 import EvaluationTab from "@/components/tabs/EvaluationTab.vue";
+import StrategicAlignmentTab from "@/components/tabs/StrategicAlignmentTab.vue";
 import PlaceholderTab from "@/components/tabs/PlaceholderTab.vue";
 
 export const tabRegistry = {
   overview: OverviewTab,
   story: StoryTab,
   business_model: BusinessModelTab,
+  strategic_alignment: StrategicAlignmentTab,
   evaluation: EvaluationTab,
 };
 
