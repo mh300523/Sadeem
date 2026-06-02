@@ -586,13 +586,176 @@
           "key": "ip",
           "label": "details.tabs.ip",
           "icon": "ip",
-          "data": {}
+          "data": {
+            "sidebar": {
+              "title": "تقييم فرصة الحماية القانونية (IP)",
+              "recommendations": {
+                "label": "التوصية التالية",
+                "steps": [
+                  { "id": 1, "title": "تقديم طلب براءة اختراع", "active": true },
+                  { "id": 2, "title": "استشارة محامي ملكية فكرية", "active": false },
+                  { "id": 3, "title": "إجراء بحث براءات", "active": false }
+                ]
+              },
+              "disclaimer": {
+                "title": "اخلاء مسؤولية قانوني",
+                "description": "هذا التقييم تم إنشاؤه باستخدام تحليل ذكاء اصطناعي وعمليات بحث أولية، وهو لأغراض استشارية فقط، ولا يُعد استشارة قانونية أو تأكيداً لإمكانية التسجيل. للحصول على حماية رسمية، يجب تقديم الطلب إلى الجهات المختصة. يُنصح باستشارة مختص في الملكية الفكرية قبل اتخاذ أي قرار."
+              },
+              "actions": {
+                "downloadReport": "تحميل تقرير الملكية الفكرية (PDF)",
+                "requestReview": "طلب مراجعة قانونية"
+              }
+            },
+            "scoreCard": {
+              "title": "درجة الملكية الفكرية",
+              "score": 78,
+              "maxScore": 100,
+              "scoreLabel": "IP Opportunity Score",
+              "scoreIcon": "solar_star-bold"
+            },
+            "summaryCard": {
+              "title": "ملخص تحليل الملكية الفكرية",
+              "rows": [
+                {
+                  "label": "مستوى فرصة الملكية الفكرية",
+                  "value": "متوسطة",
+                  "type": "badge",
+                  "dotColor": "bg-yellow-400"
+                },
+                {
+                  "label": "نوع الحماية الأساسي",
+                  "value": "براءة اختراع",
+                  "type": "text-cyan"
+                },
+                {
+                  "label": "نوع حماية إضافي (اختياري)",
+                  "value": "Copyright",
+                  "type": "text-cyan"
+                },
+                {
+                  "label": "درجة الفرصة (Opportunity Score)",
+                  "value": "78 / 100",
+                  "type": "blue-pill"
+                },
+                {
+                  "label": "درجة التشابه مع أفكار موجودة",
+                  "value": "عالي",
+                  "type": "slider",
+                  "sliderVal": 90,
+                  "dotColor": "bg-red-500"
+                }
+              ]
+            }
+          }
         },
         {
           "key": "classification",
           "label": "details.tabs.classification",
           "icon": "classification",
-          "data": {}
+          "data": {
+            "sidebar": {
+              "title": "تصنيف الفكرة وتحديد مسارها",
+              "sections": [
+                {
+                  "key": "basic_classification",
+                  "label": "التصنيف الأساسي",
+                  "options": [
+                    { "value": "improvement", "label": "تحسيني", "selected": false, "active": true },
+                    { "value": "breakthrough", "label": "خارق", "selected": true, "active": true },
+                    { "value": "disruptive", "label": "مزعزع", "selected": false, "active": false },
+                    { "value": "transformational", "label": "تحويلي", "selected": false, "active": false }
+                  ]
+                },
+                {
+                  "key": "time_horizon",
+                  "label": "الأفق الزمني",
+                  "options": [
+                    { "value": "H1", "label": "قصير المدى: H1", "selected": false, "active": false },
+                    { "value": "H2", "label": "متوسط: H2", "selected": true, "active": true },
+                    { "value": "H3", "label": "طويل: H3", "selected": false, "active": false }
+                  ]
+                },
+                {
+                  "key": "complexity",
+                  "label": "مستوى التعقيد",
+                  "options": [
+                    { "value": "low", "label": "منخفض", "selected": false, "active": false },
+                    { "value": "medium", "label": "متوسط", "selected": true, "active": true },
+                    { "value": "high", "label": "مرتفع", "selected": false, "active": false }
+                  ]
+                },
+                {
+                  "key": "risk",
+                  "label": "مستوى المخاطر",
+                  "options": [
+                    { "value": "low", "label": "منخفض", "selected": true, "active": true },
+                    { "value": "medium", "label": "متوسط", "selected": false, "active": false },
+                    { "value": "high", "label": "مرتفع", "selected": false, "active": false }
+                  ]
+                }
+              ]
+            },
+            "innovationPath": {
+              "label": "مسار الابتكار",
+              "items": [
+                { "key": "pathway1", "title": "المسار 1 - إدامة السوق", "subtitle": "المسار 1 - إدامة السوق (Pathway 1 - Market Perpetuation)", "selected": true },
+                { "key": "pathway2", "title": "المسار 2 - اختراق السوق", "subtitle": "المسار 2 - اختراق السوق (Pathway 2 - Market Penetration)", "selected": false },
+                { "key": "pathway3", "title": "المسار 3 - توسع السوق", "subtitle": "المسار 3 - توسع السوق (Pathway 3 - Market Broadening)", "selected": false },
+                { "key": "pathway4", "title": "المسار 4 - توسع السوق", "subtitle": "المسار 4 - توسع السوق (Pathway 4 - Market Escalation)", "selected": false },
+                { "key": "pathway5", "title": "المسار 5 - توسع السوق", "subtitle": "المسار 5 - توسع السوق (Pathway 5 - Market Expansion)", "selected": false },
+                { "key": "pathway6", "title": "المسار 6 - توسع السوق", "subtitle": "المسار 6 - خلق السوق (Pathway 6 - Market Creation)", "selected": false }
+              ]
+            },
+            "duplicateCheck": {
+              "label": "هل الفكرة مكررة؟",
+              "isDuplicate": true,
+              "warningText": "تم اكتشاف فكرة مشابهة",
+              "items": [
+                {
+                  "id": "IDEA-1023",
+                  "title": "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+                  "submitter": "مصطفى كامل",
+                  "date": "22 أغسطس 2026",
+                  "similarity": 78
+                },
+                {
+                  "id": "IDEA-1023",
+                  "title": "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+                  "submitter": "مصطفى كامل",
+                  "date": "22 أغسطس 2026",
+                  "similarity": 78
+                }
+              ]
+            },
+            "executionPlan": {
+              "label": "هل الفكرة ضمن خطة التنفيذ؟",
+              "statusText": "هذه الفكرة غير مدرجة ضمن أي مشروع حالي"
+            },
+            "mergeSuggestion": {
+              "label": "هل يمكن دمج الفكرة؟",
+              "canMerge": true,
+              "items": [
+                {
+                  "id": "IDEA-1023",
+                  "title": "حاوية ذكية لإعادة التدوير باستخدام حساسات",
+                  "department": "قطاع البيئة",
+                  "similarity": 78
+                },
+                {
+                  "id": "IDEA-1023",
+                  "title": "حاوية ذكية لإعادة التدوير باستخدام حساسات",
+                  "department": "قطاع البيئة",
+                  "similarity": 78
+                },
+                {
+                  "id": "IDEA-1023",
+                  "title": "حاوية ذكية لإعادة التدوير باستخدام حساسات",
+                  "department": "قطاع البيئة",
+                  "similarity": 78
+                }
+              ]
+            }
+          }
         },
         {
           "key": "evaluation",
@@ -1108,13 +1271,176 @@
           "key": "ip",
           "label": "details.tabs.ip",
           "icon": "ip",
-          "data": {}
+          "data": {
+            "sidebar": {
+              "title": "تقييم فرصة الحماية القانونية (IP)",
+              "recommendations": {
+                "label": "التوصية التالية",
+                "steps": [
+                  { "id": 1, "title": "تقديم طلب براءة اختراع", "active": true },
+                  { "id": 2, "title": "استشارة محامي ملكية فكرية", "active": false },
+                  { "id": 3, "title": "إجراء بحث براءات", "active": false }
+                ]
+              },
+              "disclaimer": {
+                "title": "اخلاء مسؤولية قانوني",
+                "description": "هذا التقييم تم إنشاؤه باستخدام تحليل ذكاء اصطناعي وعمليات بحث أولية، وهو لأغراض استشارية فقط، ولا يُعد استشارة قانونية أو تأكيداً لإمكانية التسجيل. للحصول على حماية رسمية، يجب تقديم الطلب إلى الجهات المختصة. يُنصح باستشارة مختص في الملكية الفكرية قبل اتخاذ أي قرار."
+              },
+              "actions": {
+                "downloadReport": "تحميل تقرير الملكية الفكرية (PDF)",
+                "requestReview": "طلب مراجعة قانونية"
+              }
+            },
+            "scoreCard": {
+              "title": "درجة الملكية الفكرية",
+              "score": 78,
+              "maxScore": 100,
+              "scoreLabel": "IP Opportunity Score",
+              "scoreIcon": "solar_star-bold"
+            },
+            "summaryCard": {
+              "title": "ملخص تحليل الملكية الفكرية",
+              "rows": [
+                {
+                  "label": "مستوى فرصة الملكية الفكرية",
+                  "value": "متوسطة",
+                  "type": "badge",
+                  "dotColor": "bg-yellow-400"
+                },
+                {
+                  "label": "نوع الحماية الأساسي",
+                  "value": "براءة اختراع",
+                  "type": "text-cyan"
+                },
+                {
+                  "label": "نوع حماية إضافي (اختياري)",
+                  "value": "Copyright",
+                  "type": "text-cyan"
+                },
+                {
+                  "label": "درجة الفرصة (Opportunity Score)",
+                  "value": "78 / 100",
+                  "type": "blue-pill"
+                },
+                {
+                  "label": "درجة التشابه مع أفكار موجودة",
+                  "value": "عالي",
+                  "type": "slider",
+                  "sliderVal": 90,
+                  "dotColor": "bg-red-500"
+                }
+              ]
+            }
+          }
         },
         {
           "key": "classification",
           "label": "details.tabs.classification",
           "icon": "classification",
-          "data": {}
+          "data": {
+            "sidebar": {
+              "title": "تصنيف الفكرة وتحديد مسارها",
+              "sections": [
+                {
+                  "key": "basic_classification",
+                  "label": "التصنيف الأساسي",
+                  "options": [
+                    { "value": "improvement", "label": "تحسيني", "selected": false, "active": true },
+                    { "value": "breakthrough", "label": "خارق", "selected": true, "active": true },
+                    { "value": "disruptive", "label": "مزعزع", "selected": false, "active": false },
+                    { "value": "transformational", "label": "تحويلي", "selected": false, "active": false }
+                  ]
+                },
+                {
+                  "key": "time_horizon",
+                  "label": "الأفق الزمني",
+                  "options": [
+                    { "value": "H1", "label": "قصير المدى: H1", "selected": false, "active": false },
+                    { "value": "H2", "label": "متوسط: H2", "selected": true, "active": true },
+                    { "value": "H3", "label": "طويل: H3", "selected": false, "active": false }
+                  ]
+                },
+                {
+                  "key": "complexity",
+                  "label": "مستوى التعقيد",
+                  "options": [
+                    { "value": "low", "label": "منخفض", "selected": false, "active": false },
+                    { "value": "medium", "label": "متوسط", "selected": true, "active": true },
+                    { "value": "high", "label": "مرتفع", "selected": false, "active": false }
+                  ]
+                },
+                {
+                  "key": "risk",
+                  "label": "مستوى المخاطر",
+                  "options": [
+                    { "value": "low", "label": "منخفض", "selected": true, "active": true },
+                    { "value": "medium", "label": "متوسط", "selected": false, "active": false },
+                    { "value": "high", "label": "مرتفع", "selected": false, "active": false }
+                  ]
+                }
+              ]
+            },
+            "innovationPath": {
+              "label": "مسار الابتكار",
+              "items": [
+                { "key": "pathway1", "title": "المسار 1 - إدامة السوق", "subtitle": "المسار 1 - إدامة السوق (Pathway 1 - Market Perpetuation)", "selected": true },
+                { "key": "pathway2", "title": "المسار 2 - اختراق السوق", "subtitle": "المسار 2 - اختراق السوق (Pathway 2 - Market Penetration)", "selected": false },
+                { "key": "pathway3", "title": "المسار 3 - توسع السوق", "subtitle": "المسار 3 - توسع السوق (Pathway 3 - Market Broadening)", "selected": false },
+                { "key": "pathway4", "title": "المسار 4 - توسع السوق", "subtitle": "المسار 4 - توسع السوق (Pathway 4 - Market Escalation)", "selected": false },
+                { "key": "pathway5", "title": "المسار 5 - توسع السوق", "subtitle": "المسار 5 - توسع السوق (Pathway 5 - Market Expansion)", "selected": false },
+                { "key": "pathway6", "title": "المسار 6 - توسع السوق", "subtitle": "المسار 6 - خلق السوق (Pathway 6 - Market Creation)", "selected": false }
+              ]
+            },
+            "duplicateCheck": {
+              "label": "هل الفكرة مكررة؟",
+              "isDuplicate": true,
+              "warningText": "تم اكتشاف فكرة مشابهة",
+              "items": [
+                {
+                  "id": "IDEA-1023",
+                  "title": "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+                  "submitter": "مصطفى كامل",
+                  "date": "22 أغسطس 2026",
+                  "similarity": 78
+                },
+                {
+                  "id": "IDEA-1023",
+                  "title": "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+                  "submitter": "مصطفى كامل",
+                  "date": "22 أغسطس 2026",
+                  "similarity": 78
+                }
+              ]
+            },
+            "executionPlan": {
+              "label": "هل الفكرة ضمن خطة التنفيذ؟",
+              "statusText": "هذه الفكرة غير مدرجة ضمن أي مشروع حالي"
+            },
+            "mergeSuggestion": {
+              "label": "هل يمكن دمج الفكرة؟",
+              "canMerge": true,
+              "items": [
+                {
+                  "id": "IDEA-1023",
+                  "title": "حاوية ذكية لإعادة التدوير باستخدام حساسات",
+                  "department": "قطاع البيئة",
+                  "similarity": 78
+                },
+                {
+                  "id": "IDEA-1023",
+                  "title": "حاوية ذكية لإعادة التدوير باستخدام حساسات",
+                  "department": "قطاع البيئة",
+                  "similarity": 78
+                },
+                {
+                  "id": "IDEA-1023",
+                  "title": "حاوية ذكية لإعادة التدوير باستخدام حساسات",
+                  "department": "قطاع البيئة",
+                  "similarity": 78
+                }
+              ]
+            }
+          }
         },
         {
           "key": "evaluation",
