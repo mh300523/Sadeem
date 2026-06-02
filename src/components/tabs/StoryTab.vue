@@ -33,11 +33,11 @@ function togglePlay() {
       <div class="sidebar-container relative">
         <!-- Audio Player Card -->
         <div class="rounded-[24px]">
-          <h3
+          <h2
             class="text-transparent bg-clip-text rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35] uppercase tracking-wider font-bold text-xl mb-4"
           >
             {{ storyData.intro?.label }}
-          </h3>
+          </h2>
 
           <!-- Premium Wave Audio Player UI -->
           <div
@@ -101,9 +101,7 @@ function togglePlay() {
 
         <!-- Features checklist card -->
         <div class="">
-          <h4
-            class="py-4 px-5 rounded-2xl rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#FF8E53] to-[#FF6B35] text-white font-medium mb-4"
-          >
+          <h4 class="gradient-title-orange">
             {{ sidebarData.features?.title }}
           </h4>
 
@@ -137,7 +135,9 @@ function togglePlay() {
             >
               {{ step.id }}
             </span>
-            <h4 class="text-white text-xl font-bold flex items-center gap-2">
+            <h4
+              class="text-white text-base md:text-xl font-bold flex items-center gap-2"
+            >
               {{ step.title }}
               <span class="text-white/50 text-xs font-normal leading-relaxed">
                 ({{ step.subtitle }})
@@ -233,21 +233,5 @@ function togglePlay() {
 
 .animate-wave-bar {
   animation: wave 1.2s ease-in-out infinite;
-}
-.sidebar-container {
-  z-index: 1;
-}
-.sidebar-container::before {
-  content: "";
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  background-image: url("@/assets/images/icons/robot.svg");
-  position: absolute;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
-html[dir="ltr"] .sidebar-container::before {
-  transform: rotateY(180deg);
 }
 </style>
