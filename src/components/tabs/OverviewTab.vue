@@ -4,11 +4,12 @@ import OwnerCard from "@/components/tabsBlocks/OwnerCard.vue";
 import BaseTagList from "@/components/ui/BaseTagList.vue";
 import AttachmentsList from "@/components/tabsBlocks/AttachmentsList.vue";
 import DetailsGrid from "@/components/tabsBlocks/DetailsGrid.vue";
+import BaseBox from "@/components/ui/BaseBox.vue";
 
 const props = defineProps({
   data: {
     type: Object,
-    default: () => ({ sidebar: {}, overview: {} }),
+    default: () => ({}),
   },
 });
 
@@ -21,9 +22,7 @@ const overviewData = computed(() => props.data?.overview ?? {});
     <!-- Right Content Area -->
     <div class="lg:col-span-9">
       <!-- Idea Explanation Card -->
-      <div
-        class="border border-white/10 rounded-[20px] p-6 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30 backdrop-blur-xl mb-6"
-      >
+      <BaseBox class="rounded-[20px] p-6 mb-6 white-border">
         <h3 class="text-xs text-white-50 uppercase tracking-wider mb-1">
           {{ overviewData.explanation?.label }}
         </h3>
@@ -32,16 +31,14 @@ const overviewData = computed(() => props.data?.overview ?? {});
         >
           {{ overviewData.explanation?.text }}
         </p>
-      </div>
+      </BaseBox>
 
       <!-- Idea Details Grid -->
       <DetailsGrid :data="overviewData.details" />
     </div>
     <!-- Left Sidebar (Presenter and Team Details) -->
     <div class="lg:col-span-3">
-      <div
-        class="border border-white/10 rounded-[20px] p-3 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30 backdrop-blur-xl"
-      >
+      <BaseBox class="rounded-[20px] p-3 white-border">
         <OwnerCard :data="sidebarData.owner" />
 
         <!-- Team Members Section -->
@@ -115,7 +112,7 @@ const overviewData = computed(() => props.data?.overview ?? {});
             {{ sidebarData.readiness?.value }}
           </span>
         </div>
-      </div>
+      </BaseBox>
 
       <AttachmentsList
         :label="sidebarData.attachments?.label || ''"

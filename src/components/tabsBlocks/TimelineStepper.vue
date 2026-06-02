@@ -1,5 +1,6 @@
 <script setup>
 import SvgIcon from "@/components/ui/SvgIcon.vue";
+import BaseBox from "@/components/ui/BaseBox.vue";
 
 defineProps({
   title: {
@@ -32,8 +33,8 @@ defineProps({
         </div>
 
         <!-- Card -->
-        <div
-          class="step-card relative z-10 ms-2 rounded-xl border border-white/16 backdrop-blur-xl p-3 rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#1E293B]/70 to-[#1E293B]/30"
+        <BaseBox
+          class="step-card white-border relative z-10 ms-2 rounded-xl p-3"
         >
           <h4 class="mb-2 text-white">
             {{ step.title }}
@@ -42,7 +43,7 @@ defineProps({
           <p class="text-white/50">
             {{ step.description }}
           </p>
-        </div>
+        </BaseBox>
       </div>
     </div>
   </div>

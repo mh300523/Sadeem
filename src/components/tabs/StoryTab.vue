@@ -2,15 +2,12 @@
 import { computed, ref } from "vue";
 import BaseTagList from "@/components/ui/BaseTagList.vue";
 import TimelineStepper from "@/components/tabsBlocks/TimelineStepper.vue";
+import BaseBox from "@/components/ui/BaseBox.vue";
 
 const props = defineProps({
   data: {
     type: Object,
-    default: () => ({
-      intro: {},
-      timeline: [],
-      sidebar: { journey: {}, features: {} },
-    }),
+    default: () => ({}),
   },
 });
 
@@ -33,9 +30,7 @@ function togglePlay() {
       <div class="sidebar-container relative">
         <!-- Audio Player Card -->
         <div class="rounded-[24px]">
-          <h2
-            class="text-transparent bg-clip-text rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35] uppercase tracking-wider font-bold text-xl mb-4"
-          >
+          <h2 class="sidebar-gradient-title">
             {{ storyData.intro?.label }}
           </h2>
 
@@ -120,10 +115,10 @@ function togglePlay() {
     <!-- Main Story Timeline Column -->
     <div class="lg:col-span-9">
       <!-- Timeline Steps -->
-      <div
+      <BaseBox
         v-for="step in storyData.timeline"
         :key="step.id"
-        class="border border-white/10 backdrop-blur-xl p-6 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/70 to-[#1E293B]/30 rounded-2xl mb-6 last:mb-0"
+        class="white-border p-6 rounded-2xl mb-6 last:mb-0"
       >
         <!-- Step content card -->
         <div class="">
@@ -155,7 +150,7 @@ function togglePlay() {
           <!-- Sammy Card -->
           <div
             v-if="step.card && step.card.type === 'sammy'"
-            class="flex items-center gap-4.5 py-[30px] px-5 rounded-2xl border border-white/10 bg-[url('@/assets/images/sammy-card-bg.png')] bg-cover bg-center bg-no-repeat mt-4"
+            class="flex items-center gap-4.5 py-[30px] px-5 rounded-2xl white-border bg-[url('@/assets/images/sammy-card-bg.png')] bg-cover bg-center bg-no-repeat mt-4"
           >
             <div
               class="w-[100px] h-[100px] rounded-full rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#0A2A40] to-[#1B4D72] backdrop-blur-xl text-white flex items-center justify-center shrink-0 font-bold text-[22px] shadow-md"
@@ -176,7 +171,7 @@ function togglePlay() {
           <!-- Quote Card -->
           <div
             v-else-if="step.card && step.card.type === 'quote'"
-            class="mt-[14px] mb-6 p-7 rounded-2xl border border-white/10 bg-[url('@/assets/images/quote-bg.png')] bg-cover bg-top bg-no-repeat mt-2 text-center"
+            class="mt-[14px] mb-6 p-7 rounded-2xl white-border bg-[url('@/assets/images/quote-bg.png')] bg-cover bg-top bg-no-repeat mt-2 text-center"
           >
             <h3 class="text-white text-lg md:text-xl font-bold">
               {{ step.card.title }}
@@ -215,7 +210,7 @@ function togglePlay() {
             </div>
           </div>
         </div>
-      </div>
+      </BaseBox>
     </div>
   </div>
 </template>

@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from "@headlessui/vue";
+import BaseBox from "@/components/ui/BaseBox.vue";
 
 import { getTabComponent, getTabIconPath } from "@/registry/tabRegistry";
 import SvgIcon from "@/components/ui/SvgIcon.vue";
@@ -75,12 +76,12 @@ function handleTabChange(index) {
       </TabList>
     </div>
 
-    <TabPanels
-      class="border border-white/10 rounded-[20px] p-6 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30"
-    >
-      <TabPanel v-for="tab in resolvedTabs" :key="tab.key" :unmount="true">
-        <component :is="tab.component" :data="tab.data" />
-      </TabPanel>
+    <TabPanels>
+      <BaseBox class="rounded-[20px] p-6 white-border">
+        <TabPanel v-for="tab in resolvedTabs" :key="tab.key" :unmount="true">
+          <component :is="tab.component" :data="tab.data" />
+        </TabPanel>
+      </BaseBox>
     </TabPanels>
   </TabGroup>
 </template>

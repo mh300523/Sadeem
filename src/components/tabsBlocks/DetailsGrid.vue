@@ -1,22 +1,16 @@
 <script setup>
 import BaseTagList from "@/components/ui/BaseTagList.vue";
+import BaseBox from "@/components/ui/BaseBox.vue";
 defineProps({
   data: {
     type: Object,
-    default: () => ({
-      label: "",
-      items: [],
-      requirements: { label: "", items: [] },
-      outputs: { label: "", items: [] },
-    }),
+    default: () => ({}),
   },
 });
 </script>
 
 <template>
-  <div
-    class="border border-white/10 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30 backdrop-blur-xl rounded-2xl overflow-hidden"
-  >
+  <BaseBox class="white-border rounded-2xl overflow-hidden">
     <!-- Header Bar Title Banner -->
     <div
       class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4] via-[#3B82F6] to-[#7F4FFF] text-white py-3 px-6 font-bold text-base"
@@ -59,5 +53,5 @@ defineProps({
         }"
       />
     </div>
-  </div>
+  </BaseBox>
 </template>
