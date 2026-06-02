@@ -15,10 +15,7 @@ defineProps({
 
 <template>
   <div class="py-3">
-    <h4
-      v-if="title"
-      class="py-4 px-5 rounded-2xl rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#FF8E53] to-[#FF6B35] text-white font-medium mb-4"
-    >
+    <h4 v-if="title" class="gradient-title-orange">
       {{ title }}
     </h4>
 
@@ -27,16 +24,16 @@ defineProps({
       <div
         v-for="(step, idx) in steps"
         :key="idx"
-        class="relative mb-5 last:mb-0 step-wrapper"
+        class="relative mb-5 last:mb-0 step-wrapper flex"
       >
         <!-- Icon -->
-        <div class="absolute start-0 top-6 z-10 rounded-full bg-[#1B2A52]">
+        <div class="step-icon relative mt-5 w-6 shrink-0 flex justify-center">
           <SvgIcon :name="step.icon" />
         </div>
 
         <!-- Card -->
         <div
-          class="step-card relative z-10 ms-6 rounded-xl border border-white/16 backdrop-blur-xl p-3 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/70 to-[#1E293B]/30"
+          class="step-card relative z-10 ms-2 rounded-xl border border-white/16 backdrop-blur-xl p-3 rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#1E293B]/70 to-[#1E293B]/30"
         >
           <h4 class="mb-2 text-white">
             {{ step.title }}
@@ -52,14 +49,15 @@ defineProps({
 </template>
 
 <style scoped>
-.step-wrapper:not(:last-child)::before {
+.step-wrapper:not(:last-of-type) .step-icon::after {
   content: "";
   position: absolute;
   width: 1px;
-  height: calc(100% - 1.5rem);
+  height: 100%;
   border-inline-end: 1px dashed white;
-  top: 55px;
-  inset-inline-start: 5px;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%, -50%);
 }
 .step-card {
   position: relative;

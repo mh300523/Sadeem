@@ -106,7 +106,7 @@ const overviewData = computed(() => props.data?.overview ?? {});
 
         <!-- Readiness Level Section -->
         <div class="flex items-center justify-between py-3">
-          <span class="text-white/50 text-xs tracking-wide uppercase mb-3">
+          <span class="text-white/50 text-xs tracking-wide uppercase">
             {{ sidebarData.readiness?.label }}
           </span>
           <span
