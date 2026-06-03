@@ -60,7 +60,7 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
             class="gradient-border p-4 rtl:bg-gradient-to-bl ltr:bg-gradient-to-br from-[#895AF7]/30 via-[#06B6D4]/0 to-[#503591]/0"
           >
             <div
-              class="text-transparent bg-clip-text rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4] via-[#3B82F6] to-[#7F4FFF] text-3xl font-extrabold mb-1 italic"
+              class="text-transparent bg-clip-text gradient-purple text-3xl font-extrabold mb-1 italic"
             >
               {{ stat.value }}
             </div>
@@ -91,9 +91,7 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
         class="white-border rounded-2xl backdrop-blur-xl mt-6 overflow-hidden"
       >
         <!-- Banner Header -->
-        <div
-          class="py-4 px-6 rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4] via-[#3B82F6] to-[#7F4FFF] text-white"
-        >
+        <div class="py-4 px-6 gradient-purple text-white">
           <h3 class="text-base md:text-xl font-bold leading-normal mb-2">
             {{ businessData.canvas.title }}
           </h3>

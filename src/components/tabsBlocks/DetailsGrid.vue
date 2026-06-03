@@ -12,9 +12,7 @@ defineProps({
 <template>
   <BaseBox class="white-border rounded-2xl overflow-hidden">
     <!-- Header Bar Title Banner -->
-    <div
-      class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4] via-[#3B82F6] to-[#7F4FFF] text-white py-3 px-6 font-bold text-base"
-    >
+    <div class="gradient-purple text-white py-3 px-6 font-bold text-base">
       {{ data.label }}
     </div>
 

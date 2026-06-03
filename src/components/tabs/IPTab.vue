@@ -1,7 +1,6 @@
 <script setup>
 import { computed, ref } from "vue";
 import BaseBox from "@/components/ui/BaseBox.vue";
-import SvgIcon from "@/components/ui/SvgIcon.vue";
 import IpSummaryRow from "@/components/tabsBlocks/IpSummaryRow.vue";
 
 const props = defineProps({
@@ -24,49 +23,43 @@ function selectRecommendation(stepId) {
 <template>
   <div v-if="tabData.sidebar" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
     <!-- Right Main Column (First in HTML so it floats right on RTL) -->
-    <div class="lg:col-span-9 flex flex-col gap-6">
+    <div class="lg:col-span-9">
       <!-- 1. Degree of IP Card -->
       <BaseBox
         v-if="tabData.scoreCard"
-        class="rounded-[20px] p-6 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-right"
+        class="gradient-border mb-[14px] py-6 px-10"
       >
         <!-- Title and Icon Badge -->
         <div class="flex items-center gap-3">
-          <span
-            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30 text-xs md:text-sm font-bold shadow-[0_0_10px_rgba(16,185,129,0.05)]"
-          >
-            <span>★</span>
-            <span>{{ tabData.scoreCard.scoreLabel }}</span>
-          </span>
-          <h3 class="text-white text-base md:text-lg font-bold">
+          <h3 class="text-white text-sm md:text-base font-medium">
             {{ tabData.scoreCard.title }}
           </h3>
+          <!-- Glow Score Badge -->
+          <span class="badge-percentage">
+            {{ tabData.scoreCard.maxScore }} / {{ tabData.scoreCard.score }}
+          </span>
         </div>
-
-        <!-- Glow Score Badge -->
         <div
-          class="px-5 py-2.5 rounded-full bg-gradient-to-l from-[#018AAF]/20 to-[#7F4FFF]/20 border border-[#018AAF]/50 text-white text-base md:text-lg font-bold shadow-[0_0_15px_rgba(1,138,175,0.3)]"
+          class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#018AAF] text-white text-xs md:text-sm mt-[14px]"
         >
-          {{ tabData.scoreCard.score }} / {{ tabData.scoreCard.maxScore }}
+          <span>{{ tabData.scoreCard.scoreLabel }} ⭐</span>
         </div>
       </BaseBox>
 
       <!-- 2. IP Analysis Summary Box -->
       <div
         v-if="tabData.summaryCard"
-        class="rounded-[20px] border border-white/10 overflow-hidden bg-[#1E293B]/40 backdrop-blur-xl"
+        class="rounded-[20px] border border-[#06B6D4]/42 overflow-hidden bg-[#1E293B]/40 backdrop-blur-xl"
       >
         <!-- Banner Header (Cyan to Purple Gradient) -->
-        <div
-          class="py-4.5 px-6 bg-gradient-to-l from-[#7F4FFF] via-[#3B82F6] to-[#06B6D4] text-white text-right"
-        >
-          <h3 class="text-base md:text-lg font-bold leading-normal">
+        <div class="gradient-purple py-8 px-7 text-white text-right">
+          <h3 class="text-base md:text-xl font-bold leading-normal">
             {{ tabData.summaryCard.title }}
           </h3>
         </div>
 
         <!-- Summary rows list -->
-        <div class="p-6 flex flex-col gap-4">
+        <div class="p-6">
           <IpSummaryRow
             v-for="(row, idx) in tabData.summaryCard.rows"
             :key="idx"
