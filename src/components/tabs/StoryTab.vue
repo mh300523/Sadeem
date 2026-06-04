@@ -96,16 +96,14 @@ function togglePlay() {
 
         <!-- Features checklist card -->
         <div class="">
-          <h4
-            class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
-          >
+          <h4 class="sidebar-gradient-title">
             {{ sidebarData.features?.title }}
           </h4>
 
           <BaseTagList
             v-if="sidebarData.features?.items?.length"
             :items="sidebarData.features.items"
-            class="rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30] rounded-xl overflow-hidden p-[14px] backdrop-blur-xl border border-white/6"
+            class="rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B] to-[#1E293B] rounded-xl overflow-hidden p-[14px] backdrop-blur-xl border border-white/6"
             :classes="{
               pill: 'bg-[#06B6D4]/10 text-white/76',
               icon: 'border-[#06B6D4] text-[#06B6D4]',

@@ -57,7 +57,7 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
           <div
             v-for="(stat, idx) in businessData.interactiveExperience.stats"
             :key="idx"
-            class="gradient-border p-4 rtl:bg-gradient-to-bl ltr:bg-gradient-to-br from-[#895AF7]/30 via-[#06B6D4]/0 to-[#503591]/0"
+            class="gradient-border p-4 rtl:bg-gradient-to-bl ltr:bg-gradient-to-br from-[#895AF7]/30 via-[#06B6D4]/10 to-[#503591]/0 backdrop-blur-xl"
           >
             <div
               class="text-transparent bg-clip-text gradient-purple text-3xl font-extrabold mb-1 italic"

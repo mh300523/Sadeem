@@ -11,11 +11,16 @@ defineProps({
     type: Array,
     default: () => [],
   },
+  variant: {
+    type: String,
+    default: "icon", // 'icon' or 'dot'
+  },
 });
 </script>
 
 <template>
   <div class="py-3">
+    <!-- Optional Title Header -->
     <h4
       v-if="title"
       class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
@@ -30,23 +35,33 @@ defineProps({
         :key="idx"
         class="relative mb-5 last:mb-0 step-wrapper flex"
       >
-        <!-- Icon -->
-        <div class="step-icon relative mt-5 w-6 shrink-0 flex justify-center">
-          <SvgIcon :name="step.icon" />
+        <!-- Bullet element (Icon or Dot) -->
+        <div
+          class="step-icon relative mt-5 w-6 flex justify-center shrink-0"
+          :style="{ '--bullet-height': variant === 'dot' ? '12px' : '24px' }"
+        >
+          <span
+            v-if="variant === 'dot'"
+            class="w-3 h-3 rounded-full bg-[#FF6B35]"
+          ></span>
+          <SvgIcon v-else :name="step.icon" />
         </div>
 
-        <!-- Card -->
-        <BaseBox
-          class="step-card white-border relative z-10 ms-2 rounded-xl p-3"
-        >
-          <h4 class="mb-2 text-white">
-            {{ step.title }}
-          </h4>
-
-          <p class="text-white/50">
-            {{ step.description }}
-          </p>
-        </BaseBox>
+        <!-- Card Slot / Default Card fallback -->
+        <div class="flex-1 ms-2">
+          <slot name="card" :step="step" :index="idx">
+            <BaseBox
+              class="step-card white-border relative z-10 rounded-xl p-3"
+            >
+              <h4 class="mb-2 text-white text-sm md:text-base">
+                {{ step.title }}
+              </h4>
+              <p class="text-white/50 text-xs md:text-sm">
+                {{ step.description }}
+              </p>
+            </BaseBox>
+          </slot>
+        </div>
       </div>
     </div>
   </div>
@@ -57,11 +72,11 @@ defineProps({
   content: "";
   position: absolute;
   width: 1px;
-  height: 100%;
+  height: calc(100% + 28px - var(--bullet-height));
   border-inline-end: 1px dashed white;
-  top: 28px;
+  top: calc(var(--bullet-height) + 6px);
   left: 50%;
-  transform: translateX(-50%, -50%);
+  transform: translateX(-50%);
 }
 .step-card {
   position: relative;

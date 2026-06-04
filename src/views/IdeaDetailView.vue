@@ -126,14 +126,12 @@ const tabsList = computed(() => {
         >
           <!-- Invite Evaluator Button -->
           <BaseButton
-            class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#FF6B35] to-[#FF8E53] text-white shadow-[0_30px_30px_0_rgba(255,107,53,0.3)]"
+            class="gradient-orange text-white shadow-[0_30px_30px_0_rgba(255,107,53,0.3)]"
           >
             {{ $t("details.invite_evaluator") }}
           </BaseButton>
           <!-- Start Evaluation Button -->
-          <BaseButton
-            class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#018AAF] to-[#7F4FFF] text-white shadow-[0_5px_15px_0_rgba(1,138,175,0.3)]"
-          >
+          <BaseButton class="gradient-purple text-white shadow-lg">
             {{ $t("details.start_evaluation") }}
           </BaseButton>
 

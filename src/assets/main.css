@@ -3,6 +3,7 @@
 
 .sidebar-container {
   z-index: 1;
+  position: relative;
 }
 .sidebar-container::before {
   content: "";

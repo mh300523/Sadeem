@@ -1,5 +1,6 @@
 <script setup>
 import BaseBox from "@/components/ui/BaseBox.vue";
+import SvgIcon from "@/components/ui/SvgIcon.vue";
 defineProps({
   row: {
     type: Object,
@@ -45,7 +46,7 @@ defineProps({
       </div>
 
       <!-- 4. SLIDER MODE -->
-      <div v-else-if="row.type === 'slider'" class="w-full max-w-[360x]">
+      <div v-else-if="row.type === 'slider'" class="w-full max-w-[360x] pb-10">
         <!-- The Custom Striped Slider -->
         <div class="relative h-7.5 bg-white/5 gradient-border p-2 rounded-full">
           <!-- Striped Progress Fill -->
@@ -53,26 +54,31 @@ defineProps({
             class="relative w-full h-full rounded-full bg-gradient-to-l from-[#273448] to-[#132135]"
           >
             <span
-              class="striped-track absolute top-0 right-0 h-full rounded-full"
+              class="absolute inset-y-0 striped-track inline-block h-full rounded-full"
               :style="{ width: `${row.sliderVal}%` }"
-            ></span>
+            >
+              <!-- Thumb -->
+              <span
+                class="absolute w-3 h-3 bg-white rounded-full end-0 top-1/2 -translate-y-1/2 shadow-md cursor-pointer"
+              ></span>
+            </span>
           </div>
-          <!-- Thumb -->
-          <div
-            class="absolute w-3 h-3 bg-white rounded-full top-1/2 -translate-y-1/2 -translate-x-1/2 shadow-md cursor-pointer"
-            :style="{ insetInlineStart: `${row.sliderVal}%` }"
-          ></div>
 
           <!-- Slider Status Label (e.g. عالي with Red Dot) -->
           <div
-            class="flex items-center gap-1.5 mt-1 text-[11px] font-bold text-white absolute top-full -translate-x-1/2"
-            :style="{ insetInlineStart: `${row.sliderVal}%` }"
+            class="absolute top-[calc(100%+4px)] ltr:-translate-x-1/2 rtl:translate-x-1/2 flex flex-col items-center"
+            :style="{ insetInlineStart: `calc(${row.sliderVal}% - 10px)` }"
           >
-            <span>{{ row.value }}</span>
+            <SvgIcon name="caret" />
             <span
-              class="w-2 h-2 block rounded-full"
-              :class="row.dotColor || 'bg-red-500'"
-            ></span>
+              class="flex items-center gap-1.5 bg-[#FB3748]/10 px-2 py-1 rounded-full text-white mt-1"
+            >
+              <span>{{ row.value }}</span>
+              <span
+                class="w-2 h-2 inline-block rounded-full"
+                :class="row.dotColor || 'bg-red-500'"
+              ></span>
+            </span>
           </div>
         </div>
       </div>

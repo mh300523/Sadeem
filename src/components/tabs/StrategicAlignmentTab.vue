@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import BaseBox from "@/components/ui/BaseBox.vue";
+import TimelineStepper from "@/components/tabsBlocks/TimelineStepper.vue";
 
 const props = defineProps({
   data: {
@@ -77,7 +78,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
     </div>
     <!-- Sidebar Column (Right in RTL, Left in LTR) -->
     <BaseBox class="lg:col-span-3 white-border rounded-2xl">
-      <div class="sidebar-container relative px-[14px] py-5">
+      <div class="sidebar-container px-[14px] py-5">
         <!-- Intro Card with Astronaut -->
         <div class="mb-[14px]">
           <h2 class="sidebar-gradient-title">
@@ -89,49 +90,45 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
         </div>
 
         <!-- Global Innovation Index (GII) Card -->
-        <div class="">
-          <h4
-            class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
-          >
-            {{ sidebarData.gii.title }}
-          </h4>
-
-          <div class="">
-            <!-- Stat 1 with Percentage -->
+        <TimelineStepper
+          v-if="sidebarData.gii"
+          :title="sidebarData.gii.title"
+          :steps="sidebarData.gii.stats || []"
+          variant="dot"
+        >
+          <template #card="{ step, index }">
             <div
-              v-if="sidebarData.gii.stats?.[0]"
-              class="gradient-border p-3 rtl:bg-gradient-to-bl ltr:bg-gradient-to-br from-[#895AF7]/30 via-[#06B6D4]/10 to-[#503591]/0 mb-2"
+              class="gradient-border p-3 flex-1 rtl:bg-gradient-to-bl ltr:bg-gradient-to-br from-[#895AF7]/30 via-[#06B6D4]/10 to-[#503591]/0 backdrop-blur-xl rounded-xl"
             >
-              <h5 class="text-white/76 text-xs leading-none mb-2">
-                {{ sidebarData.gii.stats[0].label }}
-              </h5>
-              <div class="flex items-baseline gap-1.5">
-                <span
-                  class="text-transparent bg-clip-text gradient-purple text-3xl font-extrabold mb-1 italic"
-                >
-                  {{ sidebarData.gii.stats[0].value }}
-                </span>
-                <span class="text-white text-xs md:text-sm leading-relaxed">
-                  {{ sidebarData.gii.stats[0].badge }}
-                </span>
-              </div>
-            </div>
+              <!-- Stat 1 with Percentage -->
+              <template v-if="index === 0">
+                <h5 class="text-white/76 text-xs leading-none mb-2">
+                  {{ step.label }}
+                </h5>
+                <div class="flex items-baseline gap-1.5">
+                  <span
+                    class="text-transparent bg-clip-text gradient-purple text-3xl font-extrabold mb-1 italic"
+                  >
+                    {{ step.value }}
+                  </span>
+                  <span class="text-white text-xs md:text-sm leading-relaxed">
+                    {{ step.badge }}
+                  </span>
+                </div>
+              </template>
 
-            <!-- Other GII items -->
-            <div
-              v-for="(item, idx) in sidebarData.gii.stats?.slice(1)"
-              :key="idx"
-              class="gradient-border p-3 mb-2 rtl:bg-gradient-to-bl ltr:bg-gradient-to-br from-[#895AF7]/30 via-[#06B6D4]/10 to-[#503591]/0"
-            >
-              <h5 class="text-white/76 text-xs leading-normal mb-2">
-                {{ item.label }}:
-              </h5>
-              <p class="text-white text-xs md:text-sm leading-relaxed">
-                {{ item.text }}
-              </p>
+              <!-- Other GII items -->
+              <template v-else>
+                <h5 class="text-white/76 text-xs leading-normal mb-2">
+                  {{ step.label }}:
+                </h5>
+                <p class="text-white text-xs md:text-sm leading-relaxed">
+                  {{ step.text }}
+                </p>
+              </template>
             </div>
-          </div>
-        </div>
+          </template>
+        </TimelineStepper>
 
         <!-- Final Summary Card -->
         <div class="">
