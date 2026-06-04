@@ -16,7 +16,10 @@ defineProps({
 
 <template>
   <div class="py-3">
-    <h4 v-if="title" class="gradient-title-orange">
+    <h4
+      v-if="title"
+      class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
+    >
       {{ title }}
     </h4>
 

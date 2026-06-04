@@ -39,9 +39,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
 
             <div class="flex items-center gap-2 shrink-0">
               <!-- Percentage badge -->
-              <span
-                class="px-2 py-1 rounded-full rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35] text-white shadow-sm"
-              >
+              <span class="badge-percentage">
                 {{ strategy.percentage }}
               </span>
 
@@ -92,7 +90,9 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
 
         <!-- Global Innovation Index (GII) Card -->
         <div class="">
-          <h4 class="gradient-title-orange">
+          <h4
+            class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
+          >
             {{ sidebarData.gii.title }}
           </h4>
 
@@ -107,7 +107,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
               </h5>
               <div class="flex items-baseline gap-1.5">
                 <span
-                  class="text-transparent bg-clip-text rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4] via-[#3B82F6] to-[#7F4FFF] text-3xl font-extrabold mb-1 italic"
+                  class="text-transparent bg-clip-text gradient-purple text-3xl font-extrabold mb-1 italic"
                 >
                   {{ sidebarData.gii.stats[0].value }}
                 </span>
@@ -135,7 +135,9 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
 
         <!-- Final Summary Card -->
         <div class="">
-          <h4 class="gradient-title-orange">
+          <h4
+            class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
+          >
             {{ sidebarData.summary.title }}
           </h4>
 

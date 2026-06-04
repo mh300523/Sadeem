@@ -1,4 +1,5 @@
 <script setup>
+import BaseBox from "@/components/ui/BaseBox.vue";
 defineProps({
   row: {
     type: Object,
@@ -8,77 +9,75 @@ defineProps({
 </script>
 
 <template>
-  <div
-    class="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl border border-white/6 bg-white/2 hover:border-white/10 hover:bg-white/4 transition-all duration-300 gap-3 text-right"
+  <BaseBox
+    class="gradient-border mb-[14px] last:mb-0 flex flex-col sm:flex-row sm:items-center justify-between px-9 py-8 rounded-[20px]"
   >
     <!-- Right side (in RTL): Row Label -->
-    <h4 class="text-white text-xs md:text-sm font-medium leading-none">
+    <h4 class="text-white text-xs md:text-sm font-medium leading-none flex-1">
       {{ row.label }}
     </h4>
 
     <!-- Left side (in RTL): Row Value Badge/Slider -->
-    <div class="flex items-center justify-end">
-      <!-- 1. BADGE MODE -->
+    <div class="flex-1 flex justify-end">
+      <!-- 1. level MODE -->
       <div
-        v-if="row.type === 'badge'"
-        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white/5 border border-white/10 text-white text-xs md:text-sm font-semibold"
+        v-if="row.type === 'level'"
+        class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[#F1E10A]/10 text-[#7F8C8D] text-xs md:text-sm"
       >
         <span
           class="w-2.5 h-2.5 rounded-full"
-          :class="row.dotColor || 'bg-yellow-400'"
+          :class="row.dotColor || 'bg-[#F1E10A]'"
         ></span>
         <span>{{ row.value }}</span>
       </div>
 
-      <!-- 2. TEXT CYAN MODE -->
+      <!-- 2. security type -->
       <span
-        v-else-if="row.type === 'text-cyan'"
-        class="text-[#009DFE] font-bold text-xs md:text-sm"
+        v-else-if="row.type === 'security'"
+        class="text-[#018AAF] bg-[#018AAF]/10 rounded-full px-3 py-2 text-xs md:text-sm"
       >
         {{ row.value }}
       </span>
 
-      <!-- 3. BLUE PILL MODE -->
-      <div
-        v-else-if="row.type === 'blue-pill'"
-        class="px-4 py-1.5 rounded-full bg-[#018AAF]/20 border border-[#018AAF]/50 text-white text-xs md:text-sm font-bold shadow-[0_0_12px_rgba(1,138,175,0.25)]"
-      >
+      <!-- 3. degree MODE -->
+      <div v-else-if="row.type === 'degree'" class="badge-percentage">
         {{ row.value }}
       </div>
 
       <!-- 4. SLIDER MODE -->
-      <div
-        v-else-if="row.type === 'slider'"
-        class="flex flex-col items-end gap-1.5 w-full max-w-[200px]"
-      >
+      <div v-else-if="row.type === 'slider'" class="w-full max-w-[360x]">
         <!-- The Custom Striped Slider -->
-        <div
-          class="relative w-44 h-3 bg-white/5 border border-white/10 rounded-full overflow-visible"
-        >
+        <div class="relative h-7.5 bg-white/5 gradient-border p-2 rounded-full">
           <!-- Striped Progress Fill -->
           <div
-            class="absolute top-0 bottom-0 right-0 rounded-full striped-track"
-            :style="{ width: `${row.sliderVal || 78}%` }"
-          ></div>
+            class="relative w-full h-full rounded-full bg-gradient-to-l from-[#273448] to-[#132135]"
+          >
+            <span
+              class="striped-track absolute top-0 right-0 h-full rounded-full"
+              :style="{ width: `${row.sliderVal}%` }"
+            ></span>
+          </div>
           <!-- Thumb -->
           <div
-            class="absolute w-4 h-4 bg-white rounded-full border-2 border-[#FF6B35] top-1/2 right-[78%] -translate-y-1/2 translate-x-1/2 shadow-[0_0_8px_rgba(255,107,53,0.6)] cursor-pointer"
+            class="absolute w-3 h-3 bg-white rounded-full top-1/2 -translate-y-1/2 -translate-x-1/2 shadow-md cursor-pointer"
+            :style="{ insetInlineStart: `${row.sliderVal}%` }"
           ></div>
-        </div>
 
-        <!-- Slider Status Label (e.g. عالي with Red Dot) -->
-        <div
-          class="flex items-center gap-1.5 mt-1 text-[11px] font-bold text-white"
-        >
-          <span>{{ row.value }}</span>
-          <span
-            class="w-2 h-2 rounded-full"
-            :class="row.dotColor || 'bg-red-500'"
-          ></span>
+          <!-- Slider Status Label (e.g. عالي with Red Dot) -->
+          <div
+            class="flex items-center gap-1.5 mt-1 text-[11px] font-bold text-white absolute top-full -translate-x-1/2"
+            :style="{ insetInlineStart: `${row.sliderVal}%` }"
+          >
+            <span>{{ row.value }}</span>
+            <span
+              class="w-2 h-2 block rounded-full"
+              :class="row.dotColor || 'bg-red-500'"
+            ></span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </BaseBox>
 </template>
 
 <style scoped>

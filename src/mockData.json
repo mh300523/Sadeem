@@ -592,8 +592,16 @@
               "recommendations": {
                 "label": "التوصية التالية",
                 "steps": [
-                  { "id": 1, "title": "تقديم طلب براءة اختراع", "active": true },
-                  { "id": 2, "title": "استشارة محامي ملكية فكرية", "active": false },
+                  {
+                    "id": 1,
+                    "title": "تقديم طلب براءة اختراع",
+                    "active": true
+                  },
+                  {
+                    "id": 2,
+                    "title": "استشارة محامي ملكية فكرية",
+                    "active": false
+                  },
                   { "id": 3, "title": "إجراء بحث براءات", "active": false }
                 ]
               },
@@ -660,37 +668,102 @@
                   "key": "basic_classification",
                   "label": "التصنيف الأساسي",
                   "options": [
-                    { "value": "improvement", "label": "تحسيني", "selected": false, "active": true },
-                    { "value": "breakthrough", "label": "خارق", "selected": true, "active": true },
-                    { "value": "disruptive", "label": "مزعزع", "selected": false, "active": false },
-                    { "value": "transformational", "label": "تحويلي", "selected": false, "active": false }
+                    {
+                      "value": "improvement",
+                      "label": "تحسيني",
+                      "selected": false,
+                      "active": true
+                    },
+                    {
+                      "value": "breakthrough",
+                      "label": "خارق",
+                      "selected": true,
+                      "active": true
+                    },
+                    {
+                      "value": "disruptive",
+                      "label": "مزعزع",
+                      "selected": false,
+                      "active": false
+                    },
+                    {
+                      "value": "transformational",
+                      "label": "تحويلي",
+                      "selected": false,
+                      "active": false
+                    }
                   ]
                 },
                 {
                   "key": "time_horizon",
                   "label": "الأفق الزمني",
                   "options": [
-                    { "value": "H1", "label": "قصير المدى: H1", "selected": false, "active": false },
-                    { "value": "H2", "label": "متوسط: H2", "selected": true, "active": true },
-                    { "value": "H3", "label": "طويل: H3", "selected": false, "active": false }
+                    {
+                      "value": "H1",
+                      "label": "قصير المدى: H1",
+                      "selected": false,
+                      "active": false
+                    },
+                    {
+                      "value": "H2",
+                      "label": "متوسط: H2",
+                      "selected": true,
+                      "active": true
+                    },
+                    {
+                      "value": "H3",
+                      "label": "طويل: H3",
+                      "selected": false,
+                      "active": false
+                    }
                   ]
                 },
                 {
                   "key": "complexity",
                   "label": "مستوى التعقيد",
                   "options": [
-                    { "value": "low", "label": "منخفض", "selected": false, "active": false },
-                    { "value": "medium", "label": "متوسط", "selected": true, "active": true },
-                    { "value": "high", "label": "مرتفع", "selected": false, "active": false }
+                    {
+                      "value": "low",
+                      "label": "منخفض",
+                      "selected": false,
+                      "active": false
+                    },
+                    {
+                      "value": "medium",
+                      "label": "متوسط",
+                      "selected": true,
+                      "active": true
+                    },
+                    {
+                      "value": "high",
+                      "label": "مرتفع",
+                      "selected": false,
+                      "active": false
+                    }
                   ]
                 },
                 {
                   "key": "risk",
                   "label": "مستوى المخاطر",
                   "options": [
-                    { "value": "low", "label": "منخفض", "selected": true, "active": true },
-                    { "value": "medium", "label": "متوسط", "selected": false, "active": false },
-                    { "value": "high", "label": "مرتفع", "selected": false, "active": false }
+                    {
+                      "value": "low",
+                      "label": "منخفض",
+                      "selected": true,
+                      "active": true
+                    },
+                    {
+                      "value": "medium",
+                      "label": "متوسط",
+                      "selected": false,
+                      "active": false
+                    },
+                    {
+                      "value": "high",
+                      "label": "مرتفع",
+                      "selected": false,
+                      "active": false
+                    }
                   ]
                 }
               ]
@@ -698,12 +771,42 @@
             "innovationPath": {
               "label": "مسار الابتكار",
               "items": [
-                { "key": "pathway1", "title": "المسار 1 - إدامة السوق", "subtitle": "المسار 1 - إدامة السوق (Pathway 1 - Market Perpetuation)", "selected": true },
-                { "key": "pathway2", "title": "المسار 2 - اختراق السوق", "subtitle": "المسار 2 - اختراق السوق (Pathway 2 - Market Penetration)", "selected": false },
-                { "key": "pathway3", "title": "المسار 3 - توسع السوق", "subtitle": "المسار 3 - توسع السوق (Pathway 3 - Market Broadening)", "selected": false },
-                { "key": "pathway4", "title": "المسار 4 - توسع السوق", "subtitle": "المسار 4 - توسع السوق (Pathway 4 - Market Escalation)", "selected": false },
-                { "key": "pathway5", "title": "المسار 5 - توسع السوق", "subtitle": "المسار 5 - توسع السوق (Pathway 5 - Market Expansion)", "selected": false },
-                { "key": "pathway6", "title": "المسار 6 - توسع السوق", "subtitle": "المسار 6 - خلق السوق (Pathway 6 - Market Creation)", "selected": false }
+                {
+                  "key": "pathway1",
+                  "title": "المسار 1 - إدامة السوق",
+                  "subtitle": "المسار 1 - إدامة السوق (Pathway 1 - Market Perpetuation)",
+                  "selected": true
+                },
+                {
+                  "key": "pathway2",
+                  "title": "المسار 2 - اختراق السوق",
+                  "subtitle": "المسار 2 - اختراق السوق (Pathway 2 - Market Penetration)",
+                  "selected": false
+                },
+                {
+                  "key": "pathway3",
+                  "title": "المسار 3 - توسع السوق",
+                  "subtitle": "المسار 3 - توسع السوق (Pathway 3 - Market Broadening)",
+                  "selected": false
+                },
+                {
+                  "key": "pathway4",
+                  "title": "المسار 4 - توسع السوق",
+                  "subtitle": "المسار 4 - توسع السوق (Pathway 4 - Market Escalation)",
+                  "selected": false
+                },
+                {
+                  "key": "pathway5",
+                  "title": "المسار 5 - توسع السوق",
+                  "subtitle": "المسار 5 - توسع السوق (Pathway 5 - Market Expansion)",
+                  "selected": false
+                },
+                {
+                  "key": "pathway6",
+                  "title": "المسار 6 - توسع السوق",
+                  "subtitle": "المسار 6 - خلق السوق (Pathway 6 - Market Creation)",
+                  "selected": false
+                }
               ]
             },
             "duplicateCheck": {
@@ -1277,8 +1380,16 @@
               "recommendations": {
                 "label": "التوصية التالية",
                 "steps": [
-                  { "id": 1, "title": "تقديم طلب براءة اختراع", "active": true },
-                  { "id": 2, "title": "استشارة محامي ملكية فكرية", "active": false },
+                  {
+                    "id": 1,
+                    "title": "تقديم طلب براءة اختراع",
+                    "active": true
+                  },
+                  {
+                    "id": 2,
+                    "title": "استشارة محامي ملكية فكرية",
+                    "active": false
+                  },
                   { "id": 3, "title": "إجراء بحث براءات", "active": false }
                 ]
               },
@@ -1304,23 +1415,23 @@
                 {
                   "label": "مستوى فرصة الملكية الفكرية",
                   "value": "متوسطة",
-                  "type": "badge",
-                  "dotColor": "bg-yellow-400"
+                  "type": "level",
+                  "dotColor": "bg-[#F1E10A]"
                 },
                 {
                   "label": "نوع الحماية الأساسي",
                   "value": "براءة اختراع",
-                  "type": "text-cyan"
+                  "type": "security"
                 },
                 {
                   "label": "نوع حماية إضافي (اختياري)",
                   "value": "Copyright",
-                  "type": "text-cyan"
+                  "type": "security"
                 },
                 {
                   "label": "درجة الفرصة (Opportunity Score)",
-                  "value": "78 / 100",
-                  "type": "blue-pill"
+                  "value": "100 / 78",
+                  "type": "degree"
                 },
                 {
                   "label": "درجة التشابه مع أفكار موجودة",
@@ -1345,37 +1456,102 @@
                   "key": "basic_classification",
                   "label": "التصنيف الأساسي",
                   "options": [
-                    { "value": "improvement", "label": "تحسيني", "selected": false, "active": true },
-                    { "value": "breakthrough", "label": "خارق", "selected": true, "active": true },
-                    { "value": "disruptive", "label": "مزعزع", "selected": false, "active": false },
-                    { "value": "transformational", "label": "تحويلي", "selected": false, "active": false }
+                    {
+                      "value": "improvement",
+                      "label": "تحسيني",
+                      "selected": false,
+                      "active": true
+                    },
+                    {
+                      "value": "breakthrough",
+                      "label": "خارق",
+                      "selected": true,
+                      "active": true
+                    },
+                    {
+                      "value": "disruptive",
+                      "label": "مزعزع",
+                      "selected": false,
+                      "active": false
+                    },
+                    {
+                      "value": "transformational",
+                      "label": "تحويلي",
+                      "selected": false,
+                      "active": false
+                    }
                   ]
                 },
                 {
                   "key": "time_horizon",
                   "label": "الأفق الزمني",
                   "options": [
-                    { "value": "H1", "label": "قصير المدى: H1", "selected": false, "active": false },
-                    { "value": "H2", "label": "متوسط: H2", "selected": true, "active": true },
-                    { "value": "H3", "label": "طويل: H3", "selected": false, "active": false }
+                    {
+                      "value": "H1",
+                      "label": "قصير المدى: H1",
+                      "selected": false,
+                      "active": false
+                    },
+                    {
+                      "value": "H2",
+                      "label": "متوسط: H2",
+                      "selected": true,
+                      "active": true
+                    },
+                    {
+                      "value": "H3",
+                      "label": "طويل: H3",
+                      "selected": false,
+                      "active": false
+                    }
                   ]
                 },
                 {
                   "key": "complexity",
                   "label": "مستوى التعقيد",
                   "options": [
-                    { "value": "low", "label": "منخفض", "selected": false, "active": false },
-                    { "value": "medium", "label": "متوسط", "selected": true, "active": true },
-                    { "value": "high", "label": "مرتفع", "selected": false, "active": false }
+                    {
+                      "value": "low",
+                      "label": "منخفض",
+                      "selected": false,
+                      "active": false
+                    },
+                    {
+                      "value": "medium",
+                      "label": "متوسط",
+                      "selected": true,
+                      "active": true
+                    },
+                    {
+                      "value": "high",
+                      "label": "مرتفع",
+                      "selected": false,
+                      "active": false
+                    }
                   ]
                 },
                 {
                   "key": "risk",
                   "label": "مستوى المخاطر",
                   "options": [
-                    { "value": "low", "label": "منخفض", "selected": true, "active": true },
-                    { "value": "medium", "label": "متوسط", "selected": false, "active": false },
-                    { "value": "high", "label": "مرتفع", "selected": false, "active": false }
+                    {
+                      "value": "low",
+                      "label": "منخفض",
+                      "selected": true,
+                      "active": true
+                    },
+                    {
+                      "value": "medium",
+                      "label": "متوسط",
+                      "selected": false,
+                      "active": false
+                    },
+                    {
+                      "value": "high",
+                      "label": "مرتفع",
+                      "selected": false,
+                      "active": false
+                    }
                   ]
                 }
               ]
@@ -1383,12 +1559,42 @@
             "innovationPath": {
               "label": "مسار الابتكار",
               "items": [
-                { "key": "pathway1", "title": "المسار 1 - إدامة السوق", "subtitle": "المسار 1 - إدامة السوق (Pathway 1 - Market Perpetuation)", "selected": true },
-                { "key": "pathway2", "title": "المسار 2 - اختراق السوق", "subtitle": "المسار 2 - اختراق السوق (Pathway 2 - Market Penetration)", "selected": false },
-                { "key": "pathway3", "title": "المسار 3 - توسع السوق", "subtitle": "المسار 3 - توسع السوق (Pathway 3 - Market Broadening)", "selected": false },
-                { "key": "pathway4", "title": "المسار 4 - توسع السوق", "subtitle": "المسار 4 - توسع السوق (Pathway 4 - Market Escalation)", "selected": false },
-                { "key": "pathway5", "title": "المسار 5 - توسع السوق", "subtitle": "المسار 5 - توسع السوق (Pathway 5 - Market Expansion)", "selected": false },
-                { "key": "pathway6", "title": "المسار 6 - توسع السوق", "subtitle": "المسار 6 - خلق السوق (Pathway 6 - Market Creation)", "selected": false }
+                {
+                  "key": "pathway1",
+                  "title": "المسار 1 - إدامة السوق",
+                  "subtitle": "المسار 1 - إدامة السوق (Pathway 1 - Market Perpetuation)",
+                  "selected": true
+                },
+                {
+                  "key": "pathway2",
+                  "title": "المسار 2 - اختراق السوق",
+                  "subtitle": "المسار 2 - اختراق السوق (Pathway 2 - Market Penetration)",
+                  "selected": false
+                },
+                {
+                  "key": "pathway3",
+                  "title": "المسار 3 - توسع السوق",
+                  "subtitle": "المسار 3 - توسع السوق (Pathway 3 - Market Broadening)",
+                  "selected": false
+                },
+                {
+                  "key": "pathway4",
+                  "title": "المسار 4 - توسع السوق",
+                  "subtitle": "المسار 4 - توسع السوق (Pathway 4 - Market Escalation)",
+                  "selected": false
+                },
+                {
+                  "key": "pathway5",
+                  "title": "المسار 5 - توسع السوق",
+                  "subtitle": "المسار 5 - توسع السوق (Pathway 5 - Market Expansion)",
+                  "selected": false
+                },
+                {
+                  "key": "pathway6",
+                  "title": "المسار 6 - توسع السوق",
+                  "subtitle": "المسار 6 - خلق السوق (Pathway 6 - Market Creation)",
+                  "selected": false
+                }
               ]
             },
             "duplicateCheck": {

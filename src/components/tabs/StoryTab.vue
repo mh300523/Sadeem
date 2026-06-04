@@ -96,7 +96,9 @@ function togglePlay() {
 
         <!-- Features checklist card -->
         <div class="">
-          <h4 class="gradient-title-orange">
+          <h4
+            class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
+          >
             {{ sidebarData.features?.title }}
           </h4>
 
