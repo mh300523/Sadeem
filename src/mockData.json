@@ -671,26 +671,22 @@
                     {
                       "value": "improvement",
                       "label": "تحسيني",
-                      "selected": false,
-                      "active": true
+                      "selected": false
                     },
                     {
                       "value": "breakthrough",
                       "label": "خارق",
-                      "selected": true,
-                      "active": true
+                      "selected": true
                     },
                     {
                       "value": "disruptive",
                       "label": "مزعزع",
-                      "selected": false,
-                      "active": false
+                      "selected": false
                     },
                     {
                       "value": "transformational",
                       "label": "تحويلي",
-                      "selected": false,
-                      "active": false
+                      "selected": false
                     }
                   ]
                 },
@@ -701,20 +697,17 @@
                     {
                       "value": "H1",
                       "label": "قصير المدى: H1",
-                      "selected": false,
-                      "active": false
+                      "selected": false
                     },
                     {
                       "value": "H2",
                       "label": "متوسط: H2",
-                      "selected": true,
-                      "active": true
+                      "selected": true
                     },
                     {
                       "value": "H3",
                       "label": "طويل: H3",
-                      "selected": false,
-                      "active": false
+                      "selected": false
                     }
                   ]
                 },
@@ -725,20 +718,17 @@
                     {
                       "value": "low",
                       "label": "منخفض",
-                      "selected": false,
-                      "active": false
+                      "selected": false
                     },
                     {
                       "value": "medium",
                       "label": "متوسط",
-                      "selected": true,
-                      "active": true
+                      "selected": true
                     },
                     {
                       "value": "high",
                       "label": "مرتفع",
-                      "selected": false,
-                      "active": false
+                      "selected": false
                     }
                   ]
                 },
@@ -749,20 +739,17 @@
                     {
                       "value": "low",
                       "label": "منخفض",
-                      "selected": true,
-                      "active": true
+                      "selected": true
                     },
                     {
                       "value": "medium",
                       "label": "متوسط",
-                      "selected": false,
-                      "active": false
+                      "selected": false
                     },
                     {
                       "value": "high",
                       "label": "مرتفع",
-                      "selected": false,
-                      "active": false
+                      "selected": false
                     }
                   ]
                 }
@@ -811,7 +798,7 @@
             },
             "duplicateCheck": {
               "label": "هل الفكرة مكررة؟",
-              "isDuplicate": true,
+
               "warningText": "تم اكتشاف فكرة مشابهة",
               "items": [
                 {
@@ -819,14 +806,18 @@
                   "title": "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
                   "submitter": "مصطفى كامل",
                   "date": "22 أغسطس 2026",
-                  "similarity": 78
+                  "similarity": 78,
+                  "isDuplicate": true,
+                  "isNotDuplicate": false
                 },
                 {
                   "id": "IDEA-1023",
                   "title": "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
                   "submitter": "مصطفى كامل",
                   "date": "22 أغسطس 2026",
-                  "similarity": 78
+                  "similarity": 78,
+                  "isDuplicate": false,
+                  "isNotDuplicate": true
                 }
               ]
             },
@@ -1599,7 +1590,7 @@
             },
             "duplicateCheck": {
               "label": "هل الفكرة مكررة؟",
-              "isDuplicate": true,
+
               "warningText": "تم اكتشاف فكرة مشابهة",
               "items": [
                 {
@@ -1607,14 +1598,18 @@
                   "title": "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
                   "submitter": "مصطفى كامل",
                   "date": "22 أغسطس 2026",
-                  "similarity": 78
+                  "similarity": 78,
+                  "isDuplicate": true,
+                  "isNotDuplicate": false
                 },
                 {
                   "id": "IDEA-1023",
                   "title": "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
                   "submitter": "مصطفى كامل",
                   "date": "22 أغسطس 2026",
-                  "similarity": 78
+                  "similarity": 78,
+                  "isDuplicate": false,
+                  "isNotDuplicate": false
                 }
               ]
             },

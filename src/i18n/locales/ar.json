@@ -12,7 +12,6 @@
     "ideas_table": "جدول الأفكار"
   },
   "details": {
-    "back_to_dashboard": "الرجوع للوحة التقييم",
     "view": "عرض",
     "save_draft": "حفظ كمسودة",
     "start_evaluation": "بدء التقييم",
@@ -21,6 +20,9 @@
     "coming_soon_desc": "هذا القسم قيد التطوير وسيتوفر في المراحل القادمة.",
     "active_evaluators": "مقيمين",
     "average_rating": "التقييم الأولي للذكاء الاصطناعي",
+    "view_idea": "عرض الفكرة",
+    "is_duplicate": "تأكيد أنها مكررة",
+    "is_not_duplicate": "ليست مكررة",
     "tabs": {
       "overview": "نظرة عامة",
       "story": "قصة الفكرة",

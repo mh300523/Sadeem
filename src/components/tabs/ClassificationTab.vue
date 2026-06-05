@@ -32,66 +32,68 @@ const activeOptions = ref({});
 
 watch(
   () => tabData.value.sidebar?.sections,
-  (sections) => {
-    if (!sections) return;
+  (sections = []) => {
+    const options = {};
+
     sections.forEach((section) => {
-      const selectedOpt = section.options?.find((opt) => opt.selected);
-      if (selectedOpt) {
-        activeOptions.value[section.key] = selectedOpt.value;
+      const selectedOption = section.options?.find((option) => option.selected);
+
+      if (selectedOption) {
+        options[section.key] = selectedOption.value;
       }
     });
+
+    activeOptions.value = options;
   },
-  { immediate: true, deep: true },
+  { immediate: true },
 );
 
-function selectSidebarOption(sectionKey, optionVal) {
-  activeOptions.value[sectionKey] = optionVal;
-}
+const selectSidebarOption = (sectionKey, optionValue) => {
+  activeOptions.value = {
+    ...activeOptions.value,
+    [sectionKey]: optionValue,
+  };
+};
 </script>
 
 <template>
   <div v-if="tabData.sidebar" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
     <!-- Right Sidebar Column (First in HTML for RTL float-right layout) -->
-    <div
-      class="lg:col-span-3 bg-[url('@/assets/images/storytab-side-bg.png')] bg-cover bg-center bg-no-repeat rounded-[16px] px-4 py-5"
-    >
-      <div class="sidebar-container relative">
+    <div class="lg:col-span-3 white-border rounded-2xl">
+      <div class="sidebar-container px-[14px] py-5">
         <!-- Sidebar Title with Astronaut background -->
         <h2 class="sidebar-gradient-title text-right leading-snug">
           {{ tabData.sidebar.title }}
         </h2>
 
         <!-- Sections List -->
-        <div class="flex flex-col gap-6 mt-20">
+        <div class="flex flex-col gap-6">
           <div
             v-for="section in tabData.sidebar.sections"
             :key="section.key"
-            class="text-right"
+            class=""
           >
             <!-- Orange header capsule matching screenshots -->
-            <div
-              class="inline-block py-2 px-5 rounded-full bg-gradient-to-l from-[#FF8E53] to-[#FF6B35] text-white text-xs md:text-sm font-bold shadow-md mb-3"
+            <h4
+              class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
             >
               {{ section.label }}
-            </div>
+            </h4>
 
             <!-- Options Pills -->
-            <div class="flex flex-wrap gap-2 justify-start rtl:justify-end">
+            <div class="flex flex-wrap gap-2">
               <button
-                v-for="opt in section.options"
-                :key="opt.value"
-                @click="selectSidebarOption(section.key, opt.value)"
-                class="px-4.5 py-2 rounded-full text-xs font-semibold border transition-all duration-300 cursor-pointer focus:outline-none"
+                v-for="option in section.options"
+                :key="option.value"
+                @click="selectSidebarOption(section.key, option.value)"
+                class="px-4.5 py-1.5 rounded-full text-xs md:text-sm font-medium cursor-pointer"
                 :class="
-                  activeOptions[section.key] === opt.value
-                    ? 'bg-[#009DFE] border-[#009DFE] text-white shadow-[0_0_12px_rgba(0,157,254,0.4)]'
-                    : opt.value === 'improvement' &&
-                        section.key === 'basic_classification'
-                      ? 'border-[#009DFE]/40 text-[#009DFE] bg-[#009DFE]/5 hover:bg-[#009DFE]/15'
-                      : 'border-white/5 bg-white/2 text-white/50 hover:border-white/20 hover:text-white/80'
+                  activeOptions[section.key] === option.value
+                    ? 'bg-[#018AAF] text-white '
+                    : 'bg-[#018AAF]/16 text-[#33BCE1]'
                 "
               >
-                {{ opt.label }}
+                {{ option.label }}
               </button>
             </div>
           </div>
@@ -100,7 +102,7 @@ function selectSidebarOption(sectionKey, optionVal) {
     </div>
 
     <!-- Left Main Content Column -->
-    <div class="lg:col-span-9 flex flex-col gap-6">
+    <div class="lg:col-span-9">
       <!-- 1. Custom Dropdown Select using Headless UI (Wrapped in relative z-30 to prevent overlay overlap) -->
       <div class="relative z-30">
         <PathSelect
@@ -113,39 +115,40 @@ function selectSidebarOption(sectionKey, optionVal) {
       <!-- 2. Repeated Idea Duplicate Check (Image 3 layout) -->
       <BaseBox
         v-if="tabData.duplicateCheck"
-        class="rounded-[20px] p-6 border border-white/10 flex flex-col gap-4"
+        class="rounded-[20px] p-6 gradient-border flex flex-col gap-4 my-[14px]"
       >
         <div
           class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-right"
         >
           <!-- Title & Badges -->
-          <div class="flex flex-wrap items-center gap-3">
-            <h3 class="text-white text-base md:text-lg font-bold">
+          <div class="">
+            <h3 class="text-white text-sm md:text-base font-medium mb-3">
               {{ tabData.duplicateCheck.label }}
             </h3>
-            <span
-              v-if="tabData.duplicateCheck.isDuplicate"
-              class="px-3 py-1 rounded bg-[#EF4444]/20 border border-[#EF4444]/40 text-[#EF4444] text-xs font-bold"
-            >
-              نعم
-            </span>
-            <span
-              class="px-3.5 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-500 text-xs font-semibold"
-            >
-              ⚠️ {{ tabData.duplicateCheck.warningText }}
-            </span>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span
+                v-if="tabData.duplicateCheck.isDuplicate"
+                class="px-3 py-1.5 rounded-full bg-[#FF6B35]/10 text-[#FF8E53] font-medium"
+              >
+                نعم
+              </span>
+              <span
+                class="px-3 py-1.5 rounded-md bg-[#FFCF08]/10 border border-[#FFCF08]/30 border-dashed text-[#FFCF08]/80 text-xs font-semibold"
+              >
+                ⚠️ {{ tabData.duplicateCheck.warningText }}
+              </span>
+            </div>
           </div>
         </div>
 
         <!-- Similarity rows list -->
-        <div class="flex flex-col gap-3.5 mt-2">
-          <SimilarityCard
-            v-for="(item, idx) in tabData.duplicateCheck.items"
-            :key="idx"
-            mode="row"
-            :idea="item"
-          />
-        </div>
+
+        <SimilarityCard
+          v-for="(item, idx) in tabData.duplicateCheck.items"
+          :key="idx"
+          mode="row"
+          :idea="item"
+        />
       </BaseBox>
 
       <!-- 3. Implementation Plan Status Check -->

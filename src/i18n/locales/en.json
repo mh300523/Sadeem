@@ -21,6 +21,9 @@
     "coming_soon_desc": "This section is under development and will be available in future releases.",
     "active_evaluators": "evaluators",
     "average_rating": "Initial AI Rating",
+    "view_idea": "View Idea",
+    "is_duplicate": "Confirm It's Duplicate",
+    "is_not_duplicate": "Not Duplicate",
     "tabs": {
       "overview": "Overview",
       "story": "Idea Story",

@@ -39,6 +39,9 @@ html[dir="ltr"] .sidebar-container::before {
   mask-composite: exclude;
   pointer-events: none;
 }
+.primary-text-gradient {
+  @apply text-transparent bg-clip-text rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#06B6D4] via-[#3B82F6] to-[#8B5CF6];
+}
 .gradient-border {
   @apply rtl:before:bg-gradient-to-bl ltr:before:bg-gradient-to-br before:from-[#895AF7]/50 before:to-[#06B6D4]/0 rounded-[14px];
 }
