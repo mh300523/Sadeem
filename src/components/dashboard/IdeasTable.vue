@@ -150,7 +150,7 @@ function getBadgeConfig(statusId) {
         :to="{ name: 'IdeaDetails', params: { id: item.id } }"
         class="text-white/75 hover:text-white font-medium text-sm transition-colors duration-200 inline-flex items-center gap-1.5"
       >
-        <span>{{ $t("details.view") }}</span>
+        <span>{{ $t("actions.view") }}</span>
         <span
           class="text-lg leading-none transform transition-transform duration-200"
         >

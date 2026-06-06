@@ -5,6 +5,7 @@ import StrategicAlignmentTab from "@/components/tabs/StrategicAlignmentTab.vue";
 import IPTab from "@/components/tabs/IPTab.vue";
 import ClassificationTab from "@/components/tabs/ClassificationTab.vue";
 import EvaluationTab from "@/components/tabs/EvaluationTab.vue";
+import DecisionTab from "@/components/tabs/DecisionTab.vue";
 import PlaceholderTab from "@/components/tabs/PlaceholderTab.vue";
 
 export const tabRegistry = {
@@ -15,6 +16,7 @@ export const tabRegistry = {
   ip: IPTab,
   classification: ClassificationTab,
   evaluation: EvaluationTab,
+  decision: DecisionTab,
 };
 
 export const iconRegistry = {

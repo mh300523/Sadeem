@@ -12,18 +12,11 @@
     "ideas_table": "Ideas Table"
   },
   "details": {
-    "back_to_dashboard": "Back to Dashboard",
-    "view": "View",
-    "save_draft": "Save Draft",
-    "start_evaluation": "Start Evaluation",
-    "invite_evaluator": "Invite Evaluator",
     "coming_soon": "Coming Soon",
     "coming_soon_desc": "This section is under development and will be available in future releases.",
     "active_evaluators": "evaluators",
     "average_rating": "Initial AI Rating",
-    "view_idea": "View Idea",
-    "is_duplicate": "Confirm It's Duplicate",
-    "is_not_duplicate": "Not Duplicate",
+    "yes_this_idea_is_included_in_the_project_plan": "Yes, this idea is included in the project plan",
     "tabs": {
       "overview": "Overview",
       "story": "Idea Story",
@@ -33,6 +26,84 @@
       "classification": "Classification",
       "evaluation": "Evaluation",
       "decision": "Decision"
+    }
+  },
+  "actions": {
+    "view": "View",
+    "save_draft": "Save Draft",
+    "start_evaluation": "Start Evaluation",
+    "invite_evaluator": "Invite Evaluator",
+    "view_idea": "View Idea",
+    "merge_with_this_idea": "Merge with this idea",
+    "is_duplicate": "Confirm It's Duplicate",
+    "is_not_duplicate": "Not Duplicate",
+    "link_idea_to_project": "Link Idea to Project",
+    "confirm_in_project_plan": "Confirm it is within the project plan",
+    "not_in_project_plan": "Not within the plan",
+    "close_duplicate": "Close Idea as Duplicate",
+    "send_notification": "Send Notification",
+    "confirm_merge": "Confirm Merge"
+  },
+  "duplicate_modal_intro": "Please select the appropriate action to deal with this duplicate idea",
+  "create_merge_state": "Create Merge State",
+  "current_idea": "Current Idea:",
+  "selected_idea": "Selected Idea:",
+  "merged_success_title": "Merge state created successfully",
+  "merged_success_desc": "The idea submitters will be notified to start collaborating",
+  "notifications": {
+    "duplicate": {
+      "title": "Confirm Duplicate Action",
+      "subject": "Subject: Thank you and appreciation for your innovative contribution",
+      "paragraphsBefore": [
+        "We thank you for your valuable initiative and for sharing your idea through the Sadeem platform, and we value your keenness to contribute to developing the work and raising the level of innovation in the organization.",
+        "After reviewing the idea, it became clear to us that it significantly intersects with an idea previously proposed on the platform, which reflects your high awareness and direction towards the same strategic priorities of the organization.",
+        "Based on our belief that innovation is a collective effort, we are pleased to invite you to be an active contributor to the development of this idea, whether through:"
+      ],
+      "bullets": [
+        "Participating in its execution",
+        "Or contributing your ideas and expertise to improve it",
+        "Or providing guidance and mentorship to the work team"
+      ],
+      "paragraphsAfter": [
+        "We believe that your value lies not only in the idea, but in your continuous role in creating impact.",
+        "Thank you again, and we look forward to your continued outstanding contributions on our journey towards innovation."
+      ]
+    },
+    "link_project": {
+      "title": "Link Idea to Project",
+      "subject": "Subject: Opportunity to develop your idea through collaboration and integration",
+      "paragraphsBefore": [
+        "We thank you for your valuable initiative and for sharing your idea through the Sadeem platform, and we value your contribution to supporting the journey of innovation within the organization.",
+        "After reviewing your idea, it became clear that it integrates with other ideas proposed on the platform, which opens the way to merge these efforts into a more comprehensive and impactful innovative project.",
+        "Based on our belief that the greatest innovations arise from teamwork, we are pleased to invite you to participate in a joint coordination session with related idea owners, with the aim of:"
+      ],
+      "bullets": [
+        "Unifying visions and ideas",
+        "Developing an integrated solution",
+        "Maximizing the expected impact of the project"
+      ],
+      "paragraphsAfter": [
+        "We believe that your idea represents an important part of this integration, and that your contribution will play a pivotal role in the success of the project.",
+        "You will be contacted soon to schedule the session, and we look forward to a fruitful collaboration that contributes to achieving a greater innovative impact."
+      ]
+    },
+    "execution_plan": {
+      "title": "Idea within Execution Plan",
+      "subject": "Subject: Thank you and appreciation for your innovative contribution",
+      "paragraphsBefore": [
+        "We thank you for your valuable initiative and for sharing your idea through the Sadeem platform, and we value your keenness to contribute to developing work and strengthening the culture of innovation within the organization.",
+        "We are pleased to inform you that after reviewing your idea, it turned out to be part of one of the projects or initiatives currently being implemented within the organization, which reflects how much your vision aligns with our strategic directions and implementation priorities.",
+        "Based on our belief in the importance of involving idea owners in the implementation journey, we welcome your joining as an active contributor through:"
+      ],
+      "bullets": [
+        "Following up on the project associated with your idea",
+        "Or contributing to its development and improving its outputs",
+        "Or presenting your opinions and experience to support the work team"
+      ],
+      "paragraphsAfter": [
+        "We believe that innovation is not limited to proposing the idea, but extends to participating in achieving it on the ground.",
+        "Thank you again for your valuable contribution, and we look forward to your continued giving in supporting the journey of innovation."
+      ]
     }
   }
 }

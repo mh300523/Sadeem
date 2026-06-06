@@ -1,8 +1,11 @@
 <script setup>
 import { computed, ref, watch } from "vue";
 import BaseBox from "@/components/ui/BaseBox.vue";
+import BaseRadioGroup from "@/components/ui/BaseRadioGroup.vue";
 import PathSelect from "@/components/tabsBlocks/PathSelect.vue";
-import SimilarityCard from "@/components/tabsBlocks/SimilarityCard.vue";
+import DuplicateIdeaCard from "@/components/tabsBlocks/DuplicateIdeaCard.vue";
+import MergeSuggestionCard from "@/components/tabsBlocks/MergeSuggestionCard.vue";
+import ExecutionPlanCard from "@/components/tabsBlocks/ExecutionPlanCard.vue";
 
 const props = defineProps({
   data: {
@@ -10,6 +13,14 @@ const props = defineProps({
     required: true,
   },
 });
+
+const emit = defineEmits([
+  "merge-request",
+  "duplicate-status-change",
+  "link-project",
+  "execution-plan-change",
+  "view-idea",
+]);
 
 const tabData = computed(() => props.data || {});
 
@@ -36,11 +47,10 @@ watch(
     const options = {};
 
     sections.forEach((section) => {
-      const selectedOption = section.options?.find((option) => option.selected);
-
-      if (selectedOption) {
-        options[section.key] = selectedOption.value;
-      }
+      // Single selection per section
+      const selectedOption =
+        section.options?.find((option) => option.selected)?.value || "";
+      options[section.key] = selectedOption;
     });
 
     activeOptions.value = options;
@@ -48,11 +58,56 @@ watch(
   { immediate: true },
 );
 
-const selectSidebarOption = (sectionKey, optionValue) => {
-  activeOptions.value = {
-    ...activeOptions.value,
-    [sectionKey]: optionValue,
-  };
+// Interactive state for duplicate checks
+const duplicateStatuses = ref({});
+
+const getDuplicateStatusKey = (idea) => {
+  if (idea?.isDuplicate) return "duplicate";
+  if (idea?.isNotDuplicate) return "not_duplicate";
+  return null;
+};
+
+watch(
+  () => tabData.value.duplicateCheck?.items,
+  (items = []) => {
+    const statuses = {};
+    items.forEach((item) => {
+      statuses[item.id] = getDuplicateStatusKey(item);
+    });
+    duplicateStatuses.value = statuses;
+  },
+  { immediate: true }
+);
+
+const handleDuplicateStatusChange = ({ idea, status }) => {
+  duplicateStatuses.value[idea.id] = status;
+  emit("duplicate-status-change", { idea, status });
+};
+
+// Interactive state for execution plan status
+const executionPlanStatus = ref(null);
+
+const getExecutionPlanStatusKey = (project) => {
+  if (project?.confirmed) return "confirmed";
+  if (project?.not_confirmed) return "not_confirmed";
+  return null;
+};
+
+watch(
+  () => tabData.value.executionPlan?.project,
+  (project) => {
+    if (project) {
+      executionPlanStatus.value = getExecutionPlanStatusKey(project);
+    } else {
+      executionPlanStatus.value = null;
+    }
+  },
+  { immediate: true }
+);
+
+const handleExecutionPlanChange = (status) => {
+  executionPlanStatus.value = status;
+  emit("execution-plan-change", status);
 };
 </script>
 
@@ -80,22 +135,11 @@ const selectSidebarOption = (sectionKey, optionValue) => {
               {{ section.label }}
             </h4>
 
-            <!-- Options Pills -->
-            <div class="flex flex-wrap gap-2">
-              <button
-                v-for="option in section.options"
-                :key="option.value"
-                @click="selectSidebarOption(section.key, option.value)"
-                class="px-4.5 py-1.5 rounded-full text-xs md:text-sm font-medium cursor-pointer"
-                :class="
-                  activeOptions[section.key] === option.value
-                    ? 'bg-[#018AAF] text-white '
-                    : 'bg-[#018AAF]/16 text-[#33BCE1]'
-                "
-              >
-                {{ option.label }}
-              </button>
-            </div>
+            <BaseRadioGroup
+              v-model="activeOptions[section.key]"
+              :options="section.options"
+              variant="pills"
+            />
           </div>
         </div>
       </div>
@@ -115,10 +159,10 @@ const selectSidebarOption = (sectionKey, optionValue) => {
       <!-- 2. Repeated Idea Duplicate Check (Image 3 layout) -->
       <BaseBox
         v-if="tabData.duplicateCheck"
-        class="rounded-[20px] p-6 gradient-border flex flex-col gap-4 my-[14px]"
+        class="rounded-[20px] p-6 gradient-border my-[14px]"
       >
         <div
-          class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-right"
+          class="flex flex-col sm:flex-row sm:items-center justify-between gap-3"
         >
           <!-- Title & Badges -->
           <div class="">
@@ -143,56 +187,69 @@ const selectSidebarOption = (sectionKey, optionValue) => {
 
         <!-- Similarity rows list -->
 
-        <SimilarityCard
+        <DuplicateIdeaCard
           v-for="(item, idx) in tabData.duplicateCheck.items"
           :key="idx"
-          mode="row"
           :idea="item"
+          :status="duplicateStatuses[item.id]"
+          @duplicate-status-change="handleDuplicateStatusChange"
+          @view-idea="emit('view-idea', $event)"
         />
       </BaseBox>
 
-      <!-- 3. Implementation Plan Status Check -->
+      <!-- 3. Implementation Plan Status Check (Screen 1 Layout) -->
       <BaseBox
         v-if="tabData.executionPlan"
-        class="rounded-[20px] p-6 border border-white/10 text-right"
+        class="rounded-[20px] p-6 gradient-border mb-[14px]"
       >
-        <h3 class="text-white text-base md:text-lg font-bold mb-4">
-          {{ tabData.executionPlan.label }}
-        </h3>
-        <div
-          class="p-4 rounded-xl border border-dashed border-[#FF6B35]/40 bg-[#FF6B35]/5 text-[#FF6B35] text-xs md:text-sm font-semibold inline-block"
-        >
-          {{ tabData.executionPlan.statusText }}
+        <!-- Card Header -->
+        <div class="">
+          <h3 class="text-white text-sm md:text-base font-medium mb-3">
+            {{ tabData.executionPlan.label }}
+          </h3>
+          <span
+            class="px-4 py-1.5 rounded-full bg-[#FF6B35]/10 text-[#FF8E53] text-xs font-semibold"
+          >
+            {{ $t("details.yes_this_idea_is_included_in_the_project_plan") }}
+          </span>
         </div>
+
+        <!-- Card Body -->
+        <ExecutionPlanCard
+          v-if="tabData.executionPlan.project"
+          :project="tabData.executionPlan.project"
+          :status="executionPlanStatus"
+          @link-project="emit('link-project', $event)"
+          @execution-plan-change="handleExecutionPlanChange"
+        />
       </BaseBox>
 
       <!-- 4. Merge Suggestions Row -->
       <BaseBox
         v-if="tabData.mergeSuggestion"
-        class="rounded-[20px] p-6 border border-white/10 text-right flex flex-col gap-4"
+        class="rounded-[20px] p-6 gradient-border"
       >
-        <div class="flex items-center gap-3">
-          <h3 class="text-white text-base md:text-lg font-bold">
+        <div class="border-b border-[#A9A9A9]/30 pb-4 mb-4">
+          <h3 class="text-white text-sm md:text-base font-medium mb-3">
             {{ tabData.mergeSuggestion.label }}
           </h3>
           <span
             v-if="tabData.mergeSuggestion.canMerge"
-            class="px-3 py-1 rounded bg-[#EF4444]/20 border border-[#EF4444]/40 text-[#EF4444] text-xs font-bold"
+            class="px-5 py-2 inline-block rounded-full bg-[#FF6B35]/10 text-[#FF6B35] font-medium mb-3"
           >
             نعم
           </span>
-        </div>
-        <p class="text-white/50 text-xs font-medium -mt-1">
-          الأفكار المقترحة للدمج:
-        </p>
 
+          <p class="text-white/50 text-xs">الأفكار المقترحة للدمج:</p>
+        </div>
         <!-- Horizontal scrollable/wrapped grid list of cards -->
-        <div class="flex flex-wrap md:flex-row gap-4 mt-2">
-          <SimilarityCard
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <MergeSuggestionCard
             v-for="(item, idx) in tabData.mergeSuggestion.items"
             :key="idx"
-            mode="card"
             :idea="item"
+            @merge-request="emit('merge-request', $event)"
+            @view-idea="emit('view-idea', $event)"
           />
         </div>
       </BaseBox>

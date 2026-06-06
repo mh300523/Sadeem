@@ -802,47 +802,53 @@
               "warningText": "تم اكتشاف فكرة مشابهة",
               "items": [
                 {
-                  "id": "IDEA-1023",
-                  "title": "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-                  "submitter": "مصطفى كامل",
-                  "date": "22 أغسطس 2026",
-                  "similarity": 78,
-                  "isDuplicate": true,
-                  "isNotDuplicate": false
-                },
-                {
-                  "id": "IDEA-1023",
+                  "id": "IDEA-1024",
                   "title": "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
                   "submitter": "مصطفى كامل",
                   "date": "22 أغسطس 2026",
                   "similarity": 78,
                   "isDuplicate": false,
-                  "isNotDuplicate": true
+                  "isNotDuplicate": false
+                },
+                {
+                  "id": "IDEA-1025",
+                  "title": "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
+                  "submitter": "مصطفى كامل",
+                  "date": "22 أغسطس 2026",
+                  "similarity": 78,
+                  "isDuplicate": false,
+                  "isNotDuplicate": false
                 }
               ]
             },
             "executionPlan": {
               "label": "هل الفكرة ضمن خطة التنفيذ؟",
-              "statusText": "هذه الفكرة غير مدرجة ضمن أي مشروع حالي"
+              "statusText": "هذه الفكرة غير مدرجة ضمن أي مشروع حالي",
+              "project": {
+                "title": "مشروع تحسين استهلاك الطاقة",
+                "submitter": "قسم الموارد البشرية",
+                "status": "قيد التنفيذ",
+                "confirmed": false
+              }
             },
             "mergeSuggestion": {
               "label": "هل يمكن دمج الفكرة؟",
               "canMerge": true,
               "items": [
                 {
-                  "id": "IDEA-1023",
+                  "id": "IDEA-1024",
                   "title": "حاوية ذكية لإعادة التدوير باستخدام حساسات",
                   "department": "قطاع البيئة",
                   "similarity": 78
                 },
                 {
-                  "id": "IDEA-1023",
+                  "id": "IDEA-1025",
                   "title": "حاوية ذكية لإعادة التدوير باستخدام حساسات",
                   "department": "قطاع البيئة",
                   "similarity": 78
                 },
                 {
-                  "id": "IDEA-1023",
+                  "id": "IDEA-1026",
                   "title": "حاوية ذكية لإعادة التدوير باستخدام حساسات",
                   "department": "قطاع البيئة",
                   "similarity": 78
@@ -1594,16 +1600,16 @@
               "warningText": "تم اكتشاف فكرة مشابهة",
               "items": [
                 {
-                  "id": "IDEA-1023",
+                  "id": "IDEA-1024",
                   "title": "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
                   "submitter": "مصطفى كامل",
                   "date": "22 أغسطس 2026",
                   "similarity": 78,
-                  "isDuplicate": true,
+                  "isDuplicate": false,
                   "isNotDuplicate": false
                 },
                 {
-                  "id": "IDEA-1023",
+                  "id": "IDEA-1025",
                   "title": "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
                   "submitter": "مصطفى كامل",
                   "date": "22 أغسطس 2026",
@@ -1615,26 +1621,32 @@
             },
             "executionPlan": {
               "label": "هل الفكرة ضمن خطة التنفيذ؟",
-              "statusText": "هذه الفكرة غير مدرجة ضمن أي مشروع حالي"
+              "statusText": "هذه الفكرة غير مدرجة ضمن أي مشروع حالي",
+              "project": {
+                "title": "مشروع تحسين استهلاك الطاقة",
+                "submitter": "قسم الموارد البشرية",
+                "status": "قيد التنفيذ",
+                "confirmed": false
+              }
             },
             "mergeSuggestion": {
               "label": "هل يمكن دمج الفكرة؟",
               "canMerge": true,
               "items": [
                 {
-                  "id": "IDEA-1023",
+                  "id": "IDEA-1024",
                   "title": "حاوية ذكية لإعادة التدوير باستخدام حساسات",
                   "department": "قطاع البيئة",
                   "similarity": 78
                 },
                 {
-                  "id": "IDEA-1023",
+                  "id": "IDEA-1025",
                   "title": "حاوية ذكية لإعادة التدوير باستخدام حساسات",
                   "department": "قطاع البيئة",
                   "similarity": 78
                 },
                 {
-                  "id": "IDEA-1023",
+                  "id": "IDEA-1026",
                   "title": "حاوية ذكية لإعادة التدوير باستخدام حساسات",
                   "department": "قطاع البيئة",
                   "similarity": 78

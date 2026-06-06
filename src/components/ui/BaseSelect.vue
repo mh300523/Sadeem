@@ -35,14 +35,24 @@ const props = defineProps({
     type: String,
     default: "value",
   },
+
+  buttonClass: {
+    type: String,
+    default: "",
+  },
+
+  optionsClass: {
+    type: String,
+    default: "",
+  },
+});
+
+const selectedOption = computed(() => {
+  return props.options.find((opt) => opt[props.optionValue] === model.value);
 });
 
 const displayValue = computed(() => {
-  const selected = props.options.find(
-    (opt) => opt[props.optionValue] === model.value,
-  );
-
-  return selected?.[props.optionLabel] ?? props.placeholder;
+  return selectedOption.value?.[props.optionLabel] ?? props.placeholder;
 });
 </script>
 
@@ -52,27 +62,36 @@ const displayValue = computed(() => {
       {{ label }}
     </span>
 
-    <Listbox v-model="model" as="div" class="relative">
+    <Listbox v-model="model" as="div" class="relative w-full">
       <ListboxButton
-        class="flex items-center justify-between text-sm bg-[#141b2e]/60 border border-gray-700/50 rounded-full px-4 py-2 hover:bg-[#1c253d] transition-colors w-full min-w-[100px] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer"
+        :class="
+          buttonClass ||
+          'flex items-center justify-between text-sm bg-[#141b2e]/60 border border-gray-700/50 rounded-full px-4 py-2 hover:bg-[#1c253d] transition-colors w-full min-w-[100px] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer'
+        "
       >
-        <span class="font-normal text-[#F0F9FF] truncate">
-          {{ displayValue }}
-        </span>
-
-        <svg
-          class="w-4 h-4 ms-2 text-white shrink-0"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+        <slot
+          name="trigger"
+          :selected-option="selectedOption"
+          :display-value="displayValue"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
+          <span class="font-normal text-[#F0F9FF] truncate">
+            {{ displayValue }}
+          </span>
+
+          <svg
+            class="w-4 h-4 ms-2 text-white shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </slot>
       </ListboxButton>
 
       <transition
@@ -81,7 +100,10 @@ const displayValue = computed(() => {
         leave-to-class="opacity-0"
       >
         <ListboxOptions
-          class="absolute z-50 mt-2 max-h-60 min-w-full overflow-auto rounded-xl bg-[#0c1427] border border-gray-700 py-1 shadow-lg shadow-black/50 focus:outline-none backdrop-blur-md"
+          :class="
+            optionsClass ||
+            'absolute z-50 mt-2 max-h-60 min-w-full overflow-auto rounded-xl bg-[#0c1427] border border-gray-700 py-1 shadow-lg shadow-black/50 focus:outline-none backdrop-blur-md'
+          "
         >
           <ListboxOption
             v-for="option in options"
@@ -90,21 +112,28 @@ const displayValue = computed(() => {
             v-slot="{ active, selected }"
             as="template"
           >
-            <li
-              :class="[
-                active ? 'bg-blue-600/30 text-blue-400' : 'text-gray-300',
-                'cursor-pointer select-none py-2 px-4 rtl:text-right transition-colors whitespace-nowrap',
-              ]"
+            <slot
+              name="option"
+              :option="option"
+              :active="active"
+              :selected="selected"
             >
-              <span
+              <li
                 :class="[
-                  selected ? 'font-bold text-white' : 'font-normal',
-                  'block truncate',
+                  active ? 'bg-blue-600/30 text-blue-400' : 'text-gray-300',
+                  'cursor-pointer select-none py-2 px-4 rtl:text-right transition-colors whitespace-nowrap',
                 ]"
               >
-                {{ option[optionLabel] }}
-              </span>
-            </li>
+                <span
+                  :class="[
+                    selected ? 'font-bold text-white' : 'font-normal',
+                    'block truncate',
+                  ]"
+                >
+                  {{ option[optionLabel] }}
+                </span>
+              </li>
+            </slot>
           </ListboxOption>
         </ListboxOptions>
       </transition>

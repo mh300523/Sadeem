@@ -1,11 +1,6 @@
 <script setup>
 import { computed } from "vue";
-import {
-  Listbox,
-  ListboxButton,
-  ListboxOptions,
-  ListboxOption,
-} from "@headlessui/vue";
+import BaseSelect from "@/components/ui/BaseSelect.vue";
 import BaseBox from "@/components/ui/BaseBox.vue";
 
 const props = defineProps({
@@ -25,10 +20,9 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue"]);
 
-const selectedItem = computed(() => {
-  return (
-    props.items.find((item) => item.key === props.modelValue) || props.items[0]
-  );
+const model = computed({
+  get: () => props.modelValue,
+  set: (val) => emit("update:modelValue", val),
 });
 </script>
 
@@ -42,23 +36,23 @@ const selectedItem = computed(() => {
       {{ label }}
     </h4>
 
-    <!-- Headless UI Listbox -->
-    <Listbox
-      :modelValue="modelValue"
-      @update:modelValue="(val) => emit('update:modelValue', val)"
-      as="div"
-      class="relative"
+    <BaseSelect
+      v-model="model"
+      :options="items"
+      option-value="key"
+      option-label="title"
+      button-class="w-full flex items-center justify-between p-4 rounded-xl gradient-border rtl:bg-gradient-to-bl ltr:bg-gradient-to-br from-[#895AF7]/30 via-[#06B6D4]/10 to-[#503591]/0"
+      options-class="!absolute w-full rounded-xl border border-[#895AF7]/42 bg-[#1E293B]/70 backdrop-blur-xl overflow-hidden z-50 mt-2"
     >
-      <ListboxButton
-        class="w-full flex items-center justify-between p-4 rounded-xl gradient-border rtl:bg-gradient-to-bl ltr:bg-gradient-to-br from-[#895AF7]/30 via-[#06B6D4]/10 to-[#503591]/0"
-      >
+      <!-- Custom Trigger Slot -->
+      <template #trigger="{ selectedOption }">
         <!-- Selected Item content on the right (in RTL) -->
-        <div v-if="selectedItem" class="text-right flex-1 pr-2">
+        <div v-if="selectedOption" class="text-right flex-1 pr-2">
           <h4 class="text-white text-sm font-medium">
-            {{ selectedItem.title }}
+            {{ selectedOption.title }}
           </h4>
           <p class="text-xs text-white/60 mt-0.5 leading-relaxed">
-            {{ selectedItem.subtitle }}
+            {{ selectedOption.subtitle }}
           </p>
         </div>
 
@@ -80,54 +74,23 @@ const selectedItem = computed(() => {
             />
           </svg>
         </span>
-      </ListboxButton>
+      </template>
 
-      <transition
-        leave-active-class="transition duration-150 ease-in-out"
-        leave-from-class="opacity-100"
-        leave-to-class="opacity-0"
-      >
-        <ListboxOptions
-          class="!absolute w-full rounded-xl border border-[#895AF7]/42 bg-[#1E293B]/70 backdrop-blur-xl overflow-hidden z-50 mt-2"
+      <!-- Custom Option Item Slot -->
+      <template #option="{ option }">
+        <li
+          class="cursor-pointer py-5 px-[14px] border-b border-[#A9A9A9] last:border-b-0 overflow-hidden"
         >
-          <div class="max-h-90 overflow-y-auto custom-scrollbar">
-            <ListboxOption
-              v-for="item in items"
-              :key="item.key"
-              :value="item.key"
-              v-slot="{ active, selected }"
-              as="template"
-            >
-              <li
-                class="cursor-pointer py-5 px-[14px] border-b border-[#A9A9A9] last:border-b-0 overflow-hidden"
-              >
-                <h4 class="font-semibold text-white text-sm truncate">
-                  {{ item.title }}
-                </h4>
-                <p class="text-xs text-white/60 mt-1 truncate">
-                  {{ item.subtitle }}
-                </p>
-              </li>
-            </ListboxOption>
-          </div>
-        </ListboxOptions>
-      </transition>
-    </Listbox>
+          <h4 class="font-semibold text-white text-sm truncate">
+            {{ option.title }}
+          </h4>
+          <p class="text-xs text-white/60 mt-1 truncate">
+            {{ option.subtitle }}
+          </p>
+        </li>
+      </template>
+    </BaseSelect>
   </BaseBox>
 </template>
 
-<style scoped>
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-</style>
+<style scoped></style>

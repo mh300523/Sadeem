@@ -18,7 +18,14 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["update:activeTab"]);
+const emit = defineEmits([
+  "update:activeTab",
+  "merge-request",
+  "duplicate-status-change",
+  "link-project",
+  "execution-plan-change",
+  "view-idea",
+]);
 
 const activeTabClass = "bg-[#8B5CF6] text-white";
 
@@ -79,7 +86,15 @@ function handleTabChange(index) {
     <TabPanels>
       <BaseBox class="rounded-[20px] p-6 white-border">
         <TabPanel v-for="tab in resolvedTabs" :key="tab.key" :unmount="true">
-          <component :is="tab.component" :data="tab.data" />
+          <component
+            :is="tab.component"
+            :data="tab.data"
+            @merge-request="emit('merge-request', $event)"
+            @duplicate-status-change="emit('duplicate-status-change', $event)"
+            @link-project="emit('link-project', $event)"
+            @execution-plan-change="emit('execution-plan-change', $event)"
+            @view-idea="emit('view-idea', $event)"
+          />
         </TabPanel>
       </BaseBox>
     </TabPanels>
