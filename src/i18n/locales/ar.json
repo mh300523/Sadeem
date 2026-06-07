@@ -39,6 +39,7 @@
     "is_not_duplicate": "ليست مكررة",
     "link_idea_to_project": "ربط الفكرة بالمشروع",
     "confirm_in_project_plan": "تأكيد أنها ضمن خطة المشروع",
+    "not_in_project_plan": "ليست ضمن الخطة",
     "link_idea_contributor": "ربط مقدم الفكرة كمساهم",
     "close_duplicate": "إغلاق الفكرة كمكررة",
     "send_notification": "إرسال إشعار",
@@ -104,6 +105,91 @@
         "نؤمن أن الابتكار لا يقتصر على طرح الفكرة، بل يمتد إلى المشاركة في تحقيقها على أرض الواقع.",
         "نشكرك مرة أخرى على مساهمتك القيمة، ونتطلع إلى استمرار عطائك في دعم مسيرة الابتكار."
       ]
+    }
+  },
+  "placeholders": {
+    "add_notes": "إضافة ملاحظات أخرى...",
+    "add_another_recipient": "إضافة مستفيدين آخرين..."
+  },
+  "evaluation": {
+    "title": "تقييم الفكرة",
+    "live_radar_active": "الرادار المباشر مفعل",
+    "current_evaluation": "التقييم الحالي",
+    "your_evaluation": "تقييمك",
+    "team_average": "متوسط الفريق",
+    "ai_initial_evaluation": "تقييم الذكاء الاصطناعي الأولي",
+    "show_bias_ratio": "عرض نسبة التحيز",
+    "radar_chart_title": "Radar Chart",
+    "ai_analysis": "تحليلات الذكاء الاصطناعي",
+    "strongest_aspects": "أقوى الجوانب:",
+    "weakest_aspects": "أضعف الجوانب:",
+    "direct_note": "ملاحظة مباشرة:",
+    "direct_note_text": "قد تحتاج هذه الفكرة إلى توضيح إضافي أو إعادة تصميم قبل الموافقة عليها.",
+    "evaluation_criteria": "معايير التقييم",
+    "selected_rating": "التقييم المختار:",
+    "evaluators": "المقيمين",
+    "evaluator_manager_mode": "وضع مسؤول المقيمين",
+    "bias": "التحيز:",
+    "evaluator_average_rating": "معدل تقييم المقيم:",
+    "click_to_compare": "اضغط لمقارنة هذا التقييم على الرسم البياني",
+    "bias_dashboard_title": "لوحة تحيز المقيمين - سديم",
+    "bias_dashboard_description": "تجنب سلوك التحيز واتجاهات التميز لديهم ومدى اتساق التقييمات عبر فريق التقييم.",
+    "classification": "التصنيف",
+    "bias_percentage": "نسبة التحيز",
+    "selected_evaluator": "المقيم المحدد",
+    "bias_metrics": "مقاييس التحيز",
+    "bias_metrics_explanation": "التحيز يقاس مقابل متوسط تقييم الفريق للأفكار المقيمة.",
+    "balance_rate": "معدل الموازنة",
+    "average_bias": "متوسط التحيز",
+    "highest_bias": "أعلى تحيز",
+    "classifications": {
+      "Balanced": "متزن",
+      "Generous": "سخي",
+      "Strict": "صارم"
+    },
+    "criteria": {
+      "creativity": {
+        "label": "الإبداع",
+        "description": "يقيس أصالة الفكرة ومدى اختلافها عن الحلول التقليدية أو الموجودة."
+      },
+      "need": {
+        "label": "الحاجة / الطلب",
+        "description": "مدى حاجة الفئة المستهدفة أو المؤسسة لتطبيق هذه الفكرة."
+      },
+      "feasibility": {
+        "label": "قابلية التنفيذ",
+        "description": "مدى إمكانية تنفيذ الفكرة عملياً باستخدام الموارد الحالية."
+      },
+      "sustainability": {
+        "label": "الاستدامة",
+        "description": "قدرة الفكرة على الاستمرار وإحداث الأثر الإيجابي على المدى الطويل."
+      },
+      "impact": {
+        "label": "الأثر المؤسسي",
+        "description": "مدى مساهمة الفكرة في تحسين أداء المؤسسة أو كفاءتها التشغيلية."
+      },
+      "alignment": {
+        "label": "التوافق الاستراتيجي",
+        "description": "مدى توافق الفكرة مع الأهداف الاستراتيجية ورؤية المؤسسة."
+      },
+      "risk": {
+        "label": "تقليل المخاطر",
+        "description": "مدى مساهمة الفكرة في معالجة أو تقليل المخاطر التي تواجه المؤسسة."
+      },
+      "reputation": {
+        "label": "السمعة المؤسسية",
+        "description": "مدى مساهمة الفكرة في تعزيز الصورة الذهنية والسمعة العامة للمؤسسة."
+      }
+    },
+    "legends": {
+      "current": "التقييم الحالي",
+      "team": "متوسط الفريق",
+      "ai": "تقييم الذكاء الاصطناعي الأولي"
+    },
+    "footnotes": {
+      "strict": "المقيمين الـ Strict تقييمهم أقل من متوسط الفريق.",
+      "generous": "المقيمين الـ Generous تقييمهم أعلى من متوسط الفريق.",
+      "balanced": "المقيمين الـ Balanced تقييمهم قريب من متوسط الفريق."
     }
   }
 }

@@ -861,7 +861,67 @@
           "key": "evaluation",
           "label": "details.tabs.evaluation",
           "icon": "evaluation",
-          "data": {}
+          "data": {
+            "criteria": [
+              { "key": "creativity", "weight": "20%", "value": 3 },
+              { "key": "need", "weight": "20%", "value": 3 },
+              { "key": "feasibility", "weight": "20%", "value": 3 },
+              { "key": "sustainability", "weight": "20%", "value": 3 },
+              { "key": "impact", "weight": "20%", "value": 3 },
+              { "key": "alignment", "weight": "20%", "value": 3 },
+              { "key": "risk", "weight": "20%", "value": 3 },
+              { "key": "reputation", "weight": "20%", "value": 3 }
+            ],
+            "aiScores": [4, 3, 4, 3, 5, 4, 4, 3],
+            "teamScores": [3, 4, 3, 4, 4, 3, 3, 4],
+            "evaluators": [
+              {
+                "name": "Khaled",
+                "bias": "+4.2%",
+                "classification": "Balanced",
+                "averageRating": 75,
+                "teamAverage": 72,
+                "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
+                "scores": [4, 3, 4, 3, 5, 4, 4, 3]
+              },
+              {
+                "name": "Sara",
+                "bias": "-5.6%",
+                "classification": "Generous",
+                "averageRating": 68,
+                "teamAverage": 72,
+                "badgeClass": "bg-blue-500 border-blue-500/30 text-white",
+                "scores": [4, 4, 3, 5, 4, 3, 4, 4]
+              },
+              {
+                "name": "Omar",
+                "bias": "-1.4%",
+                "classification": "Balanced",
+                "averageRating": 71,
+                "teamAverage": 72,
+                "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
+                "scores": [3, 4, 3, 3, 4, 4, 3, 4]
+              },
+              {
+                "name": "Lina",
+                "bias": "-16.7%",
+                "classification": "Strict",
+                "averageRating": 60,
+                "teamAverage": 72,
+                "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
+                "scores": [2, 3, 2, 4, 3, 2, 3, 2]
+              },
+              {
+                "name": "Shams",
+                "bias": "-5.6%",
+                "classification": "Strict",
+                "averageRating": 68,
+                "teamAverage": 72,
+                "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
+                "scores": [3, 2, 3, 3, 3, 3, 2, 3]
+              }
+            ]
+          }
         },
         {
           "key": "decision",
@@ -1659,7 +1719,67 @@
           "key": "evaluation",
           "label": "details.tabs.evaluation",
           "icon": "evaluation",
-          "data": {}
+          "data": {
+            "criteria": [
+              { "key": "creativity", "weight": "20%", "value": 3 },
+              { "key": "need", "weight": "20%", "value": 3 },
+              { "key": "feasibility", "weight": "20%", "value": 3 },
+              { "key": "sustainability", "weight": "20%", "value": 3 },
+              { "key": "impact", "weight": "20%", "value": 3 },
+              { "key": "alignment", "weight": "20%", "value": 3 },
+              { "key": "risk", "weight": "20%", "value": 3 },
+              { "key": "reputation", "weight": "20%", "value": 3 }
+            ],
+            "aiScores": [4, 3, 4, 3, 5, 4, 4, 3],
+            "teamScores": [3, 4, 3, 4, 4, 3, 3, 4],
+            "evaluators": [
+              {
+                "name": "Khaled",
+                "bias": "+4.2%",
+                "classification": "Balanced",
+                "averageRating": 75,
+                "teamAverage": 72,
+                "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
+                "scores": [4, 3, 4, 3, 5, 4, 4, 3]
+              },
+              {
+                "name": "Sara",
+                "bias": "-5.6%",
+                "classification": "Generous",
+                "averageRating": 68,
+                "teamAverage": 72,
+                "badgeClass": "bg-blue-500 border-blue-500/30 text-white",
+                "scores": [4, 4, 3, 5, 4, 3, 4, 4]
+              },
+              {
+                "name": "Omar",
+                "bias": "-1.4%",
+                "classification": "Balanced",
+                "averageRating": 71,
+                "teamAverage": 72,
+                "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
+                "scores": [3, 4, 3, 3, 4, 4, 3, 4]
+              },
+              {
+                "name": "Lina",
+                "bias": "-16.7%",
+                "classification": "Strict",
+                "averageRating": 60,
+                "teamAverage": 72,
+                "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
+                "scores": [2, 3, 2, 4, 3, 2, 3, 2]
+              },
+              {
+                "name": "Shams",
+                "bias": "-5.6%",
+                "classification": "Strict",
+                "averageRating": 68,
+                "teamAverage": 72,
+                "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
+                "scores": [3, 2, 3, 3, 3, 3, 2, 3]
+              }
+            ]
+          }
         },
         {
           "key": "decision",

@@ -38,7 +38,7 @@ const emit = defineEmits([
           <!-- Button 1 -->
           <BaseButton
             @click="emit('link-contributor')"
-            class="!py-3.5 font-bold text-white rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#32BEA6] to-[#018AAF]"
+            class="!py-3.5 font-bold text-white rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#05D989] to-[#018AAF]"
           >
             {{ $t("actions.link_idea_contributor") }}
           </BaseButton>

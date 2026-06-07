@@ -4,6 +4,7 @@ import BaseBox from "@/components/ui/BaseBox.vue";
 import BaseSelect from "@/components/ui/BaseSelect.vue";
 import BaseCheckableCard from "@/components/ui/BaseCheckableCard.vue";
 import BaseActionModal from "@/components/ui/BaseActionModal.vue";
+import BaseTextarea from "@/components/ui/BaseTextarea.vue";
 
 const props = defineProps({
   data: {
@@ -728,12 +729,11 @@ const handleSendDecision = () => {
       <h3 class="text-white text-sm md:text-base font-bold mb-1">
         ملاحظات القرار والإشعار
       </h3>
-      <textarea
+      <BaseTextarea
         v-model="feedbackNotes"
         placeholder="اكتب ملاحظات القرار النهائي أو التوجيهات أو الملاحظات الخاصة بالحوكمة..."
-        rows="3"
-        class="w-full p-4 rounded-xl bg-[#161F30] border border-white/5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-[#32BEA6]/50 resize-none transition-colors"
-      ></textarea>
+        :rows="3"
+      />
 
       <!-- Bottom button actions -->
       <div

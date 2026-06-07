@@ -57,7 +57,7 @@ const emit = defineEmits(["close", "confirm"]);
         <div class="flex flex-col sm:flex-row gap-3 mt-10">
           <BaseButton
             @click="emit('confirm')"
-            class="flex-1 font-bold text-white bg-gradient-to-r from-[#32BEA6] to-[#018AAF]"
+            class="flex-1 font-bold text-white rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#05D989] to-[#018AAF]"
           >
             {{ $t("actions.confirm_merge") }}
           </BaseButton>

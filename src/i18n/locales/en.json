@@ -105,5 +105,90 @@
         "Thank you again for your valuable contribution, and we look forward to your continued giving in supporting the journey of innovation."
       ]
     }
+  },
+  "placeholders": {
+    "add_notes": "Add other notes...",
+    "add_another_recipient": "Add another recipient..."
+  },
+  "evaluation": {
+    "title": "Idea Evaluation",
+    "live_radar_active": "Live Radar Active",
+    "current_evaluation": "Current Evaluation",
+    "your_evaluation": "Your Rating",
+    "team_average": "Team Average",
+    "ai_initial_evaluation": "Initial AI Rating",
+    "show_bias_ratio": "Show Bias Ratio",
+    "radar_chart_title": "Radar Chart",
+    "ai_analysis": "AI Analysis Insights",
+    "strongest_aspects": "Strongest aspects:",
+    "weakest_aspects": "Weakest aspects:",
+    "direct_note": "Direct note:",
+    "direct_note_text": "This idea may need additional clarification or redesign before approval.",
+    "evaluation_criteria": "Evaluation Criteria",
+    "selected_rating": "Selected Rating:",
+    "evaluators": "Evaluators",
+    "evaluator_manager_mode": "Evaluator Manager Mode",
+    "bias": "Bias:",
+    "evaluator_average_rating": "Evaluator Average:",
+    "click_to_compare": "Click to compare this evaluation on the chart",
+    "bias_dashboard_title": "Evaluator Bias Dashboard - Sadeem",
+    "bias_dashboard_description": "Avoid bias behavior, check their tendencies, and assess consistency across the evaluation team.",
+    "classification": "Classification",
+    "bias_percentage": "Bias Percentage",
+    "selected_evaluator": "Selected Evaluator",
+    "bias_metrics": "Bias Metrics",
+    "bias_metrics_explanation": "Bias is measured against the team's average rating for evaluated ideas.",
+    "balance_rate": "Balance Rate",
+    "average_bias": "Average Bias",
+    "highest_bias": "Highest Bias",
+    "classifications": {
+      "Balanced": "Balanced",
+      "Generous": "Generous",
+      "Strict": "Strict"
+    },
+    "criteria": {
+      "creativity": {
+        "label": "Creativity",
+        "description": "Measures the originality of the idea and how it differs from traditional or existing solutions."
+      },
+      "need": {
+        "label": "Need/Demand",
+        "description": "The extent to which the target group or organization needs to apply this idea."
+      },
+      "feasibility": {
+        "label": "Feasibility",
+        "description": "The feasibility of implementing the idea in practice using current resources."
+      },
+      "sustainability": {
+        "label": "Sustainability",
+        "description": "The ability of the idea to continue and bring positive impact in the long term."
+      },
+      "impact": {
+        "label": "Institutional Impact",
+        "description": "The extent to which the idea contributes to improving the organization's performance or operational efficiency."
+      },
+      "alignment": {
+        "label": "Strategic Alignment",
+        "description": "The extent to which the idea aligns with the strategic goals and vision of the organization."
+      },
+      "risk": {
+        "label": "Risk Mitigation",
+        "description": "The extent to which the idea contributes to addressing or reducing risks faced by the organization."
+      },
+      "reputation": {
+        "label": "Institutional Reputation",
+        "description": "The extent to which the idea contributes to enhancing the mental image and general reputation of the organization."
+      }
+    },
+    "legends": {
+      "current": "Current Rating",
+      "team": "Team Average",
+      "ai": "Initial AI Rating"
+    },
+    "footnotes": {
+      "strict": "Strict evaluators rate below the team average.",
+      "generous": "Generous evaluators rate above the team average.",
+      "balanced": "Balanced evaluators rate close to the team average."
+    }
   }
 }
