@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from "vue";
-import apexchart from "vue3-apexcharts";
+import BaseChart from "@/components/ui/BaseChart.vue";
 
 const props = defineProps({
   labels: {
@@ -103,7 +103,7 @@ const chartOptions = computed(() => ({
 
 <template>
   <div class="flex justify-center items-center w-full h-full select-none max-w-full">
-    <apexchart
+    <BaseChart
       type="radar"
       :height="size"
       width="100%"

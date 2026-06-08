@@ -22,6 +22,7 @@
       "story": "قصة الفكرة",
       "business_model": "نموذج العمل التجاري",
       "strategic_alignment": "المواءمة الاستراتيجية",
+      "alignment": "المواءمة الاستراتيجية",
       "ip": "الملكية الفكرية المتوقعة",
       "classification": "التصنيف",
       "evaluation": "التقييم",
@@ -191,5 +192,234 @@
       "generous": "المقيمين الـ Generous تقييمهم أعلى من متوسط الفريق.",
       "balanced": "المقيمين الـ Balanced تقييمهم قريب من متوسط الفريق."
     }
+  },
+  "analytics": {
+    "title": "لوحة مؤشرات الأداء",
+    "sidebar": {
+      "brand_title": "منصة سديم",
+      "brand_subtitle": "ذكاء الابتكار - الإصدار السابع"
+    },
+    "desc": "المنصة الآن مملوءة ببيانات وأرقام حقيقية تجريبية، وكل الرسومات المقترحة تظهر داخل التصميم نفسه.",
+    "live_signal": "المؤشر اللحظي (Live Signal)",
+    "total_platform_ideas": "إجمالي أفكار المنصة",
+    "quick_actions": "الإجراءات السريعة",
+    "actions": {
+      "submit_idea": "+ تقديم فكرة جديدة",
+      "evaluation_queue": "فتح قائمة انتظار التقييم",
+      "high_priority": "عرض الأفكار ذات الأولوية العالية",
+      "reports": "تقارير الابتكار",
+      "ai_insights": "رؤى الذكاء الاصطناعي",
+      "export_pdf": "تصدير الى PDF"
+    },
+    "filters": {
+      "timeframe": "الإطار الزمني",
+      "yearly": "سنوي",
+      "quarterly": "ربع سنوي",
+      "monthly": "شهري",
+      "all_departments": "كل الاقسام",
+      "all_types": "كل انواع الابتكار",
+      "incremental": "تحسيني",
+      "breakthrough": "خارق",
+      "disruptive": "مزعزع",
+      "transformational": "تحويلي"
+    },
+    "screens": {
+      "snapshot": "الموجز التنفيذي",
+      "outcomes": "نتائج التقييم",
+      "portfolio": "طبقة المحفظة",
+      "impact": "طبقة الأثر",
+      "governance": "طبقة الحوكمة",
+      "intelligence": "طبقة الذكاء الاصطناعي",
+      "nav_title": "الشاشات"
+    },
+    "snapshot": {
+      "gauge_title": "المقياس التنفيذي",
+      "gauge_subtitle": "إشارة اللوحة المرئية",
+      "gauge_label": "جاهزية مجلس الإدارة",
+      "radar_title": "رادار المحفظة",
+      "radar_subtitle": "مخطط الرادار بيانات كاملة",
+      "outcome_title": "ملخص سريع للنتائج"
+    },
+    "badges": {
+      "composite": "مركب",
+      "ytd": "YTD",
+      "projects": "المشاريع",
+      "strategy": "الاستراتيجية",
+      "viable_pct": "70%+",
+      "redesign_pct": "50–69%",
+      "nonviable_pct": "<50%",
+      "existing": "موجود"
+    },
+    "kpis": {
+      "health_score": "مؤشر صحة الابتكار",
+      "ideas_submitted": "إجمالي الأفكار المقدمة",
+      "conversion_rate": "أفكار تحولت إلى مشاريع",
+      "strategic_alignment": "المواءمة الاستراتيجية",
+      "viable_ideas": "الأفكار المجدية",
+      "needs_redesign": "أفكار تحتاج إعادة تصميم",
+      "non_viable": "الأفكار غير المجدية",
+      "already_in_plan": "أفكار ضمن الخطة بالفعل"
+    },
+    "change_labels": {
+      "vs_quarter": "مقارنة بالربع الأخير",
+      "idea_growth": "نمو الأفكار",
+      "approved_projects": "المشاريع المعتمدة 298",
+      "aligned_ideas": "الأفكار المتوائمة",
+      "approved": "مقبولة",
+      "coach_refine": "توجيه وتحسين",
+      "archive": "أرشفة",
+      "linked_initiatives": "مبادرات مرتبطة"
+    },
+    "radar": {
+      "alignment": "المواءمة",
+      "conversion": "التحويل",
+      "impact": "الأثر",
+      "execution": "التنفيذ",
+      "culture": "الثقافة",
+      "portfolio": "المحفظة"
+    },
+    "outcomes": {
+      "viable": "مجدية",
+      "needs_redesign": "بحاجة لإعادة تصميم",
+      "non_viable": "غير مجدية",
+      "already_in_plan": "ضمن الخطة",
+      "under_review": "قيد المراجعة",
+      "distribution_title": "توزيع القرار النهائي",
+      "heatmap_title": "خريطة حرارة النتائج",
+      "heatmap_subtitle": "الأقسام × فئات القرار النهائي"
+    },
+    "timeline": {
+      "title": "الجدول الزمني للابتكار",
+      "submitted": "تم تقديمها",
+      "under_review": "قيد المراجعة",
+      "approved": "تمت الموافقة",
+      "executed": "تم التنفيذ"
+    },
+    "portfolio_tab": {
+      "treemap_title": "خريطة شجرية – مخرجات الابتكار",
+      "bubbles_title": "مجموعات الفقاعات – المزيج التقني",
+      "sunburst_title": "رسم دائري – أنواع الابتكار",
+      "dept_title": "الأفكار لكل قسم",
+      "mix_title": "ملخص مزيج الأنواع",
+      "headers": {
+        "type": "نوع الابتكار",
+        "ideas": "الأفكار",
+        "share": "الحصة"
+      }
+    },
+    "impact_tab": {
+      "expected_title": "مستوى الأثر المتوقع",
+      "measured_title": "مستوى الأثر المقاس",
+      "bands_title": "نطاقات الأثر",
+      "themes_title": "أبرز مواضيع الأثر",
+      "headers": {
+        "indicator": "المؤشر",
+        "value": "القيمة",
+        "status": "الحالة",
+        "theme": "الموضوع",
+        "ideas": "الأفكار",
+        "expected_score": "الدرجة المتوقعة"
+      }
+    },
+    "governance_tab": {
+      "indicators_title": "مؤشرات الحوكمة",
+      "heat_title": "طبقة حوكمة الحرارة",
+      "headers": {
+        "kpi": "مؤشر الأداء"
+      }
+    },
+    "intelligence_tab": {
+      "ai_alignment_title": "مؤشر التوافق مع الذكاء الاصطناعي",
+      "similarity_title": "خريطة مجموعات التشابه",
+      "probability_title": "نطاقات الاحتمالات",
+      "predictive_title": "تدفق الابتكار التنبؤي",
+      "commentary_title": "تعليق الذكاء الاصطناعي",
+      "gauge_sub": "تقييم AI",
+      "commentary_text": "تم تعبئة البيانات بحيث تبدو المنصة مكتملة ومليئة بالأفكار، وتمت إضافة Quick Actions أيضًا أسفل القائمة الرئيسية مثل ما طلبت."
+    },
+    "drawer": {
+      "close": "إغلاق",
+      "breakdown": "التفصيل",
+      "health": {
+        "title": "مؤشر صحة الابتكار",
+        "desc": "مؤشر أداء مركب على مستوى مجلس الإدارة يجمع بين التوافق الاستراتيجي، ومعدل التحويل، والمشاركة، والأثر المتوقع، وتوازن المحفظة.",
+        "metric1_label": "الدرجة المركبة",
+        "metric2_label": "المحرك الأساسي",
+        "metric3_label": "التوجه",
+        "metric4_label": "الاستخدام"
+      },
+      "ideas": {
+        "title": "إجمالي الأفكار المقدمة",
+        "desc": "إجمالي مدخلات الابتكار عبر المؤسسة مع تفصيل حسب القسم، النوع، المصدر، والوقت.",
+        "metric1_label": "الحجم الحالي",
+        "metric2_label": "التوجه",
+        "metric3_label": "القسم الرائد",
+        "metric4_label": "التحليل الموصى به"
+      },
+      "conversion": {
+        "title": "معدل تحويل الأفكار لمشاريع",
+        "desc": "يوضح النسبة المئوية للأفكار المقدمة أو المقيمة التي تحولت إلى مشاريع.",
+        "metric1_label": "معدل التحويل",
+        "metric2_label": "المشاريع المعتمدة",
+        "metric3_label": "المشاريع المنفذة",
+        "metric4_label": "الاستخدام القيادي"
+      },
+      "alignment": {
+        "title": "التوافق الاستراتيجي",
+        "desc": "يوضح مدى مساندة الأفكار بوضوح للأهداف الاستراتيجية والأولويات الأوسع.",
+        "metric1_label": "التوافق العام",
+        "metric2_label": "الاستراتيجية الوطنية",
+        "metric3_label": "دعم مؤشر الابتكار العالمي",
+        "metric4_label": "حالة الاستخدام"
+      },
+      "viable": {
+        "title": "الأفكار المجدية",
+        "desc": "الأفكار الحاصلة على تقييم 70% فما فوق بعد التقييم.",
+        "metric1_label": "العدد",
+        "metric2_label": "الحصة",
+        "metric3_label": "المعنى",
+        "metric4_label": "التفصيل الموصى به"
+      },
+      "redesign": {
+        "title": "أفكار تحتاج إعادة تصميم",
+        "desc": "الأفكار الحاصلة على تقييم بين 50% و 69%، وتحتاج إلى تحسين وتدريب.",
+        "metric1_label": "العدد",
+        "metric2_label": "الحصة",
+        "metric3_label": "المعنى",
+        "metric4_label": "التفصيل الموصى به"
+      },
+      "nonviable": {
+        "title": "الأفكار غير المجدية",
+        "desc": "الأفكار الحاصلة على تقييم أقل من 50%، ولا يوصى بالاستمرار فيها.",
+        "metric1_label": "العدد",
+        "metric2_label": "الحصة",
+        "metric3_label": "المشاكل الشائعة",
+        "metric4_label": "التفصيل الموصى به"
+      },
+      "inplan": {
+        "title": "أفكار ضمن الخطة بالفعل",
+        "desc": "الأفكار التي تتطابق مع مشاريع مدرجة بالفعل ضمن خطة المؤسسة.",
+        "metric1_label": "العدد",
+        "metric2_label": "الغرض",
+        "metric3_label": "التفصيل الموصى به"
+      }
+    },
+    "status": {
+      "high": "مرتفع",
+      "strong": "قوي",
+      "focused": "مركز",
+      "selective": "انتقائي",
+      "managed": "مدار",
+      "improving": "متحسن",
+      "positive": "إيجابي",
+      "developing": "قيد التطوير",
+      "stable": "مستقر",
+      "healthy": "سليم",
+      "controlled": "تحت السيطرة",
+      "available": "متاح",
+      "fast": "سريع"
+    },
+    "brand_title": "منصة سديم",
+    "brand_sub": "ذكاء الابتكار - الإصدار السابع"
   }
 }

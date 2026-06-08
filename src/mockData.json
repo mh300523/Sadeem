@@ -491,7 +491,9 @@
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
+                "items": [
+                  "القطاع الحكومي"
+                ]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
@@ -602,7 +604,11 @@
                     "title": "استشارة محامي ملكية فكرية",
                     "active": false
                   },
-                  { "id": 3, "title": "إجراء بحث براءات", "active": false }
+                  {
+                    "id": 3,
+                    "title": "إجراء بحث براءات",
+                    "active": false
+                  }
                 ]
               },
               "disclaimer": {
@@ -798,7 +804,6 @@
             },
             "duplicateCheck": {
               "label": "هل الفكرة مكررة؟",
-
               "warningText": "تم اكتشاف فكرة مشابهة",
               "items": [
                 {
@@ -863,17 +868,67 @@
           "icon": "evaluation",
           "data": {
             "criteria": [
-              { "key": "creativity", "weight": "20%", "value": 3 },
-              { "key": "need", "weight": "20%", "value": 3 },
-              { "key": "feasibility", "weight": "20%", "value": 3 },
-              { "key": "sustainability", "weight": "20%", "value": 3 },
-              { "key": "impact", "weight": "20%", "value": 3 },
-              { "key": "alignment", "weight": "20%", "value": 3 },
-              { "key": "risk", "weight": "20%", "value": 3 },
-              { "key": "reputation", "weight": "20%", "value": 3 }
+              {
+                "key": "creativity",
+                "weight": "20%",
+                "value": 3
+              },
+              {
+                "key": "need",
+                "weight": "20%",
+                "value": 3
+              },
+              {
+                "key": "feasibility",
+                "weight": "20%",
+                "value": 3
+              },
+              {
+                "key": "sustainability",
+                "weight": "20%",
+                "value": 3
+              },
+              {
+                "key": "impact",
+                "weight": "20%",
+                "value": 3
+              },
+              {
+                "key": "alignment",
+                "weight": "20%",
+                "value": 3
+              },
+              {
+                "key": "risk",
+                "weight": "20%",
+                "value": 3
+              },
+              {
+                "key": "reputation",
+                "weight": "20%",
+                "value": 3
+              }
             ],
-            "aiScores": [4, 3, 4, 3, 5, 4, 4, 3],
-            "teamScores": [3, 4, 3, 4, 4, 3, 3, 4],
+            "aiScores": [
+              4,
+              3,
+              4,
+              3,
+              5,
+              4,
+              4,
+              3
+            ],
+            "teamScores": [
+              3,
+              4,
+              3,
+              4,
+              4,
+              3,
+              3,
+              4
+            ],
             "evaluators": [
               {
                 "name": "Khaled",
@@ -882,7 +937,16 @@
                 "averageRating": 75,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
-                "scores": [4, 3, 4, 3, 5, 4, 4, 3]
+                "scores": [
+                  4,
+                  3,
+                  4,
+                  3,
+                  5,
+                  4,
+                  4,
+                  3
+                ]
               },
               {
                 "name": "Sara",
@@ -891,7 +955,16 @@
                 "averageRating": 68,
                 "teamAverage": 72,
                 "badgeClass": "bg-blue-500 border-blue-500/30 text-white",
-                "scores": [4, 4, 3, 5, 4, 3, 4, 4]
+                "scores": [
+                  4,
+                  4,
+                  3,
+                  5,
+                  4,
+                  3,
+                  4,
+                  4
+                ]
               },
               {
                 "name": "Omar",
@@ -900,7 +973,16 @@
                 "averageRating": 71,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
-                "scores": [3, 4, 3, 3, 4, 4, 3, 4]
+                "scores": [
+                  3,
+                  4,
+                  3,
+                  3,
+                  4,
+                  4,
+                  3,
+                  4
+                ]
               },
               {
                 "name": "Lina",
@@ -909,7 +991,16 @@
                 "averageRating": 60,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
-                "scores": [2, 3, 2, 4, 3, 2, 3, 2]
+                "scores": [
+                  2,
+                  3,
+                  2,
+                  4,
+                  3,
+                  2,
+                  3,
+                  2
+                ]
               },
               {
                 "name": "Shams",
@@ -918,7 +1009,16 @@
                 "averageRating": 68,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
-                "scores": [3, 2, 3, 3, 3, 3, 2, 3]
+                "scores": [
+                  3,
+                  2,
+                  3,
+                  3,
+                  3,
+                  3,
+                  2,
+                  3
+                ]
               }
             ]
           }
@@ -972,11 +1072,16 @@
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
+                "items": [
+                  "القطاع الحكومي"
+                ]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
-                "items": ["الذكاء الاصطناعي", "إنترنت الأشياء"]
+                "items": [
+                  "الذكاء الاصطناعي",
+                  "إنترنت الأشياء"
+                ]
               },
               "impact": {
                 "label": "نطاق الأثر",
@@ -1042,7 +1147,11 @@
                 ],
                 "requirements": {
                   "label": "متطلبات التنفيذ",
-                  "items": ["بيانات", "تشريعات", "شركاء"]
+                  "items": [
+                    "بيانات",
+                    "تشريعات",
+                    "شركاء"
+                  ]
                 },
                 "outputs": {
                   "label": "مخرجات الابتكار المتوقعة",
@@ -1447,7 +1556,11 @@
                     "title": "استشارة محامي ملكية فكرية",
                     "active": false
                   },
-                  { "id": 3, "title": "إجراء بحث براءات", "active": false }
+                  {
+                    "id": 3,
+                    "title": "إجراء بحث براءات",
+                    "active": false
+                  }
                 ]
               },
               "disclaimer": {
@@ -1656,7 +1769,6 @@
             },
             "duplicateCheck": {
               "label": "هل الفكرة مكررة؟",
-
               "warningText": "تم اكتشاف فكرة مشابهة",
               "items": [
                 {
@@ -1721,17 +1833,67 @@
           "icon": "evaluation",
           "data": {
             "criteria": [
-              { "key": "creativity", "weight": "20%", "value": 3 },
-              { "key": "need", "weight": "20%", "value": 3 },
-              { "key": "feasibility", "weight": "20%", "value": 3 },
-              { "key": "sustainability", "weight": "20%", "value": 3 },
-              { "key": "impact", "weight": "20%", "value": 3 },
-              { "key": "alignment", "weight": "20%", "value": 3 },
-              { "key": "risk", "weight": "20%", "value": 3 },
-              { "key": "reputation", "weight": "20%", "value": 3 }
+              {
+                "key": "creativity",
+                "weight": "20%",
+                "value": 3
+              },
+              {
+                "key": "need",
+                "weight": "20%",
+                "value": 3
+              },
+              {
+                "key": "feasibility",
+                "weight": "20%",
+                "value": 3
+              },
+              {
+                "key": "sustainability",
+                "weight": "20%",
+                "value": 3
+              },
+              {
+                "key": "impact",
+                "weight": "20%",
+                "value": 3
+              },
+              {
+                "key": "alignment",
+                "weight": "20%",
+                "value": 3
+              },
+              {
+                "key": "risk",
+                "weight": "20%",
+                "value": 3
+              },
+              {
+                "key": "reputation",
+                "weight": "20%",
+                "value": 3
+              }
             ],
-            "aiScores": [4, 3, 4, 3, 5, 4, 4, 3],
-            "teamScores": [3, 4, 3, 4, 4, 3, 3, 4],
+            "aiScores": [
+              4,
+              3,
+              4,
+              3,
+              5,
+              4,
+              4,
+              3
+            ],
+            "teamScores": [
+              3,
+              4,
+              3,
+              4,
+              4,
+              3,
+              3,
+              4
+            ],
             "evaluators": [
               {
                 "name": "Khaled",
@@ -1740,7 +1902,16 @@
                 "averageRating": 75,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
-                "scores": [4, 3, 4, 3, 5, 4, 4, 3]
+                "scores": [
+                  4,
+                  3,
+                  4,
+                  3,
+                  5,
+                  4,
+                  4,
+                  3
+                ]
               },
               {
                 "name": "Sara",
@@ -1749,7 +1920,16 @@
                 "averageRating": 68,
                 "teamAverage": 72,
                 "badgeClass": "bg-blue-500 border-blue-500/30 text-white",
-                "scores": [4, 4, 3, 5, 4, 3, 4, 4]
+                "scores": [
+                  4,
+                  4,
+                  3,
+                  5,
+                  4,
+                  3,
+                  4,
+                  4
+                ]
               },
               {
                 "name": "Omar",
@@ -1758,7 +1938,16 @@
                 "averageRating": 71,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
-                "scores": [3, 4, 3, 3, 4, 4, 3, 4]
+                "scores": [
+                  3,
+                  4,
+                  3,
+                  3,
+                  4,
+                  4,
+                  3,
+                  4
+                ]
               },
               {
                 "name": "Lina",
@@ -1767,7 +1956,16 @@
                 "averageRating": 60,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
-                "scores": [2, 3, 2, 4, 3, 2, 3, 2]
+                "scores": [
+                  2,
+                  3,
+                  2,
+                  4,
+                  3,
+                  2,
+                  3,
+                  2
+                ]
               },
               {
                 "name": "Shams",
@@ -1776,7 +1974,16 @@
                 "averageRating": 68,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
-                "scores": [3, 2, 3, 3, 3, 3, 2, 3]
+                "scores": [
+                  3,
+                  2,
+                  3,
+                  3,
+                  3,
+                  3,
+                  2,
+                  3
+                ]
               }
             ]
           }
@@ -1830,11 +2037,16 @@
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
+                "items": [
+                  "القطاع الحكومي"
+                ]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
-                "items": ["الذكاء الاصطناعي", "إنترنت الأشياء"]
+                "items": [
+                  "الذكاء الاصطناعي",
+                  "إنترنت الأشياء"
+                ]
               },
               "impact": {
                 "label": "نطاق الأثر",
@@ -1898,7 +2110,11 @@
                 ],
                 "requirements": {
                   "label": "متطلبات التنفيذ",
-                  "items": ["بيانات", "تشريعات", "شركاء"]
+                  "items": [
+                    "بيانات",
+                    "تشريعات",
+                    "شركاء"
+                  ]
                 },
                 "outputs": {
                   "label": "مخرجات الابتكار المتوقعة",
@@ -2092,11 +2308,15 @@
               },
               "targetAudience": {
                 "label": "الفئة المستهدفة",
-                "items": ["الطاقة"]
+                "items": [
+                  "الطاقة"
+                ]
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
+                "items": [
+                  "القطاع الحكومي"
+                ]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
@@ -2242,11 +2462,15 @@
               },
               "targetAudience": {
                 "label": "الفئة المستهدفة",
-                "items": ["الصحة"]
+                "items": [
+                  "الصحة"
+                ]
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
+                "items": [
+                  "القطاع الحكومي"
+                ]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
@@ -2392,11 +2616,15 @@
               },
               "targetAudience": {
                 "label": "الفئة المستهدفة",
-                "items": ["الطاقة"]
+                "items": [
+                  "الطاقة"
+                ]
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
+                "items": [
+                  "القطاع الحكومي"
+                ]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
@@ -2542,11 +2770,15 @@
               },
               "targetAudience": {
                 "label": "الفئة المستهدفة",
-                "items": ["الطاقة"]
+                "items": [
+                  "الطاقة"
+                ]
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
+                "items": [
+                  "القطاع الحكومي"
+                ]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
@@ -2692,11 +2924,15 @@
               },
               "targetAudience": {
                 "label": "الفئة المستهدفة",
-                "items": ["الطاقة"]
+                "items": [
+                  "الطاقة"
+                ]
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
+                "items": [
+                  "القطاع الحكومي"
+                ]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
@@ -2842,11 +3078,15 @@
               },
               "targetAudience": {
                 "label": "الفئة المستهدفة",
-                "items": ["الطاقة"]
+                "items": [
+                  "الطاقة"
+                ]
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
+                "items": [
+                  "القطاع الحكومي"
+                ]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
@@ -2962,6 +3202,1146 @@
           "data": {}
         }
       ]
+    }
+  },
+  "analytics": {
+    "liveSignal": {
+      "value": "1,248",
+      "sparkline": [
+        26,
+        35,
+        48,
+        56,
+        66,
+        72,
+        88
+      ]
+    },
+    "quickActions": [
+      {
+        "id": "submit_idea",
+        "labelKey": "analytics.actions.submit_idea",
+        "primary": true
+      },
+      {
+        "id": "evaluation_queue",
+        "labelKey": "analytics.actions.evaluation_queue",
+        "primary": false
+      },
+      {
+        "id": "high_priority",
+        "labelKey": "analytics.actions.high_priority",
+        "primary": false
+      },
+      {
+        "id": "reports",
+        "labelKey": "analytics.actions.reports",
+        "primary": false
+      },
+      {
+        "id": "ai_insights",
+        "labelKey": "analytics.actions.ai_insights",
+        "primary": false
+      }
+    ],
+    "screens": {
+      "snapshot": {
+        "kpis": [
+          {
+            "id": "alignment",
+            "badgeKey": "analytics.badges.strategy",
+            "titleKey": "analytics.kpis.strategic_alignment",
+            "value": "88%",
+            "percentage": "+5.3%",
+            "changeLabelKey": "analytics.change_labels.aligned_ideas",
+            "sparkline": [
+              36,
+              42,
+              54,
+              62,
+              70,
+              76,
+              82
+            ],
+            "growthType": "up",
+            "badgeColor": "text-[#22d3ee] bg-[#22d3ee]/10 border-[#22d3ee]/20"
+          },
+          {
+            "id": "conversion",
+            "badgeKey": "analytics.badges.projects",
+            "titleKey": "analytics.kpis.conversion_rate",
+            "value": "88%",
+            "percentage": "+5.3%",
+            "changeLabelKey": "analytics.change_labels.approved_projects",
+            "sparkline": [
+              22,
+              26,
+              34,
+              33,
+              40,
+              48,
+              54
+            ],
+            "growthType": "up",
+            "badgeColor": "text-[#22c55e] bg-[#22c55e]/10 border-[#22c55e]/20"
+          },
+          {
+            "id": "ideas",
+            "badgeKey": "analytics.badges.ytd",
+            "titleKey": "analytics.kpis.ideas_submitted",
+            "value": "88%",
+            "percentage": "+5.3%",
+            "changeLabelKey": "analytics.change_labels.idea_growth",
+            "sparkline": [
+              24,
+              40,
+              44,
+              56,
+              62,
+              72,
+              84
+            ],
+            "growthType": "up",
+            "badgeColor": "text-slate-400 bg-slate-400/10 border-slate-400/20"
+          },
+          {
+            "id": "health",
+            "badgeKey": "analytics.badges.composite",
+            "titleKey": "analytics.kpis.health_score",
+            "value": "88%",
+            "percentage": "+5.3%",
+            "changeLabelKey": "analytics.change_labels.vs_quarter",
+            "sparkline": [
+              28,
+              34,
+              46,
+              58,
+              63,
+              74,
+              88
+            ],
+            "growthType": "up",
+            "badgeColor": "text-[#34d3ff] bg-[#34d3ff]/10 border-[#34d3ff]/20"
+          }
+        ],
+        "gaugeValue": 86,
+        "radar": {
+          "series": [
+            {
+              "name": "Portfolio Radar",
+              "data": [
+                88,
+                78,
+                82,
+                80,
+                73,
+                79
+              ]
+            }
+          ],
+          "categories": [
+            "analytics.radar.alignment",
+            "analytics.radar.conversion",
+            "analytics.radar.impact",
+            "analytics.radar.execution",
+            "analytics.radar.culture",
+            "analytics.radar.portfolio"
+          ],
+          "categoriesRaw": [
+            "Alignment 88",
+            "Conversion 78",
+            "Impact 82",
+            "Execution 80",
+            "Culture 73",
+            "Portfolio 79"
+          ]
+        },
+        "outcomeSummary": [
+          {
+            "labelKey": "analytics.outcomes.viable",
+            "value": "482"
+          },
+          {
+            "labelKey": "analytics.outcomes.needs_redesign",
+            "value": "261"
+          },
+          {
+            "labelKey": "analytics.outcomes.already_in_plan",
+            "value": "1,248"
+          },
+          {
+            "labelKey": "analytics.outcomes.non_viable",
+            "value": "119"
+          }
+        ],
+        "timeline": [
+          {
+            "labelKey": "analytics.timeline.submitted",
+            "value": "482"
+          },
+          {
+            "labelKey": "analytics.timeline.under_review",
+            "value": "309"
+          },
+          {
+            "labelKey": "analytics.timeline.approved",
+            "value": "1,248"
+          },
+          {
+            "labelKey": "analytics.timeline.executed",
+            "value": "171"
+          }
+        ]
+      },
+      "outcomes": {
+        "kpis": [
+          {
+            "id": "viable",
+            "badgeKey": "analytics.badges.viable_pct",
+            "titleKey": "analytics.kpis.viable_ideas",
+            "value": "482",
+            "percentage": "39%",
+            "changeLabelKey": "analytics.change_labels.approved",
+            "sparkline": [
+              30,
+              42,
+              50,
+              45,
+              52,
+              60,
+              68
+            ],
+            "growthType": "up",
+            "badgeColor": "text-[#22c55e] bg-[#22c55e]/10 border-[#22c55e]/20"
+          },
+          {
+            "id": "redesign",
+            "badgeKey": "analytics.badges.redesign_pct",
+            "titleKey": "analytics.kpis.needs_redesign",
+            "value": "261",
+            "percentage": "21%",
+            "changeLabelKey": "analytics.change_labels.coach_refine",
+            "sparkline": [
+              15,
+              20,
+              18,
+              22,
+              20,
+              24,
+              21
+            ],
+            "growthType": "mid",
+            "badgeColor": "text-[#f59e0b] bg-[#f59e0b]/10 border-[#f59e0b]/20"
+          },
+          {
+            "id": "nonviable",
+            "badgeKey": "analytics.badges.nonviable_pct",
+            "titleKey": "analytics.kpis.non_viable",
+            "value": "119",
+            "percentage": "10%",
+            "changeLabelKey": "analytics.change_labels.archive",
+            "sparkline": [
+              10,
+              12,
+              9,
+              11,
+              13,
+              8,
+              10
+            ],
+            "growthType": "down",
+            "badgeColor": "text-[#ef4444] bg-[#ef4444]/10 border-[#ef4444]/20"
+          },
+          {
+            "id": "inplan",
+            "badgeKey": "analytics.badges.existing",
+            "titleKey": "analytics.kpis.already_in_plan",
+            "value": "77",
+            "percentage": "6%",
+            "changeLabelKey": "analytics.change_labels.linked_initiatives",
+            "sparkline": [
+              5,
+              6,
+              8,
+              7,
+              6,
+              8,
+              7
+            ],
+            "growthType": "mid",
+            "badgeColor": "text-[#22d3ee] bg-[#22d3ee]/10 border-[#22d3ee]/20"
+          }
+        ],
+        "heatmap": {
+          "categories": [
+            "Operations",
+            "Medical",
+            "Digital",
+            "Support",
+            "Comms"
+          ],
+          "series": [
+            {
+              "name": "Viable",
+              "data": [
+                118,
+                96,
+                142,
+                81,
+                45
+              ]
+            },
+            {
+              "name": "Redesign",
+              "data": [
+                62,
+                54,
+                71,
+                49,
+                25
+              ]
+            },
+            {
+              "name": "Non-Viable",
+              "data": [
+                22,
+                18,
+                27,
+                35,
+                17
+              ]
+            }
+          ]
+        },
+        "distribution": [
+          {
+            "labelKey": "analytics.outcomes.viable",
+            "value": 39
+          },
+          {
+            "labelKey": "analytics.outcomes.needs_redesign",
+            "value": 21
+          },
+          {
+            "labelKey": "analytics.outcomes.non_viable",
+            "value": 10
+          },
+          {
+            "labelKey": "analytics.outcomes.already_in_plan",
+            "value": 6
+          },
+          {
+            "labelKey": "analytics.outcomes.under_review",
+            "value": 24
+          }
+        ]
+      },
+      "portfolio": {
+        "treemap": [
+          {
+            "x": "Service",
+            "y": 412
+          },
+          {
+            "x": "Technology",
+            "y": 238
+          },
+          {
+            "x": "Process",
+            "y": 201
+          },
+          {
+            "x": "Business Model",
+            "y": 141
+          },
+          {
+            "x": "Policy",
+            "y": 119
+          },
+          {
+            "x": "Product",
+            "y": 137
+          }
+        ],
+        "bubbles": [
+          {
+            "name": "AI",
+            "value": 318,
+            "size": 128,
+            "color": "linear-gradient(135deg,#34d3ff,#7c3aed)"
+          },
+          {
+            "name": "IoT",
+            "value": 176,
+            "size": 98,
+            "color": "linear-gradient(135deg,#22d3ee,#0ea5e9)"
+          },
+          {
+            "name": "Apps",
+            "value": 148,
+            "size": 86,
+            "color": "linear-gradient(135deg,#f59e0b,#f97316)"
+          },
+          {
+            "name": "Data",
+            "value": 136,
+            "size": 80,
+            "color": "linear-gradient(135deg,#22c55e,#16a34a)"
+          },
+          {
+            "name": "Blockchain",
+            "value": 89,
+            "size": 70,
+            "color": "linear-gradient(135deg,#8b5cf6,#6366f1)"
+          },
+          {
+            "name": "Robotics",
+            "value": 61,
+            "size": 62,
+            "color": "linear-gradient(135deg,#ec4899,#f43f5e)"
+          }
+        ],
+        "sunburst": {
+          "total": "1,248",
+          "series": [
+            41,
+            24,
+            18,
+            17
+          ],
+          "labels": [
+            "Incremental",
+            "Breakthrough",
+            "Disruptive",
+            "Transformational"
+          ]
+        },
+        "departments": [
+          {
+            "label": "Digital Transformation",
+            "value": 287,
+            "percentage": 92
+          },
+          {
+            "label": "Operations",
+            "value": 252,
+            "percentage": 81
+          },
+          {
+            "label": "Medical Services",
+            "value": 228,
+            "percentage": 74
+          },
+          {
+            "label": "Support Services",
+            "value": 179,
+            "percentage": 58
+          },
+          {
+            "label": "Communication",
+            "value": 120,
+            "percentage": 39
+          }
+        ],
+        "typeSummary": [
+          {
+            "type": "Incremental",
+            "ideas": 512,
+            "share": "41%"
+          },
+          {
+            "type": "Breakthrough",
+            "ideas": 300,
+            "share": "24%"
+          },
+          {
+            "type": "Disruptive",
+            "ideas": 225,
+            "share": "18%"
+          },
+          {
+            "type": "Transformational",
+            "ideas": 211,
+            "share": "17%"
+          }
+        ]
+      },
+      "impact": {
+        "expected": [
+          {
+            "indicatorKey": "analytics.impact.expected_score",
+            "value": "81 / 100",
+            "statusKey": "analytics.status.high",
+            "statusType": "green"
+          },
+          {
+            "indicatorKey": "analytics.impact.potential_index",
+            "value": "77",
+            "statusKey": "analytics.status.strong",
+            "statusType": "cyan"
+          },
+          {
+            "indicatorKey": "analytics.impact.high_priority",
+            "value": "194",
+            "statusKey": "analytics.status.focused",
+            "statusType": "green"
+          },
+          {
+            "indicatorKey": "analytics.impact.ip_rate",
+            "value": "31%",
+            "statusKey": "analytics.status.selective",
+            "statusType": "amber"
+          },
+          {
+            "indicatorKey": "analytics.impact.risk_dist",
+            "value": "Balanced",
+            "statusKey": "analytics.status.managed",
+            "statusType": "cyan"
+          }
+        ],
+        "measured": [
+          {
+            "indicatorKey": "analytics.impact.time_reduction",
+            "value": "19%",
+            "statusKey": "analytics.status.improving",
+            "statusType": "green"
+          },
+          {
+            "indicatorKey": "analytics.impact.efficiency",
+            "value": "23%",
+            "statusKey": "analytics.status.strong",
+            "statusType": "green"
+          },
+          {
+            "indicatorKey": "analytics.impact.quality",
+            "value": "14%",
+            "statusKey": "analytics.status.positive",
+            "statusType": "cyan"
+          },
+          {
+            "indicatorKey": "analytics.impact.risk_reduction",
+            "value": "12%",
+            "statusKey": "analytics.status.positive",
+            "statusType": "cyan"
+          },
+          {
+            "indicatorKey": "analytics.impact.sustainability",
+            "value": "72",
+            "statusKey": "analytics.status.developing",
+            "statusType": "amber"
+          }
+        ],
+        "bands": [
+          {
+            "label": "Low",
+            "percentage": 9
+          },
+          {
+            "label": "Medium",
+            "percentage": 28
+          },
+          {
+            "label": "High",
+            "percentage": 44
+          },
+          {
+            "label": "Strategic",
+            "percentage": 19
+          }
+        ],
+        "themes": [
+          {
+            "theme": "Emergency Response Automation",
+            "ideas": 74,
+            "score": 89
+          },
+          {
+            "theme": "Smart Dispatching",
+            "ideas": 61,
+            "score": 86
+          },
+          {
+            "theme": "Field Medic Support",
+            "ideas": 48,
+            "score": 84
+          },
+          {
+            "theme": "Patient Experience",
+            "ideas": 53,
+            "score": 81
+          }
+        ]
+      },
+      "governance": {
+        "indicators": [
+          {
+            "kpiKey": "analytics.gov.avg_eval_score",
+            "value": "74 / 100",
+            "statusKey": "analytics.status.stable",
+            "statusType": "cyan"
+          },
+          {
+            "kpiKey": "analytics.gov.weighted_score",
+            "value": "77 / 100",
+            "statusKey": "analytics.status.healthy",
+            "statusType": "green"
+          },
+          {
+            "kpiKey": "analytics.gov.bias_indicator",
+            "value": "Low",
+            "statusKey": "analytics.status.controlled",
+            "statusType": "green"
+          },
+          {
+            "kpiKey": "analytics.gov.active_evaluators",
+            "value": "68",
+            "statusKey": "analytics.status.available",
+            "statusType": "cyan"
+          },
+          {
+            "kpiKey": "analytics.gov.cycle_time",
+            "value": "3.8 days",
+            "statusKey": "analytics.status.fast",
+            "statusType": "green"
+          }
+        ],
+        "heatmap": {
+          "yCategories": [
+            "Bias",
+            "Cycle Time",
+            "Completion"
+          ],
+          "xCategories": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Target"
+          ],
+          "data": [
+            {
+              "name": "Bias",
+              "data": [
+                {
+                  "x": "Q1",
+                  "y": "Low",
+                  "level": "h2"
+                },
+                {
+                  "x": "Q2",
+                  "y": "Low",
+                  "level": "h2"
+                },
+                {
+                  "x": "Q3",
+                  "y": "Low",
+                  "level": "h1"
+                },
+                {
+                  "x": "Q4",
+                  "y": "Low",
+                  "level": "h1"
+                },
+                {
+                  "x": "Target",
+                  "y": "Good",
+                  "level": "h1"
+                }
+              ]
+            },
+            {
+              "name": "Cycle Time",
+              "data": [
+                {
+                  "x": "Q1",
+                  "y": "4.8",
+                  "level": "h3"
+                },
+                {
+                  "x": "Q2",
+                  "y": "4.4",
+                  "level": "h2"
+                },
+                {
+                  "x": "Q3",
+                  "y": "4.1",
+                  "level": "h2"
+                },
+                {
+                  "x": "Q4",
+                  "y": "3.8",
+                  "level": "h1"
+                },
+                {
+                  "x": "Target",
+                  "y": "<5",
+                  "level": "h1"
+                }
+              ]
+            },
+            {
+              "name": "Completion",
+              "data": [
+                {
+                  "x": "Q1",
+                  "y": "79%",
+                  "level": "h3"
+                },
+                {
+                  "x": "Q2",
+                  "y": "83%",
+                  "level": "h2"
+                },
+                {
+                  "x": "Q3",
+                  "y": "87%",
+                  "level": "h2"
+                },
+                {
+                  "x": "Q4",
+                  "y": "91%",
+                  "level": "h1"
+                },
+                {
+                  "x": "Target",
+                  "y": "85%",
+                  "level": "h1"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "intelligence": {
+        "gaugeValue": 80,
+        "bubbles": [
+          {
+            "name": "Cluster A",
+            "value": 64,
+            "size": 118,
+            "color": "linear-gradient(135deg,#34d3ff,#06b6d4)"
+          },
+          {
+            "name": "Cluster B",
+            "value": 51,
+            "size": 104,
+            "color": "linear-gradient(135deg,#8b5cf6,#7c3aed)"
+          },
+          {
+            "name": "Cluster C",
+            "value": 33,
+            "size": 88,
+            "color": "linear-gradient(135deg,#f59e0b,#ea580c)"
+          },
+          {
+            "name": "Merge",
+            "value": 18,
+            "size": 74,
+            "color": "linear-gradient(135deg,#22c55e,#16a34a)"
+          }
+        ],
+        "probability": [
+          {
+            "label": "High IP",
+            "percentage": 31,
+            "color": "linear-gradient(90deg,var(--green),#14b8a6)"
+          },
+          {
+            "label": "Medium IP",
+            "percentage": 46,
+            "color": "linear-gradient(90deg,var(--amber),#f97316)"
+          },
+          {
+            "label": "Low IP",
+            "percentage": 23,
+            "color": "linear-gradient(90deg,var(--red),#fb7185)"
+          }
+        ],
+        "streamSeries": [
+          {
+            "name": "Theme A",
+            "data": [
+              30,
+              40,
+              35,
+              50,
+              49,
+              60,
+              70,
+              91
+            ]
+          },
+          {
+            "name": "Theme B",
+            "data": [
+              20,
+              30,
+              25,
+              40,
+              39,
+              45,
+              50,
+              55
+            ]
+          },
+          {
+            "name": "Theme C",
+            "data": [
+              10,
+              15,
+              20,
+              25,
+              22,
+              28,
+              30,
+              32
+            ]
+          }
+        ],
+        "aiCommentaryKey": "analytics.commentary.text"
+      }
+    },
+    "drawerDetails": {
+      "health": {
+        "titleKey": "analytics.drawer.health.title",
+        "descKey": "analytics.drawer.health.desc",
+        "metrics": [
+          {
+            "labelKey": "analytics.drawer.health.metric1_label",
+            "value": "86 / 100"
+          },
+          {
+            "labelKey": "analytics.drawer.health.metric2_label",
+            "value": "Strategic alignment remains the strongest positive contributor."
+          },
+          {
+            "labelKey": "analytics.drawer.health.metric3_label",
+            "value": "Up 7.2% compared with last quarter."
+          },
+          {
+            "labelKey": "analytics.drawer.health.metric4_label",
+            "value": "Recommended as the first KPI on the board dashboard."
+          }
+        ],
+        "bars": [
+          {
+            "label": "Alignment",
+            "value": 88
+          },
+          {
+            "label": "Conversion",
+            "value": 78
+          },
+          {
+            "label": "Engagement",
+            "value": 73
+          },
+          {
+            "label": "Expected Impact",
+            "value": 82
+          },
+          {
+            "label": "Portfolio Balance",
+            "value": 79
+          }
+        ]
+      },
+      "ideas": {
+        "titleKey": "analytics.drawer.ideas.title",
+        "descKey": "analytics.drawer.ideas.desc",
+        "metrics": [
+          {
+            "labelKey": "analytics.drawer.ideas.metric1_label",
+            "value": "1,248 ideas submitted year-to-date."
+          },
+          {
+            "labelKey": "analytics.drawer.ideas.metric2_label",
+            "value": "Submissions increased over the last three months."
+          },
+          {
+            "labelKey": "analytics.drawer.ideas.metric3_label",
+            "value": "Digital Transformation has the highest submission count."
+          },
+          {
+            "labelKey": "analytics.drawer.ideas.metric4_label",
+            "value": "Break down by innovation type, status, source of inspiration, and strategic objective."
+          }
+        ],
+        "bars": [
+          {
+            "label": "Digital",
+            "value": 287
+          },
+          {
+            "label": "Operations",
+            "value": 252
+          },
+          {
+            "label": "Medical",
+            "value": 228
+          },
+          {
+            "label": "Support",
+            "value": 179
+          },
+          {
+            "label": "Communication",
+            "value": 120
+          }
+        ]
+      },
+      "conversion": {
+        "titleKey": "analytics.drawer.conversion.title",
+        "descKey": "analytics.drawer.conversion.desc",
+        "metrics": [
+          {
+            "labelKey": "analytics.drawer.conversion.metric1_label",
+            "value": "24%"
+          },
+          {
+            "labelKey": "analytics.drawer.conversion.metric2_label",
+            "value": "298 approved projects"
+          },
+          {
+            "labelKey": "analytics.drawer.conversion.metric3_label",
+            "value": "171 projects moved into execution"
+          },
+          {
+            "labelKey": "analytics.drawer.conversion.metric4_label",
+            "value": "Measures innovation throughput and implementation maturity."
+          }
+        ],
+        "bars": [
+          {
+            "label": "Submitted to Review",
+            "value": 76
+          },
+          {
+            "label": "Review to Approved",
+            "value": 39
+          },
+          {
+            "label": "Approved to Executed",
+            "value": 57
+          },
+          {
+            "label": "Redesign to Viable",
+            "value": 36
+          }
+        ]
+      },
+      "alignment": {
+        "titleKey": "analytics.drawer.alignment.title",
+        "descKey": "analytics.drawer.alignment.desc",
+        "metrics": [
+          {
+            "labelKey": "analytics.drawer.alignment.metric1_label",
+            "value": "88% of ideas are aligned to strategic objectives."
+          },
+          {
+            "labelKey": "analytics.drawer.alignment.metric2_label",
+            "value": "69% support national innovation priorities."
+          },
+          {
+            "labelKey": "analytics.drawer.alignment.metric3_label",
+            "value": "56% support GII-relevant indicators."
+          },
+          {
+            "labelKey": "analytics.drawer.alignment.metric4_label",
+            "value": "Critical for board review and institutional strategy oversight."
+          }
+        ],
+        "bars": [
+          {
+            "label": "Service Excellence",
+            "value": 231
+          },
+          {
+            "label": "Digital Leadership",
+            "value": 208
+          },
+          {
+            "label": "Operational Agility",
+            "value": 194
+          },
+          {
+            "label": "Workforce Capability",
+            "value": 162
+          },
+          {
+            "label": "Sustainability",
+            "value": 129
+          }
+        ]
+      },
+      "viable": {
+        "titleKey": "analytics.drawer.viable.title",
+        "descKey": "analytics.drawer.viable.desc",
+        "metrics": [
+          {
+            "labelKey": "analytics.drawer.viable.metric1_label",
+            "value": "482 viable ideas"
+          },
+          {
+            "labelKey": "analytics.drawer.viable.metric2_label",
+            "value": "39% of evaluated ideas"
+          },
+          {
+            "labelKey": "analytics.drawer.viable.metric3_label",
+            "value": "These ideas are suitable for progression to planning or execution."
+          },
+          {
+            "labelKey": "analytics.drawer.viable.metric4_label",
+            "value": "View by department, type, source, and strategic objective."
+          }
+        ],
+        "bars": [
+          {
+            "label": "Operations",
+            "value": 118
+          },
+          {
+            "label": "Medical",
+            "value": 96
+          },
+          {
+            "label": "Digital",
+            "value": 142
+          },
+          {
+            "label": "Support",
+            "value": 81
+          },
+          {
+            "label": "Communication",
+            "value": 45
+          }
+        ]
+      },
+      "redesign": {
+        "titleKey": "analytics.drawer.redesign.title",
+        "descKey": "analytics.drawer.redesign.desc",
+        "metrics": [
+          {
+            "labelKey": "analytics.drawer.redesign.metric1_label",
+            "value": "261 ideas need redesign"
+          },
+          {
+            "labelKey": "analytics.drawer.redesign.metric2_label",
+            "value": "21% of evaluated ideas"
+          },
+          {
+            "labelKey": "analytics.drawer.redesign.metric3_label",
+            "value": "These are recoverable ideas with development potential."
+          },
+          {
+            "labelKey": "analytics.drawer.redesign.metric4_label",
+            "value": "Show weak criteria and redesign-to-viable conversion."
+          }
+        ],
+        "bars": [
+          {
+            "label": "Operations",
+            "value": 62
+          },
+          {
+            "label": "Medical",
+            "value": 54
+          },
+          {
+            "label": "Digital",
+            "value": 71
+          },
+          {
+            "label": "Support",
+            "value": 49
+          },
+          {
+            "label": "Communication",
+            "value": 25
+          }
+        ]
+      },
+      "nonviable": {
+        "titleKey": "analytics.drawer.nonviable.title",
+        "descKey": "analytics.drawer.nonviable.desc",
+        "metrics": [
+          {
+            "labelKey": "analytics.drawer.nonviable.metric1_label",
+            "value": "119 non-viable ideas"
+          },
+          {
+            "labelKey": "analytics.drawer.nonviable.metric2_label",
+            "value": "10% of evaluated ideas"
+          },
+          {
+            "labelKey": "analytics.drawer.nonviable.metric3_label",
+            "value": "Feasibility, sustainability, and strategic alignment are frequent weak areas."
+          },
+          {
+            "labelKey": "analytics.drawer.nonviable.metric4_label",
+            "value": "Track by department and by the criteria that pulled the score down."
+          }
+        ],
+        "bars": [
+          {
+            "label": "Feasibility",
+            "value": 44
+          },
+          {
+            "label": "Sustainability",
+            "value": 31
+          },
+          {
+            "label": "Strategic Alignment",
+            "value": 15
+          },
+          {
+            "label": "Institutional Impact",
+            "value": 10
+          }
+        ]
+      },
+      "inplan": {
+        "titleKey": "analytics.drawer.inplan.title",
+        "descKey": "analytics.drawer.inplan.desc",
+        "metrics": [
+          {
+            "labelKey": "analytics.drawer.inplan.metric1_label",
+            "value": "77 ideas already in plan"
+          },
+          {
+            "labelKey": "analytics.drawer.inplan.metric2_label",
+            "value": "Prevents duplication and links contributors to current initiatives."
+          },
+          {
+            "labelKey": "analytics.drawer.inplan.metric3_label",
+            "value": "Display the linked project, sponsor department, and current status."
+          }
+        ],
+        "bars": [
+          {
+            "label": "Operations",
+            "value": 18
+          },
+          {
+            "label": "Medical",
+            "value": 14
+          },
+          {
+            "label": "Digital",
+            "value": 21
+          },
+          {
+            "label": "Support",
+            "value": 15
+          },
+          {
+            "label": "Communication",
+            "value": 9
+          }
+        ]
+      }
     }
   }
 }

@@ -19,6 +19,24 @@
       </div>
     </div>
 
+    <!-- Middle Navigation Switcher -->
+    <nav class="hidden lg:flex items-center gap-2 bg-[#091522]/80 border border-white/5 rounded-full p-1" :dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'">
+      <RouterLink
+        to="/"
+        class="px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer"
+        :class="$route.path === '/' ? 'gradient-purple text-white shadow-[0_0_12px_rgba(6,182,212,0.3)]' : 'text-white/60 hover:text-white hover:bg-white/5'"
+      >
+        {{ $t("dashboard.idea_evaluation_dashboard") }}
+      </RouterLink>
+      <RouterLink
+        to="/analytics"
+        class="px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer"
+        :class="$route.path.startsWith('/analytics') ? 'gradient-orange text-white shadow-[0_0_12px_rgba(255,107,53,0.3)]' : 'text-white/60 hover:text-white hover:bg-white/5'"
+      >
+        {{ $t("analytics.title") }}
+      </RouterLink>
+    </nav>
+
     <!-- Left side Tools and Profile -->
     <div class="header-tools flex items-center gap-3 sm:gap-4">
       <!-- Language Switcher -->

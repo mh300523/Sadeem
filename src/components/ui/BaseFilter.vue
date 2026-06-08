@@ -1,6 +1,6 @@
 <script setup>
 import { reactive, watch } from "vue";
-import BaseSelect from "../ui/BaseSelect.vue";
+import BaseSelect from "./BaseSelect.vue";
 
 const props = defineProps({
   filters: {
@@ -13,21 +13,25 @@ const emit = defineEmits(["update:filters"]);
 
 const selectedValues = reactive({});
 
-// Initialize default values
+// Initialize default values and watch for parent updates
 watch(
   () => props.filters,
   (newFilters) => {
     if (newFilters) {
+      let hasChanges = false;
       newFilters.forEach((filter) => {
-        if (!(filter.id in selectedValues)) {
-          selectedValues[filter.id] =
-            filter.default ?? filter.options?.[0]?.value ?? "all";
+        const fallback = filter.default ?? filter.options?.[0]?.value ?? "all";
+        if (selectedValues[filter.id] !== fallback) {
+          selectedValues[filter.id] = fallback;
+          hasChanges = true;
         }
       });
-      emit("update:filters", { ...selectedValues });
+      if (hasChanges) {
+        emit("update:filters", { ...selectedValues });
+      }
     }
   },
-  { immediate: true },
+  { immediate: true, deep: true },
 );
 
 function onFilterChange(filterId, value) {

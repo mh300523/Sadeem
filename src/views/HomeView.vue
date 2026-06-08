@@ -10,7 +10,7 @@
           {{ $t("dashboard.ideas_table") }}
         </h2>
 
-        <FiltersBar
+        <BaseFilter
           :filters="dashboardData.filters"
           @update:filters="activeFilters = $event"
         />
@@ -30,7 +30,7 @@ import { ref, computed } from "vue";
 
 import MainTitle from "@/components/ui/MainTitle.vue";
 import StatsGrid from "@/components/dashboard/StatsGrid.vue";
-import FiltersBar from "@/components/dashboard/FiltersBar.vue";
+import BaseFilter from "@/components/ui/BaseFilter.vue";
 import IdeasTable from "@/components/dashboard/IdeasTable.vue";
 
 import mockData from "@/mockData.json";
