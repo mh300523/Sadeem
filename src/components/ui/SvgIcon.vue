@@ -30,3 +30,5 @@ const icon = defineAsyncComponent(() => {
     class="flex-shrink-0"
   />
 </template>
+
+<style scoped></style>

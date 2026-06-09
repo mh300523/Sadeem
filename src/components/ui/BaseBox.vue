@@ -4,13 +4,22 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  gradientbg: {
+    type: String,
+    default: "",
+  },
 });
 </script>
 
 <template>
   <div
-    class="base-box rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B] to-[#1E293B] backdrop-blur-xl"
-    :class="classes"
+    class="base-box backdrop-blur-xl"
+    :class="[
+      classes,
+      gradientbg
+        ? gradientbg
+        : 'rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30',
+    ]"
   >
     <slot></slot>
   </div>

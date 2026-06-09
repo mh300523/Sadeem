@@ -81,7 +81,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
       <div class="sidebar-container px-[14px] py-5">
         <!-- Intro Card with Astronaut -->
         <div class="mb-[14px]">
-          <h2 class="sidebar-gradient-title">
+          <h2 class="sidebar-gradient-title secondery-text-gradient">
             {{ sidebarData.title }}
           </h2>
           <p class="text-[#7F8C8D] leading-relaxed text-justify">
@@ -98,13 +98,13 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
         >
           <template #card="{ step, index }">
             <div
-              class="gradient-border p-3 flex-1 rtl:bg-gradient-to-bl ltr:bg-gradient-to-br from-[#895AF7]/30 via-[#06B6D4]/10 to-[#503591]/0 backdrop-blur-xl rounded-xl"
+              class="gradient-border p-3 flex-1 gradient-sky-blue backdrop-blur-xl rounded-xl"
             >
               <!-- Stat 1 with Percentage -->
               <template v-if="index === 0">
-                <h5 class="text-white/76 text-xs leading-none mb-2">
+                <h4 class="text-white/76 text-xs leading-none mb-2">
                   {{ step.label }}
-                </h5>
+                </h4>
                 <div class="flex items-baseline gap-1.5">
                   <span
                     class="text-transparent bg-clip-text gradient-purple text-3xl font-extrabold mb-1 italic"
@@ -119,9 +119,9 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
 
               <!-- Other GII items -->
               <template v-else>
-                <h5 class="text-white/76 text-xs leading-normal mb-2">
+                <h4 class="text-white/76 text-xs leading-normal mb-2">
                   {{ step.label }}:
-                </h5>
+                </h4>
                 <p class="text-white text-xs md:text-sm leading-relaxed">
                   {{ step.text }}
                 </p>
@@ -132,11 +132,11 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
 
         <!-- Final Summary Card -->
         <div class="">
-          <h4
+          <h2
             class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
           >
             {{ sidebarData.summary.title }}
-          </h4>
+          </h2>
 
           <BaseBox class="gradient-border p-3">
             <!-- Key summary items -->

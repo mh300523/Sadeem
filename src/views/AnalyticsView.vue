@@ -1,123 +1,396 @@
+<script setup>
+import { ref, computed } from "vue";
+import { useI18n } from "vue-i18n";
+
+import mockData from "@/mockData.json";
+import BaseBox from "@/components/ui/BaseBox.vue";
+import KpiCard from "@/components/dashboard/analytics/KpiCard.vue";
+import DetailDrawer from "@/components/dashboard/analytics/DetailDrawer.vue";
+import GaugeChart from "@/components/dashboard/analytics/GaugeChart.vue";
+import RadarChart from "@/components/dashboard/analytics/RadarChart.vue";
+import TreemapChart from "@/components/dashboard/analytics/TreemapChart.vue";
+import BubbleCluster from "@/components/dashboard/analytics/BubbleCluster.vue";
+import DonutChart from "@/components/dashboard/analytics/DonutChart.vue";
+import ProgressBar from "@/components/dashboard/analytics/ProgressBar.vue";
+import StreamChart from "@/components/dashboard/analytics/StreamChart.vue";
+import BaseFilter from "@/components/ui/BaseFilter.vue";
+import BaseSparklineBars from "@/components/ui/BaseSparklineBars.vue";
+import { useFilters } from "@/composables/useFilters";
+import BaseButton from "@/components/ui/BaseButton.vue";
+
+const { t, locale } = useI18n();
+const isRtl = computed(() => locale.value === "ar");
+
+// Local UI reactive states
+const activeScreen = ref("snapshot");
+
+// Setup filter states via useFilters composable
+const { activeFilters, handleFiltersChange } = useFilters({
+  timeframe: "yearly",
+  department: "all",
+  innovationType: "all",
+});
+
+const isDrawerOpen = ref(false);
+const selectedKpiDetails = ref(null);
+
+// Extract configuration and payload from API-ready mockData
+const analyticsData = mockData.analytics;
+const liveSignal = analyticsData.liveSignal;
+const quickActions = analyticsData.quickActions;
+// Helper function to calculate a unique hash from strings
+function getStringHash(str) {
+  let hash = 0;
+  if (!str) return hash;
+  for (let i = 0; i < str.length; i++) {
+    hash += str.charCodeAt(i);
+  }
+  return hash;
+}
+
+// Dynamically calculate screens analytics metrics reactively based on filters
+const screens = computed(() => {
+  const baseScreens = JSON.parse(JSON.stringify(mockData.analytics.screens));
+
+  // Calculate multiplier based on active filters
+  let multiplier = 1.0;
+  if (
+    activeFilters.value.department &&
+    activeFilters.value.department !== "all"
+  ) {
+    multiplier *= 0.42;
+  }
+  if (
+    activeFilters.value.innovationType &&
+    activeFilters.value.innovationType !== "all"
+  ) {
+    multiplier *= 0.28;
+  }
+  if (activeFilters.value.timeframe === "quarterly") {
+    multiplier *= 0.25;
+  } else if (activeFilters.value.timeframe === "monthly") {
+    multiplier *= 0.08;
+  }
+
+  // If no filters are active, return original mock config directly
+  if (multiplier === 1.0) {
+    return baseScreens;
+  }
+
+  // 1. Update Gauge Value based on selected filter hash
+  const seed =
+    getStringHash(activeFilters.value.department || "all") +
+    getStringHash(activeFilters.value.innovationType || "all") +
+    getStringHash(activeFilters.value.timeframe || "yearly");
+  baseScreens.snapshot.gaugeValue = Math.max(
+    65,
+    Math.min(95, 86 + (seed % 13) - 6),
+  );
+
+  // 2. Update Radar Chart Series data
+  if (baseScreens.snapshot.radar?.series?.[0]?.data) {
+    baseScreens.snapshot.radar.series[0].data =
+      baseScreens.snapshot.radar.series[0].data.map((val, i) => {
+        return Math.max(50, Math.min(98, val + ((seed + i) % 11) - 5));
+      });
+  }
+
+  // 3. Scale Outcome Summary values
+  baseScreens.snapshot.outcomeSummary.forEach((out) => {
+    const rawVal = parseInt(out.value.replace(/,/g, "")) || 0;
+    const scaled = Math.max(5, Math.round(rawVal * multiplier));
+    out.value = scaled.toLocaleString();
+  });
+
+  // 4. Scale Timeline values
+  baseScreens.snapshot.timeline.forEach((step) => {
+    const rawVal = parseInt(step.value.replace(/,/g, "")) || 0;
+    const scaled = Math.max(3, Math.round(rawVal * multiplier));
+    step.value = scaled.toLocaleString();
+  });
+
+  // 5. Update KPI Cards reactively based on filter seed
+  baseScreens.snapshot.kpis.forEach((kpi, idx) => {
+    const valSeed = seed + idx;
+    const baseVal = 88;
+    const computedVal = Math.max(
+      62,
+      Math.min(96, baseVal + (valSeed % 11) - 5),
+    );
+    kpi.value = `${computedVal}%`;
+
+    const baseGrowth = 5.3;
+    const computedGrowth = Math.max(
+      1.5,
+      Math.min(9.5, baseGrowth + (valSeed % 7) * 0.7 - 2.1),
+    ).toFixed(1);
+    kpi.percentage = `+${computedGrowth}%`;
+
+    kpi.sparkline = kpi.sparkline.map((h, sIdx) => {
+      return Math.max(15, Math.min(95, h + ((valSeed + sIdx) % 15) - 7));
+    });
+  });
+
+  return baseScreens;
+});
+const drawerDetails = analyticsData.drawerDetails;
+
+// Load department list from main dashboard filter options for consistency
+const departmentsList = computed(() => {
+  const deptFilter = mockData.dashboard.filters.find(
+    (f) => f.id === "department",
+  );
+  if (!deptFilter) return [];
+  // Exclude "all" value
+  return deptFilter.options
+    .filter((o) => o.value !== "all")
+    .map((o) => o.value);
+});
+
+// Computed options for the BaseSelect filters
+const timeframeOptions = computed(() => [
+  { value: "yearly", label: t("analytics.filters.yearly") },
+  { value: "quarterly", label: t("analytics.filters.quarterly") },
+  { value: "monthly", label: t("analytics.filters.monthly") },
+]);
+
+const departmentOptions = computed(() => {
+  const list = [
+    { value: "all", label: t("analytics.filters.all_departments") },
+  ];
+  departmentsList.value.forEach((dept) => {
+    list.push({ value: dept, label: dept });
+  });
+  return list;
+});
+
+const innovationTypeOptions = computed(() => [
+  { value: "all", label: t("analytics.filters.all_types") },
+  { value: "Incremental", label: t("analytics.filters.incremental") },
+  { value: "Breakthrough", label: t("analytics.filters.breakthrough") },
+  { value: "Disruptive", label: t("analytics.filters.disruptive") },
+  { value: "Transformational", label: t("analytics.filters.transformational") },
+]);
+
+// Computed configuration for BaseFilter component
+const analyticsFilters = computed(() => [
+  {
+    id: "innovationType",
+    label: "",
+    default: activeFilters.value.innovationType || "all",
+    options: innovationTypeOptions.value,
+  },
+  {
+    id: "department",
+    label: "",
+    default: activeFilters.value.department || "all",
+    options: departmentOptions.value,
+  },
+  {
+    id: "timeframe",
+    label: "",
+    default: activeFilters.value.timeframe || "yearly",
+    options: timeframeOptions.value,
+  },
+]);
+
+// Helper class generator for timeline dot states
+function getTimelineDotClass(idx) {
+  if (idx === 0)
+    return "border-[#a78bfa] bg-[#a78bfa]/10 text-[#a78bfa] shadow-[0_0_12px_rgba(167,139,250,0.3)]";
+  if (idx === 1)
+    return "border-[#3b82f6] bg-[#3b82f6]/10 text-[#3b82f6] shadow-[0_0_12px_rgba(59,130,246,0.3)]";
+  if (idx === 2)
+    return "border-[#22c55e] bg-[#22c55e] text-white shadow-[0_0_12px_rgba(34,197,94,0.5)]";
+  return "border-[#f472b6] bg-[#f472b6]/10 text-[#f472b6] shadow-[0_0_12px_rgba(244,114,182,0.3)]";
+}
+
+// Dynamic titles & descriptions
+const screenInfo = computed(() => {
+  return {
+    snapshot: {
+      desc: t("analytics.desc"),
+    },
+    outcomes: {
+      desc: "Decision categories after evaluation, including viable, redesign, non-viable, and in-plan ideas.",
+    },
+    portfolio: {
+      desc: "Detailed view of innovation type, output, technology, and departmental distribution.",
+    },
+    impact: {
+      desc: "Expected and realized impact indicators beyond the executive summary.",
+    },
+    governance: {
+      desc: "Evaluation control, approval cycle time, and governance quality.",
+    },
+    intelligence: {
+      desc: "AI-generated insights, similarity detection, IP potential, and future trends.",
+    },
+  };
+});
+
+// KPI Detail Selector logic
+function handleSelectKpi(kpiId) {
+  const details = drawerDetails[kpiId];
+  if (details) {
+    selectedKpiDetails.value = details;
+    isDrawerOpen.value = true;
+  }
+}
+
+// Custom helper styles mapping
+function getHeatClass(rowName, value) {
+  // Map values based on hierarchy
+  if (rowName === "Viable" || rowName === "مجدية") {
+    if (value > 100)
+      return "bg-rose-500/20 text-rose-400 border border-rose-500/10";
+    if (value > 85)
+      return "bg-amber-500/20 text-amber-400 border border-amber-500/10";
+    return "bg-violet-500/20 text-violet-400 border border-violet-500/10";
+  }
+  if (rowName === "Redesign" || rowName === "بحاجة لإعادة تصميم") {
+    if (value > 65)
+      return "bg-violet-500/20 text-violet-400 border border-violet-500/10";
+    if (value > 45)
+      return "bg-[#34d3ff]/15 text-[#34d3ff] border border-[#34d3ff]/10";
+    return "bg-emerald-500/20 text-emerald-400 border border-emerald-500/10";
+  }
+  // Non-viable
+  if (value > 30)
+    return "bg-amber-500/20 text-amber-400 border border-[#f59e0b]/10";
+  if (value > 20)
+    return "bg-[#34d3ff]/15 text-[#34d3ff] border border-[#34d3ff]/10";
+  return "bg-emerald-500/20 text-emerald-400 border border-emerald-500/10";
+}
+
+function getGovernanceHeatClass(level) {
+  if (level === "h1")
+    return "bg-emerald-500/20 text-emerald-400 border border-emerald-500/10";
+  if (level === "h2")
+    return "bg-[#22d3ee]/20 text-[#22d3ee] border border-[#22d3ee]/10";
+  return "bg-violet-500/20 text-violet-400 border border-violet-500/10";
+}
+
+function getStatusBadgeClass(type) {
+  if (type === "green")
+    return "border-emerald-500/20 bg-emerald-500/10 text-emerald-400";
+  if (type === "cyan") return "border-cyan-500/20 bg-cyan-500/10 text-cyan-400";
+  return "border-amber-500/20 bg-amber-500/10 text-amber-400";
+}
+
+function getCustomGradient(label) {
+  if (label === "High IP") return "from-emerald-500 to-[#14b8a6]";
+  if (label === "Medium IP") return "from-[#f59e0b] to-[#f97316]";
+  return "from-rose-500 to-[#fb7185]";
+}
+</script>
+
 <template>
-  <div
-    class="flex flex-col lg:flex-row gap-6 w-full text-white pb-12"
-    :dir="isRtl ? 'rtl' : 'ltr'"
-  >
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
     <!-- Sidebar navigation area (already exists in design layout) -->
-    <aside
-      class="w-full lg:w-[300px] shrink-0 flex flex-col gap-5 bg-[#050e18]/58 backdrop-blur-xl border border-white/5 rounded-3xl p-5 select-none self-start"
-    >
-      <!-- Brand logo section -->
-      <div
-        class="flex flex-col gap-1.5 p-4 rounded-2xl bg-[#091522]/40 border border-white/5 text-right ltr:text-left shadow-2xl"
-      >
-        <h1
-          class="text-base font-black text-transparent bg-clip-text bg-gradient-to-r from-[#34d3ff] via-[#3b82f6] to-[#a78bfa] leading-none"
-        >
-          {{ $t("analytics.sidebar.brand_title") }}
-        </h1>
-        <p class="text-[10px] font-bold text-white/50 leading-none">
-          {{ $t("analytics.sidebar.brand_subtitle") }}
-        </p>
-      </div>
+    <aside class="lg:col-span-3">
+      <BaseBox class="border border-white/10 rounded-2xl py-6">
+        <!-- Brand logo section -->
+        <div class="px-6 pb-[20px] border-b border-white/40 mb-4">
+          <h1 class="sidebar-gradient-title secondery-text-gradient">
+            {{ $t("analytics.sidebar.brand_title") }}
+          </h1>
+          <p class="text-white">
+            {{ $t("analytics.sidebar.brand_subtitle") }}
+          </p>
+        </div>
 
-      <!-- Navigation tabs -->
-      <div class="flex flex-col gap-1.5 mt-2">
-        <span
-          class="text-[10px] font-bold tracking-wider text-[#7ca9d0]/80 uppercase px-2 mb-1.5 text-right ltr:text-left"
-        >
-          {{ $t("details.tabs.classification") }}
-        </span>
-        <button
-          v-for="scrKey in Object.keys(screens)"
-          :key="scrKey"
-          @click="activeScreen = scrKey"
-          class="w-full flex justify-between items-center gap-3.5 px-4 py-3 rounded-xl border border-transparent text-right ltr:text-left text-xs font-bold transition-all duration-200 cursor-pointer"
-          :class="
-            activeScreen === scrKey
-              ? 'bg-gradient-to-r from-[#06b6d4]/10 to-[#8b5cf6]/12 border-white/5 text-white'
-              : 'text-white/70 hover:bg-white/[0.03] hover:text-white'
-          "
-        >
-          <div class="flex items-center gap-2.5">
-            <span
-              v-if="activeScreen === scrKey"
-              class="w-1.5 h-1.5 rounded-full bg-[#34d3ff] shadow-[0_0_8px_rgba(52,211,255,0.8)]"
-            ></span>
-            <span>{{ $t(`analytics.screens.${scrKey}`) }}</span>
-          </div>
-          <!-- Left pointing chevron in RTL, right in LTR -->
-          <svg
-            class="w-3 h-3 text-white/40 shrink-0 transform rtl:rotate-0 ltr:rotate-180"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+        <!-- Navigation tabs -->
+        <div class="px-6">
+          <ul class="divide-y divide-white/20">
+            <li
+              v-for="scrKey in Object.keys(screens)"
+              :key="scrKey"
+              class="py-4"
+            >
+              <button
+                @click="activeScreen = scrKey"
+                class="w-full flex justify-between items-center gap-3.5 cursor-pointer font-medium text-white text-base md:text-lg hover:text-[#FF6B35]"
+              >
+                <div class="flex items-center gap-2.5">
+                  <span
+                    v-if="activeScreen === scrKey"
+                    class="w-1.5 h-1.5 rounded-full bg-[#34d3ff] shadow-[0_0_8px_rgba(52,211,255,0.8)]"
+                  ></span>
+                  <span>{{ $t(`analytics.screens.${scrKey}`) }}</span>
+                </div>
+                <!-- Left pointing chevron in RTL, right in LTR -->
+                <svg
+                  class="w-5 h-5 shrink-0 transform rtl:rotate-0 ltr:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Live Signal module -->
+        <div class="px-6 mb-6">
+          <BaseBox
+            class="pt-[20px] px-4 rounded-2xl! gradient-border"
+            gradientbg="gradient-sky-blue"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2.5"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </button>
-      </div>
+            <h4 class="text-[#05D989] font-medium uppercase">
+              {{ $t("analytics.live_signal") }}
+            </h4>
 
-      <!-- Live Signal module -->
-      <div class="p-4 rounded-2xl border border-white/5 bg-white/[0.03]">
-        <div
-          class="text-[10px] text-white/40 font-bold uppercase tracking-wider text-right ltr:text-left"
-        >
-          {{ $t("analytics.live_signal") }}
+            <div class="flex items-center justify-between mt-2">
+              <h5 class="text-xs text-white/76">
+                {{ $t("analytics.total_platform_ideas") }}
+              </h5>
+              <span class="text-white text-3xl font-extrabold italic">
+                {{ liveSignal.value }}
+              </span>
+            </div>
+            <!-- indicator bars -->
+            <BaseSparklineBars :data="liveSignal.sparkline" />
+          </BaseBox>
         </div>
-        <strong
-          class="block text-2xl font-black text-white mt-1.5 text-right ltr:text-left leading-none"
-        >
-          {{ liveSignal.value }}
-        </strong>
-        <p class="text-[10px] text-white/40 mt-1 text-right ltr:text-left">
-          {{ $t("analytics.total_platform_ideas") }}
-        </p>
-        <!-- Sparkline bars design visual -->
-        <div class="h-10 flex gap-1 items-end mt-3.5">
-          <span
-            v-for="(val, idx) in liveSignal.sparkline"
-            :key="idx"
-            class="flex-1 rounded-t bg-gradient-to-t from-[#8b5cf6] to-[#06b6d4] transition-all duration-300"
-            :style="{ height: `${val}%` }"
-          ></span>
-        </div>
-      </div>
 
-      <!-- Quick Actions list -->
-      <div class="flex flex-col gap-2.5">
-        <!-- Orange pill button-style header -->
-        <div
-          class="w-full text-center py-2.5 px-4 rounded-xl text-xs font-black bg-[#ff8e53] text-white shadow-lg shadow-[#ff8e53]/10 select-none"
-        >
-          {{ $t("analytics.quick_actions") }}
+        <!-- Quick Actions list -->
+        <div class="px-6">
+          <!-- Orange pill button-style header -->
+          <h2
+            class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
+          >
+            {{ $t("analytics.quick_actions") }}
+          </h2>
+          <BaseButton
+            v-for="action in quickActions"
+            :key="action.id"
+            class="w-full !py-4 !justify-between !rounded-2xl border border-white/10 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30 backdrop-blur-xl text-white hover:translate-x-[-2px] mb-3"
+          >
+            {{ $t(action.labelKey) }}
+          </BaseButton>
         </div>
-        <button
-          v-for="action in quickActions"
-          :key="action.id"
-          class="w-full text-right ltr:text-left p-3.5 rounded-xl text-xs font-semibold bg-white/[0.03] border border-white/5 hover:bg-white/[0.08] hover:translate-x-[-2px] text-white/95 transition-all duration-200 cursor-pointer"
-        >
-          {{ $t(action.labelKey) }}
-        </button>
-      </div>
+      </BaseBox>
     </aside>
 
     <!-- Main Content Area -->
-    <div class="flex-1 min-w-0 flex flex-col gap-6">
+    <div class="lg:col-span-9">
       <!-- Topbar Header & Filters -->
       <div
-        class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5 pb-5 border-b border-white/10"
+        class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5 mb-6"
       >
-        <div class="text-right ltr:text-left flex-1">
-          <h2 class="text-2xl lg:text-3xl font-black text-white tracking-tight">
+        <div class="">
+          <h1 class="text-lg lg:text-xl font-bold primary-text-gradient mb-3">
             {{ $t(`analytics.screens.${activeScreen}`) }}
-          </h2>
-          <p class="text-xs text-white/50 mt-1 leading-relaxed max-w-2xl">
+          </h1>
+          <p class="text-xs text-white/70 leading-relaxed">
             {{ screenInfo[activeScreen]?.desc }}
           </p>
         </div>
@@ -127,59 +400,66 @@
           <BaseFilter
             :filters="analyticsFilters"
             @update:filters="handleFiltersChange"
+            buttonClass="rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#018AAF]/10 to-[#7F4FFF]/10 px-4 py-2 rounded-full"
           />
 
           <!-- Export button (leftmost in RTL) -->
-          <button
-            class="px-5 py-2 bg-gradient-to-r from-[#06b6d4] via-[#3b82f6] to-[#7f4fff] hover:opacity-90 text-white rounded-full text-xs font-extrabold cursor-pointer border-none shadow-[0_0_12px_rgba(6,182,212,0.3)] transition-all flex items-center justify-center gap-1"
-          >
+          <BaseButton class="gradient-purple py-2! text-white">
             {{ $t("analytics.actions.export_pdf") }}
-          </button>
+          </BaseButton>
         </div>
       </div>
 
       <!-- Active view renderer -->
       <transition name="fade" mode="out-in">
         <!-- Screen: Snapshot -->
-        <div v-if="activeScreen === 'snapshot'" class="flex flex-col gap-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div v-if="activeScreen === 'snapshot'">
+          <BaseBox
+            gradientbg="gradient-sky-blue"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-6 rounded-[20px]! gradient-border mb-5"
+          >
             <KpiCard
               v-for="kpi in screens.snapshot.kpis"
               :key="kpi.id"
               v-bind="kpi"
               @select="handleSelectKpi"
             />
-          </div>
+          </BaseBox>
 
           <!-- Gauge and Radar visual row -->
-          <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-4">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
             <div
-              class="p-5 rounded-3xl bg-[#091522]/90 border border-white/5 flex flex-col justify-between min-h-[300px]"
+              class="lg:col-span-6 p-5 rounded-3xl bg-[#091522]/90 border border-white/5"
+            >
+              <h2
+                class="text-lg lg:text-xl font-bold primary-text-gradient mb-3"
+              >
+                {{ $t("analytics.snapshot.radar_title") }}
+              </h2>
+              <p class="text-xs text-white/70">
+                {{ $t("analytics.snapshot.radar_subtitle") }}
+              </p>
+              <RadarChart
+                :series="screens.snapshot.radar.series"
+                :categories="screens.snapshot.radar.categories"
+              />
+            </div>
+            <div
+              class="lg:col-span-6 p-5 rounded-3xl bg-[#091522]/90 border border-white/5 flex flex-col justify-between min-h-[300px]"
             >
               <div>
-                <h3 class="text-sm font-bold text-white">
+                <h2
+                  class="text-lg lg:text-xl font-bold primary-text-gradient mb-3"
+                >
                   {{ $t("analytics.snapshot.gauge_title") }}
-                </h3>
-                <span class="text-[10px] text-white/40 block mt-0.5">{{
-                  $t("analytics.snapshot.gauge_subtitle")
-                }}</span>
+                </h2>
+                <p class="text-xs text-white/70">
+                  {{ $t("analytics.snapshot.gauge_subtitle") }}
+                </p>
               </div>
               <GaugeChart
                 :value="screens.snapshot.gaugeValue"
                 :label="$t('analytics.snapshot.gauge_label')"
-              />
-            </div>
-
-            <div class="p-5 rounded-3xl bg-[#091522]/90 border border-white/5">
-              <h3 class="text-sm font-bold text-white mb-2">
-                {{ $t("analytics.snapshot.radar_title") }}
-              </h3>
-              <span class="text-[10px] text-white/40 block mb-6">{{
-                $t("analytics.snapshot.radar_subtitle")
-              }}</span>
-              <RadarChart
-                :series="screens.snapshot.radar.series"
-                :categories="screens.snapshot.radar.categories"
               />
             </div>
           </div>
@@ -885,290 +1165,6 @@
     />
   </div>
 </template>
-
-<script setup>
-import { ref, computed } from "vue";
-import { useI18n } from "vue-i18n";
-
-import mockData from "@/mockData.json";
-import KpiCard from "@/components/dashboard/analytics/KpiCard.vue";
-import DetailDrawer from "@/components/dashboard/analytics/DetailDrawer.vue";
-import GaugeChart from "@/components/dashboard/analytics/GaugeChart.vue";
-import RadarChart from "@/components/dashboard/analytics/RadarChart.vue";
-import TreemapChart from "@/components/dashboard/analytics/TreemapChart.vue";
-import BubbleCluster from "@/components/dashboard/analytics/BubbleCluster.vue";
-import DonutChart from "@/components/dashboard/analytics/DonutChart.vue";
-import ProgressBar from "@/components/dashboard/analytics/ProgressBar.vue";
-import StreamChart from "@/components/dashboard/analytics/StreamChart.vue";
-import BaseFilter from "@/components/ui/BaseFilter.vue";
-import { useFilters } from "@/composables/useFilters";
-
-const { t, locale } = useI18n();
-const isRtl = computed(() => locale.value === "ar");
-
-// Local UI reactive states
-const activeScreen = ref("snapshot");
-
-// Setup filter states via useFilters composable
-const { activeFilters, handleFiltersChange } = useFilters({
-  timeframe: "yearly",
-  department: "all",
-  innovationType: "all",
-});
-
-const isDrawerOpen = ref(false);
-const selectedKpiDetails = ref(null);
-
-// Extract configuration and payload from API-ready mockData
-const analyticsData = mockData.analytics;
-const liveSignal = analyticsData.liveSignal;
-const quickActions = analyticsData.quickActions;
-// Helper function to calculate a unique hash from strings
-function getStringHash(str) {
-  let hash = 0;
-  if (!str) return hash;
-  for (let i = 0; i < str.length; i++) {
-    hash += str.charCodeAt(i);
-  }
-  return hash;
-}
-
-// Dynamically calculate screens analytics metrics reactively based on filters
-const screens = computed(() => {
-  const baseScreens = JSON.parse(JSON.stringify(mockData.analytics.screens));
-
-  // Calculate multiplier based on active filters
-  let multiplier = 1.0;
-  if (
-    activeFilters.value.department &&
-    activeFilters.value.department !== "all"
-  ) {
-    multiplier *= 0.42;
-  }
-  if (
-    activeFilters.value.innovationType &&
-    activeFilters.value.innovationType !== "all"
-  ) {
-    multiplier *= 0.28;
-  }
-  if (activeFilters.value.timeframe === "quarterly") {
-    multiplier *= 0.25;
-  } else if (activeFilters.value.timeframe === "monthly") {
-    multiplier *= 0.08;
-  }
-
-  // If no filters are active, return original mock config directly
-  if (multiplier === 1.0) {
-    return baseScreens;
-  }
-
-  // 1. Update Gauge Value based on selected filter hash
-  const seed =
-    getStringHash(activeFilters.value.department || "all") +
-    getStringHash(activeFilters.value.innovationType || "all") +
-    getStringHash(activeFilters.value.timeframe || "yearly");
-  baseScreens.snapshot.gaugeValue = Math.max(
-    65,
-    Math.min(95, 86 + (seed % 13) - 6),
-  );
-
-  // 2. Update Radar Chart Series data
-  if (baseScreens.snapshot.radar?.series?.[0]?.data) {
-    baseScreens.snapshot.radar.series[0].data =
-      baseScreens.snapshot.radar.series[0].data.map((val, i) => {
-        return Math.max(50, Math.min(98, val + ((seed + i) % 11) - 5));
-      });
-  }
-
-  // 3. Scale Outcome Summary values
-  baseScreens.snapshot.outcomeSummary.forEach((out) => {
-    const rawVal = parseInt(out.value.replace(/,/g, "")) || 0;
-    const scaled = Math.max(5, Math.round(rawVal * multiplier));
-    out.value = scaled.toLocaleString();
-  });
-
-  // 4. Scale Timeline values
-  baseScreens.snapshot.timeline.forEach((step) => {
-    const rawVal = parseInt(step.value.replace(/,/g, "")) || 0;
-    const scaled = Math.max(3, Math.round(rawVal * multiplier));
-    step.value = scaled.toLocaleString();
-  });
-
-  // 5. Update KPI Cards reactively based on filter seed
-  baseScreens.snapshot.kpis.forEach((kpi, idx) => {
-    const valSeed = seed + idx;
-    const baseVal = 88;
-    const computedVal = Math.max(
-      62,
-      Math.min(96, baseVal + (valSeed % 11) - 5),
-    );
-    kpi.value = `${computedVal}%`;
-
-    const baseGrowth = 5.3;
-    const computedGrowth = Math.max(
-      1.5,
-      Math.min(9.5, baseGrowth + (valSeed % 7) * 0.7 - 2.1),
-    ).toFixed(1);
-    kpi.percentage = `+${computedGrowth}%`;
-
-    kpi.sparkline = kpi.sparkline.map((h, sIdx) => {
-      return Math.max(15, Math.min(95, h + ((valSeed + sIdx) % 15) - 7));
-    });
-  });
-
-  return baseScreens;
-});
-const drawerDetails = analyticsData.drawerDetails;
-
-// Load department list from main dashboard filter options for consistency
-const departmentsList = computed(() => {
-  const deptFilter = mockData.dashboard.filters.find(
-    (f) => f.id === "department",
-  );
-  if (!deptFilter) return [];
-  // Exclude "all" value
-  return deptFilter.options
-    .filter((o) => o.value !== "all")
-    .map((o) => o.value);
-});
-
-// Computed options for the BaseSelect filters
-const timeframeOptions = computed(() => [
-  { value: "yearly", label: t("analytics.filters.yearly") },
-  { value: "quarterly", label: t("analytics.filters.quarterly") },
-  { value: "monthly", label: t("analytics.filters.monthly") },
-]);
-
-const departmentOptions = computed(() => {
-  const list = [
-    { value: "all", label: t("analytics.filters.all_departments") },
-  ];
-  departmentsList.value.forEach((dept) => {
-    list.push({ value: dept, label: dept });
-  });
-  return list;
-});
-
-const innovationTypeOptions = computed(() => [
-  { value: "all", label: t("analytics.filters.all_types") },
-  { value: "Incremental", label: t("analytics.filters.incremental") },
-  { value: "Breakthrough", label: t("analytics.filters.breakthrough") },
-  { value: "Disruptive", label: t("analytics.filters.disruptive") },
-  { value: "Transformational", label: t("analytics.filters.transformational") },
-]);
-
-// Computed configuration for BaseFilter component
-const analyticsFilters = computed(() => [
-  {
-    id: "innovationType",
-    label: "",
-    default: activeFilters.value.innovationType || "all",
-    options: innovationTypeOptions.value,
-  },
-  {
-    id: "department",
-    label: "",
-    default: activeFilters.value.department || "all",
-    options: departmentOptions.value,
-  },
-  {
-    id: "timeframe",
-    label: "",
-    default: activeFilters.value.timeframe || "yearly",
-    options: timeframeOptions.value,
-  },
-]);
-
-// Helper class generator for timeline dot states
-function getTimelineDotClass(idx) {
-  if (idx === 0)
-    return "border-[#a78bfa] bg-[#a78bfa]/10 text-[#a78bfa] shadow-[0_0_12px_rgba(167,139,250,0.3)]";
-  if (idx === 1)
-    return "border-[#3b82f6] bg-[#3b82f6]/10 text-[#3b82f6] shadow-[0_0_12px_rgba(59,130,246,0.3)]";
-  if (idx === 2)
-    return "border-[#22c55e] bg-[#22c55e] text-white shadow-[0_0_12px_rgba(34,197,94,0.5)]";
-  return "border-[#f472b6] bg-[#f472b6]/10 text-[#f472b6] shadow-[0_0_12px_rgba(244,114,182,0.3)]";
-}
-
-// Dynamic titles & descriptions
-const screenInfo = computed(() => {
-  return {
-    snapshot: {
-      desc: t("analytics.desc"),
-    },
-    outcomes: {
-      desc: "Decision categories after evaluation, including viable, redesign, non-viable, and in-plan ideas.",
-    },
-    portfolio: {
-      desc: "Detailed view of innovation type, output, technology, and departmental distribution.",
-    },
-    impact: {
-      desc: "Expected and realized impact indicators beyond the executive summary.",
-    },
-    governance: {
-      desc: "Evaluation control, approval cycle time, and governance quality.",
-    },
-    intelligence: {
-      desc: "AI-generated insights, similarity detection, IP potential, and future trends.",
-    },
-  };
-});
-
-// KPI Detail Selector logic
-function handleSelectKpi(kpiId) {
-  const details = drawerDetails[kpiId];
-  if (details) {
-    selectedKpiDetails.value = details;
-    isDrawerOpen.value = true;
-  }
-}
-
-// Custom helper styles mapping
-function getHeatClass(rowName, value) {
-  // Map values based on hierarchy
-  if (rowName === "Viable" || rowName === "مجدية") {
-    if (value > 100)
-      return "bg-rose-500/20 text-rose-400 border border-rose-500/10";
-    if (value > 85)
-      return "bg-amber-500/20 text-amber-400 border border-amber-500/10";
-    return "bg-violet-500/20 text-violet-400 border border-violet-500/10";
-  }
-  if (rowName === "Redesign" || rowName === "بحاجة لإعادة تصميم") {
-    if (value > 65)
-      return "bg-violet-500/20 text-violet-400 border border-violet-500/10";
-    if (value > 45)
-      return "bg-[#34d3ff]/15 text-[#34d3ff] border border-[#34d3ff]/10";
-    return "bg-emerald-500/20 text-emerald-400 border border-emerald-500/10";
-  }
-  // Non-viable
-  if (value > 30)
-    return "bg-amber-500/20 text-amber-400 border border-[#f59e0b]/10";
-  if (value > 20)
-    return "bg-[#34d3ff]/15 text-[#34d3ff] border border-[#34d3ff]/10";
-  return "bg-emerald-500/20 text-emerald-400 border border-emerald-500/10";
-}
-
-function getGovernanceHeatClass(level) {
-  if (level === "h1")
-    return "bg-emerald-500/20 text-emerald-400 border border-emerald-500/10";
-  if (level === "h2")
-    return "bg-[#22d3ee]/20 text-[#22d3ee] border border-[#22d3ee]/10";
-  return "bg-violet-500/20 text-violet-400 border border-violet-500/10";
-}
-
-function getStatusBadgeClass(type) {
-  if (type === "green")
-    return "border-emerald-500/20 bg-emerald-500/10 text-emerald-400";
-  if (type === "cyan") return "border-cyan-500/20 bg-cyan-500/10 text-cyan-400";
-  return "border-amber-500/20 bg-amber-500/10 text-amber-400";
-}
-
-function getCustomGradient(label) {
-  if (label === "High IP") return "from-emerald-500 to-[#14b8a6]";
-  if (label === "Medium IP") return "from-[#f59e0b] to-[#f97316]";
-  return "from-rose-500 to-[#fb7185]";
-}
-</script>
 
 <style scoped>
 .fade-enter-active,

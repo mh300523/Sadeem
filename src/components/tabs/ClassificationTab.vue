@@ -76,7 +76,7 @@ watch(
     });
     duplicateStatuses.value = statuses;
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 const handleDuplicateStatusChange = ({ idea, status }) => {
@@ -102,7 +102,7 @@ watch(
       executionPlanStatus.value = null;
     }
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 const handleExecutionPlanChange = (status) => {
@@ -117,7 +117,7 @@ const handleExecutionPlanChange = (status) => {
     <div class="lg:col-span-3 white-border rounded-2xl">
       <div class="sidebar-container px-[14px] py-5">
         <!-- Sidebar Title with Astronaut background -->
-        <h2 class="sidebar-gradient-title text-right leading-snug">
+        <h2 class="sidebar-gradient-title secondery-text-gradient">
           {{ tabData.sidebar.title }}
         </h2>
 
@@ -129,11 +129,11 @@ const handleExecutionPlanChange = (status) => {
             class=""
           >
             <!-- Orange header capsule matching screenshots -->
-            <h4
+            <h2
               class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
             >
               {{ section.label }}
-            </h4>
+            </h2>
 
             <BaseRadioGroup
               v-model="activeOptions[section.key]"

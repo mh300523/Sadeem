@@ -7,6 +7,10 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  buttonClass: {
+    type: String,
+    default: "",
+  },
 });
 
 const emit = defineEmits(["update:filters"]);
@@ -51,6 +55,7 @@ function onFilterChange(filterId, value) {
       :label="filter.label"
       optionLabel="label"
       optionValue="value"
+      :buttonClass="buttonClass"
     />
   </div>
 </template>

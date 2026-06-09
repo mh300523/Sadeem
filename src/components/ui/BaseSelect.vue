@@ -1,6 +1,5 @@
 <script setup>
 import { computed } from "vue";
-import { useI18n } from "vue-i18n";
 import {
   Listbox,
   ListboxButton,
@@ -64,9 +63,11 @@ const displayValue = computed(() => {
 
     <Listbox v-model="model" as="div" class="relative w-full">
       <ListboxButton
+        class="flex items-center justify-between cursor-pointer min-w-35"
         :class="
-          buttonClass ||
-          'flex items-center justify-between text-sm bg-[#141b2e]/60 border border-gray-700/50 rounded-full px-4 py-2 hover:bg-[#1c253d] transition-colors w-full min-w-[100px] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer'
+          buttonClass
+            ? buttonClass
+            : ' bg-[#162239] border border-white/10 px-4 py-2 rounded-full'
         "
       >
         <slot
