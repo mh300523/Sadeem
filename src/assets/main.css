@@ -40,23 +40,26 @@ html[dir="ltr"] .sidebar-container::before {
   pointer-events: none;
 }
 .primary-text-gradient {
-  @apply text-transparent bg-clip-text rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#06B6D4] via-[#3B82F6] to-[#8B5CF6];
+  @apply text-transparent bg-clip-text rtl:bg-linear-to-l ltr:bg-linear-to-r from-[#06B6D4] via-[#3B82F6] to-[#8B5CF6];
+}
+.secondery-text-gradient {
+  @apply text-transparent bg-clip-text rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35];
 }
 .gradient-border {
-  @apply rtl:before:bg-gradient-to-bl ltr:before:bg-gradient-to-br before:from-[#895AF7]/50 before:to-[#06B6D4]/0 rounded-[14px];
+  @apply rtl:before:bg-linear-to-bl ltr:before:bg-linear-to-br before:from-[#895AF7]/50 before:to-[#06B6D4]/0 rounded-[14px];
 }
 .gradient-orange {
-  @apply rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#FF8E53] to-[#FF6B35];
+  @apply rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#FF8E53] to-[#FF6B35];
 }
 .gradient-purple {
-  @apply rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4] via-[#3B82F6] to-[#7F4FFF];
+  @apply rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#7F4FFF];
 }
 .white-border {
   @apply border border-white/10;
 }
 .sidebar-gradient-title {
-  @apply text-transparent bg-clip-text rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35] uppercase tracking-wider font-bold text-xl mb-4;
+  @apply uppercase tracking-wider font-bold text-xl mb-4;
 }
 .badge-percentage {
-  @apply px-2 py-1 rounded-full rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35] text-white shadow-sm;
+  @apply px-2 py-1 rounded-full rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35] text-white shadow-sm;
 }

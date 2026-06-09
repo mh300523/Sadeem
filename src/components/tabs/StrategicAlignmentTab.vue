@@ -81,7 +81,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
       <div class="sidebar-container px-[14px] py-5">
         <!-- Intro Card with Astronaut -->
         <div class="mb-[14px]">
-          <h2 class="sidebar-gradient-title">
+          <h2 class="sidebar-gradient-title secondery-text-gradient">
             {{ sidebarData.title }}
           </h2>
           <p class="text-[#7F8C8D] leading-relaxed text-justify">

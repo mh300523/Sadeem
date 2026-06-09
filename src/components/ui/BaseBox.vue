@@ -9,7 +9,7 @@ const props = defineProps({
 
 <template>
   <div
-    class="base-box rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B] to-[#1E293B] backdrop-blur-xl"
+    class="base-box rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30 backdrop-blur-xl"
     :class="classes"
   >
     <slot></slot>

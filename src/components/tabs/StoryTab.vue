@@ -30,7 +30,7 @@ function togglePlay() {
       <div class="sidebar-container relative">
         <!-- Audio Player Card -->
         <div class="rounded-[24px]">
-          <h2 class="sidebar-gradient-title">
+          <h2 class="sidebar-gradient-title secondery-text-gradient">
             {{ storyData.intro?.label }}
           </h2>
 
@@ -96,7 +96,7 @@ function togglePlay() {
 
         <!-- Features checklist card -->
         <div class="">
-          <h4 class="sidebar-gradient-title">
+          <h4 class="sidebar-gradient-title secondery-text-gradient">
             {{ sidebarData.features?.title }}
           </h4>
 

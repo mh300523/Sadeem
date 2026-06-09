@@ -68,7 +68,7 @@ const tabData = computed(() => props.data || {});
     <BaseBox class="lg:col-span-3 white-border rounded-2xl">
       <div class="sidebar-container px-[14px] py-5">
         <!-- Sidebar Title with Astronaut background -->
-        <h4 class="sidebar-gradient-title text-right leading-snug">
+        <h4 class="sidebar-gradient-title secondery-text-gradient">
           {{ tabData.sidebar.title }}
         </h4>
 

@@ -23,7 +23,7 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
       <div class="sidebar-container relative px-[14px] py-5">
         <!-- Space Card -->
 
-        <h2 class="sidebar-gradient-title">
+        <h2 class="sidebar-gradient-title secondery-text-gradient">
           {{ sidebarData.title || "مشروع ابتكاري متقدم..." }}
         </h2>
 
