@@ -491,9 +491,7 @@
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": [
-                  "القطاع الحكومي"
-                ]
+                "items": ["القطاع الحكومي"]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
@@ -909,26 +907,8 @@
                 "value": 3
               }
             ],
-            "aiScores": [
-              4,
-              3,
-              4,
-              3,
-              5,
-              4,
-              4,
-              3
-            ],
-            "teamScores": [
-              3,
-              4,
-              3,
-              4,
-              4,
-              3,
-              3,
-              4
-            ],
+            "aiScores": [4, 3, 4, 3, 5, 4, 4, 3],
+            "teamScores": [3, 4, 3, 4, 4, 3, 3, 4],
             "evaluators": [
               {
                 "name": "Khaled",
@@ -937,16 +917,7 @@
                 "averageRating": 75,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
-                "scores": [
-                  4,
-                  3,
-                  4,
-                  3,
-                  5,
-                  4,
-                  4,
-                  3
-                ]
+                "scores": [4, 3, 4, 3, 5, 4, 4, 3]
               },
               {
                 "name": "Sara",
@@ -955,16 +926,7 @@
                 "averageRating": 68,
                 "teamAverage": 72,
                 "badgeClass": "bg-blue-500 border-blue-500/30 text-white",
-                "scores": [
-                  4,
-                  4,
-                  3,
-                  5,
-                  4,
-                  3,
-                  4,
-                  4
-                ]
+                "scores": [4, 4, 3, 5, 4, 3, 4, 4]
               },
               {
                 "name": "Omar",
@@ -973,16 +935,7 @@
                 "averageRating": 71,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
-                "scores": [
-                  3,
-                  4,
-                  3,
-                  3,
-                  4,
-                  4,
-                  3,
-                  4
-                ]
+                "scores": [3, 4, 3, 3, 4, 4, 3, 4]
               },
               {
                 "name": "Lina",
@@ -991,16 +944,7 @@
                 "averageRating": 60,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
-                "scores": [
-                  2,
-                  3,
-                  2,
-                  4,
-                  3,
-                  2,
-                  3,
-                  2
-                ]
+                "scores": [2, 3, 2, 4, 3, 2, 3, 2]
               },
               {
                 "name": "Shams",
@@ -1009,16 +953,7 @@
                 "averageRating": 68,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
-                "scores": [
-                  3,
-                  2,
-                  3,
-                  3,
-                  3,
-                  3,
-                  2,
-                  3
-                ]
+                "scores": [3, 2, 3, 3, 3, 3, 2, 3]
               }
             ]
           }
@@ -1072,16 +1007,11 @@
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": [
-                  "القطاع الحكومي"
-                ]
+                "items": ["القطاع الحكومي"]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
-                "items": [
-                  "الذكاء الاصطناعي",
-                  "إنترنت الأشياء"
-                ]
+                "items": ["الذكاء الاصطناعي", "إنترنت الأشياء"]
               },
               "impact": {
                 "label": "نطاق الأثر",
@@ -1147,11 +1077,7 @@
                 ],
                 "requirements": {
                   "label": "متطلبات التنفيذ",
-                  "items": [
-                    "بيانات",
-                    "تشريعات",
-                    "شركاء"
-                  ]
+                  "items": ["بيانات", "تشريعات", "شركاء"]
                 },
                 "outputs": {
                   "label": "مخرجات الابتكار المتوقعة",
@@ -1874,26 +1800,8 @@
                 "value": 3
               }
             ],
-            "aiScores": [
-              4,
-              3,
-              4,
-              3,
-              5,
-              4,
-              4,
-              3
-            ],
-            "teamScores": [
-              3,
-              4,
-              3,
-              4,
-              4,
-              3,
-              3,
-              4
-            ],
+            "aiScores": [4, 3, 4, 3, 5, 4, 4, 3],
+            "teamScores": [3, 4, 3, 4, 4, 3, 3, 4],
             "evaluators": [
               {
                 "name": "Khaled",
@@ -1902,16 +1810,7 @@
                 "averageRating": 75,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
-                "scores": [
-                  4,
-                  3,
-                  4,
-                  3,
-                  5,
-                  4,
-                  4,
-                  3
-                ]
+                "scores": [4, 3, 4, 3, 5, 4, 4, 3]
               },
               {
                 "name": "Sara",
@@ -1920,16 +1819,7 @@
                 "averageRating": 68,
                 "teamAverage": 72,
                 "badgeClass": "bg-blue-500 border-blue-500/30 text-white",
-                "scores": [
-                  4,
-                  4,
-                  3,
-                  5,
-                  4,
-                  3,
-                  4,
-                  4
-                ]
+                "scores": [4, 4, 3, 5, 4, 3, 4, 4]
               },
               {
                 "name": "Omar",
@@ -1938,16 +1828,7 @@
                 "averageRating": 71,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
-                "scores": [
-                  3,
-                  4,
-                  3,
-                  3,
-                  4,
-                  4,
-                  3,
-                  4
-                ]
+                "scores": [3, 4, 3, 3, 4, 4, 3, 4]
               },
               {
                 "name": "Lina",
@@ -1956,16 +1837,7 @@
                 "averageRating": 60,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
-                "scores": [
-                  2,
-                  3,
-                  2,
-                  4,
-                  3,
-                  2,
-                  3,
-                  2
-                ]
+                "scores": [2, 3, 2, 4, 3, 2, 3, 2]
               },
               {
                 "name": "Shams",
@@ -1974,16 +1846,7 @@
                 "averageRating": 68,
                 "teamAverage": 72,
                 "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
-                "scores": [
-                  3,
-                  2,
-                  3,
-                  3,
-                  3,
-                  3,
-                  2,
-                  3
-                ]
+                "scores": [3, 2, 3, 3, 3, 3, 2, 3]
               }
             ]
           }
@@ -2037,16 +1900,11 @@
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": [
-                  "القطاع الحكومي"
-                ]
+                "items": ["القطاع الحكومي"]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
-                "items": [
-                  "الذكاء الاصطناعي",
-                  "إنترنت الأشياء"
-                ]
+                "items": ["الذكاء الاصطناعي", "إنترنت الأشياء"]
               },
               "impact": {
                 "label": "نطاق الأثر",
@@ -2110,11 +1968,7 @@
                 ],
                 "requirements": {
                   "label": "متطلبات التنفيذ",
-                  "items": [
-                    "بيانات",
-                    "تشريعات",
-                    "شركاء"
-                  ]
+                  "items": ["بيانات", "تشريعات", "شركاء"]
                 },
                 "outputs": {
                   "label": "مخرجات الابتكار المتوقعة",
@@ -2308,15 +2162,11 @@
               },
               "targetAudience": {
                 "label": "الفئة المستهدفة",
-                "items": [
-                  "الطاقة"
-                ]
+                "items": ["الطاقة"]
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": [
-                  "القطاع الحكومي"
-                ]
+                "items": ["القطاع الحكومي"]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
@@ -2462,15 +2312,11 @@
               },
               "targetAudience": {
                 "label": "الفئة المستهدفة",
-                "items": [
-                  "الصحة"
-                ]
+                "items": ["الصحة"]
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": [
-                  "القطاع الحكومي"
-                ]
+                "items": ["القطاع الحكومي"]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
@@ -2616,15 +2462,11 @@
               },
               "targetAudience": {
                 "label": "الفئة المستهدفة",
-                "items": [
-                  "الطاقة"
-                ]
+                "items": ["الطاقة"]
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": [
-                  "القطاع الحكومي"
-                ]
+                "items": ["القطاع الحكومي"]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
@@ -2770,15 +2612,11 @@
               },
               "targetAudience": {
                 "label": "الفئة المستهدفة",
-                "items": [
-                  "الطاقة"
-                ]
+                "items": ["الطاقة"]
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": [
-                  "القطاع الحكومي"
-                ]
+                "items": ["القطاع الحكومي"]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
@@ -2924,15 +2762,11 @@
               },
               "targetAudience": {
                 "label": "الفئة المستهدفة",
-                "items": [
-                  "الطاقة"
-                ]
+                "items": ["الطاقة"]
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": [
-                  "القطاع الحكومي"
-                ]
+                "items": ["القطاع الحكومي"]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
@@ -3078,15 +2912,11 @@
               },
               "targetAudience": {
                 "label": "الفئة المستهدفة",
-                "items": [
-                  "الطاقة"
-                ]
+                "items": ["الطاقة"]
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": [
-                  "القطاع الحكومي"
-                ]
+                "items": ["القطاع الحكومي"]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
@@ -3207,26 +3037,16 @@
   "analytics": {
     "liveSignal": {
       "value": "1,248",
-      "sparkline": [
-        26,
-        35,
-        48,
-        56,
-        66,
-        72,
-        88
-      ]
+      "sparkline": [30, 60, 80, 70, 60, 50, 40]
     },
     "quickActions": [
       {
         "id": "submit_idea",
-        "labelKey": "analytics.actions.submit_idea",
-        "primary": true
+        "labelKey": "analytics.actions.submit_idea"
       },
       {
         "id": "evaluation_queue",
-        "labelKey": "analytics.actions.evaluation_queue",
-        "primary": false
+        "labelKey": "analytics.actions.evaluation_queue"
       },
       {
         "id": "high_priority",
@@ -3235,13 +3055,11 @@
       },
       {
         "id": "reports",
-        "labelKey": "analytics.actions.reports",
-        "primary": false
+        "labelKey": "analytics.actions.reports"
       },
       {
         "id": "ai_insights",
-        "labelKey": "analytics.actions.ai_insights",
-        "primary": false
+        "labelKey": "analytics.actions.ai_insights"
       }
     ],
     "screens": {
@@ -3254,17 +3072,9 @@
             "value": "88%",
             "percentage": "+5.3%",
             "changeLabelKey": "analytics.change_labels.aligned_ideas",
-            "sparkline": [
-              36,
-              42,
-              54,
-              62,
-              70,
-              76,
-              82
-            ],
+            "sparkline": [30, 60, 80, 70, 60, 50, 40],
             "growthType": "up",
-            "badgeColor": "text-[#22d3ee] bg-[#22d3ee]/10 border-[#22d3ee]/20"
+            "badgeColor": "text-[#21C2DD] bg-[#7DD3FC]/10"
           },
           {
             "id": "conversion",
@@ -3273,17 +3083,9 @@
             "value": "88%",
             "percentage": "+5.3%",
             "changeLabelKey": "analytics.change_labels.approved_projects",
-            "sparkline": [
-              22,
-              26,
-              34,
-              33,
-              40,
-              48,
-              54
-            ],
+            "sparkline": [30, 60, 80, 70, 60, 50, 40],
             "growthType": "up",
-            "badgeColor": "text-[#22c55e] bg-[#22c55e]/10 border-[#22c55e]/20"
+            "badgeColor": "text-[#05D989] bg-[#05D989]/10"
           },
           {
             "id": "ideas",
@@ -3292,17 +3094,9 @@
             "value": "88%",
             "percentage": "+5.3%",
             "changeLabelKey": "analytics.change_labels.idea_growth",
-            "sparkline": [
-              24,
-              40,
-              44,
-              56,
-              62,
-              72,
-              84
-            ],
+            "sparkline": [30, 60, 80, 70, 60, 50, 40],
             "growthType": "up",
-            "badgeColor": "text-slate-400 bg-slate-400/10 border-slate-400/20"
+            "badgeColor": "text-white bg-white/10"
           },
           {
             "id": "health",
@@ -3311,17 +3105,9 @@
             "value": "88%",
             "percentage": "+5.3%",
             "changeLabelKey": "analytics.change_labels.vs_quarter",
-            "sparkline": [
-              28,
-              34,
-              46,
-              58,
-              63,
-              74,
-              88
-            ],
-            "growthType": "up",
-            "badgeColor": "text-[#34d3ff] bg-[#34d3ff]/10 border-[#34d3ff]/20"
+            "sparkline": [30, 60, 80, 70, 60, 50, 40],
+            "growthType": "down",
+            "badgeColor": "text-[#21C2DD] bg-[#7DD3FC]/10"
           }
         ],
         "gaugeValue": 86,
@@ -3329,14 +3115,7 @@
           "series": [
             {
               "name": "Portfolio Radar",
-              "data": [
-                88,
-                78,
-                82,
-                80,
-                73,
-                79
-              ]
+              "data": [88, 78, 82, 80, 73, 79]
             }
           ],
           "categories": [
@@ -3402,15 +3181,7 @@
             "value": "482",
             "percentage": "39%",
             "changeLabelKey": "analytics.change_labels.approved",
-            "sparkline": [
-              30,
-              42,
-              50,
-              45,
-              52,
-              60,
-              68
-            ],
+            "sparkline": [30, 42, 50, 45, 52, 60, 68],
             "growthType": "up",
             "badgeColor": "text-[#22c55e] bg-[#22c55e]/10 border-[#22c55e]/20"
           },
@@ -3421,15 +3192,7 @@
             "value": "261",
             "percentage": "21%",
             "changeLabelKey": "analytics.change_labels.coach_refine",
-            "sparkline": [
-              15,
-              20,
-              18,
-              22,
-              20,
-              24,
-              21
-            ],
+            "sparkline": [15, 20, 18, 22, 20, 24, 21],
             "growthType": "mid",
             "badgeColor": "text-[#f59e0b] bg-[#f59e0b]/10 border-[#f59e0b]/20"
           },
@@ -3440,15 +3203,7 @@
             "value": "119",
             "percentage": "10%",
             "changeLabelKey": "analytics.change_labels.archive",
-            "sparkline": [
-              10,
-              12,
-              9,
-              11,
-              13,
-              8,
-              10
-            ],
+            "sparkline": [10, 12, 9, 11, 13, 8, 10],
             "growthType": "down",
             "badgeColor": "text-[#ef4444] bg-[#ef4444]/10 border-[#ef4444]/20"
           },
@@ -3459,15 +3214,7 @@
             "value": "77",
             "percentage": "6%",
             "changeLabelKey": "analytics.change_labels.linked_initiatives",
-            "sparkline": [
-              5,
-              6,
-              8,
-              7,
-              6,
-              8,
-              7
-            ],
+            "sparkline": [5, 6, 8, 7, 6, 8, 7],
             "growthType": "mid",
             "badgeColor": "text-[#22d3ee] bg-[#22d3ee]/10 border-[#22d3ee]/20"
           }
@@ -3483,33 +3230,15 @@
           "series": [
             {
               "name": "Viable",
-              "data": [
-                118,
-                96,
-                142,
-                81,
-                45
-              ]
+              "data": [118, 96, 142, 81, 45]
             },
             {
               "name": "Redesign",
-              "data": [
-                62,
-                54,
-                71,
-                49,
-                25
-              ]
+              "data": [62, 54, 71, 49, 25]
             },
             {
               "name": "Non-Viable",
-              "data": [
-                22,
-                18,
-                27,
-                35,
-                17
-              ]
+              "data": [22, 18, 27, 35, 17]
             }
           ]
         },
@@ -3603,12 +3332,7 @@
         ],
         "sunburst": {
           "total": "1,248",
-          "series": [
-            41,
-            24,
-            18,
-            17
-          ],
+          "series": [41, 24, 18, 17],
           "labels": [
             "Incremental",
             "Breakthrough",
@@ -3806,18 +3530,8 @@
           }
         ],
         "heatmap": {
-          "yCategories": [
-            "Bias",
-            "Cycle Time",
-            "Completion"
-          ],
-          "xCategories": [
-            "Q1",
-            "Q2",
-            "Q3",
-            "Q4",
-            "Target"
-          ],
+          "yCategories": ["Bias", "Cycle Time", "Completion"],
+          "xCategories": ["Q1", "Q2", "Q3", "Q4", "Target"],
           "data": [
             {
               "name": "Bias",
@@ -3960,42 +3674,15 @@
         "streamSeries": [
           {
             "name": "Theme A",
-            "data": [
-              30,
-              40,
-              35,
-              50,
-              49,
-              60,
-              70,
-              91
-            ]
+            "data": [30, 40, 35, 50, 49, 60, 70, 91]
           },
           {
             "name": "Theme B",
-            "data": [
-              20,
-              30,
-              25,
-              40,
-              39,
-              45,
-              50,
-              55
-            ]
+            "data": [20, 30, 25, 40, 39, 45, 50, 55]
           },
           {
             "name": "Theme C",
-            "data": [
-              10,
-              15,
-              20,
-              25,
-              22,
-              28,
-              30,
-              32
-            ]
+            "data": [10, 15, 20, 25, 22, 28, 30, 32]
           }
         ],
         "aiCommentaryKey": "analytics.commentary.text"

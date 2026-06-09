@@ -21,12 +21,12 @@ defineProps({
 <template>
   <div class="py-3">
     <!-- Optional Title Header -->
-    <h4
+    <h2
       v-if="title"
       class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
     >
       {{ title }}
-    </h4>
+    </h2>
 
     <!-- Stepper -->
     <div class="">

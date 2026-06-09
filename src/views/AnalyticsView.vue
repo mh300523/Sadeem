@@ -14,7 +14,9 @@ import DonutChart from "@/components/dashboard/analytics/DonutChart.vue";
 import ProgressBar from "@/components/dashboard/analytics/ProgressBar.vue";
 import StreamChart from "@/components/dashboard/analytics/StreamChart.vue";
 import BaseFilter from "@/components/ui/BaseFilter.vue";
+import BaseSparklineBars from "@/components/ui/BaseSparklineBars.vue";
 import { useFilters } from "@/composables/useFilters";
+import BaseButton from "@/components/ui/BaseButton.vue";
 
 const { t, locale } = useI18n();
 const isRtl = computed(() => locale.value === "ar");
@@ -289,100 +291,91 @@ function getCustomGradient(label) {
     <aside class="lg:col-span-3">
       <BaseBox class="border border-white/10 rounded-2xl py-6">
         <!-- Brand logo section -->
-        <div
-          class="flex flex-col gap-1.5 p-4 rounded-2xl bg-[#091522]/40 border border-white/5 text-right ltr:text-left shadow-2xl"
-        >
+        <div class="px-6 pb-[20px] border-b border-white/40 mb-4">
           <h1 class="sidebar-gradient-title secondery-text-gradient">
             {{ $t("analytics.sidebar.brand_title") }}
           </h1>
-          <p class="text-[10px] font-bold text-white/50 leading-none">
+          <p class="text-white">
             {{ $t("analytics.sidebar.brand_subtitle") }}
           </p>
         </div>
 
         <!-- Navigation tabs -->
-        <div class="flex flex-col gap-1.5 mt-2">
-          <span
-            class="text-[10px] font-bold tracking-wider text-[#7ca9d0]/80 uppercase px-2 mb-1.5 text-right ltr:text-left"
-          >
-            {{ $t("details.tabs.classification") }}
-          </span>
-          <button
-            v-for="scrKey in Object.keys(screens)"
-            :key="scrKey"
-            @click="activeScreen = scrKey"
-            class="w-full flex justify-between items-center gap-3.5 px-4 py-3 rounded-xl border border-transparent text-right ltr:text-left text-xs font-bold transition-all duration-200 cursor-pointer"
-            :class="
-              activeScreen === scrKey
-                ? 'bg-gradient-to-r from-[#06b6d4]/10 to-[#8b5cf6]/12 border-white/5 text-white'
-                : 'text-white/70 hover:bg-white/[0.03] hover:text-white'
-            "
-          >
-            <div class="flex items-center gap-2.5">
-              <span
-                v-if="activeScreen === scrKey"
-                class="w-1.5 h-1.5 rounded-full bg-[#34d3ff] shadow-[0_0_8px_rgba(52,211,255,0.8)]"
-              ></span>
-              <span>{{ $t(`analytics.screens.${scrKey}`) }}</span>
-            </div>
-            <!-- Left pointing chevron in RTL, right in LTR -->
-            <svg
-              class="w-3 h-3 text-white/40 shrink-0 transform rtl:rotate-0 ltr:rotate-180"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        <div class="px-6">
+          <ul class="divide-y divide-white/20">
+            <li
+              v-for="scrKey in Object.keys(screens)"
+              :key="scrKey"
+              class="py-4"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2.5"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
+              <button
+                @click="activeScreen = scrKey"
+                class="w-full flex justify-between items-center gap-3.5 cursor-pointer font-medium text-white text-base md:text-lg hover:text-[#FF6B35]"
+              >
+                <div class="flex items-center gap-2.5">
+                  <span
+                    v-if="activeScreen === scrKey"
+                    class="w-1.5 h-1.5 rounded-full bg-[#34d3ff] shadow-[0_0_8px_rgba(52,211,255,0.8)]"
+                  ></span>
+                  <span>{{ $t(`analytics.screens.${scrKey}`) }}</span>
+                </div>
+                <!-- Left pointing chevron in RTL, right in LTR -->
+                <svg
+                  class="w-5 h-5 shrink-0 transform rtl:rotate-0 ltr:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+            </li>
+          </ul>
         </div>
 
         <!-- Live Signal module -->
-        <div class="p-4 rounded-2xl border border-white/5 bg-white/[0.03]">
-          <div
-            class="text-[10px] text-white/40 font-bold uppercase tracking-wider text-right ltr:text-left"
+        <div class="px-6 mb-6">
+          <BaseBox
+            class="pt-[20px] px-4 rounded-2xl! gradient-border"
+            gradientbg="gradient-sky-blue"
           >
-            {{ $t("analytics.live_signal") }}
-          </div>
-          <strong
-            class="block text-2xl font-black text-white mt-1.5 text-right ltr:text-left leading-none"
-          >
-            {{ liveSignal.value }}
-          </strong>
-          <p class="text-[10px] text-white/40 mt-1 text-right ltr:text-left">
-            {{ $t("analytics.total_platform_ideas") }}
-          </p>
-          <!-- Sparkline bars design visual -->
-          <div class="h-10 flex gap-1 items-end mt-3.5">
-            <span
-              v-for="(val, idx) in liveSignal.sparkline"
-              :key="idx"
-              class="flex-1 rounded-t bg-gradient-to-t from-[#8b5cf6] to-[#06b6d4] transition-all duration-300"
-              :style="{ height: `${val}%` }"
-            ></span>
-          </div>
+            <h4 class="text-[#05D989] font-medium uppercase">
+              {{ $t("analytics.live_signal") }}
+            </h4>
+
+            <div class="flex items-center justify-between mt-2">
+              <h5 class="text-xs text-white/76">
+                {{ $t("analytics.total_platform_ideas") }}
+              </h5>
+              <span class="text-white text-3xl font-extrabold italic">
+                {{ liveSignal.value }}
+              </span>
+            </div>
+            <!-- indicator bars -->
+            <BaseSparklineBars :data="liveSignal.sparkline" />
+          </BaseBox>
         </div>
 
         <!-- Quick Actions list -->
-        <div class="flex flex-col gap-2.5">
+        <div class="px-6">
           <!-- Orange pill button-style header -->
-          <div
-            class="w-full text-center py-2.5 px-4 rounded-xl text-xs font-black bg-[#ff8e53] text-white shadow-lg shadow-[#ff8e53]/10 select-none"
+          <h2
+            class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
           >
             {{ $t("analytics.quick_actions") }}
-          </div>
-          <button
+          </h2>
+          <BaseButton
             v-for="action in quickActions"
             :key="action.id"
-            class="w-full text-right ltr:text-left p-3.5 rounded-xl text-xs font-semibold bg-white/[0.03] border border-white/5 hover:bg-white/[0.08] hover:translate-x-[-2px] text-white/95 transition-all duration-200 cursor-pointer"
+            class="w-full !py-4 !justify-between !rounded-2xl border border-white/10 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30 backdrop-blur-xl text-white hover:translate-x-[-2px] mb-3"
           >
             {{ $t(action.labelKey) }}
-          </button>
+          </BaseButton>
         </div>
       </BaseBox>
     </aside>
@@ -391,13 +384,13 @@ function getCustomGradient(label) {
     <div class="lg:col-span-9">
       <!-- Topbar Header & Filters -->
       <div
-        class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5 pb-5 border-b border-white/10"
+        class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5 mb-6"
       >
-        <div class="text-right ltr:text-left flex-1">
-          <h2 class="text-2xl lg:text-3xl font-black text-white tracking-tight">
+        <div class="">
+          <h1 class="text-lg lg:text-xl font-bold primary-text-gradient mb-3">
             {{ $t(`analytics.screens.${activeScreen}`) }}
-          </h2>
-          <p class="text-xs text-white/50 mt-1 leading-relaxed max-w-2xl">
+          </h1>
+          <p class="text-xs text-white/70 leading-relaxed">
             {{ screenInfo[activeScreen]?.desc }}
           </p>
         </div>
@@ -407,59 +400,66 @@ function getCustomGradient(label) {
           <BaseFilter
             :filters="analyticsFilters"
             @update:filters="handleFiltersChange"
+            buttonClass="rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#018AAF]/10 to-[#7F4FFF]/10 px-4 py-2 rounded-full"
           />
 
           <!-- Export button (leftmost in RTL) -->
-          <button
-            class="px-5 py-2 bg-gradient-to-r from-[#06b6d4] via-[#3b82f6] to-[#7f4fff] hover:opacity-90 text-white rounded-full text-xs font-extrabold cursor-pointer border-none shadow-[0_0_12px_rgba(6,182,212,0.3)] transition-all flex items-center justify-center gap-1"
-          >
+          <BaseButton class="gradient-purple py-2! text-white">
             {{ $t("analytics.actions.export_pdf") }}
-          </button>
+          </BaseButton>
         </div>
       </div>
 
       <!-- Active view renderer -->
       <transition name="fade" mode="out-in">
         <!-- Screen: Snapshot -->
-        <div v-if="activeScreen === 'snapshot'" class="flex flex-col gap-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div v-if="activeScreen === 'snapshot'">
+          <BaseBox
+            gradientbg="gradient-sky-blue"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-6 rounded-[20px]! gradient-border mb-5"
+          >
             <KpiCard
               v-for="kpi in screens.snapshot.kpis"
               :key="kpi.id"
               v-bind="kpi"
               @select="handleSelectKpi"
             />
-          </div>
+          </BaseBox>
 
           <!-- Gauge and Radar visual row -->
-          <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-4">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
             <div
-              class="p-5 rounded-3xl bg-[#091522]/90 border border-white/5 flex flex-col justify-between min-h-[300px]"
+              class="lg:col-span-6 p-5 rounded-3xl bg-[#091522]/90 border border-white/5"
+            >
+              <h2
+                class="text-lg lg:text-xl font-bold primary-text-gradient mb-3"
+              >
+                {{ $t("analytics.snapshot.radar_title") }}
+              </h2>
+              <p class="text-xs text-white/70">
+                {{ $t("analytics.snapshot.radar_subtitle") }}
+              </p>
+              <RadarChart
+                :series="screens.snapshot.radar.series"
+                :categories="screens.snapshot.radar.categories"
+              />
+            </div>
+            <div
+              class="lg:col-span-6 p-5 rounded-3xl bg-[#091522]/90 border border-white/5 flex flex-col justify-between min-h-[300px]"
             >
               <div>
-                <h3 class="text-sm font-bold text-white">
+                <h2
+                  class="text-lg lg:text-xl font-bold primary-text-gradient mb-3"
+                >
                   {{ $t("analytics.snapshot.gauge_title") }}
-                </h3>
-                <span class="text-[10px] text-white/40 block mt-0.5">{{
-                  $t("analytics.snapshot.gauge_subtitle")
-                }}</span>
+                </h2>
+                <p class="text-xs text-white/70">
+                  {{ $t("analytics.snapshot.gauge_subtitle") }}
+                </p>
               </div>
               <GaugeChart
                 :value="screens.snapshot.gaugeValue"
                 :label="$t('analytics.snapshot.gauge_label')"
-              />
-            </div>
-
-            <div class="p-5 rounded-3xl bg-[#091522]/90 border border-white/5">
-              <h3 class="text-sm font-bold text-white mb-2">
-                {{ $t("analytics.snapshot.radar_title") }}
-              </h3>
-              <span class="text-[10px] text-white/40 block mb-6">{{
-                $t("analytics.snapshot.radar_subtitle")
-              }}</span>
-              <RadarChart
-                :series="screens.snapshot.radar.series"
-                :categories="screens.snapshot.radar.categories"
               />
             </div>
           </div>

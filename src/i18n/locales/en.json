@@ -203,7 +203,7 @@
     "total_platform_ideas": "Total Platform Ideas",
     "quick_actions": "Quick Actions",
     "actions": {
-      "submit_idea": "+ Submit New Idea",
+      "submit_idea": "Submit New Idea",
       "evaluation_queue": "Open Evaluation Queue",
       "high_priority": "View High Priority Ideas",
       "reports": "Innovation Reports",

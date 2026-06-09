@@ -81,7 +81,7 @@ const tabData = computed(() => props.data || {});
         >
           <template #card="{ step }">
             <div
-              class="gradient-border p-4.5 flex-1 rtl:bg-gradient-to-bl ltr:bg-gradient-to-br from-[#895AF7]/30 via-[#06B6D4]/10 to-[#503591]/0 backdrop-blur-xl rounded-xl"
+              class="gradient-border p-4.5 flex-1 gradient-sky-blue backdrop-blur-xl rounded-xl"
             >
               <span
                 class="text-xs md:text-sm font-semibold leading-none text-white"
@@ -93,11 +93,11 @@ const tabData = computed(() => props.data || {});
 
         <!-- Legal Disclaimer Block -->
         <div class="">
-          <h4
+          <h2
             class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
           >
             <span>{{ tabData.sidebar.disclaimer.title }}</span>
-          </h4>
+          </h2>
 
           <BaseBox class="gradient-border p-4">
             <p

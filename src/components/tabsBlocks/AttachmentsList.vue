@@ -30,12 +30,12 @@ defineProps({
       class="flex items-center justify-between px-3 py-1 rounded-full bg-white/10 mb-[14px] last:mb-0"
     >
       <div class="flex items-center justify-between w-100">
-        <h5
+        <h4
           class="text-white text-base font-medium truncate"
           :title="file.name"
         >
           {{ file.name }}
-        </h5>
+        </h4>
         <!-- Cloud download icon on left -->
         <SvgIcon name="solar_cloud-download-outline" />
       </div>

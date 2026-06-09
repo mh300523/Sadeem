@@ -129,11 +129,11 @@ const handleExecutionPlanChange = (status) => {
             class=""
           >
             <!-- Orange header capsule matching screenshots -->
-            <h4
+            <h2
               class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
             >
               {{ section.label }}
-            </h4>
+            </h2>
 
             <BaseRadioGroup
               v-model="activeOptions[section.key]"
