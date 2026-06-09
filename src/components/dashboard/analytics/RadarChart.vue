@@ -1,11 +1,5 @@
 <template>
-  <BaseChart
-    type="radar"
-    height="300"
-    width="100%"
-    :options="chartOptions"
-    :series="series"
-  />
+  <BaseChart :options="chartOptions" :series="series" />
 </template>
 
 <script setup>
@@ -30,8 +24,7 @@ const translatedCategories = computed(() => {
   // Extract values from props.series[0].data if available to append values dynamically
   const dataVals = props.series[0]?.data || [];
   return props.categories.map((catKey, idx) => {
-    const val = dataVals[idx] !== undefined ? ` ${dataVals[idx]}` : "";
-    return t(catKey) + val;
+    return t(catKey);
   });
 });
 
@@ -42,58 +35,45 @@ const chartOptions = computed(() => {
       toolbar: {
         show: false,
       },
-      dropShadow: {
-        enabled: true,
-        blur: 4,
-        left: 0,
-        top: 2,
-        color: "#000",
-        opacity: 0.3,
-      },
     },
-    colors: ["#34d3ff"],
+    colors: ["#7F4FFF"],
     fill: {
-      opacity: 0.16,
+      opacity: 0.5,
     },
     stroke: {
       show: true,
-      width: 2.5,
-      colors: ["#34d3ff"],
+      width: 1.5,
+      colors: ["#7F4FFF"],
     },
     markers: {
-      size: 4,
-      colors: ["#091522"],
-      strokeColor: "#34d3ff",
-      strokeWidth: 2,
-      hover: {
-        size: 6,
+      size: 0,
+    },
+    dataLabels: {
+      enabled: true,
+      style: {
+        fontSize: "12px",
+        fontWeight: 400,
+        colors: ["rgba(255, 255, 255, 0.7)"],
+      },
+      background: {
+        enabled: false,
       },
     },
     xaxis: {
       categories: translatedCategories.value,
       labels: {
-        show: true,
         style: {
-          colors: Array(props.categories.length).fill("#d3e9ff"),
-          fontSize: "11px",
+          colors: Array(props.categories.length).fill(
+            "rgba(255, 255, 255, 0.7)",
+          ),
+          fontSize: "12px",
           fontFamily: "Neo Sans Arabic, sans-serif",
-          fontWeight: "500",
         },
       },
     },
     yaxis: {
       show: false,
-      tickAmount: 4,
-    },
-    grid: {
-      show: true,
-      borderColor: "rgba(255, 255, 255, 0.08)",
-    },
-    tooltip: {
-      theme: "dark",
-      y: {
-        formatter: (val) => `${val}%`,
-      },
+      tickAmount: 5,
     },
   };
 });

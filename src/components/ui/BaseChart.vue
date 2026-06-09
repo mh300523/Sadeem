@@ -1,7 +1,6 @@
 <template>
-  <div class="base-chart-container flex items-center justify-center w-full" :style="{ height: wrapperHeight }">
+  <div class="base-chart-container flex items-center justify-center w-full">
     <apexchart
-      :type="type"
       :height="height"
       :width="width"
       :options="options"
@@ -11,14 +10,9 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
 import apexchart from "vue3-apexcharts";
 
 const props = defineProps({
-  type: {
-    type: String,
-    required: true,
-  },
   series: {
     type: Array,
     required: true,
@@ -29,23 +23,13 @@ const props = defineProps({
   },
   height: {
     type: [String, Number],
-    default: "100%",
+    default: "300",
   },
   width: {
     type: [String, Number],
     default: "100%",
   },
 });
-
-// Helper to set container height based on height prop
-const wrapperHeight = computed(() => {
-  if (typeof props.height === "number") return `${props.height}px`;
-  return props.height;
-});
 </script>
 
-<style scoped>
-.base-chart-container {
-  overflow: hidden;
-}
-</style>
+<style scoped></style>

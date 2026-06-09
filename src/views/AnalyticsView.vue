@@ -340,10 +340,7 @@ function getCustomGradient(label) {
 
         <!-- Live Signal module -->
         <div class="px-6 mb-6">
-          <BaseBox
-            class="pt-[20px] px-4 rounded-2xl! gradient-border"
-            gradientbg="gradient-sky-blue"
-          >
+          <BaseBox class="pt-[20px] px-4" type="glass">
             <h4 class="text-[#05D989] font-medium uppercase">
               {{ $t("analytics.live_signal") }}
             </h4>
@@ -415,7 +412,7 @@ function getCustomGradient(label) {
         <!-- Screen: Snapshot -->
         <div v-if="activeScreen === 'snapshot'">
           <BaseBox
-            gradientbg="gradient-sky-blue"
+            type="glass"
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-6 rounded-[20px]! gradient-border mb-5"
           >
             <KpiCard
@@ -427,10 +424,8 @@ function getCustomGradient(label) {
           </BaseBox>
 
           <!-- Gauge and Radar visual row -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div
-              class="lg:col-span-6 p-5 rounded-3xl bg-[#091522]/90 border border-white/5"
-            >
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-5">
+            <BaseBox class="lg:col-span-6 rounded-[20px] p-4" type="glass">
               <h2
                 class="text-lg lg:text-xl font-bold primary-text-gradient mb-3"
               >
@@ -443,10 +438,8 @@ function getCustomGradient(label) {
                 :series="screens.snapshot.radar.series"
                 :categories="screens.snapshot.radar.categories"
               />
-            </div>
-            <div
-              class="lg:col-span-6 p-5 rounded-3xl bg-[#091522]/90 border border-white/5 flex flex-col justify-between min-h-[300px]"
-            >
+            </BaseBox>
+            <BaseBox class="lg:col-span-6 rounded-[20px] p-4" type="glass">
               <div>
                 <h2
                   class="text-lg lg:text-xl font-bold primary-text-gradient mb-3"
@@ -461,7 +454,7 @@ function getCustomGradient(label) {
                 :value="screens.snapshot.gaugeValue"
                 :label="$t('analytics.snapshot.gauge_label')"
               />
-            </div>
+            </BaseBox>
           </div>
 
           <!-- Timeline and Outcome Row (Swapped order in DOM so Timeline is right, Outcome Summary is left in RTL) -->

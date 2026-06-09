@@ -1,11 +1,8 @@
 <template>
-  <BaseChart
-    type="radialBar"
-    height="220"
-    width="220"
-    :options="chartOptions"
-    :series="[value]"
-  />
+  <BaseChart type="radialBar" :options="chartOptions" :series="[value]" />
+  <p class="text-white/70 text-xs text-center">
+    {{ label }}
+  </p>
 </template>
 
 <script setup>
@@ -23,7 +20,7 @@ const props = defineProps({
   },
   gradientColors: {
     type: Array,
-    default: () => ["#34d3ff", "#8b5cf6"], // cyan to purple
+    default: () => ["#7086FD"], // cyan to purple
   },
 });
 
@@ -35,55 +32,56 @@ const chartOptions = computed(() => {
         enabled: true,
       },
     },
+    states: {
+      hover: {
+        filter: {
+          type: "none",
+        },
+      },
+      active: {
+        filter: {
+          type: "none",
+        },
+      },
+    },
     plotOptions: {
       radialBar: {
-        startAngle: -130,
-        endAngle: 130,
+        startAngle: -90,
+        endAngle: 270,
         hollow: {
-          size: "68%",
+          size: "40%",
+          background: "transparent",
         },
         track: {
-          background: "rgba(255, 255, 255, 0.08)",
-          strokeWidth: "100%",
+          background: "rgba(255,255,255,0.5)",
+          strokeWidth: "60%",
+          margin: 0,
         },
         dataLabels: {
-          show: true,
           name: {
-            show: true,
-            fontSize: "12px",
-            color: "#9dbad7",
-            offsetY: 25,
-            fontFamily: "Neo Sans Arabic, sans-serif",
+            show: false,
           },
           value: {
-            offsetY: -15,
-            fontSize: "36px",
-            fontWeight: "800",
-            color: "#eff8ff",
+            offsetY: 8,
+            fontSize: "24px",
+            fontWeight: "600",
+            color: "rgba(255,255,255,0.9)",
             fontFamily: "Neo Sans Arabic, sans-serif",
-            formatter: (val) => val,
+            formatter: (val) => Math.round(val),
           },
         },
       },
     },
     fill: {
       type: "gradient",
-      gradient: {
-        shade: "dark",
-        type: "horizontal",
-        shadeIntensity: 0.5,
-        gradientToColors: [props.gradientColors[1]],
-        inverseColors: true,
-        opacityFrom: 1,
-        opacityTo: 1,
-        stops: [0, 100],
-      },
       colors: [props.gradientColors[0]],
     },
     stroke: {
-      lineCap: "round",
+      lineCap: "butt",
     },
-    labels: [props.label],
+    tooltip: {
+      enabled: false,
+    },
   };
 });
 </script>

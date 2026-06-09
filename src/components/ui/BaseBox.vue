@@ -8,6 +8,10 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  type: {
+    type: String,
+    default: "",
+  },
 });
 </script>
 
@@ -16,9 +20,10 @@ const props = defineProps({
     class="base-box backdrop-blur-xl"
     :class="[
       classes,
-      gradientbg
-        ? gradientbg
-        : 'rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30',
+      type === 'glass'
+        ? 'gradient-border gradient-sky-blue'
+        : gradientbg ||
+          'rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30',
     ]"
   >
     <slot></slot>
