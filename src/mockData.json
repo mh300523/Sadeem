@@ -3694,20 +3694,20 @@
         "descKey": "analytics.drawer.health.desc",
         "metrics": [
           {
-            "labelKey": "analytics.drawer.health.metric1_label",
-            "value": "86 / 100"
+            "label": "النتيجة المركبة",
+            "value": "86 من 100"
           },
           {
-            "labelKey": "analytics.drawer.health.metric2_label",
-            "value": "Strategic alignment remains the strongest positive contributor."
+            "label": "العامل الرئيسي",
+            "value": "المحاذاة الاستراتيجية تظل المساهم الإيجابي الأقوى."
           },
           {
-            "labelKey": "analytics.drawer.health.metric3_label",
-            "value": "Up 7.2% compared with last quarter."
+            "label": "الاتجاه",
+            "value": "ارتفاع بنسبة 7.2% مقارنة بالربع الماضي"
           },
           {
-            "labelKey": "analytics.drawer.health.metric4_label",
-            "value": "Recommended as the first KPI on the board dashboard."
+            "label": "الاستخدام",
+            "value": "يُوصى باستخدامه كأول مؤشر رئيسي في لوحة معلومات المجلس"
           }
         ],
         "bars": [
@@ -3738,20 +3738,20 @@
         "descKey": "analytics.drawer.ideas.desc",
         "metrics": [
           {
-            "labelKey": "analytics.drawer.ideas.metric1_label",
-            "value": "1,248 ideas submitted year-to-date."
+            "label": "الحجم الحالي",
+            "value": " 1,248 فكرة مقدّمة منذ بداية العام"
           },
           {
-            "labelKey": "analytics.drawer.ideas.metric2_label",
-            "value": "Submissions increased over the last three months."
+            "label": "الاتجاه",
+            "value": "زادت عمليات التقديم خلال الأشهر الثلاثة الماضية"
           },
           {
-            "labelKey": "analytics.drawer.ideas.metric3_label",
-            "value": "Digital Transformation has the highest submission count."
+            "label": "الإدارة الرائدة",
+            "value": "التحول الرقمي — تمتلك أعلى عدد من التقديمات"
           },
           {
-            "labelKey": "analytics.drawer.ideas.metric4_label",
-            "value": "Break down by innovation type, status, source of inspiration, and strategic objective."
+            "label": "التحليل المقترح",
+            "value": "تفصيل حسب نوع الابتكار، الحالة، مصدر الإلهام، والهدف الاستراتيجي."
           }
         ],
         "bars": [
@@ -3782,20 +3782,20 @@
         "descKey": "analytics.drawer.conversion.desc",
         "metrics": [
           {
-            "labelKey": "analytics.drawer.conversion.metric1_label",
+            "labelKey": "معدل التحويل",
             "value": "24%"
           },
           {
-            "labelKey": "analytics.drawer.conversion.metric2_label",
-            "value": "298 approved projects"
+            "labelKey": "المشاريع المعتمدة",
+            "value": "298 مشروعًا معتمدًا"
           },
           {
-            "labelKey": "analytics.drawer.conversion.metric3_label",
-            "value": "171 projects moved into execution"
+            "labelKey": "المشاريع المنفذة",
+            "value": "171 مشروعًا تم الانتقال به إلى التنفيذ"
           },
           {
-            "labelKey": "analytics.drawer.conversion.metric4_label",
-            "value": "Measures innovation throughput and implementation maturity."
+            "labelKey": "استخدام القيادة",
+            "value": "يقيس ناتج الابتكار ومستوى نضج التنفيذ."
           }
         ],
         "bars": [
@@ -3822,20 +3822,20 @@
         "descKey": "analytics.drawer.alignment.desc",
         "metrics": [
           {
-            "labelKey": "analytics.drawer.alignment.metric1_label",
-            "value": "88% of ideas are aligned to strategic objectives."
+            "label": "المواءمة العامة",
+            "value": "88% من الأفكار متوائمة مع الأهداف الاستراتيجية."
           },
           {
-            "labelKey": "analytics.drawer.alignment.metric2_label",
-            "value": "69% support national innovation priorities."
+            "label": "الاستراتيجية الوطنية",
+            "value": "69% تدعم أولويات الابتكار الوطنية."
           },
           {
-            "labelKey": "analytics.drawer.alignment.metric3_label",
-            "value": "56% support GII-relevant indicators."
+            "label": "دعم مؤشر الابتكار العالمي (GII)",
+            "value": "56% تدعم المؤشرات ذات الصلة بمؤشر الابتكار العالمي."
           },
           {
-            "labelKey": "analytics.drawer.alignment.metric4_label",
-            "value": "Critical for board review and institutional strategy oversight."
+            "label": "حالة الاستخدام",
+            "value": "ضرورية لمراجعة مجلس الإدارة والإشراف على الاستراتيجية المؤسسية."
           }
         ],
         "bars": [
@@ -3866,19 +3866,19 @@
         "descKey": "analytics.drawer.viable.desc",
         "metrics": [
           {
-            "labelKey": "analytics.drawer.viable.metric1_label",
+            "label": "analytics.drawer.viable.metric1_label",
             "value": "482 viable ideas"
           },
           {
-            "labelKey": "analytics.drawer.viable.metric2_label",
+            "label": "analytics.drawer.viable.metric2_label",
             "value": "39% of evaluated ideas"
           },
           {
-            "labelKey": "analytics.drawer.viable.metric3_label",
+            "label": "analytics.drawer.viable.metric3_label",
             "value": "These ideas are suitable for progression to planning or execution."
           },
           {
-            "labelKey": "analytics.drawer.viable.metric4_label",
+            "label": "analytics.drawer.viable.metric4_label",
             "value": "View by department, type, source, and strategic objective."
           }
         ],
