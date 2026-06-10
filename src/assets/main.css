@@ -38,6 +38,10 @@ html[dir="ltr"] .sidebar-container::before {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+  z-index: -1;
+}
+.gradient-border {
+  @apply rtl:before:bg-linear-to-bl ltr:before:bg-linear-to-br before:from-[#895AF7]/50 before:to-[#06B6D4]/0 rounded-[14px];
 }
 .primary-text-gradient {
   @apply text-transparent bg-clip-text rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#8B5CF6] max-w-fit;
@@ -45,9 +49,7 @@ html[dir="ltr"] .sidebar-container::before {
 .secondery-text-gradient {
   @apply text-transparent bg-clip-text rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35] max-w-fit;
 }
-.gradient-border {
-  @apply rtl:before:bg-linear-to-bl ltr:before:bg-linear-to-br before:from-[#895AF7]/50 before:to-[#06B6D4]/0 rounded-[14px];
-}
+
 .gradient-orange {
   @apply rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#FF8E53] to-[#FF6B35];
 }
@@ -55,7 +57,7 @@ html[dir="ltr"] .sidebar-container::before {
   @apply rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#7F4FFF];
 }
 .gradient-sky-blue {
-  @apply rtl:bg-linear-to-bl ltr:bg-linear-to-br from-[#895AF7]/30 via-[#06B6D4]/10 to-[#503591]/0;
+  @apply rtl:bg-linear-to-bl ltr:bg-linear-to-br from-[#895AF7]/12 via-[#06B6D4]/5 to-[#503591]/0;
 }
 .white-border {
   @apply border border-white/10;

@@ -18,8 +18,7 @@ import BaseSparklineBars from "@/components/ui/BaseSparklineBars.vue";
 import { useFilters } from "@/composables/useFilters";
 import BaseButton from "@/components/ui/BaseButton.vue";
 
-const { t, locale } = useI18n();
-const isRtl = computed(() => locale.value === "ar");
+const { t } = useI18n();
 
 // Local UI reactive states
 const activeScreen = ref("snapshot");
@@ -193,17 +192,6 @@ const analyticsFilters = computed(() => [
     options: timeframeOptions.value,
   },
 ]);
-
-// Helper class generator for timeline dot states
-function getTimelineDotClass(idx) {
-  if (idx === 0)
-    return "border-[#a78bfa] bg-[#a78bfa]/10 text-[#a78bfa] shadow-[0_0_12px_rgba(167,139,250,0.3)]";
-  if (idx === 1)
-    return "border-[#3b82f6] bg-[#3b82f6]/10 text-[#3b82f6] shadow-[0_0_12px_rgba(59,130,246,0.3)]";
-  if (idx === 2)
-    return "border-[#22c55e] bg-[#22c55e] text-white shadow-[0_0_12px_rgba(34,197,94,0.5)]";
-  return "border-[#f472b6] bg-[#f472b6]/10 text-[#f472b6] shadow-[0_0_12px_rgba(244,114,182,0.3)]";
-}
 
 // Dynamic titles & descriptions
 const screenInfo = computed(() => {
@@ -458,106 +446,98 @@ function getCustomGradient(label) {
           </div>
 
           <!-- Timeline and Outcome Row (Swapped order in DOM so Timeline is right, Outcome Summary is left in RTL) -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
             <!-- Timeline panel -->
-            <div
-              class="p-5 rounded-3xl bg-[#091522]/90 border border-white/5 flex flex-col justify-between"
-            >
-              <div>
-                <h3 class="text-sm font-bold text-white mb-4">
-                  {{ $t("analytics.timeline.title") }}
-                </h3>
+
+            <BaseBox class="rounded-[20px] p-4 lg:col-span-8" type="glass">
+              <h2
+                class="text-lg lg:text-xl font-bold primary-text-gradient mb-3"
+              >
+                {{ $t("analytics.timeline.title") }}
+              </h2>
+              <div
+                class="relative flex items-center justify-between my-6 min-h-[160px]"
+              >
+                <!-- The horizontal connector line -->
+                <span
+                  class="absolute left-6 right-6 h-1.5 ltr:bg-[linear-gradient(to_left,#00000000_0%,#44CCFF_50%,#7F4FFF_85%,#00000000_100%)] rtl:bg-[linear-gradient(to_right,#00000000_0%,#44CCFF_50%,#7F4FFF_85%,#00000000_100%)] top-1/2 -translate-y-1/2 rounded"
+                ></span>
+
+                <!-- Step items -->
                 <div
-                  class="relative flex items-center justify-between w-full min-h-[160px] select-none my-6 px-4"
+                  v-for="(step, idx) in screens.snapshot.timeline"
+                  :key="idx"
+                  class="flex flex-col items-center relative z-10 w-1/4"
                 >
-                  <!-- The horizontal connector line -->
+                  <!-- Alternating label/value placements based on index -->
+                  <!-- Top element -->
                   <div
-                    class="absolute left-6 right-6 h-[2.5px] bg-gradient-to-r from-[#8b5cf6]/20 via-[#34d3ff]/40 to-[#ff8e53]/20 top-1/2 -translate-y-1/2 rounded"
+                    class="h-10 flex items-end justify-center pb-2 text-center absolute -top-10 left-1/2 -translate-x-1/2 w-full"
+                  >
+                    <span
+                      v-if="idx % 2 === 0"
+                      class="text-base md:text-lg font-bold text-white"
+                    >
+                      {{ step.value }}
+                    </span>
+                    <h4
+                      v-else
+                      class="text-xs text-white/70 truncate max-w-[80px] md:max-w-none"
+                    >
+                      {{ $t(step.labelKey) }}
+                    </h4>
+                  </div>
+
+                  <!-- Middle Circle Dot -->
+                  <div
+                    class="w-7 h-7 rounded-full flex items-center justify-center bg-[#8B5CF6]"
                   ></div>
 
-                  <!-- Step items -->
+                  <!-- Bottom element -->
                   <div
-                    v-for="(step, idx) in screens.snapshot.timeline"
-                    :key="idx"
-                    class="flex flex-col items-center relative z-10 w-1/4"
+                    class="h-10 flex items-start justify-center pt-2.5 text-center absolute top-7 left-1/2 -translate-x-1/2 w-full"
                   >
-                    <!-- Alternating label/value placements based on index -->
-                    <!-- Top element -->
-                    <div
-                      class="h-10 flex items-end justify-center pb-2 text-center absolute -top-10 left-1/2 -translate-x-1/2 w-full"
+                    <span
+                      v-if="idx % 2 !== 0"
+                      class="text-base md:text-lg font-bold text-white"
                     >
-                      <strong
-                        v-if="idx % 2 === 0"
-                        class="text-lg md:text-xl font-black text-white leading-none"
-                      >
-                        {{ step.value }}
-                      </strong>
-                      <span
-                        v-else
-                        class="text-[10px] md:text-xs text-white/50 font-bold truncate max-w-[80px] md:max-w-none leading-none"
-                      >
-                        {{ $t(step.labelKey) }}
-                      </span>
-                    </div>
-
-                    <!-- Middle Circle Dot -->
-                    <div
-                      class="w-7 h-7 rounded-full flex items-center justify-center border-2 shadow-lg transition-transform duration-300 hover:scale-110"
-                      :class="getTimelineDotClass(idx)"
+                      {{ step.value }}
+                    </span>
+                    <h4
+                      v-else
+                      class="text-xs text-white/70 truncate max-w-[80px] md:max-w-none"
                     >
-                      <span
-                        v-if="idx === 2"
-                        class="text-xs font-black text-white leading-none"
-                        >✓</span
-                      >
-                    </div>
-
-                    <!-- Bottom element -->
-                    <div
-                      class="h-10 flex items-start justify-center pt-2.5 text-center absolute top-7 left-1/2 -translate-x-1/2 w-full"
-                    >
-                      <strong
-                        v-if="idx % 2 !== 0"
-                        class="text-lg md:text-xl font-black text-white leading-none"
-                      >
-                        {{ step.value }}
-                      </strong>
-                      <span
-                        v-else
-                        class="text-[10px] md:text-xs text-white/50 font-bold truncate max-w-[80px] md:max-w-none leading-none"
-                      >
-                        {{ $t(step.labelKey) }}
-                      </span>
-                    </div>
+                      {{ $t(step.labelKey) }}
+                    </h4>
                   </div>
                 </div>
               </div>
-            </div>
+            </BaseBox>
 
             <!-- Outcome Summary panel -->
-            <div
-              class="p-5 rounded-3xl bg-[#091522]/90 border border-white/5 flex flex-col justify-between"
-            >
-              <div>
-                <h3 class="text-sm font-bold text-white mb-4">
-                  {{ $t("analytics.snapshot.outcome_title") }}
-                </h3>
-                <div class="grid grid-cols-2 gap-3.5">
-                  <div
-                    v-for="(out, idx) in screens.snapshot.outcomeSummary"
-                    :key="idx"
-                    class="p-4 rounded-xl border border-white/5 bg-white/[0.03] text-right ltr:text-left animate-pulse-subtle"
-                  >
-                    <span class="text-xs text-white/50 block">{{
-                      $t(out.labelKey)
-                    }}</span>
-                    <strong class="text-2xl font-black block mt-2 text-white">{{
-                      out.value
-                    }}</strong>
-                  </div>
-                </div>
+
+            <BaseBox class="rounded-[20px] p-4 lg:col-span-4" type="glass">
+              <h2
+                class="text-lg lg:text-xl font-bold primary-text-gradient mb-3"
+              >
+                {{ $t("analytics.snapshot.outcome_title") }}
+              </h2>
+              <div class="grid grid-cols-2 gap-3.5">
+                <BaseBox
+                  type="glass"
+                  v-for="(out, idx) in screens.snapshot.outcomeSummary"
+                  :key="idx"
+                  class="p-4 rounded-xl border border-white/5 bg-white/[0.03] text-right ltr:text-left animate-pulse-subtle"
+                >
+                  <h3 class="text-xs text-white/70 block mb-3">
+                    {{ $t(out.labelKey) }}
+                  </h3>
+                  <span class="text-lg font-bold text-white italic">{{
+                    out.value
+                  }}</span>
+                </BaseBox>
               </div>
-            </div>
+            </BaseBox>
           </div>
         </div>
 

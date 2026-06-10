@@ -1,87 +1,7 @@
-<template>
-  <div>
-    <!-- Backdrop Overlay -->
-    <div
-      v-if="isOpen"
-      class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300"
-      @click="$emit('close')"
-    ></div>
-
-    <!-- Drawer Panel: Floating with margins matching designs exactly -->
-    <aside
-      class="fixed top-6 bottom-6 w-[440px] max-w-[90vw] bg-[#071727]/95 backdrop-blur-2xl border border-white/10 z-50 overflow-y-auto shadow-[0_20px_50px_rgba(0,0,0,0.6)] rounded-[32px] transition-all duration-300 ease-out p-6 flex flex-col gap-6"
-      :class="[
-        isRtl ? 'left-6' : 'right-6',
-        isOpen 
-          ? 'opacity-100 translate-x-0' 
-          : 'opacity-0 pointer-events-none ' + (isRtl ? '-translate-x-12' : 'translate-x-12')
-      ]"
-      :dir="isRtl ? 'rtl' : 'ltr'"
-    >
-      <!-- Head Section -->
-      <div class="flex justify-between items-start gap-4 pb-2 border-b border-white/5">
-        <!-- Close Button (Left in RTL, Right in LTR) -->
-        <button
-          @click="$emit('close')"
-          class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/5 hover:border-white/20 transition-all cursor-pointer shrink-0 order-first ltr:order-last"
-        >
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-
-        <!-- Title & Subtitle (Right in RTL, Left in LTR) -->
-        <div class="flex-1 text-right ltr:text-left order-last ltr:order-first">
-          <h3 class="text-base lg:text-lg font-bold text-[#34d3ff] tracking-tight">
-            {{ data?.titleKey ? $t(data.titleKey) : (data?.title || '') }}
-          </h3>
-          <p class="text-[11px] text-white/50 mt-1 leading-relaxed">
-            {{ data?.descKey ? $t(data.descKey) : (data?.desc || '') }}
-          </p>
-        </div>
-      </div>
-
-      <!-- Detailed Metrics List -->
-      <div v-if="data?.metrics && data.metrics.length" class="flex flex-col gap-3">
-        <div
-          v-for="(m, idx) in data.metrics"
-          :key="idx"
-          class="p-4 rounded-2xl bg-[#0b2035]/30 border border-white/5 text-right ltr:text-left transition-colors hover:bg-white/[0.02]"
-        >
-          <strong class="block text-xs font-bold text-[#34d3ff] mb-1">
-            {{ m.labelKey ? $t(m.labelKey) : m.label }}
-          </strong>
-          <span class="text-xs text-white/80 leading-relaxed block">
-            {{ m.value }}
-          </span>
-        </div>
-      </div>
-
-      <!-- Breakdown Visualization Block -->
-      <div v-if="data?.bars && data.bars.length" class="flex flex-col gap-4">
-        <h4 class="text-xs font-bold text-[#34d3ff] text-right ltr:text-left uppercase tracking-wider">
-          {{ $t('analytics.drawer.breakdown') }}
-        </h4>
-        <div class="flex flex-col gap-4 bg-[#0b2035]/20 border border-white/5 rounded-2xl p-4">
-          <ProgressBar
-            v-for="(b, idx) in data.bars"
-            :key="idx"
-            :value="b.value"
-            :max="getMaxValue(data.bars)"
-            :label="b.label"
-            :valueText="String(b.value)"
-            customFillClass="bg-gradient-to-r from-[#00E2FF] to-[#8B5CF6]"
-          />
-        </div>
-      </div>
-    </aside>
-  </div>
-</template>
-
 <script setup>
-import { computed } from "vue";
-import { useI18n } from "vue-i18n";
 import ProgressBar from "./ProgressBar.vue";
+import { watchEffect } from "vue";
+import BaseBox from "@/components/ui/BaseBox.vue";
 
 const props = defineProps({
   isOpen: {
@@ -96,16 +16,111 @@ const props = defineProps({
 
 defineEmits(["close"]);
 
-const { locale } = useI18n();
-const isRtl = computed(() => locale.value === "ar");
+watchEffect(() => {
+  document.body.classList.toggle("overflow-hidden", props.isOpen);
+});
 
 // Helper to determine max bar value dynamically for correct scaling
 function getMaxValue(bars) {
   if (!bars || bars.length === 0) return 100;
-  const maxVal = Math.max(...bars.map(b => b.value));
+  const maxVal = Math.max(...bars.map((b) => b.value));
   return maxVal > 100 ? maxVal : 100;
 }
 </script>
+
+<template>
+  <div>
+    <!-- Backdrop Overlay -->
+    <div
+      v-if="isOpen"
+      class="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 transition-opacity duration-300"
+      @click="$emit('close')"
+    ></div>
+
+    <!-- Drawer Panel: Floating with margins matching designs exactly -->
+    <aside
+      class="fixed! top-0 bottom-0 inset-e-0 w-[485px] max-w-[90vw] z-50 gradient-sky-blue gradient-border overflow-y-auto rounded-s-[40px] transition-all duration-300 ease-out p-6 bg-[#091520]"
+      :class="[
+        isOpen
+          ? 'opacity-100 translate-x-0'
+          : 'opacity-0 pointer-events-none rtl:-translate-x-12 ltr:translate-x-12',
+      ]"
+    >
+      <!-- Head Section -->
+      <div class="flex justify-between items-start gap-4 mb-5">
+        <!-- Title & Subtitle (Right in RTL, Left in LTR) -->
+        <div class="">
+          <h2 class="sidebar-gradient-title secondery-text-gradient">
+            {{ data?.titleKey ? $t(data.titleKey) : data?.title || "" }}
+          </h2>
+          <p class="text-xs text-white/70 leading-relaxed">
+            {{ data?.descKey ? $t(data.descKey) : data?.desc || "" }}
+          </p>
+        </div>
+        <!-- Close Button (Left in RTL, Right in LTR) -->
+        <button
+          @click="$emit('close')"
+          class="w-4 h-4 flex items-center justify-center text-white hover:text-danger cursor-pointer"
+        >
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Detailed Metrics List -->
+      <div
+        v-if="data?.metrics && data.metrics.length"
+        class="flex flex-col gap-3"
+      >
+        <BaseBox
+          v-for="(m, idx) in data.metrics"
+          :key="idx"
+          class="p-4 rounded-2xl bg-[#0b2035]/30 border border-white/10 transition-colors hover:border-white/30"
+        >
+          <h3 class="font-meduim text-white mb-1.5">
+            {{ m.label }}
+          </h3>
+          <p class="text-white/70 text-xs leading-relaxed">
+            {{ m.value }}
+          </p>
+        </BaseBox>
+      </div>
+
+      <!-- Breakdown Visualization Block -->
+      <div v-if="data?.bars && data.bars.length" class="flex flex-col gap-4">
+        <h4
+          class="text-xs font-bold text-[#34d3ff] text-right ltr:text-left uppercase tracking-wider"
+        >
+          {{ $t("analytics.drawer.breakdown") }}
+        </h4>
+        <div
+          class="flex flex-col gap-4 bg-[#0b2035]/20 border border-white/5 rounded-2xl p-4"
+        >
+          <ProgressBar
+            v-for="(b, idx) in data.bars"
+            :key="idx"
+            :value="b.value"
+            :max="getMaxValue(data.bars)"
+            :label="b.label"
+            :valueText="String(b.value)"
+            customFillClass="bg-gradient-to-r from-[#00E2FF] to-[#8B5CF6]"
+          />
+        </div>
+      </div>
+    </aside>
+  </div>
+</template>
 
 <style scoped>
 /* Sidebar and drawer slides are handled by CSS translation */
