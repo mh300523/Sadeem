@@ -9,11 +9,11 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  badgeKey: {
+  badge: {
     type: String,
     required: true,
   },
-  titleKey: {
+  title: {
     type: String,
     required: true,
   },
@@ -58,13 +58,13 @@ const growthColorClass = computed(() => {
     <!-- Header Row: Badge and Title -->
     <div class="flex justify-between items-center gap-2.5">
       <h5 class="text-xs text-white/76">
-        {{ $t(titleKey) }}
+        {{ title }}
       </h5>
       <span
         class="px-3 py-1.5 rounded-full text-xs"
         :class="badgeColor ? badgeColor : 'text-white bg-white/10'"
       >
-        {{ $t(badgeKey) }}
+        {{ badge }}
       </span>
     </div>
 
@@ -76,12 +76,12 @@ const growthColorClass = computed(() => {
     </div>
 
     <!-- Sparkline Row: 7 vertical bars matching designs exactly -->
-    <BaseSparklineBars :data="sparkline" />
+    <BaseSparklineBars v-if="sparkline" :data="sparkline" />
 
     <!-- Footer Row: Growth & Supporting Metric -->
-    <div class="flex justify-between items-center mt-3">
+    <div class="flex justify-between items-center mt-5">
       <span class="text-xs text-white/76">
-        {{ $t(changeLabelKey) }}
+        {{ changeLabelKey }}
       </span>
       <span
         class="font-medium flex items-center gap-1"

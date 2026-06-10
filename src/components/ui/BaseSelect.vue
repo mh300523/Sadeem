@@ -56,14 +56,14 @@ const displayValue = computed(() => {
 </script>
 
 <template>
-  <div class="flex items-center gap-2">
+  <div class="flex items-center gap-2 w-full md:w-auto">
     <span v-if="label" class="text-gray-400 text-sm whitespace-nowrap">
       {{ label }}
     </span>
 
     <Listbox v-model="model" as="div" class="relative w-full">
       <ListboxButton
-        class="flex items-center justify-between cursor-pointer min-w-35"
+        class="flex items-center justify-between cursor-pointer min-w-35 w-full md:w-auto"
         :class="
           buttonClass
             ? buttonClass

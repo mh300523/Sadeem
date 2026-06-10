@@ -45,7 +45,9 @@ function onFilterChange(filterId, value) {
 </script>
 
 <template>
-  <div class="flex flex-wrap items-center gap-3">
+  <div
+    class="flex flex-col md:flex-row flex-wrap items-center gap-3 w-full md:w-auto"
+  >
     <BaseSelect
       v-for="filter in filters"
       :key="filter.id"

@@ -39,74 +39,77 @@ function getMaxValue(bars) {
 
     <!-- Drawer Panel: Floating with margins matching designs exactly -->
     <aside
-      class="fixed! top-0 bottom-0 inset-e-0 w-[485px] max-w-[90vw] z-50 gradient-sky-blue gradient-border overflow-y-auto rounded-s-[40px] transition-all duration-300 ease-out p-6 bg-[#091520]"
+      class="fixed! top-0 bottom-0 inset-e-0 w-[485px] max-w-[90vw] z-50 overflow-y-auto transition-all duration-300 ease-out"
       :class="[
         isOpen
           ? 'opacity-100 translate-x-0'
-          : 'opacity-0 pointer-events-none rtl:-translate-x-12 ltr:translate-x-12',
+          : 'opacity-0 pointer-events-none rtl:-translate-x-12 ltr:translate-x-12 ',
       ]"
     >
-      <!-- Head Section -->
-      <div class="flex justify-between items-start gap-4 mb-5">
-        <!-- Title & Subtitle (Right in RTL, Left in LTR) -->
-        <div class="">
-          <h2 class="sidebar-gradient-title secondery-text-gradient">
-            {{ data?.titleKey ? $t(data.titleKey) : data?.title || "" }}
-          </h2>
-          <p class="text-xs text-white/70 leading-relaxed">
-            {{ data?.descKey ? $t(data.descKey) : data?.desc || "" }}
-          </p>
-        </div>
-        <!-- Close Button (Left in RTL, Right in LTR) -->
-        <button
-          @click="$emit('close')"
-          class="w-4 h-4 flex items-center justify-center text-white hover:text-danger cursor-pointer"
-        >
-          <svg
-            class="w-4 h-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2.5"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-      </div>
-
-      <!-- Detailed Metrics List -->
       <div
-        v-if="data?.metrics && data.metrics.length"
-        class="flex flex-col gap-3"
+        class="aside-container min-h-full gradient-border gradient-sky-blue bg-[#02142D] p-6 rounded-e-none! rounded-s-[40px]!"
       >
-        <BaseBox
-          v-for="(m, idx) in data.metrics"
-          :key="idx"
-          class="p-4 rounded-2xl bg-[#0b2035]/30 border border-white/10 transition-colors hover:border-white/30"
-        >
-          <h3 class="font-meduim text-white mb-1.5">
-            {{ m.label }}
-          </h3>
-          <p class="text-white/70 text-xs leading-relaxed">
-            {{ m.value }}
-          </p>
-        </BaseBox>
-      </div>
+        <!-- Head Section -->
+        <div class="flex justify-between items-start gap-4 mb-5">
+          <!-- Title & Subtitle (Right in RTL, Left in LTR) -->
+          <div class="">
+            <h2 class="sidebar-gradient-title secondery-text-gradient">
+              {{ data?.title }}
+            </h2>
+            <p class="text-xs text-white/70 leading-relaxed">
+              {{ data?.desc }}
+            </p>
+          </div>
+          <!-- Close Button (Left in RTL, Right in LTR) -->
+          <button
+            @click="$emit('close')"
+            class="w-4 h-4 flex items-center justify-center text-white hover:text-danger cursor-pointer"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
 
-      <!-- Breakdown Visualization Block -->
-      <div v-if="data?.bars && data.bars.length" class="flex flex-col gap-4">
-        <h4
-          class="text-xs font-bold text-[#34d3ff] text-right ltr:text-left uppercase tracking-wider"
-        >
-          {{ $t("analytics.drawer.breakdown") }}
-        </h4>
+        <!-- Detailed Metrics List -->
         <div
-          class="flex flex-col gap-4 bg-[#0b2035]/20 border border-white/5 rounded-2xl p-4"
+          v-if="data?.metrics && data.metrics.length"
+          class="flex flex-col gap-3"
         >
+          <BaseBox
+            v-for="(m, idx) in data.metrics"
+            :key="idx"
+            class="p-4 rounded-2xl bg-[#0b2035]/30 border border-white/10 transition-colors hover:border-white/30"
+          >
+            <h3 class="font-meduim text-white mb-1.5">
+              {{ m.label }}
+            </h3>
+            <p class="text-white/70 text-xs leading-relaxed">
+              {{ m.value }}
+            </p>
+          </BaseBox>
+        </div>
+
+        <!-- Breakdown Visualization Block -->
+
+        <BaseBox
+          type="glass"
+          v-if="data?.bars && data.bars.length"
+          class="p-4 mt-6"
+        >
+          <h4 class="font-medium text-white uppercase mb-3">
+            {{ $t("analytics.drawer.breakdown") }}
+          </h4>
           <ProgressBar
             v-for="(b, idx) in data.bars"
             :key="idx"
@@ -114,9 +117,8 @@ function getMaxValue(bars) {
             :max="getMaxValue(data.bars)"
             :label="b.label"
             :valueText="String(b.value)"
-            customFillClass="bg-gradient-to-r from-[#00E2FF] to-[#8B5CF6]"
           />
-        </div>
+        </BaseBox>
       </div>
     </aside>
   </div>

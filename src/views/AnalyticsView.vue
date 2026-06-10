@@ -197,10 +197,10 @@ const analyticsFilters = computed(() => [
 const screenInfo = computed(() => {
   return {
     snapshot: {
-      desc: t("analytics.desc"),
+      desc: t("analytics.screens.snapshot_desc"),
     },
     outcomes: {
-      desc: "Decision categories after evaluation, including viable, redesign, non-viable, and in-plan ideas.",
+      desc: t("analytics.screens.outcomes_desc"),
     },
     portfolio: {
       desc: "Detailed view of innovation type, output, technology, and departmental distribution.",
@@ -371,7 +371,7 @@ function getCustomGradient(label) {
       <div
         class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5 mb-6"
       >
-        <div class="">
+        <div class="flex-1">
           <h1 class="text-lg lg:text-xl font-bold primary-text-gradient mb-3">
             {{ $t(`analytics.screens.${activeScreen}`) }}
           </h1>
@@ -381,7 +381,9 @@ function getCustomGradient(label) {
         </div>
 
         <!-- Filters bar configuration-driven selection - ordered right-to-left under RTL -->
-        <div class="flex flex-wrap items-center gap-2.5 w-full lg:w-auto">
+        <div
+          class="flex flex-wrap items-center gap-2.5 w-full lg:w-auto flex-1.5"
+        >
           <BaseFilter
             :filters="analyticsFilters"
             @update:filters="handleFiltersChange"
@@ -389,7 +391,7 @@ function getCustomGradient(label) {
           />
 
           <!-- Export button (leftmost in RTL) -->
-          <BaseButton class="gradient-purple py-2! text-white">
+          <BaseButton class="gradient-purple py-2! text-white w-full md:w-auto">
             {{ $t("analytics.actions.export_pdf") }}
           </BaseButton>
         </div>
@@ -413,13 +415,13 @@ function getCustomGradient(label) {
 
           <!-- Gauge and Radar visual row -->
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-5">
-            <BaseBox class="lg:col-span-6 rounded-[20px] p-4" type="glass">
+            <BaseBox class="lg:col-span-6 rounded-[20px] p-6" type="glass">
               <h2
                 class="text-lg lg:text-xl font-bold primary-text-gradient mb-3"
               >
                 {{ $t("analytics.snapshot.radar_title") }}
               </h2>
-              <p class="text-xs text-white/70">
+              <p class="text-xs text-white/70 mb-7">
                 {{ $t("analytics.snapshot.radar_subtitle") }}
               </p>
               <RadarChart
@@ -427,14 +429,14 @@ function getCustomGradient(label) {
                 :categories="screens.snapshot.radar.categories"
               />
             </BaseBox>
-            <BaseBox class="lg:col-span-6 rounded-[20px] p-4" type="glass">
+            <BaseBox class="lg:col-span-6 rounded-[20px] p-6" type="glass">
               <div>
                 <h2
                   class="text-lg lg:text-xl font-bold primary-text-gradient mb-3"
                 >
                   {{ $t("analytics.snapshot.gauge_title") }}
                 </h2>
-                <p class="text-xs text-white/70">
+                <p class="text-xs text-white/70 mb-7">
                   {{ $t("analytics.snapshot.gauge_subtitle") }}
                 </p>
               </div>
@@ -542,29 +544,52 @@ function getCustomGradient(label) {
         </div>
 
         <!-- Screen: Outcomes -->
-        <div
-          v-else-if="activeScreen === 'outcomes'"
-          class="flex flex-col gap-6"
-        >
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div v-else-if="activeScreen === 'outcomes'" class="">
+          <BaseBox
+            type="glass"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-6 rounded-[20px]! gradient-border mb-5"
+          >
             <KpiCard
               v-for="kpi in screens.outcomes.kpis"
               :key="kpi.id"
               v-bind="kpi"
               @select="handleSelectKpi"
             />
-          </div>
+          </BaseBox>
 
           <!-- Heatmap table and Distribution horizontal bars row -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-5">
+            <!-- Decision Distribution bars -->
+            <BaseBox class="lg:col-span-6 rounded-[20px] p-6" type="glass">
+              <h2
+                class="text-lg lg:text-xl font-bold primary-text-gradient mb-3"
+              >
+                {{ $t("analytics.outcomes.distribution_title") }}
+              </h2>
+              <p class="text-xs text-white/70 mb-7">
+                {{ $t("analytics.outcomes.distribution_subtitle") }}
+              </p>
+              <div class="flex flex-col gap-5">
+                <ProgressBar
+                  v-for="(dist, idx) in screens.outcomes.distribution"
+                  :key="idx"
+                  :value="dist.value"
+                  :label="dist.label"
+                  :valueText="`${dist.value}%`"
+                />
+              </div>
+            </BaseBox>
+
             <!-- Outcome Heatmap Custom Implementation -->
-            <div class="p-5 rounded-3xl bg-[#091522]/90 border border-white/5">
-              <h3 class="text-sm font-bold text-white">
+            <BaseBox class="lg:col-span-6 rounded-[20px] p-6" type="glass">
+              <h2
+                class="text-lg lg:text-xl font-bold primary-text-gradient mb-3"
+              >
                 {{ $t("analytics.outcomes.heatmap_title") }}
-              </h3>
-              <span class="text-[10px] text-white/40 block mb-6">{{
-                $t("analytics.outcomes.heatmap_subtitle")
-              }}</span>
+              </h2>
+              <p class="text-xs text-white/70 mb-7">
+                {{ $t("analytics.outcomes.heatmap_subtitle") }}
+              </p>
 
               <div class="overflow-x-auto">
                 <table class="w-full text-right ltr:text-left border-collapse">
@@ -605,25 +630,7 @@ function getCustomGradient(label) {
                   </tbody>
                 </table>
               </div>
-            </div>
-
-            <!-- Decision Distribution bars -->
-            <div class="p-5 rounded-3xl bg-[#091522]/90 border border-white/5">
-              <h3 class="text-sm font-bold text-white mb-6">
-                {{ $t("analytics.outcomes.distribution_title") }}
-              </h3>
-              <div class="flex flex-col gap-5">
-                <ProgressBar
-                  v-for="(dist, idx) in screens.outcomes.distribution"
-                  :key="idx"
-                  :value="dist.value"
-                  :max="100"
-                  :label="$t(dist.labelKey)"
-                  :valueText="`${dist.value}%`"
-                  customFillClass="bg-gradient-to-r from-[#06b6d4] to-[#8b5cf6]"
-                />
-              </div>
-            </div>
+            </BaseBox>
           </div>
         </div>
 

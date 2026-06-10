@@ -25,6 +25,7 @@ html[dir="ltr"] .sidebar-container::before {
 }
 .gradient-border::before {
   content: "";
+  display: inline-block;
   position: absolute;
   inset: 0;
   border-radius: inherit;
@@ -38,7 +39,6 @@ html[dir="ltr"] .sidebar-container::before {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
-  z-index: -1;
 }
 .gradient-border {
   @apply rtl:before:bg-linear-to-bl ltr:before:bg-linear-to-br before:from-[#895AF7]/50 before:to-[#06B6D4]/0 rounded-[14px];

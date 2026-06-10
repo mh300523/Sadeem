@@ -3067,44 +3067,44 @@
         "kpis": [
           {
             "id": "alignment",
-            "badgeKey": "analytics.badges.strategy",
-            "titleKey": "analytics.kpis.strategic_alignment",
+            "badge": "الاستراتيجية",
+            "title": "المواءمة الاستراتيجية",
             "value": "88%",
             "percentage": "+5.3%",
-            "changeLabelKey": "analytics.change_labels.aligned_ideas",
+            "changeLabelKey": "الأفكار المتوائمة",
             "sparkline": [30, 60, 80, 70, 60, 50, 40],
             "growthType": "up",
             "badgeColor": "text-[#21C2DD] bg-[#7DD3FC]/10"
           },
           {
             "id": "conversion",
-            "badgeKey": "analytics.badges.projects",
-            "titleKey": "analytics.kpis.conversion_rate",
+            "badge": "المشاريع",
+            "title": "افكار تحولت الى مشاريع",
             "value": "88%",
             "percentage": "+5.3%",
-            "changeLabelKey": "analytics.change_labels.approved_projects",
+            "changeLabelKey": "المشاريع المعتمدة 298",
             "sparkline": [30, 60, 80, 70, 60, 50, 40],
             "growthType": "up",
             "badgeColor": "text-[#05D989] bg-[#05D989]/10"
           },
           {
             "id": "ideas",
-            "badgeKey": "analytics.badges.ytd",
-            "titleKey": "analytics.kpis.ideas_submitted",
+            "badge": "YTD",
+            "title": "إجمالي الأفكار المقدمة",
             "value": "88%",
             "percentage": "+5.3%",
-            "changeLabelKey": "analytics.change_labels.idea_growth",
+            "changeLabelKey": "نمو الأفكار",
             "sparkline": [30, 60, 80, 70, 60, 50, 40],
             "growthType": "up",
             "badgeColor": "text-white bg-white/10"
           },
           {
             "id": "health",
-            "badgeKey": "analytics.badges.composite",
-            "titleKey": "analytics.kpis.health_score",
+            "badge": "مُركّب",
+            "title": "مؤشر صحة الابتكار",
             "value": "88%",
             "percentage": "+5.3%",
-            "changeLabelKey": "analytics.change_labels.vs_quarter",
+            "changeLabelKey": "مقارنة بالربع الأخير",
             "sparkline": [30, 60, 80, 70, 60, 50, 40],
             "growthType": "down",
             "badgeColor": "text-[#21C2DD] bg-[#7DD3FC]/10"
@@ -3175,48 +3175,44 @@
       "outcomes": {
         "kpis": [
           {
-            "id": "viable",
-            "badgeKey": "analytics.badges.viable_pct",
-            "titleKey": "analytics.kpis.viable_ideas",
-            "value": "482",
-            "percentage": "39%",
-            "changeLabelKey": "analytics.change_labels.approved",
-            "sparkline": [30, 42, 50, 45, 52, 60, 68],
-            "growthType": "up",
-            "badgeColor": "text-[#22c55e] bg-[#22c55e]/10 border-[#22c55e]/20"
-          },
-          {
-            "id": "redesign",
-            "badgeKey": "analytics.badges.redesign_pct",
-            "titleKey": "analytics.kpis.needs_redesign",
-            "value": "261",
-            "percentage": "21%",
-            "changeLabelKey": "analytics.change_labels.coach_refine",
-            "sparkline": [15, 20, 18, 22, 20, 24, 21],
+            "id": "inplan",
+            "badge": "موجودة",
+            "title": "أفكار مدرجة ضمن الخطة",
+            "value": "77",
+            "percentage": "6%",
+            "changeLabelKey": "مبادرات مرتبطة",
             "growthType": "mid",
-            "badgeColor": "text-[#f59e0b] bg-[#f59e0b]/10 border-[#f59e0b]/20"
+            "badgeColor": "text-[#22d3ee] bg-[#22d3ee]/10"
           },
           {
             "id": "nonviable",
-            "badgeKey": "analytics.badges.nonviable_pct",
-            "titleKey": "analytics.kpis.non_viable",
+            "badge": "50% >",
+            "title": "أفكار غير قابلة للتنفيذ",
             "value": "119",
             "percentage": "10%",
-            "changeLabelKey": "analytics.change_labels.archive",
-            "sparkline": [10, 12, 9, 11, 13, 8, 10],
+            "changeLabelKey": "مؤرشفة",
             "growthType": "down",
-            "badgeColor": "text-[#ef4444] bg-[#ef4444]/10 border-[#ef4444]/20"
+            "badgeColor": "text-[#ef4444] bg-[#ef4444]/10 "
           },
           {
-            "id": "inplan",
-            "badgeKey": "analytics.badges.existing",
-            "titleKey": "analytics.kpis.already_in_plan",
-            "value": "77",
-            "percentage": "6%",
-            "changeLabelKey": "analytics.change_labels.linked_initiatives",
-            "sparkline": [5, 6, 8, 7, 6, 8, 7],
+            "id": "redesign",
+            "badge": "50–69 %",
+            "title": "أفكار تحتاج لإعادة تصميم",
+            "value": "261",
+            "percentage": "21%",
+            "changeLabelKey": "توجيه وتحسين",
             "growthType": "mid",
-            "badgeColor": "text-[#22d3ee] bg-[#22d3ee]/10 border-[#22d3ee]/20"
+            "badgeColor": "text-[#f59e0b] bg-[#f59e0b]/10"
+          },
+          {
+            "id": "viable",
+            "badge": "+ 70%",
+            "title": "أفكار قابلة للتنفيذ",
+            "value": "482",
+            "percentage": "39%",
+            "changeLabelKey": "معتمدة",
+            "growthType": "up",
+            "badgeColor": "text-[#22c55e] bg-[#22c55e]/10"
           }
         ],
         "heatmap": {
@@ -3244,23 +3240,23 @@
         },
         "distribution": [
           {
-            "labelKey": "analytics.outcomes.viable",
+            "label": "قابلة للتنفيذ",
             "value": 39
           },
           {
-            "labelKey": "analytics.outcomes.needs_redesign",
+            "label": "تحتاج إعادة تصميم",
             "value": 21
           },
           {
-            "labelKey": "analytics.outcomes.non_viable",
+            "label": "غير قابلة للتنفيذ",
             "value": 10
           },
           {
-            "labelKey": "analytics.outcomes.already_in_plan",
+            "label": "مدرجة ضمن الخطة",
             "value": 6
           },
           {
-            "labelKey": "analytics.outcomes.under_review",
+            "label": "قيد المراجعة",
             "value": 24
           }
         ]
@@ -3690,8 +3686,8 @@
     },
     "drawerDetails": {
       "health": {
-        "titleKey": "analytics.drawer.health.title",
-        "descKey": "analytics.drawer.health.desc",
+        "title": "المواءمة الاستراتيجية",
+        "descKey": "يوضح مدى دعم الأفكار للأهداف الاستراتيجية والأولويات الأوسع بشكل واضح.",
         "metrics": [
           {
             "label": "النتيجة المركبة",
@@ -3712,30 +3708,30 @@
         ],
         "bars": [
           {
-            "label": "Alignment",
+            "label": "المحاذاة",
             "value": 88
           },
           {
-            "label": "Conversion",
+            "label": "التحويل",
             "value": 78
           },
           {
-            "label": "Engagement",
+            "label": "المشاركة",
             "value": 73
           },
           {
-            "label": "Expected Impact",
+            "label": "الأثر المتوقع",
             "value": 82
           },
           {
-            "label": "Portfolio Balance",
+            "label": "توازن المحفظة",
             "value": 79
           }
         ]
       },
       "ideas": {
-        "titleKey": "analytics.drawer.ideas.title",
-        "descKey": "analytics.drawer.ideas.desc",
+        "title": "تحويل الفكرة إلى مشروع",
+        "descKey": "يُظهر النسبة المئوية للأفكار المقدَّمة أو المُقيَّمة التي تم تحويلها إلى مشاريع.",
         "metrics": [
           {
             "label": "الحجم الحالي",
@@ -3756,70 +3752,70 @@
         ],
         "bars": [
           {
-            "label": "Digital",
+            "label": "التحول الرقمي",
             "value": 287
           },
           {
-            "label": "Operations",
+            "label": "العمليات",
             "value": 252
           },
           {
-            "label": "Medical",
+            "label": "الطبي",
             "value": 228
           },
           {
-            "label": "Support",
+            "label": "الدعم",
             "value": 179
           },
           {
-            "label": "Communication",
+            "label": "الاتصال",
             "value": 120
           }
         ]
       },
       "conversion": {
-        "titleKey": "analytics.drawer.conversion.title",
-        "descKey": "analytics.drawer.conversion.desc",
+        "title": "تحويل الفكرة إلى مشروع",
+        "descKey": "يُظهر النسبة المئوية للأفكار المقدَّمة أو المُقيَّمة التي تم تحويلها إلى مشاريع.",
         "metrics": [
           {
-            "labelKey": "معدل التحويل",
+            "label": "معدل التحويل",
             "value": "24%"
           },
           {
-            "labelKey": "المشاريع المعتمدة",
+            "label": "المشاريع المعتمدة",
             "value": "298 مشروعًا معتمدًا"
           },
           {
-            "labelKey": "المشاريع المنفذة",
+            "label": "المشاريع المنفذة",
             "value": "171 مشروعًا تم الانتقال به إلى التنفيذ"
           },
           {
-            "labelKey": "استخدام القيادة",
+            "label": "استخدام القيادة",
             "value": "يقيس ناتج الابتكار ومستوى نضج التنفيذ."
           }
         ],
         "bars": [
           {
-            "label": "Submitted to Review",
+            "label": "من مُقدَّمة إلى مراجعة",
             "value": 76
           },
           {
-            "label": "Review to Approved",
+            "label": "من مراجعة إلى اعتماد",
             "value": 39
           },
           {
-            "label": "Approved to Executed",
+            "label": "من اعتماد إلى تنفيذ",
             "value": 57
           },
           {
-            "label": "Redesign to Viable",
+            "label": "من إعادة تصميم إلى صلاحية",
             "value": 36
           }
         ]
       },
       "alignment": {
-        "titleKey": "analytics.drawer.alignment.title",
-        "descKey": "analytics.drawer.alignment.desc",
+        "title": "إجمالي الأفكار المقدّمة",
+        "desc": "يمثل إجمالي مدخلات الابتكار عبر المؤسسة مع إمكانية التفصيل حسب الإدارة، والنوع، والمصدر، والفترة الزمنية.",
         "metrics": [
           {
             "label": "المواءمة العامة",
@@ -3840,191 +3836,191 @@
         ],
         "bars": [
           {
-            "label": "Service Excellence",
+            "label": "التميز في الخدمة",
             "value": 231
           },
           {
-            "label": "Digital Leadership",
+            "label": "القيادة الرقمية",
             "value": 208
           },
           {
-            "label": "Operational Agility",
+            "label": "الرشاقة التشغيلية",
             "value": 194
           },
           {
-            "label": "Workforce Capability",
+            "label": "قدرة القوى العاملة",
             "value": 162
           },
           {
-            "label": "Sustainability",
+            "label": "الاستدامة",
             "value": 129
           }
         ]
       },
       "viable": {
-        "titleKey": "analytics.drawer.viable.title",
-        "descKey": "analytics.drawer.viable.desc",
+        "title": "الأفكار المجدية",
+        "desc": "الأفكار الحاصلة على تقييم 70% فما فوق بعد التقييم.",
         "metrics": [
           {
-            "label": "analytics.drawer.viable.metric1_label",
-            "value": "482 viable ideas"
+            "label": "العدد",
+            "value": "482 فكرة قابلة للتنفيذ"
           },
           {
-            "label": "analytics.drawer.viable.metric2_label",
-            "value": "39% of evaluated ideas"
+            "label": "المشاركة",
+            "value": "39% من الأفكار التي تم تقييمها"
           },
           {
-            "label": "analytics.drawer.viable.metric3_label",
-            "value": "These ideas are suitable for progression to planning or execution."
+            "label": "المعنى",
+            "value": "هذه الأفكار مناسبة للانتقال إلى مرحلة التخطيط أو التنفيذ."
           },
           {
-            "label": "analytics.drawer.viable.metric4_label",
-            "value": "View by department, type, source, and strategic objective."
+            "label": "التفصيل الموصى به",
+            "value": "عرض حسب القسم، والنوع، والمصدر، والهدف الاستراتيجي."
           }
         ],
         "bars": [
           {
-            "label": "Operations",
+            "label": "العمليات",
             "value": 118
           },
           {
-            "label": "Medical",
+            "label": "الطبي",
             "value": 96
           },
           {
-            "label": "Digital",
+            "label": "الرقمية",
             "value": 142
           },
           {
-            "label": "Support",
+            "label": "الدعم",
             "value": 81
           },
           {
-            "label": "Communication",
+            "label": "الاتصال",
             "value": 45
           }
         ]
       },
-      "redesign": {
-        "titleKey": "analytics.drawer.redesign.title",
-        "descKey": "analytics.drawer.redesign.desc",
-        "metrics": [
-          {
-            "labelKey": "analytics.drawer.redesign.metric1_label",
-            "value": "261 ideas need redesign"
-          },
-          {
-            "labelKey": "analytics.drawer.redesign.metric2_label",
-            "value": "21% of evaluated ideas"
-          },
-          {
-            "labelKey": "analytics.drawer.redesign.metric3_label",
-            "value": "These are recoverable ideas with development potential."
-          },
-          {
-            "labelKey": "analytics.drawer.redesign.metric4_label",
-            "value": "Show weak criteria and redesign-to-viable conversion."
-          }
-        ],
-        "bars": [
-          {
-            "label": "Operations",
-            "value": 62
-          },
-          {
-            "label": "Medical",
-            "value": 54
-          },
-          {
-            "label": "Digital",
-            "value": 71
-          },
-          {
-            "label": "Support",
-            "value": 49
-          },
-          {
-            "label": "Communication",
-            "value": 25
-          }
-        ]
-      },
       "nonviable": {
-        "titleKey": "analytics.drawer.nonviable.title",
-        "descKey": "analytics.drawer.nonviable.desc",
+        "title": "أفكار غير قابلة للتنفيذ",
+        "desc": "الأفكار التي حصلت على أقل من 50%، لا يُنصح بها للتقدم.",
         "metrics": [
           {
-            "labelKey": "analytics.drawer.nonviable.metric1_label",
-            "value": "119 non-viable ideas"
+            "label": "العدد",
+            "value": "119 فكرة غير قابلة للتنفيذ"
           },
           {
-            "labelKey": "analytics.drawer.nonviable.metric2_label",
-            "value": "10% of evaluated ideas"
+            "label": "المشاركة",
+            "value": "10% من الأفكار التي تم تقييمها"
           },
           {
-            "labelKey": "analytics.drawer.nonviable.metric3_label",
-            "value": "Feasibility, sustainability, and strategic alignment are frequent weak areas."
+            "label": "المعنى",
+            "value": "هذه الأفكار غير مناسبة للانتقال إلى مرحلة التخطيط أو التنفيذ."
           },
           {
-            "labelKey": "analytics.drawer.nonviable.metric4_label",
-            "value": "Track by department and by the criteria that pulled the score down."
+            "label": "التفصيل الموصى به",
+            "value": "تتبع النتائج حسب القسم وحسب المعايير التي أدت إلى انخفاض النتيجة."
           }
         ],
         "bars": [
           {
-            "label": "Feasibility",
+            "label": "الجدوى",
             "value": 44
           },
           {
-            "label": "Sustainability",
+            "label": "الاستدامة",
             "value": 31
           },
           {
-            "label": "Strategic Alignment",
+            "label": "المواءمة الاستراتيجية",
             "value": 15
           },
           {
-            "label": "Institutional Impact",
+            "label": "التأثير المؤسسي",
             "value": 10
           }
         ]
       },
-      "inplan": {
-        "titleKey": "analytics.drawer.inplan.title",
-        "descKey": "analytics.drawer.inplan.desc",
+      "redesign": {
+        "title": "أفكار تحتاج إعادة تصميم",
+        "desc": "الأفكار التي حصلت على درجات تتراوح بين 50% و 69%، تتطلب تحسينًا وتدريبًا.",
         "metrics": [
           {
-            "labelKey": "analytics.drawer.inplan.metric1_label",
-            "value": "77 ideas already in plan"
+            "label": "العدد",
+            "value": "261 فكرة تحتاج إعادة تصميم"
           },
           {
-            "labelKey": "analytics.drawer.inplan.metric2_label",
-            "value": "Prevents duplication and links contributors to current initiatives."
+            "label": "المشاركة",
+            "value": "21% من الأفكار التي تم تقييمها"
           },
           {
-            "labelKey": "analytics.drawer.inplan.metric3_label",
-            "value": "Display the linked project, sponsor department, and current status."
+            "label": "المعنى",
+            "value": "هذه الأفكار قابلة للتطوير والتحسين."
+          },
+          {
+            "label": "التفصيل الموصى به",
+            "value": "عرض الأفكار التي تحتاج إلى تحسين وتوضيح أكثر."
           }
         ],
         "bars": [
           {
-            "label": "Operations",
+            "label": "العمليات",
+            "value": 62
+          },
+          {
+            "label": "الطبي",
+            "value": 54
+          },
+          {
+            "label": "الرقمية",
+            "value": 71
+          },
+          {
+            "label": "الدعم",
+            "value": 49
+          },
+          {
+            "label": "الاتصال",
+            "value": 25
+          }
+        ]
+      },
+      "inplan": {
+        "title": "أفكار مدرجة ضمن الخطة",
+        "desc": "أفكار تتناسب مع المشاريع المدرجة بالفعل في الخطة المؤسسية.",
+        "metrics": [
+          {
+            "label": "العدد",
+            "value": "77 فكرة مدرجة ضمن الخطة"
+          },
+          {
+            "label": "العدد",
+            "value": "77 فكرة قيد التخطيط بالفعل"
+          },
+          {
+            "label": "الهدف",
+            "value": "يمنع الازدواجية ويربط المساهمين بالمبادرات الحالية."
+          }
+        ],
+        "bars": [
+          {
+            "label": "العمليات",
             "value": 18
           },
           {
-            "label": "Medical",
+            "label": "الطبي",
             "value": 14
           },
           {
-            "label": "Digital",
+            "label": "الرقمية",
             "value": 21
           },
           {
-            "label": "Support",
+            "label": "الدعم",
             "value": 15
           },
           {
-            "label": "Communication",
+            "label": "الاتصال",
             "value": 9
           }
         ]

@@ -198,7 +198,6 @@
       "brand_title": "Sadeem Platform",
       "brand_subtitle": "Innovation Intelligence - v7"
     },
-    "desc": "The platform is now populated with real test data, and all proposed graphics appear within the design itself.",
     "live_signal": "Live Signal",
     "total_platform_ideas": "Total Platform Ideas",
     "quick_actions": "Quick Actions",
@@ -224,7 +223,9 @@
     },
     "screens": {
       "snapshot": "Executive Snapshot",
+      "snapshot_desc": "The platform is now populated with real test data, and all proposed graphics appear within the design itself.",
       "outcomes": "Evaluation Outcomes",
+      "outcomes_desc": "Decision categories after evaluation, including viable, redesign, non-viable, and in-plan ideas.",
       "portfolio": "Portfolio Layer",
       "impact": "Impact Layer",
       "governance": "Governance Layer",
@@ -239,36 +240,6 @@
       "radar_subtitle": "Radar chart with full data",
       "outcome_title": "Quick Outcome Summary"
     },
-    "badges": {
-      "composite": "Composite",
-      "ytd": "YTD",
-      "projects": "Projects",
-      "strategy": "Strategy",
-      "viable_pct": "70%+",
-      "redesign_pct": "50–69%",
-      "nonviable_pct": "<50%",
-      "existing": "Existing"
-    },
-    "kpis": {
-      "health_score": "Innovation Health Score",
-      "ideas_submitted": "Total Ideas Submitted",
-      "conversion_rate": "Ideas Converted to Projects",
-      "strategic_alignment": "Strategic Alignment",
-      "viable_ideas": "Number of Viable Ideas",
-      "needs_redesign": "Ideas Needing Redesign",
-      "non_viable": "Number of Non-Viable Ideas",
-      "already_in_plan": "Ideas Already in Plan"
-    },
-    "change_labels": {
-      "vs_quarter": "vs last quarter",
-      "idea_growth": "idea growth",
-      "approved_projects": "298 approved projects",
-      "aligned_ideas": "aligned ideas",
-      "approved": "approved",
-      "coach_refine": "coach & refine",
-      "archive": "archive",
-      "linked_initiatives": "linked initiatives"
-    },
     "radar": {
       "alignment": "Alignment",
       "conversion": "Conversion",
@@ -278,14 +249,10 @@
       "portfolio": "Portfolio"
     },
     "outcomes": {
-      "viable": "Viable",
-      "needs_redesign": "Needs Redesign",
-      "non_viable": "Non-Viable",
-      "already_in_plan": "Already in Plan",
-      "under_review": "Under Review",
       "distribution_title": "Final Decision Distribution",
+      "distribution_subtitle": "Radar chart with full data",
       "heatmap_title": "Outcome Heatmap",
-      "heatmap_subtitle": "Departments × final decision categories"
+      "heatmap_subtitle": "Decisions × final decision categories"
     },
     "timeline": {
       "title": "Innovation Timeline",
@@ -338,39 +305,7 @@
     },
     "drawer": {
       "close": "Close",
-      "breakdown": "Breakdown",
-      "health": {
-        "title": "Innovation Health Score",
-        "desc": "Composite board-level KPI combining strategic alignment, conversion, engagement, expected impact, and portfolio balance.",
-        "metric1_label": "Composite Score",
-        "metric2_label": "Main Driver",
-        "metric3_label": "Trend",
-        "metric4_label": "Usage"
-      },
-      "ideas": {
-        "title": "Total Ideas Submitted",
-        "desc": "Total innovation intake across the institution with drill-down by department, type, source, and time.",
-        "metric1_label": "Current Volume",
-        "metric2_label": "Trend",
-        "metric3_label": "Leading Department",
-        "metric4_label": "Recommended Analysis"
-      },
-      "conversion": {
-        "title": "Idea-to-Project Conversion",
-        "desc": "Shows the percentage of submitted or evaluated ideas that progressed to projects.",
-        "metric1_label": "Conversion Rate",
-        "metric2_label": "Approved Projects",
-        "metric3_label": "Executed Projects",
-        "metric4_label": "Leadership Use"
-      },
-      "alignment": {
-        "title": "Strategic Alignment",
-        "desc": "Indicates how many ideas clearly support strategic objectives and broader priorities.",
-        "metric1_label": "Overall Alignment",
-        "metric2_label": "National Strategy",
-        "metric3_label": "GII Support",
-        "metric4_label": "Use Case"
-      },
+      "breakdown": "Analysis",
       "viable": {
         "title": "Number of Viable Ideas",
         "desc": "Ideas scoring 70% and above after evaluation.",
