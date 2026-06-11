@@ -11,27 +11,27 @@ const props = defineProps({
   },
   badge: {
     type: String,
-    required: true,
+    default: "",
   },
   title: {
     type: String,
-    required: true,
+    default: "",
   },
   value: {
     type: String,
-    required: true,
+    default: "",
   },
   percentage: {
     type: String,
-    required: true,
+    default: "",
   },
   changeLabelKey: {
     type: String,
-    required: true,
+    default: "",
   },
   sparkline: {
     type: Array,
-    required: true,
+    default: () => [],
   },
   growthType: {
     type: String,
@@ -76,7 +76,10 @@ const growthColorClass = computed(() => {
     </div>
 
     <!-- Sparkline Row: 7 vertical bars matching designs exactly -->
-    <BaseSparklineBars v-if="sparkline" :data="sparkline" />
+    <BaseSparklineBars
+      v-if="sparkline && sparkline.length > 0"
+      :data="sparkline"
+    />
 
     <!-- Footer Row: Growth & Supporting Metric -->
     <div class="flex justify-between items-center mt-5">

@@ -1,10 +1,5 @@
-<template>
-  <BaseChart :options="chartOptions" :series="series" />
-</template>
-
 <script setup>
 import { computed } from "vue";
-import { useI18n } from "vue-i18n";
 import BaseChart from "@/components/ui/BaseChart.vue";
 
 const props = defineProps({
@@ -16,16 +11,6 @@ const props = defineProps({
     type: Array,
     required: true,
   },
-});
-
-const { t } = useI18n();
-
-const translatedCategories = computed(() => {
-  // Extract values from props.series[0].data if available to append values dynamically
-  const dataVals = props.series[0]?.data || [];
-  return props.categories.map((catKey, idx) => {
-    return t(catKey);
-  });
 });
 
 const chartOptions = computed(() => {
@@ -60,7 +45,7 @@ const chartOptions = computed(() => {
       },
     },
     xaxis: {
-      categories: translatedCategories.value,
+      categories: props.categories,
       labels: {
         style: {
           colors: Array(props.categories.length).fill(
@@ -78,6 +63,10 @@ const chartOptions = computed(() => {
   };
 });
 </script>
+
+<template>
+  <BaseChart :options="chartOptions" :series="series" />
+</template>
 
 <style scoped>
 /* Scoped overrides if needed */

@@ -1,88 +1,92 @@
-<template>
-  <div
-    class="relative w-full rounded-2xl bg-white/[0.03] border border-white/5 overflow-hidden transition-all duration-300"
-    :style="{ height: `${height}px` }"
-  >
-    <div
-      v-for="(bubble, idx) in positionedBubbles"
-      :key="idx"
-      class="absolute rounded-full flex flex-col items-center justify-center text-center font-bold text-[#04131d] shadow-[0_12px_24px_rgba(0,0,0,0.3)] select-none hover:scale-105 hover:shadow-[0_12px_30px_rgba(0,0,0,0.4)] transition-all duration-300 cursor-pointer"
-      :style="getBubbleStyle(bubble)"
-    >
-      <span class="text-xs tracking-wide uppercase leading-tight">{{ bubble.name }}</span>
-      <span class="text-lg font-black mt-0.5 leading-none">{{ bubble.value }}</span>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { computed } from "vue";
-import { useI18n } from "vue-i18n";
+import BaseChart from "@/components/ui/BaseChart.vue";
 
 const props = defineProps({
-  bubbles: {
-    type: Array,
-    required: true,
-  },
-  height: {
-    type: Number,
-    default: 320,
-  },
+  bubbles: { type: Array, required: true },
+  height: { type: Number, default: 320 },
 });
 
-const { locale } = useI18n();
-const isRtl = computed(() => locale.value === "ar");
+const positions = [
+  { x: 30, y: 55 },
+  { x: 55, y: 70 },
+  { x: 45, y: 30 },
+  { x: 75, y: 45 },
+  { x: 70, y: 20 },
+  { x: 20, y: 80 },
+];
 
-// Predefined positions from the figma/HTML views to guarantee layout fidelity
-const layouts = {
-  6: [
-    { top: 28, start: 28 },
-    { top: 76, start: 158 },
-    { top: 180, start: 88 },
-    { top: 150, start: 232 },
-    { top: 36, start: 226 },
-    { top: 196, start: 20 }
-  ],
-  4: [
-    { top: 34, start: 34 },
-    { top: 116, start: 154 },
-    { top: 36, start: 232 },
-    { top: 194, start: 96 }
-  ]
-};
+const series = computed(() =>
+  props.bubbles.map((b, i) => ({
+    name: b.name,
+    data: [
+      {
+        x: positions[i]?.x || 30 + i * 15,
+        y: positions[i]?.y || 40 + i * 10,
+        z: b.size || b.value,
+      },
+    ],
+  })),
+);
 
-const positionedBubbles = computed(() => {
-  const count = props.bubbles.length;
-  // Fallback if layout not predefined
-  const layout = layouts[count] || Array(count).fill(0).map((_, i) => ({ top: 40 + i * 40, start: 40 + i * 30 }));
+const colors = computed(() =>
+  props.bubbles.map((b) => b.color?.match(/#[0-9a-fA-F]{6}/)?.[0] || "#34d3ff"),
+);
 
-  return props.bubbles.map((b, idx) => {
-    return {
-      ...b,
-      top: layout[idx].top,
-      start: layout[idx].start
-    };
-  });
-});
-
-function getBubbleStyle(bubble) {
-  const style = {
-    width: `${bubble.size}px`,
-    height: `${bubble.size}px`,
-    top: `${bubble.top}px`,
-    background: bubble.color || "linear-gradient(135deg,#34d3ff,#7c3aed)",
-  };
-
-  if (isRtl.value) {
-    style.right = `${bubble.start}px`;
-  } else {
-    style.left = `${bubble.start}px`;
-  }
-
-  return style;
-}
+const chartOptions = computed(() => ({
+  chart: {
+    type: "bubble",
+    toolbar: { show: false },
+    zoom: { enabled: false },
+  },
+  states: {
+    hover: { filter: { type: "none" } },
+    active: { filter: { type: "none" } },
+  },
+  colors: colors.value,
+  fill: { opacity: 1 },
+  grid: { show: false, padding: { top: -10, right: 0, bottom: -10, left: 0 } },
+  xaxis: {
+    labels: { show: false },
+    axisBorder: { show: false },
+    axisTicks: { show: false },
+    min: 0,
+    max: 100,
+  },
+  yaxis: { labels: { show: false }, min: 0, max: 100 },
+  dataLabels: {
+    enabled: true,
+    formatter: (_val, opts) => [
+      opts.w.config.series[opts.seriesIndex].name,
+      String(props.bubbles[opts.seriesIndex]?.value ?? ""),
+    ],
+    style: {
+      fontSize: "10px",
+      fontFamily: "Neo Sans Arabic, sans-serif",
+      fontWeight: "400",
+      colors: ["#ffffff"],
+    },
+  },
+  legend: { show: false },
+  tooltip: {
+    enabled: true,
+    theme: "dark",
+  },
+  plotOptions: {
+    bubble: { zScaling: true, minBubbleRadius: 28, maxBubbleRadius: 70 },
+  },
+}));
 </script>
 
+<template>
+  <BaseChart
+    type="bubble"
+    :height="height"
+    :options="chartOptions"
+    :series="series"
+  />
+</template>
+
 <style scoped>
-/* Bubble animations and hover scales are styled using Tailwind CSS classes */
+/* ApexCharts handles bubble rendering */
 </style>

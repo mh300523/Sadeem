@@ -3119,12 +3119,12 @@
             }
           ],
           "categories": [
-            "analytics.radar.alignment",
-            "analytics.radar.conversion",
-            "analytics.radar.impact",
-            "analytics.radar.execution",
-            "analytics.radar.culture",
-            "analytics.radar.portfolio"
+            "المواءمة",
+            "التحويل",
+            "التأثير",
+            "التنفيذ",
+            "الثقافة",
+            "المحفظة"
           ],
           "categoriesRaw": [
             "Alignment 88",
@@ -3137,19 +3137,19 @@
         },
         "outcomeSummary": [
           {
-            "labelKey": "analytics.outcomes.viable",
+            "label": "مجدية",
             "value": "482"
           },
           {
-            "labelKey": "analytics.outcomes.needs_redesign",
+            "label": "تحتاج إعادة تصميم",
             "value": "261"
           },
           {
-            "labelKey": "analytics.outcomes.already_in_plan",
+            "label": "ضمن الخطة بالفعل",
             "value": "1,248"
           },
           {
-            "labelKey": "analytics.outcomes.non_viable",
+            "label": "غير مجدية",
             "value": "119"
           }
         ],
@@ -3216,25 +3216,37 @@
           }
         ],
         "heatmap": {
-          "categories": [
-            "Operations",
-            "Medical",
-            "Digital",
-            "Support",
-            "Comms"
-          ],
+          "categories": ["الاتصالات", "الدعم", "الرقمية", "الطبية", "العمليات"],
           "series": [
             {
-              "name": "Viable",
-              "data": [118, 96, 142, 81, 45]
+              "name": "قابلة للتنفيذ",
+              "data": [
+                { "value": "45", "color": "#05D989" },
+                { "value": "81", "color": "#018AAF" },
+                { "value": "142", "color": "#EF4444" },
+                { "value": "96", "color": "#7F4FFF" },
+                { "value": "118", "color": "#FF8E53" }
+              ]
             },
             {
-              "name": "Redesign",
-              "data": [62, 54, 71, 49, 25]
+              "name": "إعادة تصميم",
+              "data": [
+                { "value": "25", "color": "#05D989" },
+                { "value": "49", "color": "#018AAF" },
+                { "value": "71", "color": "#FF8E53" },
+                { "value": "54", "color": "#018AAF" },
+                { "value": "62", "color": "#7F4FFF" }
+              ]
             },
             {
-              "name": "Non-Viable",
-              "data": [22, 18, 27, 35, 17]
+              "name": "غير قابلة للتنفيذ",
+              "data": [
+                { "value": "17", "color": "#05D989" },
+                { "value": "35", "color": "#FF8E53" },
+                { "value": "27", "color": "#7F4FFF" },
+                { "value": "18", "color": "#018AAF" },
+                { "value": "22", "color": "#018AAF" }
+              ]
             }
           ]
         },
@@ -3262,32 +3274,17 @@
         ]
       },
       "portfolio": {
-        "treemap": [
-          {
-            "x": "Service",
-            "y": 412
-          },
-          {
-            "x": "Technology",
-            "y": 238
-          },
-          {
-            "x": "Process",
-            "y": 201
-          },
-          {
-            "x": "Business Model",
-            "y": 141
-          },
-          {
-            "x": "Policy",
-            "y": 119
-          },
-          {
-            "x": "Product",
-            "y": 137
-          }
-        ],
+        "sunburst": {
+          "total": "1,248",
+          "series": [41, 24, 18, 17],
+          "labels": [
+            "ابتكار تدريجي",
+            "ابتكار اختراقي",
+            "ابتكار مُحدث للتغيير (تعطيلي)",
+            "ابتكار تحوّلي"
+          ]
+        },
+
         "bubbles": [
           {
             "name": "AI",
@@ -3323,19 +3320,37 @@
             "name": "Robotics",
             "value": 61,
             "size": 62,
-            "color": "linear-gradient(135deg,#ec4899,#f43f5e)"
+            "color": "linear-gradient(135deg,#ec4899,#f43f5e)",
+            "x": 20,
+            "y": 80
           }
         ],
-        "sunburst": {
-          "total": "1,248",
-          "series": [41, 24, 18, 17],
-          "labels": [
-            "Incremental",
-            "Breakthrough",
-            "Disruptive",
-            "Transformational"
-          ]
-        },
+        "treemap": [
+          {
+            "x": "Service",
+            "y": 412
+          },
+          {
+            "x": "Technology",
+            "y": 238
+          },
+          {
+            "x": "Process",
+            "y": 201
+          },
+          {
+            "x": "Business Model",
+            "y": 141
+          },
+          {
+            "x": "Policy",
+            "y": 119
+          },
+          {
+            "x": "Product",
+            "y": 137
+          }
+        ],
         "departments": [
           {
             "label": "Digital Transformation",
@@ -3635,7 +3650,9 @@
             "name": "Cluster B",
             "value": 51,
             "size": 104,
-            "color": "linear-gradient(135deg,#8b5cf6,#7c3aed)"
+            "color": "linear-gradient(135deg,#8b5cf6,#7c3aed)",
+            "x": 55,
+            "y": 70
           },
           {
             "name": "Cluster C",

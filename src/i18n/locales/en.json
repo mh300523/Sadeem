@@ -200,6 +200,7 @@
     },
     "live_signal": "Live Signal",
     "total_platform_ideas": "Total Platform Ideas",
+    "idea": "Idea",
     "quick_actions": "Quick Actions",
     "actions": {
       "submit_idea": "Submit New Idea",
@@ -215,11 +216,7 @@
       "quarterly": "Quarterly",
       "monthly": "Monthly",
       "all_departments": "All Departments",
-      "all_types": "All Innovation Types",
-      "incremental": "Incremental",
-      "breakthrough": "Breakthrough",
-      "disruptive": "Disruptive",
-      "transformational": "Transformational"
+      "all_types": "All Innovation Types"
     },
     "screens": {
       "snapshot": "Executive Snapshot",
@@ -261,7 +258,7 @@
       "approved": "Approved",
       "executed": "Executed"
     },
-    "portfolio_tab": {
+    "portfolio": {
       "treemap_title": "Treemap – Innovation Outputs",
       "bubbles_title": "Bubble Cluster – Technology Mix",
       "sunburst_title": "Sunburst – Innovation Types",
