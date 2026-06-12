@@ -1,5 +1,5 @@
 <script setup>
-import TreemapChart from "@/components/dashboard/analytics/TreemapChart.vue";
+import TreeMap from "@/components/dashboard/analytics/TreeMap.vue";
 import BubbleCluster from "@/components/dashboard/analytics/BubbleCluster.vue";
 import DonutChart from "@/components/dashboard/analytics/DonutChart.vue";
 import ProgressBar from "@/components/dashboard/analytics/ProgressBar.vue";
@@ -26,11 +26,11 @@ defineProps({
       </BaseAnalyticBox>
 
       <BaseAnalyticBox :title="$t('analytics.portfolio.bubbles_title')">
-        <BubbleCluster :bubbles="screenData.bubbles" :height="320" />
+        <BubbleCluster :bubbles="screenData.bubbles" />
       </BaseAnalyticBox>
 
       <BaseAnalyticBox :title="$t('analytics.portfolio.treemap_title')">
-        <TreemapChart :data="screenData.treemap" />
+        <TreeMap :series="screenData.treemap.series" />
       </BaseAnalyticBox>
     </div>
 

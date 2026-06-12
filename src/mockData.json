@@ -3287,70 +3287,68 @@
 
         "bubbles": [
           {
-            "name": "AI",
+            "name": "الذكاء الاصطناعي",
             "value": 318,
-            "size": 128,
-            "color": "linear-gradient(135deg,#34d3ff,#7c3aed)"
+            "size": 102,
+            "color": "#895AF7",
+            "x": 56,
+            "y": 15
           },
           {
-            "name": "IoT",
+            "name": "إنترنت الأشياء",
             "value": 176,
-            "size": 98,
-            "color": "linear-gradient(135deg,#22d3ee,#0ea5e9)"
+            "size": 73,
+            "color": "#018AAF",
+            "x": 29,
+            "y": 20
           },
           {
-            "name": "Apps",
-            "value": 148,
-            "size": 86,
-            "color": "linear-gradient(135deg,#f59e0b,#f97316)"
-          },
-          {
-            "name": "Data",
-            "value": 136,
-            "size": 80,
-            "color": "linear-gradient(135deg,#22c55e,#16a34a)"
-          },
-          {
-            "name": "Blockchain",
+            "name": "البلوك تشين",
             "value": 89,
             "size": 70,
-            "color": "linear-gradient(135deg,#8b5cf6,#6366f1)"
+            "color": "#7F4FFF",
+            "x": 5,
+            "y": 11
           },
           {
-            "name": "Robotics",
+            "name": "البيانات",
+            "value": 136,
+            "size": 73,
+            "color": "#05D989",
+            "x": 17,
+            "y": 43
+          },
+          {
+            "name": "التطبيقات",
+            "value": 148,
+            "size": 78,
+            "color": "#FF8E53",
+            "x": 43,
+            "y": 50
+          },
+          {
+            "name": "الروبوتات",
             "value": 61,
-            "size": 62,
-            "color": "linear-gradient(135deg,#ec4899,#f43f5e)",
-            "x": 20,
-            "y": 80
+            "size": 49,
+            "color": "#FB3748",
+            "x": 71,
+            "y": 49
           }
         ],
-        "treemap": [
-          {
-            "x": "Service",
-            "y": 412
-          },
-          {
-            "x": "Technology",
-            "y": 238
-          },
-          {
-            "x": "Process",
-            "y": 201
-          },
-          {
-            "x": "Business Model",
-            "y": 141
-          },
-          {
-            "x": "Policy",
-            "y": 119
-          },
-          {
-            "x": "Product",
-            "y": 137
-          }
-        ],
+        "treemap": {
+          "series": [
+            {
+              "data": [
+                { "x": "الخدمة", "y": 412, "fillColor": "#018AAF1A" },
+                { "x": "التقنية", "y": 138, "fillColor": "#7F4FFF1A" },
+                { "x": "نموذج الأعمال", "y": 141, "fillColor": "#05D9894D" },
+                { "x": "العمليات", "y": 201, "fillColor": "#FF8E531A" },
+                { "x": "السياسات", "y": 119, "fillColor": "#EF44441A" },
+                { "x": "المنتج", "y": 137, "fillColor": "#018AAF1A" }
+              ]
+            }
+          ]
+        },
         "departments": [
           {
             "label": "Digital Transformation",
@@ -3642,29 +3640,35 @@
         "bubbles": [
           {
             "name": "Cluster A",
-            "value": 64,
-            "size": 118,
-            "color": "linear-gradient(135deg,#34d3ff,#06b6d4)"
+            "value": 150,
+            "size": 120,
+            "color": "linear-gradient(135deg, #34d3ff, #06b6d4)",
+            "x": 30,
+            "y": 45
           },
           {
             "name": "Cluster B",
             "value": 51,
-            "size": 104,
-            "color": "linear-gradient(135deg,#8b5cf6,#7c3aed)",
-            "x": 55,
-            "y": 70
+            "size": 95,
+            "color": "linear-gradient(135deg, #8b5cf6, #7c3aed)",
+            "x": 62,
+            "y": 38
           },
           {
             "name": "Cluster C",
             "value": 33,
-            "size": 88,
-            "color": "linear-gradient(135deg,#f59e0b,#ea580c)"
+            "size": 78,
+            "color": "linear-gradient(135deg, #f59e0b, #ea580c)",
+            "x": 50,
+            "y": 72
           },
           {
             "name": "Merge",
             "value": 18,
-            "size": 74,
-            "color": "linear-gradient(135deg,#22c55e,#16a34a)"
+            "size": 65,
+            "color": "linear-gradient(135deg, #22c55e, #16a34a)",
+            "x": 78,
+            "y": 68
           }
         ],
         "probability": [

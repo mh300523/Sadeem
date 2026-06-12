@@ -52,10 +52,7 @@ function getCustomGradient(label) {
             >Similarity cluster groupings</span
           >
         </div>
-        <BubbleCluster
-          :bubbles="screenData.bubbles"
-          :height="280"
-        />
+        <BubbleCluster :bubbles="screenData.bubbles" :height="280" />
       </div>
 
       <!-- Probability bands progress bars -->

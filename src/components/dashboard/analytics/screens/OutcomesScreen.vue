@@ -2,7 +2,7 @@
 import BaseBox from "@/components/ui/BaseBox.vue";
 import KpiCard from "@/components/dashboard/analytics/KpiCard.vue";
 import ProgressBar from "@/components/dashboard/analytics/ProgressBar.vue";
-import Heatmap from "@/components/dashboard/analytics/Heatmap.vue";
+import HeatMap from "@/components/dashboard/analytics/HeatMap.vue";
 import BaseAnalyticBox from "@/components/ui/BaseAnalyticBox.vue";
 
 defineProps({
@@ -52,7 +52,7 @@ const emit = defineEmits(["select-kpi"]);
         :title="$t('analytics.outcomes.heatmap_title')"
         :subtitle="$t('analytics.outcomes.heatmap_subtitle')"
       >
-        <Heatmap
+        <HeatMap
           :series="screenData.heatmap.series"
           :categories="screenData.heatmap.categories"
         />

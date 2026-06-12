@@ -5,11 +5,11 @@ import BaseChart from "@/components/ui/BaseChart.vue";
 const props = defineProps({
   series: {
     type: Array,
-    required: true,
+    default: () => [],
   },
   categories: {
     type: Array,
-    required: true,
+    default: () => [],
   },
 });
 

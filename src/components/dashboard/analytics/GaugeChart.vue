@@ -1,10 +1,3 @@
-<template>
-  <BaseChart type="radialBar" :options="chartOptions" :series="[value]" />
-  <p class="text-white/70 text-xs text-center">
-    {{ label }}
-  </p>
-</template>
-
 <script setup>
 import { computed } from "vue";
 import BaseChart from "@/components/ui/BaseChart.vue";
@@ -85,6 +78,13 @@ const chartOptions = computed(() => {
   };
 });
 </script>
+
+<template>
+  <BaseChart type="radialBar" :options="chartOptions" :series="[value]" />
+  <p class="text-white/70 text-xs text-center">
+    {{ label }}
+  </p>
+</template>
 
 <style scoped>
 /* ApexCharts styling handles gauge rendering */
