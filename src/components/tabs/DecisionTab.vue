@@ -14,786 +14,362 @@ const props = defineProps({
   },
 });
 
-// Fallback decision list in case data prop is empty
-const fallbackDecisionsList = [
-  {
-    key: "accept",
-    label: "قبول",
-    description: "تحويل الفكرة إلى مشروع ابتكاري داخل المنصة.",
-  },
-  {
-    key: "revise",
-    label: "إعادة تحسين",
-    description: "إرجاع الفكرة للمخطط أو تحسين المحتوى.",
-  },
-  {
-    key: "accelerate",
-    label: "تسريع",
-    description: "مرور الفكرة ضمن أولوية مرتفعة.",
-  },
-  {
-    key: "freeze",
-    label: "تجميد",
-    description: "تحويل الفكرة إلى حالة مجمدة لمراجعتها.",
-  },
-  {
-    key: "reject",
-    label: "رفض",
-    description: "إغلاق الفكرة مع توضيح نقاط الضعف والتوصيات.",
-  },
-];
+// ─── Data resolution (props.data or fallback empty structure) ────────────────
+const tabData = computed(() => props.data || {});
+const options = computed(() => tabData.value.options || []);
+const dropdownOptions = computed(() => tabData.value.dropdownOptions || {});
 
-const decisionsList = computed(
-  () => props.data?.decisionsList || fallbackDecisionsList,
-);
-const dropdownOptions = computed(() => props.data?.dropdownOptions || {});
-const configsSource = computed(() => props.data?.configs || null);
+// ─── Selected option key ─────────────────────────────────────────────────────
+const selectedOptionKey = ref("");
 
-// Selected recommendation path state
-const selectedDecision = ref("revise");
-
-// Fallback configs when data prop is empty
-const fallbackConfigs = {
-  accept: {
-    title: "مسار قرار قبول الفكرة",
-    description:
-      "تم اعتماد الفكرة وسيتم توجيهها للتحويل لمشروع ابتكاري فعلي وتعيين الفريق المسؤول.",
-    actionTitle: "إجراءات التوجيه والاعتماد",
-    showDropdowns: true,
-    checkboxes: [
-      {
-        id: "c1",
-        label: "طلب ميزانية أولية",
-        desc: "طلب تمويل أولي لبدء مرحلة النمذجة أو الاختبار.",
-        checked: true,
-      },
-      {
-        id: "c2",
-        label: "طلب دراسة جدوى",
-        desc: "إجراء دراسة تفصيلية للجدوى المالية والاقتصادية.",
-        checked: false,
-      },
-      {
-        id: "c3",
-        label: "طلب تقييم تقني",
-        desc: "تقييم متعمق للمتطلبات التقنية والأمنية للفكرة.",
-        checked: false,
-      },
-      {
-        id: "c4",
-        label: "طلب نموذج تجريبي",
-        desc: "بناء PoC أو نموذج مبدئي لاختبار فرضيات الفكرة.",
-        checked: false,
-      },
-      {
-        id: "c5",
-        label: "طلب دراسة حالة العمل",
-        desc: "تطوير وثيقة Business Case شاملة للمشروع.",
-        checked: false,
-      },
-      {
-        id: "c6",
-        label: "طلب تقييم تنافسي",
-        desc: "تحليل الحلول المماثلة في السوق والمنافسين.",
-        checked: false,
-      },
-    ],
-    beneficiaries: [
-      { id: "b1", label: "مدير المشروع", badge: "صلاحية تحرير", checked: true },
-      { id: "b2", label: "صاحب الفكرة", badge: "متابعة فقط", checked: true },
-      {
-        id: "b3",
-        label: "فريق الابتكار",
-        badge: "متابعة وتحديث",
-        checked: true,
-      },
-      {
-        id: "b4",
-        label: "فريق التنفيذ",
-        badge: "صلاحية تحرير",
-        checked: false,
-      },
-      { id: "b5", label: "PMO", badge: "متابعة وإفادة", checked: false },
-      {
-        id: "b6",
-        label: "الراعي الاستراتيجي",
-        badge: "متابعة فقط",
-        checked: false,
-      },
-      {
-        id: "b7",
-        label: "رئيس القطاع المسؤول",
-        badge: "موافقة واعتماد",
-        checked: false,
-      },
-      {
-        id: "b8",
-        label: "فريق الحوكمة والمخاطر",
-        badge: "صلاحية مراجعة",
-        checked: false,
-      },
-    ],
-    previewSubject: "الموضوع: تعيين مدير مشروع ابتكاري جديد",
-    previewBody:
-      'يسعدنا إبلاغك بتعيينك مديراً للمشروع الابتكاري "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي" ضمن منصة سديم، للبدء بالخطوات التمهيدية ومتابعة متطلبات المشروع الاستراتيجية.',
+// Initialize to first option key once data is available
+watch(
+  options,
+  (opts) => {
+    if (opts.length && !selectedOptionKey.value) {
+      selectedOptionKey.value = opts[1]?.key || opts[0]?.key || "";
+    }
   },
-  revise: {
-    title: "مسار قرار إعادة التحسين",
-    description:
-      "إرجاع الفكرة للمبتكر لإعادة تحسين المحتوى أو توفير تفاصيل إضافية قبل المراجعة القادمة.",
-    actionTitle: "إجراءات إعادة التحسين",
-    showDropdowns: false,
-    checkboxes: [
-      {
-        id: "r1",
-        label: "طلب توضيحات إضافية",
-        desc: "طلب تفاصيل حول الفكرة أو المشكلة أو الأثر المقترح.",
-        checked: true,
-      },
-      {
-        id: "r2",
-        label: "طلب بيانات داعمة",
-        desc: "طلب أرقام أو إحصاءات أو دراسات أو أدلة تدعم الفكرة.",
-        checked: false,
-      },
-      {
-        id: "r3",
-        label: "دعوة مستشار / موجه ابتكار",
-        desc: "إشراك مستشار يساهم في تحسين الفكرة تقنياً أو تنظيمياً وإعادة تقييمها.",
-        checked: false,
-      },
-      {
-        id: "r4",
-        label: "تحسين نموذج العمل",
-        desc: "طلب تحسين نموذج العمل التجاري أو نموذج طرح القيمة الخاص بالفكرة.",
-        checked: false,
-      },
-    ],
-    beneficiaries: [
-      { id: "rb1", label: "صاحب الفكرة", badge: "إشعار أساسي", checked: true },
-      {
-        id: "rb2",
-        label: "مستشار / موجه الابتكار",
-        badge: "يظهر عند اختيار دعوة موجه",
-        checked: false,
-      },
-    ],
-    previewSubject: "الموضوع: طلب إعادة تحسين الفكرة الابتكارية",
-    previewBody:
-      'نشكر لك مشاركتك فكرتك القيمة "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي" عبر منصة سديم.\nتم اتخاذ قرار بإعادة الفكرة لمرحلة التحسين. يرجى مراجعة التعليقات المرفقة لتحديث الفكرة وتطوير نموذج العمل قبل إعادة التقديم.',
-  },
-  accelerate: {
-    title: "مسار قرار تسريع المشروع",
-    description:
-      "تم اعتماد مسار تسريع الفكرة لتقليل مدة التطوير ونقل الفكرة لمرحلة التنفيذ فوراً بناءً على الاحتياج العاجل للمؤسسة.",
-    actionTitle: "إجراءات تسريع التطوير",
-    showDropdowns: true,
-    checkboxes: [
-      {
-        id: "a1",
-        label: "تسريع الاعتماد",
-        desc: "تسهيل دورات الموافقة التنظيمية والمالية.",
-        checked: true,
-      },
-      {
-        id: "a2",
-        label: "التخصيص المباشر للموارد",
-        desc: "توفير الموارد التقنية والبشرية فوراً.",
-        checked: true,
-      },
-      {
-        id: "a3",
-        label: "عقد ورش عمل مكثفة",
-        desc: "عقد ورش عمل لتسريع التصميم والتنفيذ.",
-        checked: false,
-      },
-      {
-        id: "a4",
-        label: "تجاوز الحوكمة التقليدية",
-        desc: "تطبيق مسار رشيق ومستثنى لتسريع الانطلاق.",
-        checked: false,
-      },
-      {
-        id: "a5",
-        label: "تطوير تجربة سريعة",
-        desc: "تطوير نموذج أولي سريع جداً في بيئة اختبارية.",
-        checked: false,
-      },
-      {
-        id: "a6",
-        label: "توفير ميزانية استثنائية",
-        desc: "تمويل المشروع من ميزانية الطوارئ الابتكارية.",
-        checked: false,
-      },
-      {
-        id: "a7",
-        label: "توفير الدعم المباشر من القيادة",
-        desc: "رعاية مباشرة من الإدارة العليا لتذليل العقبات.",
-        checked: false,
-      },
-      {
-        id: "a8",
-        label: "توفير بيئة اختبار آمنة",
-        desc: "تأمين Sandbox أو مسار تجريبي سريع وآمن.",
-        checked: false,
-      },
-    ],
-    beneficiaries: [
-      {
-        id: "ab1",
-        label: "مدير المشروع",
-        badge: "صلاحية تحرير",
-        checked: true,
-      },
-      { id: "ab2", label: "صاحب الفكرة", badge: "متابعة فقط", checked: true },
-      {
-        id: "ab3",
-        label: "فريق الابتكار",
-        badge: "متابعة وتحديث",
-        checked: true,
-      },
-      {
-        id: "ab4",
-        label: "فريق التنفيذ",
-        badge: "صلاحية تحرير",
-        checked: false,
-      },
-    ],
-    previewSubject: "الموضوع: اعتماد مسار تسريع الفكرة الابتكارية",
-    previewBody:
-      'نعلمكم بأنه قد تم اعتماد مسار تسريع فكرتكم الابتكارية "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي" للانطلاق الفوري في النماذج والتنفيذ السريع لتلبية متطلبات المؤسسة العاجلة.',
-  },
-  freeze: {
-    title: "مسار قرار تجميد الفكرة",
-    description:
-      "تم تجميد الفكرة وتخزينها في قاعدة البيانات لمراجعتها لاحقاً بناءً على معطيات السوق والاحتياجات الاستراتيجية الحالية.",
-    actionTitle: "أسباب التجميد",
-    showDropdowns: true,
-    checkboxes: [
-      {
-        id: "f1",
-        label: "تأجيل التمويل",
-        desc: "تأجيل رصد الميزانيات المالية للفكرة حالياً.",
-        checked: true,
-      },
-      {
-        id: "f2",
-        label: "تأجيل التنفيذ",
-        desc: "تأجيل إطلاق المشروع لعدم جاهزية بيئة العمل.",
-        checked: false,
-      },
-      {
-        id: "f3",
-        label: "تغيير أولويات المؤسسة",
-        desc: "تغير في خطة المؤسسة السنوية للمشاريع.",
-        checked: false,
-      },
-      {
-        id: "f4",
-        label: "انتظار تقنيات جديدة",
-        desc: "ترقب تقنيات داعمة تجعل الفكرة أكثر جدوى.",
-        checked: false,
-      },
-      {
-        id: "f5",
-        label: "انتظار دراسات سوق إضافية",
-        desc: "الحاجة لبيانات تسويقية واستهلاكية أحدث.",
-        checked: false,
-      },
-      { id: "f6", label: "عدم كفاية الموارد حالياً", checked: false },
-      { id: "f7", label: "الفكرة بحاجة للتطوير الذاتي", checked: false },
-      { id: "f8", label: "أسباب تنظيمية أو تشريعية", checked: false },
-    ],
-    beneficiaries: [
-      { id: "fb1", label: "صاحب الفكرة", badge: "متابعة فقط", checked: true },
-      {
-        id: "fb2",
-        label: "فريق الابتكار",
-        badge: "متابعة وتحديث",
-        checked: true,
-      },
-      { id: "fb3", label: "PMO", badge: "متابعة وإفادة", checked: false },
-    ],
-    previewSubject: "الموضوع: تجميد الفكرة الابتكارية مؤقتاً",
-    previewBody:
-      'نشكركم على مشاركتكم المتميزة بتقديم فكرة "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي" عبر منصة سديم. نود إبلاغكم بتجميد الفكرة مؤقتاً لحين ملاءمة معطيات السوق وتوفر الموارد المناسبة.',
-  },
-  reject: {
-    title: "قرار عدم اعتماد الفكرة",
-    description:
-      "تحت إشراف وتدقيق رئيس وأعضاء اللجنة، تم مراجعة الفكرة وتم اتخاذ القرار بعدم اعتمادها للعديد من الأسباب.",
-    actionTitle: "أسباب عدم الاعتماد",
-    showDropdowns: false,
-    warningText:
-      "تحت إشراف وتدقيق رئيس وأعضاء اللجنة، تم مراجعة الفكرة وتم اتخاذ القرار بعدم اعتمادها للعديد من الأسباب والملاحظات الفنية الموضحة أدناه.",
-    rejectSummary: [
-      {
-        label: "النتيجة العامة للتقييم:",
-        text: "أظهرت تقارير التقييم أن الفكرة تحمل أفكاراً جيدة، إلا أنها تفتقر إلى الجدوى الفنية والمالية، بالإضافة إلى ضعف التوافق الاستراتيجي مع الأهداف الحالية.",
-      },
-      {
-        label: "ملخص نقاط الضعف:",
-        text: "ضعف البيانات الداعمة وعدم وضوح آلية التنفيذ والأثر المؤسسي المتوقع والمخاطر التشغيلية المصاحبة لتطبيق الفكرة.",
-      },
-    ],
-    checkboxes: [
-      {
-        id: "rj1",
-        label: "ضعف وضوح المشكلة",
-        desc: "المشكلة المستهدفة غير محددة أو غير مدعومة بالبيانات الكافية.",
-        checked: true,
-      },
-      {
-        id: "rj2",
-        label: "نقص البيانات أو الأدلة الداعمة",
-        desc: "افتقار الفكرة لدراسات أو أرقام حقيقية تؤكد جدواها.",
-        checked: false,
-      },
-      {
-        id: "rj3",
-        label: "ضعف المواءمة الاستراتيجية",
-        desc: "الفكرة لا تتماشى مع رؤية المؤسسة أو أهدافها الرئيسية.",
-        checked: false,
-      },
-      {
-        id: "rj4",
-        label: "عدم وضوح نموذج العمل أو القيمة",
-        desc: "نموذج التشغيل أو العائد من الاستثمار غير واضح.",
-        checked: false,
-      },
-      {
-        id: "rj5",
-        label: "ضعف قابلية التنفيذ",
-        desc: "التقنيات المطلوبة غير متوفرة أو معقدة للغاية في التطبيق.",
-        checked: false,
-      },
-      {
-        id: "rj6",
-        label: "ضعف الأثر المؤسسي",
-        desc: "العائد التشغيلي أو الأثر المتوقع محدود للغاية.",
-        checked: false,
-      },
-      {
-        id: "rj7",
-        label: "ارتفاع المخاطر مقارنة بالقيمة",
-        desc: "مخاطر التطبيق تفوق المكاسب الابتكارية المتوقعة.",
-        checked: false,
-      },
-      {
-        id: "rj8",
-        label: "الفكرة غير ناجحة حالياً",
-        desc: "تحديات تنظيمية أو تشريعية تمنع اعتماد الفكرة.",
-        checked: false,
-      },
-    ],
-    beneficiaries: [
-      { id: "rjb1", label: "صاحب الفكرة", badge: "إشعار أساسي", checked: true },
-      { id: "rjb2", label: "فريق الابتكار", badge: "حوكمة", checked: true },
-    ],
-    previewSubject: "الموضوع: تحديث بخصوص فكرتكم الابتكارية",
-    previewBody:
-      "نشكركم على مشاركتكم فكرتكم الابتكارية ودعم مسيرة التطوير. نود إبلاغكم بأنه بعد المراجعة والتقييم، تعذر اعتماد الفكرة حالياً نظراً لبعض الجوانب الفنية والمالية التي تعوق التنفيذ في الوقت الراهن.",
-  },
-};
-
-// Deep-copy configs from source so checkbox toggles are reactive & mutable
-const configs = ref({});
-
-const initConfigs = () => {
-  const source = configsSource.value || fallbackConfigs;
-  configs.value = JSON.parse(JSON.stringify(source));
-};
-
-watch(configsSource, initConfigs, { immediate: true });
-
-const currentConfig = computed(
-  () => configs.value[selectedDecision.value] || {},
+  { immediate: true },
 );
 
-// Dropdown models
-const directionType = ref("prototype");
-const executionPriority = ref("high");
-const innovationPathSelect = ref("pathway1");
-const projectManager = ref("ahmed");
-const projectMentor = ref("khaled");
+const currentOption = computed(
+  () => options.value.find((o) => o.key === selectedOptionKey.value) || null,
+);
 
-// Consultant select models (for Revise path)
-const consultantMentor = ref("advisor");
-const sectionType = ref("pathway1");
+const currentSections = computed(() => currentOption.value?.sections || []);
 
+// ─── Shared reactive state (flat maps, keyed by field/item id) ───────────────
+
+// fieldModels: one v-model per dropdown field id, initialized from defaults
+const fieldModels = ref({});
+
+// checkboxStates: one boolean per checkbox/recipient id, initialized from checked
+const checkboxStates = ref({});
+
+// Seed states from all options' sections whenever data changes
+const seedState = () => {
+  const fields = {};
+  const checks = {};
+  for (const option of options.value) {
+    for (const section of option.sections || []) {
+      // Dropdown fields
+      if (section.type === "dropdowns" || section.type === "conditional-dropdowns") {
+        for (const group of section.groups || []) {
+          for (const field of group.fields || []) {
+            if (!(field.id in fields)) {
+              fields[field.id] = field.default ?? "";
+            }
+          }
+        }
+      }
+      // Checklist + recipient items
+      if (section.type === "checklist" || section.type === "recipients") {
+        for (const item of section.items || []) {
+          if (!(item.id in checks)) {
+            checks[item.id] = item.checked ?? false;
+          }
+        }
+      }
+    }
+  }
+  fieldModels.value = fields;
+  checkboxStates.value = checks;
+};
+
+watch(options, seedState, { immediate: true });
+
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+
+// Lookup whether a checkbox/recipient is currently checked
+const isChecked = (id) => !!checkboxStates.value[id];
+
+// Resolve the dropdown options array for a given field optionsKey
+const resolveOptions = (optionsKey) => dropdownOptions.value[optionsKey] || [];
+
+// ─── Notes & Modal ───────────────────────────────────────────────────────────
 const feedbackNotes = ref("");
 const successModalOpen = ref(false);
 
-// Computed dropdown option lists with fallback
-const directionTypeOptions = computed(
-  () =>
-    dropdownOptions.value.directionType || [
-      { value: "prototype", label: "تطوير نموذج أولي" },
-      { value: "assessment", label: "تقييم فني" },
-    ],
-);
-const executionPriorityOptions = computed(
-  () =>
-    dropdownOptions.value.executionPriority || [
-      { value: "high", label: "عالية" },
-      { value: "medium", label: "متوسطة" },
-    ],
-);
-const innovationPathOptions = computed(
-  () =>
-    dropdownOptions.value.innovationPath || [
-      { value: "pathway1", label: "المسار 1 - إدامة السوق" },
-      { value: "pathway2", label: "المسار 2" },
-    ],
-);
-const projectManagerOptions = computed(
-  () =>
-    dropdownOptions.value.projectManager || [
-      { value: "ahmed", label: "تعيين مدير: أحمد خالد" },
-      { value: "mostafa", label: "تعيين مدير: مصطفى كامل" },
-    ],
-);
-const projectMentorOptions = computed(
-  () =>
-    dropdownOptions.value.projectMentor || [
-      { value: "khaled", label: "تعيين موجه: خالد سعيد" },
-      { value: "sara", label: "تعيين موجه: سارة علي" },
-    ],
-);
-const consultantMentorOptions = computed(
-  () =>
-    dropdownOptions.value.consultantMentor || [
-      { value: "advisor", label: "Innovation Consultant - Advisor" },
-      { value: "mentor", label: "Senior Innovation Mentor" },
-    ],
-);
-const sectionTypeOptions = computed(
-  () =>
-    dropdownOptions.value.sectionType || [
-      { value: "pathway1", label: "حاضنة تسريع الفكرة" },
-      { value: "pathway2", label: "القسم التقني" },
-    ],
-);
-
-// Badge type mapping helper for beneficiary badges
-const getBadgeType = (badge) => {
-  if (badge === "إشعار أساسي" || badge === "موافقة واعتماد") return "primary";
-  if (badge === "صلاحية تحرير") return "success";
-  if (badge === "صلاحية مراجعة") return "warning";
-  return "outline";
-};
-
-// Check if revise consultant invitation is selected
-const isConsultantInviteChecked = computed(() => {
-  const checkboxes = currentConfig.value?.checkboxes;
-  if (!checkboxes) return false;
-  const consultant = checkboxes.find((cb) => cb.id === "r3");
-  return consultant?.checked ?? false;
-});
-
-const handleSendDecision = () => {
-  successModalOpen.value = true;
+const handleAction = (actionKey) => {
+  if (actionKey === "send") successModalOpen.value = true;
 };
 </script>
 
 <template>
-  <div class="flex flex-col gap-6 text-right">
-    <!-- Top Recommendation Cards Row -->
-    <div class="flex flex-col gap-3">
-      <div
-        class="flex items-center justify-between border-b border-white/10 pb-3"
-      >
+  <div class="flex flex-col gap-6 text-right" dir="rtl">
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SECTION 1 — Option Selection Cards
+    ════════════════════════════════════════════════════════════════════════ -->
+    <BaseBox class="gradient-border rounded-2xl p-6 flex flex-col gap-4">
+      <!-- Section header -->
+      <div class="border-b border-white/10 pb-3">
         <h3 class="text-white text-sm md:text-base font-bold">
-          اختيار التوصية النهائية
+          {{ tabData.sectionTitle }}
         </h3>
       </div>
-      <p class="text-white/60 text-xs">
-        استعرض وأثبت وأرشف هذه الفكرة، يرجى تحديد التوصية النهائية والإجراءات
-        المترتبة عليها أدناه:
+      <p class="text-white/60 text-xs leading-relaxed">
+        {{ tabData.sectionDescription }}
       </p>
 
-      <!-- Grid of Recommendations -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mt-2">
+      <!-- Option cards grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mt-1">
         <div
-          v-for="dec in decisionsList"
-          :key="dec.key"
-          @click="selectedDecision = dec.key"
-          class="p-4.5 rounded-2xl border transition-all cursor-pointer flex flex-col gap-2 min-h-[110px]"
+          v-for="option in options"
+          :key="option.key"
+          @click="selectedOptionKey = option.key"
+          class="p-4 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col gap-2 min-h-[100px] select-none"
           :class="
-            selectedDecision === dec.key
-              ? 'bg-[#018AAF]/10 border-[#018AAF] text-[#33BCE1]'
-              : 'bg-[#161F30]/40 border-white/5 hover:border-white/15 text-white/80'
+            selectedOptionKey === option.key
+              ? 'bg-[#018AAF]/10 border-[#018AAF] shadow-[0_0_16px_rgba(1,138,175,0.15)]'
+              : 'bg-[#161F30]/40 border-white/5 hover:border-white/15 hover:bg-[#161F30]/60'
           "
         >
           <h4
-            class="text-xs md:text-sm font-bold"
-            :class="
-              selectedDecision === dec.key ? 'text-[#33BCE1]' : 'text-white'
-            "
+            class="text-xs md:text-sm font-bold transition-colors duration-300"
+            :class="selectedOptionKey === option.key ? 'text-[#33BCE1]' : 'text-white'"
           >
-            {{ dec.label }}
+            {{ option.label }}
           </h4>
           <p class="text-[10px] text-white/50 leading-normal">
-            {{ dec.description }}
+            {{ option.description }}
           </p>
         </div>
       </div>
-    </div>
+    </BaseBox>
 
-    <!-- Active path layout -->
-    <div class="border-t border-white/10 pt-5 flex flex-col gap-4">
-      <!-- Title & description -->
-      <div>
-        <h3 class="text-white text-sm md:text-base font-bold">
-          {{ currentConfig.title }}
-        </h3>
-        <p class="text-white/60 text-xs mt-1 leading-normal">
-          {{ currentConfig.description }}
-        </p>
-      </div>
-
-      <!-- Reject specific warning card & feedback inputs -->
-      <div v-if="selectedDecision === 'reject'" class="flex flex-col gap-4">
-        <div
-          class="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs leading-normal"
-        >
-          {{ currentConfig.warningText }}
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div
-            v-for="item in currentConfig.rejectSummary"
-            :key="item.label"
-            class="p-4 rounded-xl bg-[#161F30] border border-white/5 text-right flex flex-col gap-1.5"
-          >
-            <span class="text-white/40 text-[10px] font-bold">{{
-              item.label
-            }}</span>
-            <p class="text-white/70 text-xs leading-relaxed">{{ item.text }}</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Action Select boxes (Accept / Accelerate / Freeze) -->
-      <div
-        v-if="currentConfig.showDropdowns && selectedDecision !== 'reject'"
-        class="grid grid-cols-1 md:grid-cols-2 gap-5 border border-white/5 p-4 rounded-xl bg-[#161F30]/30"
-      >
-        <!-- Direction/Priorities Selects -->
-        <div class="flex flex-col gap-3">
-          <h4 class="text-white/60 text-xs font-bold mb-1">معايير التوجيه</h4>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <BaseSelect
-              v-model="directionType"
-              :options="directionTypeOptions"
-              placeholder="نوع التوجيه"
-            />
-            <BaseSelect
-              v-model="executionPriority"
-              :options="executionPriorityOptions"
-              placeholder="أولوية التنفيذ"
-            />
-            <BaseSelect
-              v-model="innovationPathSelect"
-              :options="innovationPathOptions"
-              placeholder="مسار الابتكار"
-            />
-          </div>
-        </div>
-
-        <!-- Manager / Mentor Selector fields -->
-        <div class="flex flex-col gap-3">
-          <h4 class="text-white/60 text-xs font-bold mb-1">تعيين مدير وموجه</h4>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <BaseSelect
-              v-model="projectManager"
-              :options="projectManagerOptions"
-              placeholder="مدير المشروع"
-            />
-            <BaseSelect
-              v-model="projectMentor"
-              :options="projectMentorOptions"
-              placeholder="موجه المشروع"
-            />
-          </div>
-        </div>
-      </div>
-
-      <!-- Action checklist items (using BaseCheckableCard) -->
-      <div>
-        <h4 class="text-white text-xs font-bold mb-3">
-          {{ currentConfig.actionTitle }}
-        </h4>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <BaseCheckableCard
-            v-for="cb in currentConfig.checkboxes"
-            :key="cb.id"
-            v-model="cb.checked"
-            :title="cb.label"
-            :subtitle="cb.desc"
-          />
-        </div>
-      </div>
-
-      <!-- Revise specific: consultant invitation select dropdowns -->
-      <div
-        v-if="selectedDecision === 'revise' && isConsultantInviteChecked"
-        class="grid grid-cols-1 md:grid-cols-2 gap-5 border border-white/5 p-4 rounded-xl bg-[#161F30]/30"
-      >
-        <div class="flex flex-col gap-2">
-          <span class="text-white/60 text-[10px] font-bold"
-            >تعيين مستشار / موجه الابتكار</span
-          >
-          <BaseSelect
-            v-model="consultantMentor"
-            :options="consultantMentorOptions"
-            placeholder="اختر مستشار/موجه الابتكار"
-          />
-        </div>
-        <div class="flex flex-col gap-2">
-          <span class="text-white/60 text-[10px] font-bold">Section Type</span>
-          <BaseSelect
-            v-model="sectionType"
-            :options="sectionTypeOptions"
-            placeholder="اختر حاضنة/مسار"
-          />
-        </div>
-      </div>
-    </div>
-
-    <!-- Recipients Section -->
-    <div class="border-t border-white/10 pt-5">
-      <h3 class="text-white text-sm md:text-base font-bold mb-3">
-        المستفيدون من الإشعارات
-      </h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
-        <BaseCheckableCard
-          v-for="ben in currentConfig.beneficiaries"
-          :key="ben.id"
-          v-model="ben.checked"
-          :title="ben.label"
-          :badge-text="ben.badge"
-          :badge-type="getBadgeType(ben.badge)"
-        />
-      </div>
-    </div>
-
-    <!-- Notification Email Preview Section -->
-    <div class="border-t border-white/10 pt-5 flex flex-col gap-3">
-      <h3 class="text-white text-sm md:text-base font-bold">
-        معاينة الإشعارات
-      </h3>
-      <p class="text-white/60 text-xs">
-        يمكنك معاينة الرسالة الموجهة إلى مستلمي البريد الإلكتروني ونموذج الإشعار
-        أدناه:
-      </p>
-
-      <!-- Preview layout container -->
-      <div
-        class="border border-white/5 rounded-2xl bg-[#161F30]/30 p-5 flex flex-col gap-4 mt-2"
-      >
-        <!-- Email Header details -->
-        <div
-          class="p-4 rounded-xl bg-[#161F30]/80 border border-white/5 text-right flex flex-col gap-3"
-        >
-          <p class="font-bold text-white text-xs md:text-sm">
-            {{ currentConfig.previewSubject }}
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SECTION 2 — Active Path (configuration-driven section rendering)
+    ════════════════════════════════════════════════════════════════════════ -->
+    <template v-if="currentOption">
+      <!-- Path title + description header -->
+      <BaseBox class="gradient-border rounded-2xl p-6 flex flex-col gap-5">
+        <div class="border-b border-white/10 pb-3">
+          <h3 class="text-white text-sm md:text-base font-bold">
+            {{ currentOption.pathTitle }}
+          </h3>
+          <p class="text-white/60 text-xs mt-1.5 leading-relaxed">
+            {{ currentOption.pathDescription }}
           </p>
+        </div>
 
-          <div
-            class="border-t border-white/5 pt-3 text-white/80 text-xs leading-relaxed font-sans"
-          >
-            <p class="font-semibold text-white mb-2">عزيزي مستلم البريد،</p>
-            <p class="whitespace-pre-line">{{ currentConfig.previewBody }}</p>
+        <!-- Render each section in order -->
+        <template v-for="section in currentSections" :key="section.type + (section.title || '')">
 
-            <!-- Styled Email Button Mockup -->
-            <div class="my-4">
-              <button
-                class="px-5 py-2.5 rounded-lg bg-[#018AAF] text-white text-xs font-bold pointer-events-none"
-              >
-                زر منصة المشروع الابتكاري
-              </button>
+          <!-- ── reject-summary: red warning banner + summary cards ─────────── -->
+          <template v-if="section.type === 'reject-summary'">
+            <div class="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs leading-relaxed">
+              {{ section.warningText }}
             </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div
+                v-for="item in section.summaryItems"
+                :key="item.label"
+                class="p-4 rounded-xl bg-[#161F30] border border-white/5 flex flex-col gap-1.5"
+              >
+                <span class="text-white/40 text-[10px] font-bold">{{ item.label }}</span>
+                <p class="text-white/70 text-xs leading-relaxed">{{ item.text }}</p>
+              </div>
+            </div>
+          </template>
 
-            <p class="text-white/40 text-[10px] mt-4">
-              مع خالص التقدير،<br />
-              فريق منصة سديم للابتكار
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+          <!-- ── dropdowns: labeled groups of BaseSelect fields ────────────── -->
+          <template v-else-if="section.type === 'dropdowns'">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 border border-white/5 p-4 rounded-xl bg-[#161F30]/30">
+              <div
+                v-for="group in section.groups"
+                :key="group.label"
+                class="flex flex-col gap-3"
+              >
+                <h4 class="text-white/60 text-[10px] font-bold uppercase tracking-wide mb-0.5">
+                  {{ group.label }}
+                </h4>
+                <div
+                  class="grid gap-3"
+                  :class="`grid-cols-${Math.min(group.cols, 3)}`"
+                >
+                  <BaseSelect
+                    v-for="field in group.fields"
+                    :key="field.id"
+                    v-model="fieldModels[field.id]"
+                    :options="resolveOptions(field.optionsKey)"
+                    :placeholder="field.placeholder"
+                  />
+                </div>
+              </div>
+            </div>
+          </template>
 
-    <!-- Note and Send bottom row -->
-    <div class="border-t border-white/10 pt-5 flex flex-col gap-4">
-      <h3 class="text-white text-sm md:text-base font-bold mb-1">
-        ملاحظات القرار والإشعار
-      </h3>
+          <!-- ── checklist: titled grid of BaseCheckableCard items ─────────── -->
+          <template v-else-if="section.type === 'checklist'">
+            <div>
+              <h4 class="text-white text-xs font-bold mb-3">{{ section.title }}</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <BaseCheckableCard
+                  v-for="item in section.items"
+                  :key="item.id"
+                  v-model="checkboxStates[item.id]"
+                  :title="item.label"
+                  :subtitle="item.desc"
+                />
+              </div>
+            </div>
+          </template>
+
+          <!-- ── conditional-dropdowns: shown only when trigger checkbox is checked ── -->
+          <template
+            v-else-if="
+              section.type === 'conditional-dropdowns' &&
+              isChecked(section.triggerCheckboxId)
+            "
+          >
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 border border-white/5 p-4 rounded-xl bg-[#161F30]/30">
+              <div
+                v-for="group in section.groups"
+                :key="group.label"
+                class="flex flex-col gap-3"
+              >
+                <h4 class="text-white/60 text-[10px] font-bold uppercase tracking-wide mb-0.5">
+                  {{ group.label }}
+                </h4>
+                <div
+                  class="grid gap-3"
+                  :class="`grid-cols-${Math.min(group.cols, 2)}`"
+                >
+                  <BaseSelect
+                    v-for="field in group.fields"
+                    :key="field.id"
+                    v-model="fieldModels[field.id]"
+                    :options="resolveOptions(field.optionsKey)"
+                    :placeholder="field.placeholder"
+                  />
+                </div>
+              </div>
+            </div>
+          </template>
+
+          <!-- ── recipients: 4-col grid of BaseCheckableCard with badges ─────── -->
+          <template v-else-if="section.type === 'recipients'">
+            <div class="border-t border-white/10 pt-4">
+              <div class="mb-3">
+                <h3 class="text-white text-sm font-bold">{{ section.title }}</h3>
+                <p v-if="section.description" class="text-white/50 text-xs mt-1">
+                  {{ section.description }}
+                </p>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <BaseCheckableCard
+                  v-for="item in section.items"
+                  :key="item.id"
+                  v-model="checkboxStates[item.id]"
+                  :title="item.label"
+                  :subtitle="item.desc"
+                  :badge-text="item.badge"
+                  :badge-type="item.badgeType"
+                />
+              </div>
+            </div>
+          </template>
+
+          <!-- ── notification: email preview card ───────────────────────────── -->
+          <template v-else-if="section.type === 'notification'">
+            <div class="border-t border-white/10 pt-4 flex flex-col gap-3">
+              <div>
+                <h3 class="text-white text-sm font-bold">{{ section.title }}</h3>
+                <p v-if="section.description" class="text-white/60 text-xs mt-1">
+                  {{ section.description }}
+                </p>
+              </div>
+              <div class="border border-white/5 rounded-2xl bg-[#161F30]/30 p-4">
+                <div class="p-4 rounded-xl bg-[#161F30]/80 border border-white/5 flex flex-col gap-3">
+                  <!-- Subject line -->
+                  <p class="font-bold text-white text-xs md:text-sm">
+                    {{ section.subject }}
+                  </p>
+                  <!-- Body -->
+                  <div class="border-t border-white/5 pt-3 text-white/80 text-xs leading-relaxed">
+                    <p class="font-semibold text-white mb-2">عزيزي مستلم البريد،</p>
+                    <p class="whitespace-pre-line">{{ section.body }}</p>
+                    <!-- CTA button mockup -->
+                    <div class="my-4">
+                      <button
+                        class="px-5 py-2.5 rounded-lg bg-[#018AAF] text-white text-xs font-bold pointer-events-none"
+                      >
+                        {{ section.buttonLabel }}
+                      </button>
+                    </div>
+                    <!-- Signature -->
+                    <p class="text-white/40 text-[10px] mt-4 whitespace-pre-line">
+                      {{ section.signature }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+
+        </template>
+      </BaseBox>
+    </template>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SECTION 3 — Notes & Action Buttons
+    ════════════════════════════════════════════════════════════════════════ -->
+    <BaseBox class="gradient-border rounded-2xl p-6 flex flex-col gap-4">
+      <h3 class="text-white text-sm font-bold">{{ tabData.notesLabel }}</h3>
       <BaseTextarea
         v-model="feedbackNotes"
-        placeholder="اكتب ملاحظات القرار النهائي أو التوجيهات أو الملاحظات الخاصة بالحوكمة..."
+        :placeholder="tabData.notesPlaceholder"
         :rows="3"
       />
 
-      <!-- Bottom button actions -->
-      <div
-        class="flex flex-col sm:flex-row justify-end items-center gap-3 mt-2"
-      >
+      <!-- Action buttons (rendered from data.actions) -->
+      <div class="flex flex-col sm:flex-row justify-end items-center gap-3 mt-1">
         <button
-          @click="handleSendDecision"
-          class="w-full sm:w-auto px-8 py-3.5 rounded-xl text-sm md:text-base font-bold text-white bg-[#32BEA6] hover:bg-[#28a38e] transition-colors cursor-pointer text-center font-sans"
+          v-for="action in tabData.actions"
+          :key="action.key"
+          @click="handleAction(action.key)"
+          class="w-full sm:w-auto px-7 py-3 rounded-xl text-sm font-bold transition-colors cursor-pointer text-center"
+          :class="
+            action.variant === 'primary'
+              ? 'bg-[#32BEA6] hover:bg-[#28a38e] text-white'
+              : 'bg-[#1A2338]/50 border border-white/10 hover:bg-[#1A2338] text-white/80'
+          "
         >
-          ارسال القرار
-        </button>
-        <button
-          class="w-full sm:w-auto px-6 py-3.5 rounded-xl text-sm md:text-base font-bold text-white/80 bg-[#1A2338]/50 border border-white/10 hover:bg-[#1A2338] transition-colors cursor-pointer text-center font-sans"
-        >
-          حفظ كمسودة
-        </button>
-        <button
-          class="w-full sm:w-auto px-6 py-3.5 rounded-xl text-sm md:text-base font-bold text-white/80 bg-[#1A2338]/50 border border-white/10 hover:bg-[#1A2338] transition-colors cursor-pointer text-center font-sans"
-        >
-          معاينة جميع الإشعارات
+          {{ action.label }}
         </button>
       </div>
-    </div>
+    </BaseBox>
 
-    <!-- Success Confirmation Modal -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         Success Confirmation Modal
+    ════════════════════════════════════════════════════════════════════════ -->
     <BaseActionModal
       :is-open="successModalOpen"
-      title="قرار التوجيه والاعتماد"
+      :title="tabData.modal?.title"
       :has-mascot="true"
       mascot-name="robot"
       @close="successModalOpen = false"
     >
       <div class="p-6">
-        <div
-          class="flex flex-col items-center justify-center text-center py-6 gap-4"
-        >
+        <div class="flex flex-col items-center justify-center text-center py-6 gap-4">
           <div
             class="w-16 h-16 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981]"
           >
-            <svg
-              class="w-8 h-8 stroke-[3px]"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M5 13l4 4L19 7"
-              />
+            <svg class="w-8 h-8 stroke-[3px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
             </svg>
           </div>
           <h3 class="text-white text-lg font-bold">
-            تم إرسال واعتماد القرار بنجاح
+            {{ tabData.modal?.successTitle }}
           </h3>
           <p class="text-white/60 text-xs md:text-sm">
-            تم إرسال الإشعارات والقرارات لكافة الأطراف والمستفيدين المعنيين.
+            {{ tabData.modal?.successMessage }}
           </p>
         </div>
       </div>
     </BaseActionModal>
+
   </div>
 </template>
