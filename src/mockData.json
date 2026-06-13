@@ -3351,285 +3351,265 @@
         },
         "departments": [
           {
-            "label": "Digital Transformation",
+            "label": "التحول الرقمي",
             "value": 287,
             "percentage": 92
           },
           {
-            "label": "Operations",
+            "label": "العمليات",
             "value": 252,
             "percentage": 81
           },
           {
-            "label": "Medical Services",
+            "label": "الخدمات الطبية",
             "value": 228,
             "percentage": 74
           },
           {
-            "label": "Support Services",
+            "label": "الخدمات المساندة",
             "value": 179,
             "percentage": 58
           },
           {
-            "label": "Communication",
+            "label": "الاتصالات",
             "value": 120,
             "percentage": 39
           }
         ],
-        "typeSummary": [
-          {
-            "type": "Incremental",
-            "ideas": 512,
-            "share": "41%"
-          },
-          {
-            "type": "Breakthrough",
-            "ideas": 300,
-            "share": "24%"
-          },
-          {
-            "type": "Disruptive",
-            "ideas": 225,
-            "share": "18%"
-          },
-          {
-            "type": "Transformational",
-            "ideas": 211,
-            "share": "17%"
-          }
-        ]
+        "typeSummary": {
+          "headers": [
+            { "key": "type", "label": "النوع" },
+            { "key": "ideas", "label": "عدد الأفكار" },
+            { "key": "share", "label": "النسبة" }
+          ],
+          "items": [
+            {
+              "type": "ابتكار تدريجي",
+              "ideas": 512,
+              "share": "41%"
+            },
+            {
+              "type": "ابتكار اختراقي",
+              "ideas": 300,
+              "share": "24%"
+            },
+            {
+              "type": "ابتكار جذري",
+              "ideas": 225,
+              "share": "18%"
+            },
+            {
+              "type": "ابتكار تحوّلي",
+              "ideas": 211,
+              "share": "17%"
+            }
+          ]
+        }
       },
       "impact": {
-        "expected": [
-          {
-            "indicatorKey": "analytics.impact.expected_score",
-            "value": "81 / 100",
-            "statusKey": "analytics.status.high",
-            "statusType": "green"
-          },
-          {
-            "indicatorKey": "analytics.impact.potential_index",
-            "value": "77",
-            "statusKey": "analytics.status.strong",
-            "statusType": "cyan"
-          },
-          {
-            "indicatorKey": "analytics.impact.high_priority",
-            "value": "194",
-            "statusKey": "analytics.status.focused",
-            "statusType": "green"
-          },
-          {
-            "indicatorKey": "analytics.impact.ip_rate",
-            "value": "31%",
-            "statusKey": "analytics.status.selective",
-            "statusType": "amber"
-          },
-          {
-            "indicatorKey": "analytics.impact.risk_dist",
-            "value": "Balanced",
-            "statusKey": "analytics.status.managed",
-            "statusType": "cyan"
-          }
-        ],
-        "measured": [
-          {
-            "indicatorKey": "analytics.impact.time_reduction",
-            "value": "19%",
-            "statusKey": "analytics.status.improving",
-            "statusType": "green"
-          },
-          {
-            "indicatorKey": "analytics.impact.efficiency",
-            "value": "23%",
-            "statusKey": "analytics.status.strong",
-            "statusType": "green"
-          },
-          {
-            "indicatorKey": "analytics.impact.quality",
-            "value": "14%",
-            "statusKey": "analytics.status.positive",
-            "statusType": "cyan"
-          },
-          {
-            "indicatorKey": "analytics.impact.risk_reduction",
-            "value": "12%",
-            "statusKey": "analytics.status.positive",
-            "statusType": "cyan"
-          },
-          {
-            "indicatorKey": "analytics.impact.sustainability",
-            "value": "72",
-            "statusKey": "analytics.status.developing",
-            "statusType": "amber"
-          }
-        ],
+        "expected": {
+          "headers": [
+            { "key": "indicatorKey", "label": "المؤشر" },
+            { "key": "value", "label": "القيمة" },
+            { "key": "statusKey", "label": "الحالة" }
+          ],
+          "items": [
+            {
+              "indicatorKey": "درجة الأثر المتوقع",
+              "value": "81 / 100",
+              "statusKey": "مرتفع",
+              "statusColor": "#05D989"
+            },
+            {
+              "indicatorKey": "مؤشر القيمة المحتملة",
+              "value": "77",
+              "statusKey": "قوي",
+              "statusColor": "#21C2DD"
+            },
+            {
+              "indicatorKey": "أفكار عالية الأولوية",
+              "value": "194",
+              "statusKey": "مُركز",
+              "statusColor": "#05D989"
+            },
+            {
+              "indicatorKey": "معدل فرص الملكية الفكرية",
+              "value": "31%",
+              "statusKey": "انتقائي",
+              "statusColor": "#FF8E53"
+            },
+            {
+              "indicatorKey": "توزيع مستوى المخاطر",
+              "value": "متوازن",
+              "statusKey": "مُدار",
+              "statusColor": "#21C2DD"
+            }
+          ]
+        },
+        "measured": {
+          "headers": [
+            { "key": "indicatorKey", "label": "المؤشر" },
+            { "key": "value", "label": "القيمة" },
+            { "key": "statusKey", "label": "الحالة" }
+          ],
+          "items": [
+            {
+              "indicatorKey": "خفض وقت التشغيل",
+              "value": "19%",
+              "statusKey": "يتحسن",
+              "statusColor": "#05D989"
+            },
+            {
+              "indicatorKey": "تحسين الكفاءة",
+              "value": "23%",
+              "statusKey": "قوي",
+              "statusColor": "#05D989"
+            },
+            {
+              "indicatorKey": "تحسين جودة الخدمة",
+              "value": "14%",
+              "statusKey": "إيجابي",
+              "statusColor": "#21C2DD"
+            },
+            {
+              "indicatorKey": "مؤشر خفض المخاطر",
+              "value": "12%",
+              "statusKey": "إيجابي",
+              "statusColor": "#21C2DD"
+            },
+            {
+              "indicatorKey": "مؤشر أثر الاستدامة",
+              "value": "72",
+              "statusKey": "قيد التطوير",
+              "statusColor": "#FF8E53"
+            }
+          ]
+        },
         "bands": [
           {
-            "label": "Low",
+            "label": "منخفض",
             "percentage": 9
           },
           {
-            "label": "Medium",
+            "label": "متوسط",
             "percentage": 28
           },
           {
-            "label": "High",
+            "label": "مرتفع",
             "percentage": 44
           },
           {
-            "label": "Strategic",
+            "label": "استراتيجي",
             "percentage": 19
           }
         ],
-        "themes": [
-          {
-            "theme": "Emergency Response Automation",
-            "ideas": 74,
-            "score": 89
-          },
-          {
-            "theme": "Smart Dispatching",
-            "ideas": 61,
-            "score": 86
-          },
-          {
-            "theme": "Field Medic Support",
-            "ideas": 48,
-            "score": 84
-          },
-          {
-            "theme": "Patient Experience",
-            "ideas": 53,
-            "score": 81
-          }
-        ]
+        "themes": {
+          "headers": [
+            { "key": "theme", "label": "الموضوع" },
+            { "key": "ideas", "label": "عدد الأفكار" },
+            { "key": "score", "label": "النسبة" }
+          ],
+          "items": [
+            {
+              "theme": "أتمتة الاستجابة للطوارئ",
+              "ideas": 74,
+              "score": 89
+            },
+            {
+              "theme": "التوجيه الذكي",
+              "ideas": 61,
+              "score": 86
+            },
+            {
+              "theme": "الدعم الطبي الميداني",
+              "ideas": 48,
+              "score": 84
+            },
+            {
+              "theme": "تجربة المريض",
+              "ideas": 53,
+              "score": 81
+            }
+          ]
+        }
       },
       "governance": {
-        "indicators": [
-          {
-            "kpiKey": "analytics.gov.avg_eval_score",
-            "value": "74 / 100",
-            "statusKey": "analytics.status.stable",
-            "statusType": "cyan"
-          },
-          {
-            "kpiKey": "analytics.gov.weighted_score",
-            "value": "77 / 100",
-            "statusKey": "analytics.status.healthy",
-            "statusType": "green"
-          },
-          {
-            "kpiKey": "analytics.gov.bias_indicator",
-            "value": "Low",
-            "statusKey": "analytics.status.controlled",
-            "statusType": "green"
-          },
-          {
-            "kpiKey": "analytics.gov.active_evaluators",
-            "value": "68",
-            "statusKey": "analytics.status.available",
-            "statusType": "cyan"
-          },
-          {
-            "kpiKey": "analytics.gov.cycle_time",
-            "value": "3.8 days",
-            "statusKey": "analytics.status.fast",
-            "statusType": "green"
-          }
-        ],
+        "indicators": {
+          "headers": [
+            { "key": "kpiKey", "label": "المؤشر KPI" },
+            { "key": "value", "label": "القيمة" },
+            { "key": "statusKey", "label": "الحالة" }
+          ],
+          "items": [
+            {
+              "kpiKey": "متوسط درجة التقييم",
+              "value": "74 / 100",
+              "statusKey": "مستقر",
+              "statusColor": "#21C2DD"
+            },
+            {
+              "kpiKey": "درجة التقييم المرجّحة",
+              "value": "77 / 100",
+              "statusKey": "صحي",
+              "statusColor": "#05D989"
+            },
+            {
+              "kpiKey": "مؤشر تحيز المقيمين",
+              "value": "منخفض",
+              "statusKey": "مضبوط",
+              "statusColor": "#05D989"
+            },
+            {
+              "kpiKey": "عدد المقيمين النشطين",
+              "value": "68",
+              "statusKey": "متاح",
+              "statusColor": "#21C2DD"
+            },
+            {
+              "kpiKey": "زمن دورة الاعتماد",
+              "value": "3.8 days",
+              "statusKey": "سريع",
+              "statusColor": "#05D989"
+            }
+          ]
+        },
         "heatmap": {
-          "yCategories": ["Bias", "Cycle Time", "Completion"],
-          "xCategories": ["Q1", "Q2", "Q3", "Q4", "Target"],
-          "data": [
+          "categories": [
+            "الهدف",
+            "الربع الرابع",
+            "الربع الثالث",
+            "الربع الثاني",
+            "الربع الأول"
+          ],
+          "series": [
             {
-              "name": "Bias",
+              "name": "التحيز",
               "data": [
-                {
-                  "x": "Q1",
-                  "y": "Low",
-                  "level": "h2"
-                },
-                {
-                  "x": "Q2",
-                  "y": "Low",
-                  "level": "h2"
-                },
-                {
-                  "x": "Q3",
-                  "y": "Low",
-                  "level": "h1"
-                },
-                {
-                  "x": "Q4",
-                  "y": "Low",
-                  "level": "h1"
-                },
-                {
-                  "x": "Target",
-                  "y": "Good",
-                  "level": "h1"
-                }
+                { "value": "جيد", "color": "#05D989" },
+                { "value": "منخفض", "color": "#05D989" },
+                { "value": "منخفض", "color": "#05D989" },
+                { "value": "منخفض", "color": "#018AAF" },
+                { "value": "منخفض", "color": "#018AAF" }
               ]
             },
             {
-              "name": "Cycle Time",
+              "name": "مدة الدورة",
               "data": [
-                {
-                  "x": "Q1",
-                  "y": "4.8",
-                  "level": "h3"
-                },
-                {
-                  "x": "Q2",
-                  "y": "4.4",
-                  "level": "h2"
-                },
-                {
-                  "x": "Q3",
-                  "y": "4.1",
-                  "level": "h2"
-                },
-                {
-                  "x": "Q4",
-                  "y": "3.8",
-                  "level": "h1"
-                },
-                {
-                  "x": "Target",
-                  "y": "<5",
-                  "level": "h1"
-                }
+                { "value": "5>", "color": "#05D989" },
+                { "value": "3.8", "color": "#05D989" },
+                { "value": "4.1", "color": "#018AAF" },
+                { "value": "4.4", "color": "#018AAF" },
+                { "value": "4.8", "color": "#7F4FFF" }
               ]
             },
             {
-              "name": "Completion",
+              "name": "نسبة الإنجاز",
               "data": [
-                {
-                  "x": "Q1",
-                  "y": "79%",
-                  "level": "h3"
-                },
-                {
-                  "x": "Q2",
-                  "y": "83%",
-                  "level": "h2"
-                },
-                {
-                  "x": "Q3",
-                  "y": "87%",
-                  "level": "h2"
-                },
-                {
-                  "x": "Q4",
-                  "y": "91%",
-                  "level": "h1"
-                },
-                {
-                  "x": "Target",
-                  "y": "85%",
-                  "level": "h1"
-                }
+                { "value": "85%", "color": "#05D989" },
+                { "value": "91%", "color": "#05D989" },
+                { "value": "87%", "color": "#018AAF" },
+                { "value": "83%", "color": "#018AAF" },
+                { "value": "79%", "color": "#7F4FFF" }
               ]
             }
           ]
@@ -3639,67 +3619,67 @@
         "gaugeValue": 80,
         "bubbles": [
           {
-            "name": "Cluster A",
-            "value": 150,
-            "size": 120,
-            "color": "linear-gradient(135deg, #34d3ff, #06b6d4)",
-            "x": 30,
-            "y": 45
+            "name": "العنقود A",
+            "value": 64,
+            "size": 133,
+            "color": "#018AAF",
+            "x": 3,
+            "y": 4
           },
           {
-            "name": "Cluster B",
+            "name": "العنقود B",
             "value": 51,
-            "size": 95,
-            "color": "linear-gradient(135deg, #8b5cf6, #7c3aed)",
-            "x": 62,
-            "y": 38
+            "size": 102,
+            "color": "#895AF7",
+            "x": 47,
+            "y": 36
           },
           {
-            "name": "Cluster C",
+            "name": "العنقود C",
             "value": 33,
             "size": 78,
-            "color": "linear-gradient(135deg, #f59e0b, #ea580c)",
-            "x": 50,
-            "y": 72
+            "color": "#FF8E53",
+            "x": 72,
+            "y": 13
           },
           {
-            "name": "Merge",
+            "name": "دمج",
             "value": 18,
-            "size": 65,
-            "color": "linear-gradient(135deg, #22c55e, #16a34a)",
-            "x": 78,
-            "y": 68
+            "size": 73,
+            "color": "#05D989",
+            "x": 13,
+            "y": 58
           }
         ],
         "probability": [
           {
-            "label": "High IP",
+            "label": "احتمالية ملكية فكرية عالية",
             "percentage": 31,
-            "color": "linear-gradient(90deg,var(--green),#14b8a6)"
+            "type": "high"
           },
           {
-            "label": "Medium IP",
+            "label": "احتمالية ملكية فكرية متوسطة",
             "percentage": 46,
-            "color": "linear-gradient(90deg,var(--amber),#f97316)"
+            "type": "medium"
           },
           {
-            "label": "Low IP",
+            "label": "احتمالية ملكية فكرية منخفضة",
             "percentage": 23,
-            "color": "linear-gradient(90deg,var(--red),#fb7185)"
+            "type": "low"
           }
         ],
         "streamSeries": [
           {
             "name": "Theme A",
-            "data": [30, 40, 35, 50, 49, 60, 70, 91]
+            "data": [30, 29, 30, 29, 30, 29, 29, 30]
           },
           {
             "name": "Theme B",
-            "data": [20, 30, 25, 40, 39, 45, 50, 55]
+            "data": [25, 24, 25, 24, 25, 24, 24, 25]
           },
           {
             "name": "Theme C",
-            "data": [10, 15, 20, 25, 22, 28, 30, 32]
+            "data": [20, 19, 20, 19, 20, 19, 19, 20]
           }
         ],
         "aiCommentaryKey": "analytics.commentary.text"

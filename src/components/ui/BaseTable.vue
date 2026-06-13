@@ -10,25 +10,33 @@ defineProps({
   },
   tableClass: {
     type: String,
-    default: "min-w-[1250px]",
+    default: "",
+  },
+  headerClass: {
+    type: String,
+    default: "border-b border-white",
+  },
+  rowClass: {
+    type: String,
+    default: "border-b border-white/30 last:border-b-0",
+  },
+  cellClass: {
+    type: String,
+    default: " ",
   },
 });
 </script>
 
 <template>
-  <div
-    class="w-full overflow-x-auto rounded-[24px] border border-[#1e293b]/30 bg-[#060e1d]/50 p-4 md:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.3)] backdrop-blur-xl custom-scrollbar"
-  >
-    <table
-      class="w-full border-separate border-spacing-y-3"
-      :class="tableClass"
-    >
+  <div class="w-full overflow-x-auto rounded-[24px]">
+    <table class="w-full" :class="tableClass">
       <thead>
         <tr>
           <th
             v-for="header in headers"
             :key="header.key"
-            class="pb-2 px-4 font-normal text-xs text-gray-400 text-start w-[150px]"
+            class="p-3 font-normal text-xs text-white/70 text-start whitespace-nowrap min-w-[110px]"
+            :class="headerClass"
           >
             <!-- Slot for custom header rendering -->
             <slot :name="`header(${header.key})`" :header="header">
@@ -41,12 +49,14 @@ defineProps({
         <tr
           v-for="(item, index) in items"
           :key="item.id || index"
-          class="group rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30 backdrop-blur-xl"
+          class="group"
+          :class="rowClass"
         >
           <td
             v-for="header in headers"
             :key="header.key"
-            class="p-3 border-y border-white/10 group-hover:border-white/20 first:border-s first:rounded-s-[20px] last:border-e last:rounded-e-[20px] transition-all duration-300"
+            class="p-3 transition-all duration-300"
+            :class="cellClass"
           >
             <!-- Slot for custom cell rendering -->
             <slot

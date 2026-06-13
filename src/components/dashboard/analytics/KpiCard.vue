@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import BaseSparklineBars from "@/components/ui/BaseSparklineBars.vue";
 import SvgIcon from "@/components/ui/SvgIcon.vue";
-import BaseBox from "@/components/ui/BaseBox.vue";
+import BaseAnalyticBox from "@/components/ui/BaseAnalyticBox.vue";
 
 const props = defineProps({
   id: {
@@ -54,7 +54,7 @@ const growthColorClass = computed(() => {
 </script>
 
 <template>
-  <BaseBox type="glass" class="p-4 cursor-pointer" @click="$emit('select', id)">
+  <BaseAnalyticBox class="p-4 cursor-pointer" @click="$emit('select', id)">
     <!-- Header Row: Badge and Title -->
     <div class="flex justify-between items-center gap-2.5">
       <h5 class="text-xs text-white/76">
@@ -97,7 +97,7 @@ const growthColorClass = computed(() => {
         {{ percentage }}
       </span>
     </div>
-  </BaseBox>
+  </BaseAnalyticBox>
 </template>
 
 <style scoped>

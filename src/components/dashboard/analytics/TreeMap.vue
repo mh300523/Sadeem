@@ -19,6 +19,7 @@ const data = props.series?.[0]?.data ?? [];
         backgroundColor: item.fillColor,
         gridRow: index === 0 ? '1 / 3' : index === 3 ? '2 / 4' : 'auto',
       }"
+      :title="`${item.x} - ${item.y}`"
     >
       <span class="text-[10px] text-white">
         {{ item.x }}

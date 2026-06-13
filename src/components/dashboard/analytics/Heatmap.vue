@@ -12,6 +12,10 @@ const props = defineProps({
     type: Number,
     default: 60,
   },
+  classes: {
+    type: String,
+    default: "",
+  },
 });
 </script>
 
@@ -47,7 +51,8 @@ const props = defineProps({
         <div
           v-for="(cell, idx) in row.data"
           :key="idx"
-          class="rounded-xl flex items-center justify-center font-bold text-white text-xl transition-all duration-200 hover:opacity-90 cursor-pointer"
+          class="rounded-xl flex items-center justify-center font-medium text-white transition-all duration-200 hover:brightness-120"
+          :class="classes"
           :style="{
             width: `${cellSize}px`,
             height: `${cellSize}px`,

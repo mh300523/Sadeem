@@ -2,6 +2,7 @@
 import ProgressBar from "./ProgressBar.vue";
 import { watchEffect } from "vue";
 import BaseBox from "@/components/ui/BaseBox.vue";
+import BaseAnalyticBox from "@/components/ui/BaseAnalyticBox.vue";
 
 const props = defineProps({
   isOpen: {
@@ -102,11 +103,7 @@ function getMaxValue(bars) {
 
         <!-- Breakdown Visualization Block -->
 
-        <BaseBox
-          type="glass"
-          v-if="data?.bars && data.bars.length"
-          class="p-4 mt-6"
-        >
+        <BaseAnalyticBox v-if="data?.bars && data.bars.length" class="p-4 mt-6">
           <h4 class="font-medium text-white uppercase mb-3">
             {{ $t("analytics.drawer.breakdown") }}
           </h4>
@@ -118,7 +115,7 @@ function getMaxValue(bars) {
             :label="b.label"
             :valueText="String(b.value)"
           />
-        </BaseBox>
+        </BaseAnalyticBox>
       </div>
     </aside>
   </div>

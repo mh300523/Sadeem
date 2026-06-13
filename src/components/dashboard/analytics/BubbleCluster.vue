@@ -33,6 +33,7 @@ const bubbleStyles = computed(() =>
       :key="i"
       class="bubble p-2 absolute rounded-full flex flex-col items-center justify-center transition-transform duration-300 ease-in-out hover:scale-105 overflow-hidden"
       :style="bubbleStyles[i]"
+      :title="`${bubble.name} - ${bubble.value}`"
     >
       <span class="bubble-name text-white text-nowrap text-[10px]">{{
         bubble.name

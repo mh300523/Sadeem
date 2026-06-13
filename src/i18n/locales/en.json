@@ -280,8 +280,7 @@
         "value": "Value",
         "status": "Status",
         "theme": "Theme",
-        "ideas": "Ideas",
-        "expected_score": "Expected Score"
+        "ideas": "Ideas"
       }
     },
     "governance_tab": {
@@ -292,13 +291,16 @@
       }
     },
     "intelligence_tab": {
-      "ai_alignment_title": "AI Alignment Score",
+      "ai_alignment_title": "AI compatibility level",
       "similarity_title": "Similarity Cluster Map",
       "probability_title": "Probability Bands",
-      "predictive_title": "Predictive Innovation Stream",
-      "commentary_title": "AI Commentary",
-      "gauge_sub": "AI Score",
+      "predictive_title": "Future innovation trends",
+      "commentary_title": "AI Insights",
+      "gauge_sub": "AI Result",
       "commentary_text": "The data has been populated so that the platform looks complete and full of ideas, and Quick Actions have also been added below the main menu as requested."
+    },
+    "commentary": {
+      "text": "The data indicates a notable concentration of AI and customer experience ideas, reflecting clear priorities within the organization.\nIt also shows redundancy in several ideas within the same domains, opening up opportunities to merge and transform them into more impactful initiatives.\n\nIt is recommended to focus on ideas with high success probability and work on merging similar ideas to maximize value."
     },
     "drawer": {
       "close": "Close",
@@ -335,21 +337,7 @@
         "metric3_label": "Recommended Drill-Down"
       }
     },
-    "status": {
-      "high": "High",
-      "strong": "Strong",
-      "focused": "Focused",
-      "selective": "Selective",
-      "managed": "Managed",
-      "improving": "Improving",
-      "positive": "Positive",
-      "developing": "Developing",
-      "stable": "Stable",
-      "healthy": "Healthy",
-      "controlled": "Controlled",
-      "available": "Available",
-      "fast": "Fast"
-    },
+
     "brand_title": "Sadeem Platform",
     "brand_sub": "Innovation Intelligence - v7"
   }

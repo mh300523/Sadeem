@@ -2,6 +2,7 @@
 import BaseBox from "@/components/ui/BaseBox.vue";
 import BaseSparklineBars from "@/components/ui/BaseSparklineBars.vue";
 import BaseButton from "@/components/ui/BaseButton.vue";
+import BaseAnalyticBox from "@/components/ui/BaseAnalyticBox.vue";
 
 defineProps({
   screens: {
@@ -41,11 +42,7 @@ const emit = defineEmits(["update:activeScreen"]);
       <!-- Navigation tabs -->
       <div class="px-6">
         <ul class="divide-y divide-white/20">
-          <li
-            v-for="scrKey in Object.keys(screens)"
-            :key="scrKey"
-            class="py-4"
-          >
+          <li v-for="scrKey in Object.keys(screens)" :key="scrKey" class="py-4">
             <button
               @click="emit('update:activeScreen', scrKey)"
               class="w-full flex justify-between items-center gap-3.5 cursor-pointer font-medium text-white text-base md:text-lg hover:text-[#FF6B35]"
@@ -78,7 +75,7 @@ const emit = defineEmits(["update:activeScreen"]);
 
       <!-- Live Signal module -->
       <div class="px-6 mb-6">
-        <BaseBox class="pt-[20px] px-4" type="glass">
+        <BaseAnalyticBox class="pt-[20px] px-4">
           <h4 class="text-[#05D989] font-medium uppercase">
             {{ $t("analytics.live_signal") }}
           </h4>
@@ -93,7 +90,7 @@ const emit = defineEmits(["update:activeScreen"]);
           </div>
           <!-- indicator bars -->
           <BaseSparklineBars :data="liveSignal.sparkline" />
-        </BaseBox>
+        </BaseAnalyticBox>
       </div>
 
       <!-- Quick Actions list -->

@@ -29,7 +29,10 @@ function getBadgeConfig(statusId) {
   <BaseTable
     :headers="headers"
     :items="ideas"
-    tableClass="min-w-[1350px] ideas-table"
+    tableClass="ideas-table border-separate border-spacing-y-3 min-w-[1350px]  border border-[#1e293b]/30 bg-[#060e1d]/50 p-4 md:p-6 backdrop-blur-xl"
+    headerClass="pt-0!"
+    rowClass="rtl:bg-linear-to-l ltr:bg-linear-to-r from-[#1E293B]/60 to-[#1E293B]/30 backdrop-blur-xl"
+    cellClass="border-y border-white/10 group-hover:border-white/20 first:border-s first:rounded-s-[20px] last:border-e last:rounded-e-[20px]"
   >
     <!-- Custom cell for Idea ID -->
     <template #cell(id)="{ item }">

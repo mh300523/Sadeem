@@ -14,6 +14,7 @@ import ImpactScreen from "@/components/dashboard/analytics/screens/ImpactScreen.
 import GovernanceScreen from "@/components/dashboard/analytics/screens/GovernanceScreen.vue";
 import IntelligenceScreen from "@/components/dashboard/analytics/screens/IntelligenceScreen.vue";
 import DetailDrawer from "@/components/dashboard/analytics/DetailDrawer.vue";
+import BaseAnalyticBox from "@/components/ui/BaseAnalyticBox.vue";
 
 const { t } = useI18n();
 
@@ -214,47 +215,51 @@ function handleSelectKpi(kpiId) {
 
     <!-- Main Content Area -->
     <div class="lg:col-span-9">
-      <!-- Topbar Header & Filters -->
-      <AnalyticsToolbar
-        :activeScreen="activeScreen"
-        :analyticsFilters="analyticsFilters"
-        @update:filters="handleFiltersChange"
-      />
-
-      <!-- Active view renderer -->
-      <transition name="fade" mode="out-in">
-        <SnapshotScreen
-          v-if="activeScreen === 'snapshot'"
-          :screenData="screens.snapshot"
-          @select-kpi="handleSelectKpi"
+      <BaseAnalyticBox class="border-gradient p-3 rounded-[20px]!">
+        <!-- Topbar Header & Filters -->
+        <AnalyticsToolbar
+          :activeScreen="activeScreen"
+          :analyticsFilters="analyticsFilters"
+          @update:filters="handleFiltersChange"
         />
 
-        <OutcomesScreen
-          v-else-if="activeScreen === 'outcomes'"
-          :screenData="screens.outcomes"
-          @select-kpi="handleSelectKpi"
-        />
+        <!-- Active view renderer -->
+        <transition name="fade" mode="out-in">
+          <div class="flex flex-col gap-6">
+            <SnapshotScreen
+              v-if="activeScreen === 'snapshot'"
+              :screenData="screens.snapshot"
+              @select-kpi="handleSelectKpi"
+            />
 
-        <PortfolioScreen
-          v-else-if="activeScreen === 'portfolio'"
-          :screenData="screens.portfolio"
-        />
+            <OutcomesScreen
+              v-else-if="activeScreen === 'outcomes'"
+              :screenData="screens.outcomes"
+              @select-kpi="handleSelectKpi"
+            />
 
-        <ImpactScreen
-          v-else-if="activeScreen === 'impact'"
-          :screenData="screens.impact"
-        />
+            <PortfolioScreen
+              v-else-if="activeScreen === 'portfolio'"
+              :screenData="screens.portfolio"
+            />
 
-        <GovernanceScreen
-          v-else-if="activeScreen === 'governance'"
-          :screenData="screens.governance"
-        />
+            <ImpactScreen
+              v-else-if="activeScreen === 'impact'"
+              :screenData="screens.impact"
+            />
 
-        <IntelligenceScreen
-          v-else-if="activeScreen === 'intelligence'"
-          :screenData="screens.intelligence"
-        />
-      </transition>
+            <GovernanceScreen
+              v-else-if="activeScreen === 'governance'"
+              :screenData="screens.governance"
+            />
+
+            <IntelligenceScreen
+              v-else-if="activeScreen === 'intelligence'"
+              :screenData="screens.intelligence"
+            />
+          </div>
+        </transition>
+      </BaseAnalyticBox>
     </div>
 
     <!-- Reusable dynamically driven Detail Drawer -->
