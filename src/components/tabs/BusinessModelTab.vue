@@ -19,8 +19,10 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
 <template>
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
     <!-- Sidebar Column (will render on the right in RTL, and left in LTR) -->
-    <BaseBox class="lg:col-span-3 white-border rounded-2xl">
-      <div class="sidebar-container relative px-[14px] py-5">
+    <div class="lg:col-span-3">
+      <BaseBox
+        class="sidebar-container relative px-[14px] py-5 white-border rounded-2xl"
+      >
         <!-- Space Card -->
 
         <h2 class="sidebar-gradient-title secondery-text-gradient">
@@ -32,8 +34,8 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
           :title="sidebarData.journey?.title"
           :steps="sidebarData.journey?.steps"
         />
-      </div>
-    </BaseBox>
+      </BaseBox>
+    </div>
 
     <!-- Main Content Column (will render on the left in RTL, and right in LTR) -->
     <div class="lg:col-span-9">

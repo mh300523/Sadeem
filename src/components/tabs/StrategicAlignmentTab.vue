@@ -77,8 +77,10 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
       </BaseBox>
     </div>
     <!-- Sidebar Column (Right in RTL, Left in LTR) -->
-    <BaseBox class="lg:col-span-3 white-border rounded-2xl">
-      <div class="sidebar-container px-[14px] py-5">
+    <div class="lg:col-span-3">
+      <BaseBox
+        class="sidebar-container px-[14px] py-5 white-border rounded-2xl"
+      >
         <!-- Intro Card with Astronaut -->
         <div class="mb-[14px]">
           <h2 class="sidebar-gradient-title secondery-text-gradient">
@@ -194,8 +196,8 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
             </div>
           </BaseBox>
         </div>
-      </div>
-    </BaseBox>
+      </BaseBox>
+    </div>
   </div>
 </template>
 

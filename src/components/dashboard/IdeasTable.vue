@@ -154,11 +154,19 @@ function getBadgeConfig(statusId) {
         class="text-white/75 hover:text-white font-medium text-sm transition-colors duration-200 inline-flex items-center gap-1.5"
       >
         <span>{{ $t("actions.view") }}</span>
-        <span
-          class="text-lg leading-none transform transition-transform duration-200"
+        <svg
+          class="w-4 h-4 rtl:rotate-180"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2.5"
         >
-          {{ locale === "ar" ? "←" : "→" }}
-        </span>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"
+          />
+        </svg>
       </RouterLink>
     </template>
   </BaseTable>

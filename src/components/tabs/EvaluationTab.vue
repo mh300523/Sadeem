@@ -1,8 +1,11 @@
 <script setup>
 import { ref, computed } from "vue";
 import { useI18n } from "vue-i18n";
+import mockData from "@/mockData.json";
 import BaseBox from "@/components/ui/BaseBox.vue";
 import RadarChart from "@/components/tabsBlocks/RadarChart.vue";
+import SvgIcon from "@/components/ui/SvgIcon.vue";
+import BaseButton from "@/components/ui/BaseButton.vue";
 
 // Reusable blocks
 import ScoreCard from "@/components/tabsBlocks/ScoreCard.vue";
@@ -18,73 +21,18 @@ const props = defineProps({
   },
 });
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 // View toggle state: "sliders" (Criteria view) or "bias" (Bias comparison dashboard view)
 const currentView = ref("sliders");
 
-// Default baseline values in case props.data is empty
-const defaultCriteria = [
-  { key: "creativity", weight: "20%", value: 3 },
-  { key: "need", weight: "20%", value: 3 },
-  { key: "feasibility", weight: "20%", value: 3 },
-  { key: "sustainability", weight: "20%", value: 3 },
-  { key: "impact", weight: "20%", value: 3 },
-  { key: "alignment", weight: "20%", value: 3 },
-  { key: "risk", weight: "20%", value: 3 },
-  { key: "reputation", weight: "20%", value: 3 }
-];
+// Default baseline values from mockData.json default details in case props.data is empty
+const defaultEvaluationData = mockData.details?.default?.tabs?.find((t) => t.key === "evaluation")?.data || {};
 
-const defaultAiScores = [4, 3, 4, 3, 5, 4, 4, 3];
-const defaultTeamScores = [3, 4, 3, 4, 4, 3, 3, 4];
-
-const defaultEvaluators = [
-  {
-    name: "Khaled",
-    bias: "+4.2%",
-    classification: "Balanced",
-    averageRating: 75,
-    teamAverage: 72,
-    badgeClass: "bg-[#10B981]/10 border-[#10B981]/20 text-[#10B981]",
-    scores: [4, 3, 4, 3, 5, 4, 4, 3],
-  },
-  {
-    name: "Sara",
-    bias: "-5.6%",
-    classification: "Generous",
-    averageRating: 68,
-    teamAverage: 72,
-    badgeClass: "bg-blue-500/10 border-blue-500/20 text-blue-400",
-    scores: [4, 4, 3, 5, 4, 3, 4, 4],
-  },
-  {
-    name: "Omar",
-    bias: "-1.4%",
-    classification: "Balanced",
-    averageRating: 71,
-    teamAverage: 72,
-    badgeClass: "bg-[#10B981]/10 border-[#10B981]/20 text-[#10B981]",
-    scores: [3, 4, 3, 3, 4, 4, 3, 4],
-  },
-  {
-    name: "Lina",
-    bias: "-16.7%",
-    classification: "Strict",
-    averageRating: 60,
-    teamAverage: 72,
-    badgeClass: "bg-[#EF4444]/10 border-[#EF4444]/20 text-[#EF4444]",
-    scores: [2, 3, 2, 4, 3, 2, 3, 2],
-  },
-  {
-    name: "Shams",
-    bias: "-5.6%",
-    classification: "Strict",
-    averageRating: 68,
-    teamAverage: 72,
-    badgeClass: "bg-[#EF4444]/10 border-[#EF4444]/20 text-[#EF4444]",
-    scores: [3, 2, 3, 3, 3, 3, 2, 3],
-  },
-];
+const defaultCriteria = defaultEvaluationData.criteria || [];
+const defaultAiScores = defaultEvaluationData.aiScores || [];
+const defaultTeamScores = defaultEvaluationData.teamScores || [];
+const defaultEvaluators = defaultEvaluationData.evaluators || [];
 
 // Initialize dynamic values loaded from props.data or defaults
 const criteriaList = props.data?.criteria || defaultCriteria;
@@ -93,33 +41,46 @@ const teamScores = props.data?.teamScores || defaultTeamScores;
 const evaluatorsList = props.data?.evaluators || defaultEvaluators;
 
 // Criteria mapped with localized text getters
-const criteria = ref(criteriaList.map((crit) => {
-  return {
-    ...crit,
-    get label() { return t(`evaluation.criteria.${crit.key}.label`); },
-    get description() { return t(`evaluation.criteria.${crit.key}.description`); }
-  };
-}));
+const criteria = ref(
+  criteriaList.map((crit) => {
+    return {
+      ...crit,
+      get label() {
+        return t(`evaluation.criteria.${crit.key}.label`);
+      },
+      get description() {
+        return t(`evaluation.criteria.${crit.key}.description`);
+      },
+    };
+  }),
+);
 
 // Localized radar chart labels dynamically computed from localized criteria
 const radarLabels = computed(() => criteria.value.map((c) => c.label));
 
 // Evaluators database
-const evaluators = ref(evaluatorsList.map((e) => {
-  // Use badge classes from current theme style if not specified
-  const classificationStyles = {
-    Balanced: "bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981]",
-    Generous: "bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-[#3B82F6]",
-    Strict: "bg-[#EF4444]/10 border border-[#EF4444]/20 text-[#EF4444]"
-  };
-  const badgeClass = e.badgeClass || classificationStyles[e.classification] || classificationStyles.Balanced;
+const evaluators = ref(
+  evaluatorsList.map((e) => {
+    // Use badge classes from current theme style if not specified
+    const classificationStyles = {
+      Balanced: "bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981]",
+      Generous: "bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-[#3B82F6]",
+      Strict: "bg-[#EF4444]/10 border border-[#EF4444]/20 text-[#EF4444]",
+    };
+    const badgeClass =
+      e.badgeClass ||
+      classificationStyles[e.classification] ||
+      classificationStyles.Balanced;
 
-  return {
-    ...e,
-    badgeClass,
-    get classificationText() { return t(`evaluation.classifications.${e.classification}`); }
-  };
-}));
+    return {
+      ...e,
+      badgeClass,
+      get classificationText() {
+        return t(`evaluation.classifications.${e.classification}`);
+      },
+    };
+  }),
+);
 
 const selectedEvaluatorIndex = ref(0);
 const selectedEvaluator = computed(
@@ -127,41 +88,54 @@ const selectedEvaluator = computed(
 );
 
 // Dynamic strongest/weakest trait computations based on sliders
+const commaSeparator = computed(() => {
+  return locale.value === "ar" ? "، " : ", ";
+});
+
 const strongestAspects = computed(() => {
   const sorted = [...criteria.value].sort((a, b) => b.value - a.value);
+  if (sorted.length === 0) return "";
   const maxVal = sorted[0].value;
   const top = sorted.filter((c) => c.value === maxVal).slice(0, 2);
-  return top.map((t) => `${t.label} (${t.value}/5)`).join("، ");
+  return top.map((t) => `${t.label} (${t.value}/5)`).join(commaSeparator.value);
 });
 
 const weakestAspects = computed(() => {
   const sorted = [...criteria.value].sort((a, b) => a.value - b.value);
+  if (sorted.length === 0) return "";
   const minVal = sorted[0].value;
   const bottom = sorted.filter((c) => c.value === minVal).slice(0, 2);
-  return bottom.map((b) => `${b.label} (${b.value}/5)`).join("، ");
+  return bottom.map((b) => `${b.label} (${b.value}/5)`).join(commaSeparator.value);
 });
 
 // Calculate rating values dynamically or fallback to screen designs
 const yourRating = computed(() => {
+  if (criteria.value.length === 0) return "0.0";
   const sum = criteria.value.reduce((acc, c) => acc + c.value, 0);
   const maxPossible = criteria.value.length * 5;
   return ((sum / maxPossible) * 100).toFixed(1);
 });
 
 const teamRating = computed(() => {
-  if (props.data?.teamScores) {
-    const sum = teamScores.reduce((acc, val) => acc + val, 0);
-    return ((sum / (teamScores.length * 5)) * 100).toFixed(1);
-  }
-  return "74.0";
+  const scores = props.data?.teamScores || defaultTeamScores;
+  if (scores.length === 0) return "0.0";
+  const sum = scores.reduce((acc, val) => acc + val, 0);
+  return ((sum / (scores.length * 5)) * 100).toFixed(1);
 });
 
 const aiRating = computed(() => {
-  if (props.data?.aiScores) {
-    const sum = aiScores.reduce((acc, val) => acc + val, 0);
-    return ((sum / (aiScores.length * 5)) * 100).toFixed(1);
-  }
-  return "78.0";
+  const scores = props.data?.aiScores || defaultAiScores;
+  if (scores.length === 0) return "0.0";
+  const sum = scores.reduce((acc, val) => acc + val, 0);
+  return ((sum / (scores.length * 5)) * 100).toFixed(1);
+});
+
+const biasMetrics = computed(() => {
+  return {
+    balanceRate: props.data?.biasMetrics?.balanceRate || t("evaluation.balance_rate_value"),
+    averageBias: props.data?.biasMetrics?.averageBias || t("evaluation.average_bias_value"),
+    highestBias: props.data?.biasMetrics?.highestBias || t("evaluation.highest_bias_value"),
+  };
 });
 
 // Dynamic sliders scores series
@@ -217,55 +191,45 @@ const resetCriterion = (index) => {
 </script>
 
 <template>
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 text-right">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
     <!-- Right Sidebar (تقييم الفكرة - Static across dashboard view states) -->
-    <div class="lg:col-span-3 flex flex-col gap-4">
-      <BaseBox class="p-6 gradient-border rounded-2xl flex flex-col gap-5">
+    <div class="lg:col-span-3">
+      <BaseBox class="p-3 white-border rounded-2xl">
         <!-- Sidebar Title with Stars -->
-        <div
-          class="flex justify-between items-center border-b border-white/10 pb-3"
-        >
-          <div class="flex gap-1 text-[#FFB017]">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path
-                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-              />
-            </svg>
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path
-                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-              />
-            </svg>
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path
-                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-              />
-            </svg>
-          </div>
-          <h3 class="text-white text-sm md:text-base font-bold">
+        <div class="flex justify-between items-center pb-3">
+          <h2 class="sidebar-gradient-title secondery-text-gradient mb-0!">
             {{ $t("evaluation.title") }}
-          </h3>
+          </h2>
+          <SvgIcon name="stars" />
         </div>
 
         <!-- Gradient Info Box -->
         <div
-          class="p-5 rounded-2xl bg-gradient-to-r from-[rgba(1,138,175,0.2)] to-[rgba(127,79,255,0.2)] border border-white/10 text-right flex flex-col gap-3 relative overflow-hidden"
+          class="px-7 py-5 rounded-2xl rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35]"
         >
-          <span class="text-white/40 text-[10px] font-bold">IDEA-1023</span>
-          <h4 class="text-white text-sm font-bold leading-normal">
-            تحسين الاستجابة الذكية للطوارئ
+          <h3 class="text-white text-base font-bold">{{ props.data?.ideaId || 'IDEA-1023' }}</h3>
+          <h4 class="text-white text-lg font-bold leading-normal">
+            {{ props.data?.ideaTitle || $t('evaluation.default_idea_title') }}
           </h4>
-          <span class="text-white/60 text-xs">أحمد علي - قسم البيئة</span>
+          <span class="text-white text-xs">
+            <template v-if="props.data?.ideaSubmitter">
+              {{ props.data.ideaSubmitter }}
+              <template v-if="props.data.ideaDepartment"> - {{ props.data.ideaDepartment }}</template>
+            </template>
+            <template v-else>
+              {{ $t('evaluation.default_submitter') }} - {{ $t('evaluation.default_department') }}
+            </template>
+          </span>
 
           <span
-            class="w-fit px-3 py-1 rounded-full bg-[#10B981]/20 border border-[#10B981]/30 text-[#10B981] text-[10px] font-bold"
+            class="block mt-4.5 w-fit px-3 py-2 rounded-full bg-[#32BEA6] text-white text-xs"
           >
             {{ $t("evaluation.live_radar_active") }}
           </span>
         </div>
 
         <!-- Metric rating cards (Data-driven ScoreCards!) -->
-        <div class="flex flex-col gap-3">
+        <div class="mt-8">
           <ScoreCard
             :label="$t('evaluation.your_evaluation')"
             :value="yourRating"
@@ -281,14 +245,14 @@ const resetCriterion = (index) => {
         </div>
 
         <!-- Transition bias button (Shown in sliders view) -->
-        <button
+        <BaseButton
           v-if="currentView === 'sliders'"
           @click="currentView = 'bias'"
-          class="w-full py-3 rounded-xl border border-white/10 text-white/80 hover:bg-white/5 transition-all text-xs font-bold text-center cursor-pointer flex items-center justify-center gap-2"
+          class="w-full py-3 border border-[#5CE1E6] text-[#5CE1E6] hover:bg-[#5CE1E6]/5 font-medium"
         >
           <span>{{ $t("evaluation.show_bias_ratio") }}</span>
           <svg
-            class="w-4 h-4 transform rotate-180"
+            class="w-4 h-4 rtl:rotate-180"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -300,15 +264,39 @@ const resetCriterion = (index) => {
               d="M14 5l7 7m0 0l-7 7m7-7H3"
             />
           </svg>
-        </button>
+        </BaseButton>
       </BaseBox>
     </div>
 
     <!-- Main Content Panels -->
     <!-- VIEW A: Criteria Sliders -->
     <template v-if="currentView === 'sliders'">
+      <!-- Center: 8 Criteria sliders (Data-driven EvaluationCriteria!) -->
+      <div class="lg:col-span-5 flex flex-col gap-4">
+        <BaseBox class="p-6 gradient-border rounded-2xl flex flex-col gap-5">
+          <div class="border-b border-white/10 pb-3">
+            <h3 class="text-white text-sm md:text-base font-bold">
+              {{ $t("evaluation.evaluation_criteria") }}
+            </h3>
+          </div>
+
+          <!-- Criteria sliders wrapper list -->
+          <div class="flex flex-col gap-4.5">
+            <EvaluationCriterion
+              v-for="(crit, index) in criteria"
+              :key="crit.key"
+              :label="crit.label"
+              :description="crit.description"
+              :percentage="crit.weight"
+              v-model="crit.value"
+              @reset="resetCriterion(index)"
+            />
+          </div>
+        </BaseBox>
+      </div>
+
       <!-- Left card: Radar spider map & AI analysis results -->
-      <div class="lg:col-span-3 flex flex-col gap-4">
+      <div class="lg:col-span-4 flex flex-col gap-4">
         <BaseBox class="p-6 gradient-border rounded-2xl flex flex-col gap-5">
           <h3
             class="text-white text-sm md:text-base font-bold border-b border-white/10 pb-2"
@@ -318,11 +306,7 @@ const resetCriterion = (index) => {
 
           <!-- Spider radar SVG map -->
           <div class="w-full h-[220px] flex items-center justify-center">
-            <RadarChart
-              :labels="radarLabels"
-              :series="sliderSeries"
-              :size="200"
-            />
+            <RadarChart :labels="radarLabels" :series="sliderSeries" />
           </div>
 
           <!-- Color legends -->
@@ -353,9 +337,9 @@ const resetCriterion = (index) => {
 
             <!-- Strongest aspect -->
             <div>
-              <span class="text-white/40 text-[10px] font-bold block mb-1"
-                >{{ $t("evaluation.strongest_aspects") }}</span
-              >
+              <span class="text-white/40 text-[10px] font-bold block mb-1">{{
+                $t("evaluation.strongest_aspects")
+              }}</span>
               <p class="text-[#10B981] text-xs font-bold">
                 {{ strongestAspects }}
               </p>
@@ -363,9 +347,9 @@ const resetCriterion = (index) => {
 
             <!-- Weakest aspect -->
             <div>
-              <span class="text-white/40 text-[10px] font-bold block mb-1"
-                >{{ $t("evaluation.weakest_aspects") }}</span
-              >
+              <span class="text-white/40 text-[10px] font-bold block mb-1">{{
+                $t("evaluation.weakest_aspects")
+              }}</span>
               <p class="text-[#EF4444] text-xs font-bold">
                 {{ weakestAspects }}
               </p>
@@ -373,37 +357,13 @@ const resetCriterion = (index) => {
 
             <!-- Direct notes -->
             <div>
-              <span class="text-white/40 text-[10px] font-bold block mb-1"
-                >{{ $t("evaluation.direct_note") }}</span
-              >
+              <span class="text-white/40 text-[10px] font-bold block mb-1">{{
+                $t("evaluation.direct_note")
+              }}</span>
               <p class="text-white/70 text-[11px] leading-relaxed">
                 {{ $t("evaluation.direct_note_text") }}
               </p>
             </div>
-          </div>
-        </BaseBox>
-      </div>
-
-      <!-- Center: 8 Criteria sliders (Data-driven EvaluationCriteria!) -->
-      <div class="lg:col-span-6 flex flex-col gap-4">
-        <BaseBox class="p-6 gradient-border rounded-2xl flex flex-col gap-5">
-          <div class="border-b border-white/10 pb-3">
-            <h3 class="text-white text-sm md:text-base font-bold">
-              {{ $t("evaluation.evaluation_criteria") }}
-            </h3>
-          </div>
-
-          <!-- Criteria sliders wrapper list -->
-          <div class="flex flex-col gap-4.5">
-            <EvaluationCriterion
-              v-for="(crit, index) in criteria"
-              :key="crit.key"
-              :label="crit.label"
-              :description="crit.description"
-              :percentage="crit.weight"
-              v-model="crit.value"
-              @reset="resetCriterion(index)"
-            />
           </div>
         </BaseBox>
       </div>
@@ -423,7 +383,9 @@ const resetCriterion = (index) => {
             >
               {{ $t("evaluation.evaluator_manager_mode") }}
             </button>
-            <h3 class="text-white text-sm md:text-base font-bold">{{ $t("evaluation.evaluators") }}</h3>
+            <h3 class="text-white text-sm md:text-base font-bold">
+              {{ $t("evaluation.evaluators") }}
+            </h3>
           </div>
 
           <!-- List of Evaluators -->
@@ -484,7 +446,9 @@ const resetCriterion = (index) => {
           >
             <!-- Classification -->
             <div>
-              <span class="text-white/40 text-[10px] block mb-1">{{ $t("evaluation.classification") }}</span>
+              <span class="text-white/40 text-[10px] block mb-1">{{
+                $t("evaluation.classification")
+              }}</span>
               <p class="text-[#06B6D4] text-sm md:text-base font-bold">
                 {{ selectedEvaluator.classificationText }}
               </p>
@@ -492,9 +456,9 @@ const resetCriterion = (index) => {
 
             <!-- Bias percentage -->
             <div>
-              <span class="text-white/40 text-[10px] block mb-1"
-                >{{ $t("evaluation.bias_percentage") }}</span
-              >
+              <span class="text-white/40 text-[10px] block mb-1">{{
+                $t("evaluation.bias_percentage")
+              }}</span>
               <p class="text-white text-sm md:text-base font-bold">
                 {{ selectedEvaluator.bias }}
               </p>
@@ -502,9 +466,9 @@ const resetCriterion = (index) => {
 
             <!-- Selected Evaluator -->
             <div>
-              <span class="text-white/40 text-[10px] block mb-1"
-                >{{ $t("evaluation.selected_evaluator") }}</span
-              >
+              <span class="text-white/40 text-[10px] block mb-1">{{
+                $t("evaluation.selected_evaluator")
+              }}</span>
               <p class="text-white text-sm md:text-base font-bold">
                 {{ selectedEvaluator.name }}
               </p>
@@ -552,15 +516,15 @@ const resetCriterion = (index) => {
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
               <BiasMetricCard
                 :label="$t('evaluation.balance_rate')"
-                value="-5% to +5%"
+                :value="biasMetrics.balanceRate"
               />
               <BiasMetricCard
                 :label="$t('evaluation.average_bias')"
-                value="%6% to 12%"
+                :value="biasMetrics.averageBias"
               />
               <BiasMetricCard
                 :label="$t('evaluation.highest_bias')"
-                value="أعلى *12%"
+                :value="biasMetrics.highestBias"
               />
             </div>
 
@@ -585,5 +549,4 @@ const resetCriterion = (index) => {
   </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

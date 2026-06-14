@@ -865,6 +865,11 @@
           "label": "details.tabs.evaluation",
           "icon": "evaluation",
           "data": {
+            "biasMetrics": {
+              "balanceRate": "-5% to +5%",
+              "averageBias": "6% to 12%",
+              "highestBias": "أعلى 12%"
+            },
             "criteria": [
               {
                 "key": "creativity",
@@ -1779,6 +1784,11 @@
           "label": "details.tabs.evaluation",
           "icon": "evaluation",
           "data": {
+            "biasMetrics": {
+              "balanceRate": "-2% to +4%",
+              "averageBias": "4% to 8%",
+              "highestBias": "أعلى 8%"
+            },
             "criteria": [
               {
                 "key": "creativity",

@@ -139,7 +139,22 @@ function getBadgeConfig(statusId) {
 
 // Dynamic Tabs Definition from API response payload
 const tabsList = computed(() => {
-  return ideaDetails.value?.tabs || [];
+  const tabs = ideaDetails.value?.tabs || [];
+  return tabs.map((tab) => {
+    if (tab.key === "evaluation") {
+      return {
+        ...tab,
+        data: {
+          ...tab.data,
+          ideaId: ideaDetails.value?.id,
+          ideaTitle: ideaDetails.value?.title,
+          ideaSubmitter: ideaDetails.value?.submitter,
+          ideaDepartment: ideaDetails.value?.department,
+        },
+      };
+    }
+    return tab;
+  });
 });
 </script>
 
