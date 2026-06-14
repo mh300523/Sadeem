@@ -75,9 +75,13 @@ const currentNotificationContent = computed(() => {
   return {
     title: rt(content.title),
     subject: rt(content.subject),
-    paragraphsBefore: Array.isArray(content.paragraphsBefore) ? content.paragraphsBefore.map(rt) : [],
+    paragraphsBefore: Array.isArray(content.paragraphsBefore)
+      ? content.paragraphsBefore.map(rt)
+      : [],
     bullets: Array.isArray(content.bullets) ? content.bullets.map(rt) : [],
-    paragraphsAfter: Array.isArray(content.paragraphsAfter) ? content.paragraphsAfter.map(rt) : [],
+    paragraphsAfter: Array.isArray(content.paragraphsAfter)
+      ? content.paragraphsAfter.map(rt)
+      : [],
   };
 });
 
@@ -139,22 +143,7 @@ function getBadgeConfig(statusId) {
 
 // Dynamic Tabs Definition from API response payload
 const tabsList = computed(() => {
-  const tabs = ideaDetails.value?.tabs || [];
-  return tabs.map((tab) => {
-    if (tab.key === "evaluation") {
-      return {
-        ...tab,
-        data: {
-          ...tab.data,
-          ideaId: ideaDetails.value?.id,
-          ideaTitle: ideaDetails.value?.title,
-          ideaSubmitter: ideaDetails.value?.submitter,
-          ideaDepartment: ideaDetails.value?.department,
-        },
-      };
-    }
-    return tab;
-  });
+  return ideaDetails.value?.tabs || [];
 });
 </script>
 
@@ -263,7 +252,7 @@ const tabsList = computed(() => {
 
           <!-- Save Draft Button -->
           <BaseButton
-            class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[rgba(1,138,175,0.2)] to-[rgba(127,79,255,0.2)] text-[#7F4FFF] backdrop-blur-2xl"
+            class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#018AAF]/20 to-[#7F4FFF]/20 text-[#7F4FFF] backdrop-blur-2xl"
           >
             {{ $t("actions.save_draft") }}
           </BaseButton>

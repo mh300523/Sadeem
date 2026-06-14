@@ -16,7 +16,7 @@ export const tabRegistry = {
   ip: IPTab,
   classification: ClassificationTab,
   evaluation: EvaluationTab,
-  decision: PlaceholderTab,
+  decision: DecisionTab,
 };
 
 export const iconRegistry = {

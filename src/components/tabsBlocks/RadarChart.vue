@@ -19,6 +19,10 @@ const props = defineProps({
     type: [Number, String],
     default: 300,
   },
+  showLegend: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const chartSeries = computed(() => {
@@ -69,7 +73,7 @@ const chartOptions = computed(() => ({
           "rgba(255, 255, 255, 0.45)",
         ),
         fontSize: "9px",
-        fontFamily: "sans-serif",
+        fontFamily: "Neo Sans Arabic",
         fontWeight: 500,
       },
     },
@@ -92,7 +96,26 @@ const chartOptions = computed(() => ({
     },
   },
   legend: {
-    show: false,
+    show: props.showLegend,
+    position: "bottom",
+    horizontalAlign: "center",
+    fontFamily: "Neo Sans Arabic",
+    fontSize: "10px",
+    labels: {
+      colors: "rgba(255, 255, 255, 0.7)",
+      useSeriesColors: false,
+    },
+    markers: {
+      shape: "square",
+      strokeWidth: 0,
+      strokeColor: "transparent",
+      offsetX: -4,
+    },
+
+    itemMargin: {
+      horizontal: 12,
+      vertical: 4,
+    },
   },
   tooltip: {
     theme: "dark",
@@ -104,15 +127,7 @@ const chartOptions = computed(() => ({
 </script>
 
 <template>
-  <div
-    class="flex justify-center items-center w-full h-full select-none max-w-full"
-  >
-    <BaseChart
-      type="radar"
-      :height="size"
-      width="100%"
-      :options="chartOptions"
-      :series="chartSeries"
-    />
-  </div>
+  <BaseChart :height="400" :options="chartOptions" :series="chartSeries" />
 </template>
+
+<style scoped></style>
