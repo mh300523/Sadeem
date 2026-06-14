@@ -1,5 +1,4 @@
 <script setup>
-import BaseBox from "@/components/ui/BaseBox.vue";
 import KpiCard from "@/components/dashboard/analytics/KpiCard.vue";
 import ProgressBar from "@/components/dashboard/analytics/ProgressBar.vue";
 import HeatMap from "@/components/dashboard/analytics/HeatMap.vue";
