@@ -24,10 +24,10 @@ function togglePlay() {
 <template>
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
     <!-- Sidebar Column -->
-    <div
-      class="lg:col-span-3 bg-[url('@/assets/images/storytab-side-bg.png')] bg-cover bg-center bg-no-repeat rounded-[16px] px-4 py-5"
-    >
-      <div class="sidebar-container relative">
+    <div class="lg:col-span-3">
+      <div
+        class="sidebar-container relative bg-[url('@/assets/images/storytab-side-bg.png')] bg-cover bg-center bg-no-repeat rounded-[16px] px-4 py-5"
+      >
         <!-- Audio Player Card -->
         <div class="rounded-[24px]">
           <h2 class="sidebar-gradient-title secondery-text-gradient">

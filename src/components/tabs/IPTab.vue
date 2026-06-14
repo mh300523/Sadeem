@@ -65,8 +65,10 @@ const tabData = computed(() => props.data || {});
     </div>
 
     <!-- Left Sidebar Column (Second in HTML for RTL float-left layout) -->
-    <BaseBox class="lg:col-span-3 white-border rounded-2xl">
-      <div class="sidebar-container px-[14px] py-5">
+    <div class="lg:col-span-3">
+      <BaseBox
+        class="sidebar-container px-[14px] py-5 white-border rounded-2xl"
+      >
         <!-- Sidebar Title with Astronaut background -->
         <h4 class="sidebar-gradient-title secondery-text-gradient">
           {{ tabData.sidebar.title }}
@@ -122,8 +124,8 @@ const tabData = computed(() => props.data || {});
             </div>
           </BaseBox>
         </div>
-      </div>
-    </BaseBox>
+      </BaseBox>
+    </div>
   </div>
 </template>
 

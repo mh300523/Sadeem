@@ -113,6 +113,12 @@
   },
   "evaluation": {
     "title": "Idea Evaluation",
+    "default_idea_title": "Improving Smart Emergency Response",
+    "default_submitter": "Ahmed Ali",
+    "default_department": "Environment Department",
+    "balance_rate_value": "-5% to +5%",
+    "average_bias_value": "6% to 12%",
+    "highest_bias_value": "Highest 12%",
     "live_radar_active": "Live Radar Active",
     "current_evaluation": "Current Evaluation",
     "your_evaluation": "Your Rating",
@@ -150,7 +156,7 @@
     "criteria": {
       "creativity": {
         "label": "Creativity",
-        "description": "Measures the originality of the idea and how it differs from traditional or existing solutions."
+        "description": "The degree of originality and novelty of the idea compared to traditional or existing solutions."
       },
       "need": {
         "label": "Need/Demand",

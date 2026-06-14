@@ -114,6 +114,12 @@
   },
   "evaluation": {
     "title": "تقييم الفكرة",
+    "default_idea_title": "تحسين الاستجابة الذكية للطوارئ",
+    "default_submitter": "أحمد علي",
+    "default_department": "قسم البيئة",
+    "balance_rate_value": "-5% إلى +5%",
+    "average_bias_value": "6% إلى 12%",
+    "highest_bias_value": "أعلى 12%",
     "live_radar_active": "الرادار المباشر مفعل",
     "current_evaluation": "التقييم الحالي",
     "your_evaluation": "تقييمك",
@@ -151,7 +157,7 @@
     "criteria": {
       "creativity": {
         "label": "الإبداع",
-        "description": "يقيس أصالة الفكرة ومدى اختلافها عن الحلول التقليدية أو الموجودة."
+        "description": "مدى أصالة الفكرة وحداثتها مقارنة بالحلول التقليدية أو الموجودة."
       },
       "need": {
         "label": "الحاجة / الطلب",

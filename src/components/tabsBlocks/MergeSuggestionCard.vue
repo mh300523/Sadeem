@@ -46,7 +46,19 @@ const emit = defineEmits(["merge-request", "view-idea"]);
         @click="emit('view-idea', idea)"
       >
         {{ $t("actions.view_idea") }}
-        <SvgIcon name="solar_arrow-left-linear" />
+        <svg
+          class="w-4 h-4 rtl:rotate-180"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"
+          />
+        </svg>
       </BaseButton>
       <!-- Merge Button -->
       <BaseButton

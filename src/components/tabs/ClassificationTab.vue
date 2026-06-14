@@ -114,8 +114,10 @@ const handleExecutionPlanChange = (status) => {
 <template>
   <div v-if="tabData.sidebar" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
     <!-- Right Sidebar Column (First in HTML for RTL float-right layout) -->
-    <div class="lg:col-span-3 white-border rounded-2xl">
-      <div class="sidebar-container px-[14px] py-5">
+    <div class="lg:col-span-3">
+      <BaseBox
+        class="sidebar-container relative px-[14px] py-5 white-border rounded-2xl"
+      >
         <!-- Sidebar Title with Astronaut background -->
         <h2 class="sidebar-gradient-title secondery-text-gradient">
           {{ tabData.sidebar.title }}
@@ -142,7 +144,7 @@ const handleExecutionPlanChange = (status) => {
             />
           </div>
         </div>
-      </div>
+      </BaseBox>
     </div>
 
     <!-- Left Main Content Column -->
