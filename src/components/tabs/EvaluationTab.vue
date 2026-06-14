@@ -27,7 +27,9 @@ const { t, locale } = useI18n();
 const currentView = ref("sliders");
 
 // Default baseline values from mockData.json default details in case props.data is empty
-const defaultEvaluationData = mockData.details?.default?.tabs?.find((t) => t.key === "evaluation")?.data || {};
+const defaultEvaluationData =
+  mockData.details?.default?.tabs?.find((t) => t.key === "evaluation")?.data ||
+  {};
 
 const defaultCriteria = defaultEvaluationData.criteria || [];
 const defaultAiScores = defaultEvaluationData.aiScores || [];
@@ -105,7 +107,9 @@ const weakestAspects = computed(() => {
   if (sorted.length === 0) return "";
   const minVal = sorted[0].value;
   const bottom = sorted.filter((c) => c.value === minVal).slice(0, 2);
-  return bottom.map((b) => `${b.label} (${b.value}/5)`).join(commaSeparator.value);
+  return bottom
+    .map((b) => `${b.label} (${b.value}/5)`)
+    .join(commaSeparator.value);
 });
 
 // Calculate rating values dynamically or fallback to screen designs
@@ -132,9 +136,15 @@ const aiRating = computed(() => {
 
 const biasMetrics = computed(() => {
   return {
-    balanceRate: props.data?.biasMetrics?.balanceRate || t("evaluation.balance_rate_value"),
-    averageBias: props.data?.biasMetrics?.averageBias || t("evaluation.average_bias_value"),
-    highestBias: props.data?.biasMetrics?.highestBias || t("evaluation.highest_bias_value"),
+    balanceRate:
+      props.data?.biasMetrics?.balanceRate ||
+      t("evaluation.balance_rate_value"),
+    averageBias:
+      props.data?.biasMetrics?.averageBias ||
+      t("evaluation.average_bias_value"),
+    highestBias:
+      props.data?.biasMetrics?.highestBias ||
+      t("evaluation.highest_bias_value"),
   };
 });
 
@@ -207,17 +217,22 @@ const resetCriterion = (index) => {
         <div
           class="px-7 py-5 rounded-2xl rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35]"
         >
-          <h3 class="text-white text-base font-bold">{{ props.data?.ideaId || 'IDEA-1023' }}</h3>
+          <h3 class="text-white text-base font-bold">
+            {{ props.data?.ideaId || "IDEA-1023" }}
+          </h3>
           <h4 class="text-white text-lg font-bold leading-normal">
-            {{ props.data?.ideaTitle || $t('evaluation.default_idea_title') }}
+            {{ props.data?.ideaTitle || $t("evaluation.default_idea_title") }}
           </h4>
           <span class="text-white text-xs">
             <template v-if="props.data?.ideaSubmitter">
               {{ props.data.ideaSubmitter }}
-              <template v-if="props.data.ideaDepartment"> - {{ props.data.ideaDepartment }}</template>
+              <template v-if="props.data.ideaDepartment">
+                - {{ props.data.ideaDepartment }}</template
+              >
             </template>
             <template v-else>
-              {{ $t('evaluation.default_submitter') }} - {{ $t('evaluation.default_department') }}
+              {{ $t("evaluation.default_submitter") }} -
+              {{ $t("evaluation.default_department") }}
             </template>
           </span>
 
@@ -272,16 +287,13 @@ const resetCriterion = (index) => {
     <!-- VIEW A: Criteria Sliders -->
     <template v-if="currentView === 'sliders'">
       <!-- Center: 8 Criteria sliders (Data-driven EvaluationCriteria!) -->
-      <div class="lg:col-span-5 flex flex-col gap-4">
-        <BaseBox class="p-6 gradient-border rounded-2xl flex flex-col gap-5">
-          <div class="border-b border-white/10 pb-3">
-            <h3 class="text-white text-sm md:text-base font-bold">
-              {{ $t("evaluation.evaluation_criteria") }}
-            </h3>
-          </div>
-
+      <div class="lg:col-span-5">
+        <h2 class="text-white mb-3">
+          {{ $t("evaluation.evaluation_criteria") }}
+        </h2>
+        <BaseBox class="p-6 border border-[#06B6D46B] rounded-2xl">
           <!-- Criteria sliders wrapper list -->
-          <div class="flex flex-col gap-4.5">
+          <div class="">
             <EvaluationCriterion
               v-for="(crit, index) in criteria"
               :key="crit.key"

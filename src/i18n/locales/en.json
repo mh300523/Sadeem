@@ -156,7 +156,7 @@
     "criteria": {
       "creativity": {
         "label": "Creativity",
-        "description": "Measures the originality of the idea and how it differs from traditional or existing solutions."
+        "description": "The degree of originality and novelty of the idea compared to traditional or existing solutions."
       },
       "need": {
         "label": "Need/Demand",
