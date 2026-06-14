@@ -63,7 +63,7 @@ const displayValue = computed(() => {
 
     <Listbox v-model="model" as="div" class="relative w-full">
       <ListboxButton
-        class="flex items-center justify-between cursor-pointer min-w-25 w-full md:w-auto"
+        class="flex items-center justify-between cursor-pointer min-w-25 w-full"
         :class="
           buttonClass
             ? buttonClass
