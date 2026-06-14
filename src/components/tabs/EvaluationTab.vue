@@ -317,9 +317,8 @@ const resetCriterion = (index) => {
           </h3>
 
           <!-- Spider radar SVG map -->
-          <div class="w-full h-[220px] flex items-center justify-center">
-            <RadarChart :labels="radarLabels" :series="sliderSeries" />
-          </div>
+
+          <RadarChart :categories="radarLabels" :series="sliderSeries" />
 
           <!-- Color legends -->
           <div class="flex flex-col gap-2 border-t border-white/10 pt-3">

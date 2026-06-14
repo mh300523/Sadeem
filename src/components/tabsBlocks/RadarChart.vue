@@ -3,7 +3,7 @@ import { computed } from "vue";
 import BaseChart from "@/components/ui/BaseChart.vue";
 
 const props = defineProps({
-  labels: {
+  categories: {
     type: Array,
     required: true,
   },
@@ -61,11 +61,13 @@ const chartOptions = computed(() => ({
     },
   },
   xaxis: {
-    categories: props.labels,
+    categories: props.categories,
     labels: {
       show: true,
       style: {
-        colors: Array(props.labels.length).fill("rgba(255, 255, 255, 0.45)"),
+        colors: Array(props.categories.length).fill(
+          "rgba(255, 255, 255, 0.45)",
+        ),
         fontSize: "9px",
         fontFamily: "sans-serif",
         fontWeight: 500,
@@ -102,7 +104,9 @@ const chartOptions = computed(() => ({
 </script>
 
 <template>
-  <div class="flex justify-center items-center w-full h-full select-none max-w-full">
+  <div
+    class="flex justify-center items-center w-full h-full select-none max-w-full"
+  >
     <BaseChart
       type="radar"
       :height="size"
