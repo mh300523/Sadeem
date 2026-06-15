@@ -217,7 +217,11 @@
       "quarterly": "Quarterly",
       "monthly": "Monthly",
       "all_departments": "All Departments",
-      "all_types": "All Innovation Types"
+      "all_types": "All Innovation Types",
+      "incremental": "Incremental",
+      "breakthrough": "Breakthrough",
+      "disruptive": "Disruptive",
+      "transformational": "Transformational"
     },
     "screens": {
       "snapshot": "Executive Snapshot",

@@ -1,8 +1,8 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 
-import mockData from "@/mockData.json";
+import { useIdeaStore } from "@/stores/ideaStore";
 import { useFilters } from "@/composables/useFilters";
 
 import AnalyticsSidebar from "@/components/dashboard/analytics/AnalyticsSidebar.vue";
@@ -15,8 +15,10 @@ import GovernanceScreen from "@/components/dashboard/analytics/screens/Governanc
 import IntelligenceScreen from "@/components/dashboard/analytics/screens/IntelligenceScreen.vue";
 import DetailDrawer from "@/components/dashboard/analytics/DetailDrawer.vue";
 import BaseAnalyticBox from "@/components/ui/BaseAnalyticBox.vue";
+import BaseSkeleton from "@/components/ui/BaseSkeleton.vue";
 
 const { t } = useI18n();
+const store = useIdeaStore();
 
 // Local UI reactive states
 const activeScreen = ref("snapshot");
@@ -28,11 +30,22 @@ const { activeFilters, handleFiltersChange } = useFilters({
   innovationType: "all",
 });
 
-// Extract configuration and payload from API-ready mockData
-const analyticsData = mockData.analytics;
-const liveSignal = analyticsData.liveSignal;
-const quickActions = analyticsData.quickActions;
-const drawerDetails = analyticsData.drawerDetails;
+// Fetch analytics data on mount
+onMounted(async () => {
+  if (store.filters.length === 0) {
+    store.fetchDashboard();
+  }
+  store.fetchAnalytics();
+});
+
+// Extract configuration and payload from Pinia store
+const analyticsData = computed(() => {
+  return store.analyticsData || { liveSignal: {}, quickActions: [], screens: {}, drawerDetails: {} };
+});
+
+const liveSignal = computed(() => analyticsData.value.liveSignal || {});
+const quickActions = computed(() => analyticsData.value.quickActions || []);
+const drawerDetails = computed(() => analyticsData.value.drawerDetails || {});
 
 // Drawer state
 const isDrawerOpen = ref(false);
@@ -50,7 +63,9 @@ function getStringHash(str) {
 
 // Dynamically calculate screens analytics metrics reactively based on filters
 const screens = computed(() => {
-  const baseScreens = JSON.parse(JSON.stringify(mockData.analytics.screens));
+  const screensRaw = analyticsData.value.screens;
+  if (!screensRaw) return {};
+  const baseScreens = JSON.parse(JSON.stringify(screensRaw));
 
   // Calculate multiplier based on active filters
   let multiplier = 1.0;
@@ -72,7 +87,7 @@ const screens = computed(() => {
     multiplier *= 0.08;
   }
 
-  // If no filters are active, return original mock config directly
+  // If no filters are active, return original config directly
   if (multiplier === 1.0) {
     return baseScreens;
   }
@@ -82,61 +97,71 @@ const screens = computed(() => {
     getStringHash(activeFilters.value.department || "all") +
     getStringHash(activeFilters.value.innovationType || "all") +
     getStringHash(activeFilters.value.timeframe || "yearly");
-  baseScreens.snapshot.gaugeValue = Math.max(
-    65,
-    Math.min(95, 86 + (seed % 13) - 6),
-  );
-
-  // 2. Update Radar Chart Series data
-  if (baseScreens.snapshot.radar?.series?.[0]?.data) {
-    baseScreens.snapshot.radar.series[0].data =
-      baseScreens.snapshot.radar.series[0].data.map((val, i) => {
-        return Math.max(50, Math.min(98, val + ((seed + i) % 11) - 5));
-      });
-  }
-
-  // 3. Scale Outcome Summary values
-  baseScreens.snapshot.outcomeSummary.forEach((out) => {
-    const rawVal = parseInt(out.value.replace(/,/g, "")) || 0;
-    const scaled = Math.max(5, Math.round(rawVal * multiplier));
-    out.value = scaled.toLocaleString();
-  });
-
-  // 4. Scale Timeline values
-  baseScreens.snapshot.timeline.forEach((step) => {
-    const rawVal = parseInt(step.value.replace(/,/g, "")) || 0;
-    const scaled = Math.max(3, Math.round(rawVal * multiplier));
-    step.value = scaled.toLocaleString();
-  });
-
-  // 5. Update KPI Cards reactively based on filter seed
-  baseScreens.snapshot.kpis.forEach((kpi, idx) => {
-    const valSeed = seed + idx;
-    const baseVal = 88;
-    const computedVal = Math.max(
-      62,
-      Math.min(96, baseVal + (valSeed % 11) - 5),
+  if (baseScreens.snapshot) {
+    baseScreens.snapshot.gaugeValue = Math.max(
+      65,
+      Math.min(95, 86 + (seed % 13) - 6),
     );
-    kpi.value = `${computedVal}%`;
 
-    const baseGrowth = 5.3;
-    const computedGrowth = Math.max(
-      1.5,
-      Math.min(9.5, baseGrowth + (valSeed % 7) * 0.7 - 2.1),
-    ).toFixed(1);
-    kpi.percentage = `+${computedGrowth}%`;
+    // 2. Update Radar Chart Series data
+    if (baseScreens.snapshot.radar?.series?.[0]?.data) {
+      baseScreens.snapshot.radar.series[0].data =
+        baseScreens.snapshot.radar.series[0].data.map((val, i) => {
+          return Math.max(50, Math.min(98, val + ((seed + i) % 11) - 5));
+        });
+    }
 
-    kpi.sparkline = kpi.sparkline.map((h, sIdx) => {
-      return Math.max(15, Math.min(95, h + ((valSeed + sIdx) % 15) - 7));
-    });
-  });
+    // 3. Scale Outcome Summary values
+    if (Array.isArray(baseScreens.snapshot.outcomeSummary)) {
+      baseScreens.snapshot.outcomeSummary.forEach((out) => {
+        const rawVal = parseInt(out.value.replace(/,/g, "")) || 0;
+        const scaled = Math.max(5, Math.round(rawVal * multiplier));
+        out.value = scaled.toLocaleString();
+      });
+    }
+
+    // 4. Scale Timeline values
+    if (Array.isArray(baseScreens.snapshot.timeline)) {
+      baseScreens.snapshot.timeline.forEach((step) => {
+        const rawVal = parseInt(step.value.replace(/,/g, "")) || 0;
+        const scaled = Math.max(3, Math.round(rawVal * multiplier));
+        step.value = scaled.toLocaleString();
+      });
+    }
+
+    // 5. Update KPI Cards reactively based on filter seed
+    if (Array.isArray(baseScreens.snapshot.kpis)) {
+      baseScreens.snapshot.kpis.forEach((kpi, idx) => {
+        const valSeed = seed + idx;
+        const baseVal = 88;
+        const computedVal = Math.max(
+          62,
+          Math.min(96, baseVal + (valSeed % 11) - 5),
+        );
+        kpi.value = `${computedVal}%`;
+
+        const baseGrowth = 5.3;
+        const computedGrowth = Math.max(
+          1.5,
+          Math.min(9.5, baseGrowth + (valSeed % 7) * 0.7 - 2.1),
+        ).toFixed(1);
+        kpi.percentage = `+${computedGrowth}%`;
+
+        if (Array.isArray(kpi.sparkline)) {
+          kpi.sparkline = kpi.sparkline.map((h, sIdx) => {
+            return Math.max(15, Math.min(95, h + ((valSeed + sIdx) % 15) - 7));
+          });
+        }
+      });
+    }
+  }
 
   return baseScreens;
 });
 
 // Load department list from main dashboard filter options for consistency
 const departmentsList = computed(() => {
-  const deptFilter = mockData.dashboard.filters.find(
+  const deptFilter = store.filters.find(
     (f) => f.id === "department",
   );
   if (!deptFilter) return [];
@@ -194,7 +219,7 @@ const analyticsFilters = computed(() => [
 
 // KPI Detail Selector logic
 function handleSelectKpi(kpiId) {
-  const details = drawerDetails[kpiId];
+  const details = drawerDetails.value[kpiId];
   if (details) {
     selectedKpiDetails.value = details;
     isDrawerOpen.value = true;
@@ -203,7 +228,31 @@ function handleSelectKpi(kpiId) {
 </script>
 
 <template>
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+  <!-- Initial Loading State Skeleton -->
+  <div v-if="store.analyticsLoading" class="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full">
+    <!-- Sidebar Skeleton -->
+    <div class="lg:col-span-3">
+      <BaseSkeleton type="box" height="h-[600px]" />
+    </div>
+    <!-- Main Content Skeleton -->
+    <div class="lg:col-span-9">
+      <BaseSkeleton type="box" height="h-[600px]" custom-class="!rounded-[20px]" />
+    </div>
+  </div>
+
+  <!-- Global Error Panel -->
+  <div v-else-if="store.analyticsError" class="p-6 bg-red-950/20 border border-red-500/30 rounded-2xl text-center w-full">
+    <div class="text-red-400 font-medium mb-3">{{ store.analyticsError }}</div>
+    <button
+      @click="store.fetchAnalytics"
+      class="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-300 rounded-lg transition-colors text-sm border border-red-500/30"
+    >
+      إعادة المحاولة
+    </button>
+  </div>
+
+  <!-- Ready State -->
+  <div v-else-if="screens && screens.snapshot && liveSignal.sparkline" class="grid grid-cols-1 lg:grid-cols-12 gap-6 relative w-full">
     <!-- Sidebar navigation area -->
     <AnalyticsSidebar
       :screens="screens"
@@ -215,6 +264,7 @@ function handleSelectKpi(kpiId) {
 
     <!-- Main Content Area -->
     <div class="lg:col-span-9">
+
       <BaseAnalyticBox class="border-gradient p-3 rounded-[20px]!">
         <!-- Topbar Header & Filters -->
         <AnalyticsToolbar
@@ -282,3 +332,4 @@ function handleSelectKpi(kpiId) {
   opacity: 0;
 }
 </style>
+

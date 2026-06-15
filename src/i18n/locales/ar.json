@@ -218,7 +218,11 @@
       "quarterly": "ربع سنوي",
       "monthly": "شهري",
       "all_departments": "كل الاقسام",
-      "all_types": "كل انواع الابتكار"
+      "all_types": "كل انواع الابتكار",
+      "incremental": "تحسيني",
+      "breakthrough": "خارق",
+      "disruptive": "مزعزع",
+      "transformational": "تحويلي"
     },
     "screens": {
       "snapshot": "الموجز التنفيذي",

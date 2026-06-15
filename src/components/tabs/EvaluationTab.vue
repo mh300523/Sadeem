@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch, toRef } from "vue";
+import { ref, computed, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import BaseBox from "@/components/ui/BaseBox.vue";
 import SvgIcon from "@/components/ui/SvgIcon.vue";
@@ -9,8 +9,6 @@ import BaseButton from "@/components/ui/BaseButton.vue";
 import ScoreCard from "@/components/tabsBlocks/ScoreCard.vue";
 import EvaluationCriteriaBlock from "@/components/tabsBlocks/EvaluationCriteriaBlock.vue";
 import EvaluationBiasBlock from "@/components/tabsBlocks/EvaluationBiasBlock.vue";
-
-// Composable for data normalization
 
 const props = defineProps({
   data: {
@@ -22,9 +20,41 @@ const props = defineProps({
 
 const { t, locale } = useI18n();
 
-// ─── Data Layer ───────────────────────────────────────────────────────────
-// const { idea, rawCriteria, aiScores, teamScores, rawEvaluators, biasMetrics } =
-//   useEvaluationData(toRef(props, "data"));
+// ─── Data Layer (Safe fallbacks directly from props.data) ───────────
+const idea = computed(() => {
+  const d = props.data || {};
+  return {
+    id: d.ideaId ?? "",
+    title: d.ideaTitle ?? "",
+    submitter: d.ideaSubmitter ?? "",
+    department: d.ideaDepartment ?? "",
+  };
+});
+
+const rawCriteria = computed(() => {
+  return props.data?.criteria ?? [];
+});
+
+const aiScores = computed(() => {
+  return props.data?.aiScores ?? [];
+});
+
+const teamScores = computed(() => {
+  return props.data?.teamScores ?? [];
+});
+
+const rawEvaluators = computed(() => {
+  return props.data?.evaluators ?? [];
+});
+
+const biasMetrics = computed(() => {
+  const metrics = props.data?.biasMetrics ?? {};
+  return {
+    balanceRate: metrics.balanceRate ?? "",
+    averageBias: metrics.averageBias ?? "",
+    highestBias: metrics.highestBias ?? "",
+  };
+});
 
 // ─── View Toggle State ─────────────────────────────────────────────────────
 const currentView = ref("sliders");

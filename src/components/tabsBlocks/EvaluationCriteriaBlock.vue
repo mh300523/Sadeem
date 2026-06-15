@@ -2,7 +2,6 @@
 import BaseBox from "@/components/ui/BaseBox.vue";
 import RadarChart from "@/components/tabsBlocks/RadarChart.vue";
 import EvaluationCriterion from "@/components/tabsBlocks/EvaluationCriterion.vue";
-import BaseButton from "@/components/ui/BaseButton.vue";
 
 defineProps({
   criteria: {

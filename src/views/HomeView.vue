@@ -2,71 +2,74 @@
   <div>
     <MainTitle :name="$t('dashboard.idea_evaluation_dashboard')" />
 
-    <div class="mt-3">
-      <StatsGrid :stats="dashboardData.stats" />
+    <!-- Error State -->
+    <div v-if="store.dashboardError" class="mt-6 p-6 bg-red-950/20 border border-red-500/30 rounded-2xl text-center">
+      <div class="text-red-400 font-medium mb-3">{{ store.dashboardError }}</div>
+      <button
+        @click="store.fetchDashboard"
+        class="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-300 rounded-lg transition-colors text-sm border border-red-500/30"
+      >
+        إعادة المحاولة
+      </button>
+    </div>
 
+    <!-- Dashboard Content -->
+    <div v-else class="mt-3">
+      <!-- Stats Grid (Skeleton vs Content) -->
+      <BaseSkeleton v-if="store.dashboardLoading" type="grid" :count="8" :cols="8" />
+      <StatsGrid v-else :stats="store.stats" />
+
+      <!-- Section Title & Filters -->
       <div class="flex flex-wrap items-center justify-between gap-4 my-6">
         <h2 class="text-lg font-medium text-white">
           {{ $t("dashboard.ideas_table") }}
         </h2>
 
+        <!-- Filters (Skeleton vs Content) -->
+        <BaseSkeleton v-if="store.dashboardLoading" type="box" height="h-10" custom-class="w-64 !rounded-full" />
         <BaseFilter
-          :filters="dashboardData.filters"
-          @update:filters="activeFilters = $event"
+          v-else
+          :filters="store.filters"
+          @update:filters="handleFiltersChange"
         />
       </div>
 
+      <!-- Ideas Table (Skeleton vs Content) -->
+      <BaseSkeleton v-if="store.dashboardLoading" type="table" :count="5" :cols="8" />
       <IdeasTable
+        v-else
         :ideas="filteredIdeas"
-        :headers="dashboardData.headers"
-        :statusConfigs="dashboardData.statusConfigs"
+        :headers="store.headers"
+        :statusConfigs="store.statusConfigs"
       />
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { computed, onMounted } from "vue";
 
 import MainTitle from "@/components/ui/MainTitle.vue";
 import StatsGrid from "@/components/dashboard/StatsGrid.vue";
 import BaseFilter from "@/components/ui/BaseFilter.vue";
 import IdeasTable from "@/components/dashboard/IdeasTable.vue";
+import BaseSkeleton from "@/components/ui/BaseSkeleton.vue";
 
-import mockData from "@/mockData.json";
+import { useIdeaStore } from "@/stores/ideaStore";
+import { useFilters } from "@/composables/useFilters";
 
-const dashboardData = mockData.dashboard;
+const store = useIdeaStore();
 
-const activeFilters = ref({});
-
-/*
-|--------------------------------------------------------------------------
-| Generic filter engine — reads "field" from each filter definition.
-| When you switch to API, just send activeFilters as query params instead.
-|--------------------------------------------------------------------------
-*/
-
-// Build a lookup: filterId → field name from the filter config
-const filterFieldMap = computed(() => {
-  const map = {};
-  dashboardData.filters.forEach((f) => {
-    if (f.field) map[f.id] = f.field;
-  });
-  return map;
+onMounted(() => {
+  store.fetchDashboard();
 });
 
-const filteredIdeas = computed(() => {
-  return dashboardData.ideas.filter((idea) => {
-    return Object.entries(activeFilters.value).every(
-      ([filterId, filterValue]) => {
-        if (!filterValue || filterValue === "all") return true;
+// Initialize the generic filter state with the dashboard filters config
+const { activeFilters, handleFiltersChange, filterItems } = useFilters(
+  {},
+  computed(() => store.filters),
+);
 
-        const field = filterFieldMap.value[filterId];
-        if (!field) return true; // no field mapping → skip (e.g. date filters)
-
-        return idea[field] === filterValue;
-      },
-    );
-  });
-});
+const filteredIdeas = filterItems(computed(() => store.ideas));
 </script>
+

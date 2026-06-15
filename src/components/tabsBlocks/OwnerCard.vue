@@ -10,7 +10,7 @@ defineProps({
 
 <template>
   <div
-    class="bg-[url('@/assets/images/presenter-idea.bg.png')] bg-cover bg-center bg-no-repeat'] h-[180px] rounded-2xl overflow-hidden mb-3 flex items-center p-[34px]"
+    class="bg-[url('@/assets/images/presenter-idea.bg.png')] bg-cover bg-center bg-no-repeat h-[180px] rounded-2xl overflow-hidden mb-3 flex items-center p-[34px]"
   >
     <!-- Presenter Info text on the Right -->
     <div class="">
