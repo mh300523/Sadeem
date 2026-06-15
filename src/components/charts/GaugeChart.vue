@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from "vue";
-import BaseChart from "@/components/ui/BaseChart.vue";
+import BaseChart from "./BaseChart.vue";
 
 const props = defineProps({
   value: {
@@ -25,18 +25,6 @@ const chartOptions = computed(() => {
         enabled: true,
       },
     },
-    states: {
-      hover: {
-        filter: {
-          type: "none",
-        },
-      },
-      active: {
-        filter: {
-          type: "none",
-        },
-      },
-    },
     plotOptions: {
       radialBar: {
         startAngle: -90,
@@ -59,7 +47,6 @@ const chartOptions = computed(() => {
             fontSize: "24px",
             fontWeight: "600",
             color: "rgba(255,255,255,0.9)",
-            fontFamily: "Neo Sans Arabic, sans-serif",
             formatter: (val) => Math.round(val),
           },
         },
@@ -73,7 +60,7 @@ const chartOptions = computed(() => {
       lineCap: "butt",
     },
     tooltip: {
-      enabled: false,
+      enabled: false, // Override to disable tooltip specifically for Gauge
     },
   };
 });

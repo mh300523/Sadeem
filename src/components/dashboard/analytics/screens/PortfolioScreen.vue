@@ -1,7 +1,7 @@
 <script setup>
 import TreeMap from "@/components/dashboard/analytics/TreeMap.vue";
 import BubbleCluster from "@/components/dashboard/analytics/BubbleCluster.vue";
-import DonutChart from "@/components/dashboard/analytics/DonutChart.vue";
+import DonutChart from "@/components/charts/DonutChart.vue";
 import ProgressBar from "@/components/dashboard/analytics/ProgressBar.vue";
 import BaseAnalyticBox from "@/components/ui/BaseAnalyticBox.vue";
 import BaseTable from "@/components/ui/BaseTable.vue";

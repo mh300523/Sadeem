@@ -1,6 +1,6 @@
 <script setup>
 import BaseBox from "@/components/ui/BaseBox.vue";
-import RadarChart from "./RadarChart.vue";
+import RadarChart from "@/components/charts/RadarChart.vue";
 import EvaluatorCard from "./EvaluatorCard.vue";
 import BiasMetricCard from "./BiasMetricCard.vue";
 

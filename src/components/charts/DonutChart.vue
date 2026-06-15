@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
-import BaseChart from "@/components/ui/BaseChart.vue";
+import BaseChart from "./BaseChart.vue";
 
 const props = defineProps({
   series: {
@@ -30,18 +30,6 @@ const chartOptions = computed(() => {
     chart: {
       type: "donut",
     },
-    states: {
-      hover: {
-        filter: {
-          type: "none",
-        },
-      },
-      active: {
-        filter: {
-          type: "none",
-        },
-      },
-    },
     labels: props.labels,
     colors: colors,
     stroke: {
@@ -64,7 +52,6 @@ const chartOptions = computed(() => {
               fontSize: "12px",
               color: "rgba(255,255,255,0.76)",
               offsetY: 20,
-              fontFamily: "Neo Sans Arabic, sans-serif",
             },
             value: {
               show: true,
@@ -72,7 +59,6 @@ const chartOptions = computed(() => {
               fontWeight: "700",
               color: "#ffffff",
               offsetY: -15,
-              fontFamily: "Neo Sans Arabic, sans-serif",
               formatter: (val) => `${val}%`,
             },
             total: {
@@ -81,7 +67,6 @@ const chartOptions = computed(() => {
               label: t(props.totalLabelKey),
               color: "rgba(255,255,255,0.76)",
               fontSize: "12px",
-              fontFamily: "Neo Sans Arabic, sans-serif",
               formatter: () => props.totalValue,
             },
           },
