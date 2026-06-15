@@ -82,9 +82,9 @@ watch(
 // ─── Evaluators database computed reactively ──────────────────────
 const evaluators = computed(() => {
   const classificationStyles = {
-    Balanced: "bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981]",
-    Generous: "bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-[#3B82F6]",
-    Strict: "bg-[#EF4444]/10 border border-[#EF4444]/20 text-[#EF4444]",
+    Balanced: "bg-[#10B981]/10 border border-[#10B981]/40 text-[#86EFAC]",
+    Generous: "bg-[#3B82F6]/10 border border-[#3B82F6]/40 text-[#6C8CFF]",
+    Strict: "bg-[#EF4444]/10 border border-[#EF4444]/40 text-[#F6A1A1]",
   };
   return rawEvaluators.value.map((e) => {
     const badgeClass =
