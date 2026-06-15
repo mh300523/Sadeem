@@ -144,6 +144,9 @@
     "balance_rate": "معدل الموازنة",
     "average_bias": "متوسط التحيز",
     "highest_bias": "أعلى تحيز",
+    "balance_rate_value": "-5% إلى +5%",
+    "average_bias_value": "6% إلى 12%",
+    "highest_bias_value": "أعلى من 12%",
     "classifications": {
       "Balanced": "متزن",
       "Generous": "سخي",

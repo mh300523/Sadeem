@@ -110,36 +110,58 @@ const radarLabels = computed(() =>
 );
 
 // ─── Ratings Computation Helper ────────────────────────────────────────────
-const calculateRating = (scores) => {
-  if (!scores || scores.length === 0) return "0.0";
-  const sum = scores.reduce((acc, val) => acc + val, 0);
-  return ((sum / (scores.length * 5)) * 100).toFixed(1);
-};
+const ratings = computed(() => {
+  // yourRating is dynamically calculated from user sliders so it changes in real-time
+  const userSum = criteria.value.reduce((acc, c) => acc + c.value, 0);
+  const userRating =
+    criteria.value.length > 0
+      ? ((userSum / (criteria.value.length * 5)) * 100).toFixed(1)
+      : "0.0";
 
-const ratings = computed(() => ({
-  yourRating: calculateRating(criteria.value.map((c) => c.value)),
-  teamRating: calculateRating(teamScores.value),
-  aiRating: calculateRating(aiScores.value),
-}));
+  return {
+    yourRating: userRating,
+    // teamRating and aiRating display the actual dynamic values from the API
+    teamRating: (props.data?.averageRating ?? 74.0).toFixed(1),
+    aiRating: (props.data?.aiScore ?? 78.0).toFixed(1),
+  };
+});
 
 // ─── AI Insights Strongest/Weakest computations ───────────────────────────
 const commaSeparator = computed(() => (locale.value === "ar" ? "، " : ", "));
 
 const strongestAspects = computed(() => {
-  const sorted = [...criteria.value].sort((a, b) => b.value - a.value);
-  if (sorted.length === 0) return "";
+  const scores = aiScores.value;
+  if (!scores || scores.length === 0 || criteria.value.length === 0) return "";
+
+  // Compute from AI scores rather than user sliders
+  const aiCriteria = criteria.value.map((c, idx) => ({
+    key: c.key,
+    value: scores[idx] ?? 0,
+  }));
+
+  const sorted = [...aiCriteria].sort((a, b) => b.value - a.value);
   const maxVal = sorted[0].value;
   const top = sorted.filter((c) => c.value === maxVal).slice(0, 2);
+
   return top
     .map((t) => `${getCriterionLabel(t.key)} (${t.value}/5)`)
     .join(commaSeparator.value);
 });
 
 const weakestAspects = computed(() => {
-  const sorted = [...criteria.value].sort((a, b) => a.value - b.value);
-  if (sorted.length === 0) return "";
+  const scores = aiScores.value;
+  if (!scores || scores.length === 0 || criteria.value.length === 0) return "";
+
+  // Compute from AI scores rather than user sliders
+  const aiCriteria = criteria.value.map((c, idx) => ({
+    key: c.key,
+    value: scores[idx] ?? 0,
+  }));
+
+  const sorted = [...aiCriteria].sort((a, b) => a.value - b.value);
   const minVal = sorted[0].value;
   const bottom = sorted.filter((c) => c.value === minVal).slice(0, 2);
+
   return bottom
     .map((b) => `${getCriterionLabel(b.key)} (${b.value}/5)`)
     .join(commaSeparator.value);
@@ -285,6 +307,7 @@ const resetCriterion = (index) => {
       :series="sliderSeries"
       :strongest-aspects="strongestAspects"
       :weakest-aspects="weakestAspects"
+      :direct-note="props.data?.directNote || $t('evaluation.direct_note_text')"
       @reset-criterion="resetCriterion"
     />
 

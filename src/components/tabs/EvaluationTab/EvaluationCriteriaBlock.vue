@@ -2,6 +2,7 @@
 import BaseBox from "@/components/ui/BaseBox.vue";
 import RadarChart from "@/components/charts/RadarChart.vue";
 import EvaluationCriterion from "./EvaluationCriterion.vue";
+import AIAnalyticCard from "./AIAnalyticCard.vue";
 
 defineProps({
   criteria: {
@@ -24,89 +25,83 @@ defineProps({
     type: String,
     required: true,
   },
+  directNote: {
+    type: String,
+    default: "",
+  },
 });
 
 defineEmits(["reset-criterion"]);
 </script>
 
 <template>
-  <!-- Center: 8 Criteria sliders (Data-driven EvaluationCriteria!) -->
-  <div class="lg:col-span-5">
+  <div class="lg:col-span-9">
     <h2 class="text-white mb-3">
       {{ $t("evaluation.evaluation_criteria") }}
     </h2>
-    <BaseBox class="p-6 border border-[#06B6D46B] rounded-2xl">
-      <!-- Criteria sliders wrapper list -->
-      <div class="">
-        <EvaluationCriterion
-          v-for="(crit, index) in criteria"
-          :key="crit.key"
-          :label="$t(`evaluation.criteria.${crit.key}.label`)"
-          :description="$t(`evaluation.criteria.${crit.key}.description`)"
-          :percentage="crit.weight"
-          v-model="crit.value"
-          @reset="$emit('reset-criterion', index)"
-        />
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Center: 8 Criteria sliders (Data-driven EvaluationCriteria!) -->
+      <div class="lg:col-span-7">
+        <BaseBox class="p-6 border border-[#06B6D46B] rounded-2xl">
+          <!-- Criteria sliders wrapper list -->
+          <div class="">
+            <EvaluationCriterion
+              v-for="(crit, index) in criteria"
+              :key="crit.key"
+              :label="$t(`evaluation.criteria.${crit.key}.label`)"
+              :description="$t(`evaluation.criteria.${crit.key}.description`)"
+              :percentage="crit.weight"
+              v-model="crit.value"
+              @reset="$emit('reset-criterion', index)"
+            />
+          </div>
+        </BaseBox>
       </div>
-    </BaseBox>
-  </div>
 
-  <!-- Left card: Radar spider map & AI analysis results -->
-  <div class="lg:col-span-4 flex flex-col gap-4">
-    <BaseBox class="p-6 gradient-border rounded-2xl flex flex-col gap-5">
-      <h3
-        class="text-white text-sm md:text-base font-bold border-b border-white/10 pb-2"
-      >
-        {{ $t("evaluation.radar_chart_title") }}
-      </h3>
-
-      <!-- Spider radar SVG map -->
-      <RadarChart
-        :categories="radarLabels"
-        :series="series"
-        :show-legend="true"
-      />
-
-      <!-- AI Analysis insights panel -->
-      <div
-        class="flex flex-col gap-3.5 mt-2 border-t border-white/10 pt-4 text-right"
-      >
-        <h2
-          class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
-        >
-          {{ $t("evaluation.ai_analysis") }}
-        </h2>
-
-        <!-- Strongest aspect -->
-        <BaseBox type="glass" class="p-5">
-          <h3 class="text-white font-bold mb-3">
-            {{ $t("evaluation.strongest_aspects") }}
+      <!-- Left card: Radar spider map & AI analysis results -->
+      <div class="lg:col-span-5">
+        <BaseBox class="p-6 border border-[#06B6D46B] rounded-2xl">
+          <h3
+            class="text-white text-sm md:text-base font-bold border-b border-white/10 pb-2"
+          >
+            {{ $t("evaluation.radar_chart_title") }}
           </h3>
-          <p class="text-[#FFFFFFB2]">
-            {{ strongestAspects }}
-          </p>
-        </BaseBox>
 
-        <!-- Weakest aspect -->
-        <BaseBox type="glass">
-          <span class="text-white/40 text-[10px] font-bold block mb-1">{{
-            $t("evaluation.weakest_aspects")
-          }}</span>
-          <p class="text-[#EF4444] text-xs font-bold">
-            {{ weakestAspects }}
-          </p>
-        </BaseBox>
+          <!-- Spider radar SVG map -->
+          <RadarChart
+            :categories="radarLabels"
+            :series="series"
+            :show-legend="true"
+          />
 
-        <!-- Direct notes -->
-        <BaseBox type="glass">
-          <span class="text-white/40 text-[10px] font-bold block mb-1">{{
-            $t("evaluation.direct_note")
-          }}</span>
-          <p class="text-white/70 text-[11px] leading-relaxed">
-            {{ $t("evaluation.direct_note_text") }}
-          </p>
+          <!-- AI Analysis insights panel -->
+          <div class="mt-2">
+            <h2
+              class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
+            >
+              {{ $t("evaluation.ai_analysis") }}
+            </h2>
+
+            <!-- Strongest aspect -->
+            <AIAnalyticCard
+              :analyticType="$t('evaluation.strongest_aspects')"
+              :analyticContent="strongestAspects"
+            />
+
+            <!-- Weakest aspect -->
+            <AIAnalyticCard
+              :analyticType="$t('evaluation.weakest_aspects')"
+              :analyticContent="weakestAspects"
+            />
+
+            <!-- Direct notes -->
+            <AIAnalyticCard
+              :analyticType="$t('evaluation.direct_note')"
+              :analyticContent="directNote"
+            />
+          </div>
         </BaseBox>
       </div>
-    </BaseBox>
+    </div>
   </div>
 </template>

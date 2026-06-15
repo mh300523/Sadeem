@@ -68,3 +68,13 @@ html[dir="ltr"] .sidebar-container::before {
 .badge-percentage {
   @apply px-2 py-1 rounded-full rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35] text-white shadow-sm;
 }
+
+.border-bottom-gradient::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 1px;
+  inset-inline: 0;
+}

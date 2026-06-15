@@ -35,36 +35,6 @@ defineEmits(["select-evaluator", "back"]);
 </script>
 
 <template>
-  <!-- Left side (Evaluators list column using EvaluatorCard!) -->
-  <div class="lg:col-span-3 flex flex-col gap-4">
-    <BaseBox class="p-6 gradient-border rounded-2xl flex flex-col gap-4">
-      <!-- Header and Manager mode button -->
-      <div
-        class="flex justify-between items-center border-b border-white/10 pb-3"
-      >
-        <button
-          class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-[rgba(1,138,175,0.2)] to-[rgba(127,79,255,0.2)] border border-[#7F4FFF]/30 text-[#7F4FFF] text-[10px] font-bold hover:bg-white/5 transition-colors cursor-pointer"
-        >
-          {{ $t("evaluation.evaluator_manager_mode") }}
-        </button>
-        <h3 class="text-white text-sm md:text-base font-bold">
-          {{ $t("evaluation.evaluators") }}
-        </h3>
-      </div>
-
-      <!-- List of Evaluators -->
-      <div class="flex flex-col gap-3.5">
-        <EvaluatorCard
-          v-for="(evaluator, index) in evaluators"
-          :key="evaluator.name"
-          :evaluator="evaluator"
-          :is-active="selectedEvaluatorIndex === index"
-          @click="$emit('select-evaluator', index)"
-        />
-      </div>
-    </BaseBox>
-  </div>
-
   <!-- Center: Bias radar details & stats -->
   <div class="lg:col-span-6 flex flex-col gap-4">
     <BaseBox class="p-6 gradient-border rounded-2xl flex flex-col gap-5">
@@ -141,11 +111,7 @@ defineEmits(["select-evaluator", "back"]);
 
       <!-- Big Radar Chart in Center -->
       <div class="w-full h-[280px] flex items-center justify-center my-2">
-        <RadarChart
-          :categories="radarLabels"
-          :series="series"
-          :size="260"
-        />
+        <RadarChart :categories="radarLabels" :series="series" :size="260" />
       </div>
 
       <!-- Color legends row -->
@@ -180,15 +146,15 @@ defineEmits(["select-evaluator", "back"]);
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
           <BiasMetricCard
             :label="$t('evaluation.balance_rate')"
-            :value="biasMetrics.balanceRate"
+            :value="$t('evaluation.balance_rate_value')"
           />
           <BiasMetricCard
             :label="$t('evaluation.average_bias')"
-            :value="biasMetrics.averageBias"
+            :value="$t('evaluation.average_bias_value')"
           />
           <BiasMetricCard
             :label="$t('evaluation.highest_bias')"
-            :value="biasMetrics.highestBias"
+            :value="$t('evaluation.highest_bias_value')"
           />
         </div>
 
@@ -201,6 +167,35 @@ defineEmits(["select-evaluator", "back"]);
           <p>{{ $t("evaluation.footnotes.balanced") }}</p>
         </div>
       </div>
+    </BaseBox>
+  </div>
+  <!-- Left side (Evaluators list column using EvaluatorCard!) -->
+  <div class="lg:col-span-3">
+    <BaseBox class="p-6 border border-[#06B6D46B] rounded-2xl">
+      <!-- Header and Manager mode button -->
+      <div class="flex justify-between items-center pb-3">
+        <button
+          class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-[rgba(1,138,175,0.2)] to-[rgba(127,79,255,0.2)] border border-[#7F4FFF]/30 text-[#7F4FFF] text-[10px] font-bold hover:bg-white/5 transition-colors cursor-pointer"
+        >
+          {{ $t("evaluation.evaluator_manager_mode") }}
+        </button>
+      </div>
+
+      <h2
+        class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
+      >
+        {{ $t("evaluation.evaluators") }}
+      </h2>
+
+      <!-- List of Evaluators -->
+
+      <EvaluatorCard
+        v-for="(evaluator, index) in evaluators"
+        :key="evaluator.name"
+        :evaluator="evaluator"
+        :is-active="selectedEvaluatorIndex === index"
+        @click="$emit('select-evaluator', index)"
+      />
     </BaseBox>
   </div>
 </template>

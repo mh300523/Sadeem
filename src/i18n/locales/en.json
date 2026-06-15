@@ -143,6 +143,9 @@
     "balance_rate": "Balance Rate",
     "average_bias": "Average Bias",
     "highest_bias": "Highest Bias",
+    "balance_rate_value": "-5% to +5%",
+    "average_bias_value": "6% to 12%",
+    "highest_bias_value": "Above 12%",
     "classifications": {
       "Balanced": "Balanced",
       "Generous": "Generous",
