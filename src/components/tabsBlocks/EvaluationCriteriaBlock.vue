@@ -2,6 +2,7 @@
 import BaseBox from "@/components/ui/BaseBox.vue";
 import RadarChart from "@/components/tabsBlocks/RadarChart.vue";
 import EvaluationCriterion from "@/components/tabsBlocks/EvaluationCriterion.vue";
+import BaseButton from "@/components/ui/BaseButton.vue";
 
 defineProps({
   criteria: {
@@ -61,63 +62,51 @@ defineEmits(["reset-criterion"]);
       </h3>
 
       <!-- Spider radar SVG map -->
-      <RadarChart :categories="radarLabels" :series="series" />
-
-      <!-- Color legends -->
-      <div class="flex flex-col gap-2 border-t border-white/10 pt-3">
-        <div class="flex items-center gap-2 text-[10px] text-white/70">
-          <span class="w-2.5 h-2.5 rounded-sm bg-[#3B82F6]"></span>
-          <span>{{ $t("evaluation.legends.current") }}</span>
-        </div>
-        <div class="flex items-center gap-2 text-[10px] text-white/70">
-          <span class="w-2.5 h-2.5 rounded-sm bg-[#F59E0B]"></span>
-          <span>{{ $t("evaluation.legends.team") }}</span>
-        </div>
-        <div class="flex items-center gap-2 text-[10px] text-white/70">
-          <span class="w-2.5 h-2.5 rounded-sm bg-[#10B981]"></span>
-          <span>{{ $t("evaluation.legends.ai") }}</span>
-        </div>
-      </div>
+      <RadarChart
+        :categories="radarLabels"
+        :series="series"
+        :show-legend="true"
+      />
 
       <!-- AI Analysis insights panel -->
       <div
         class="flex flex-col gap-3.5 mt-2 border-t border-white/10 pt-4 text-right"
       >
-        <button
-          class="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#018AAF] to-[#8B5CF6] text-white text-xs font-bold text-center"
+        <h2
+          class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
         >
           {{ $t("evaluation.ai_analysis") }}
-        </button>
+        </h2>
 
         <!-- Strongest aspect -->
-        <div>
-          <span class="text-white/40 text-[10px] font-bold block mb-1">{{
-            $t("evaluation.strongest_aspects")
-          }}</span>
-          <p class="text-[#10B981] text-xs font-bold">
+        <BaseBox type="glass" class="p-5">
+          <h3 class="text-white font-bold mb-3">
+            {{ $t("evaluation.strongest_aspects") }}
+          </h3>
+          <p class="text-[#FFFFFFB2]">
             {{ strongestAspects }}
           </p>
-        </div>
+        </BaseBox>
 
         <!-- Weakest aspect -->
-        <div>
+        <BaseBox type="glass">
           <span class="text-white/40 text-[10px] font-bold block mb-1">{{
             $t("evaluation.weakest_aspects")
           }}</span>
           <p class="text-[#EF4444] text-xs font-bold">
             {{ weakestAspects }}
           </p>
-        </div>
+        </BaseBox>
 
         <!-- Direct notes -->
-        <div>
+        <BaseBox type="glass">
           <span class="text-white/40 text-[10px] font-bold block mb-1">{{
             $t("evaluation.direct_note")
           }}</span>
           <p class="text-white/70 text-[11px] leading-relaxed">
             {{ $t("evaluation.direct_note_text") }}
           </p>
-        </div>
+        </BaseBox>
       </div>
     </BaseBox>
   </div>

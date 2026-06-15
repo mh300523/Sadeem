@@ -11,7 +11,6 @@ import EvaluationCriteriaBlock from "@/components/tabsBlocks/EvaluationCriteriaB
 import EvaluationBiasBlock from "@/components/tabsBlocks/EvaluationBiasBlock.vue";
 
 // Composable for data normalization
-import { useEvaluationData } from "@/composables/useEvaluationData";
 
 const props = defineProps({
   data: {
@@ -24,14 +23,8 @@ const props = defineProps({
 const { t, locale } = useI18n();
 
 // ─── Data Layer ───────────────────────────────────────────────────────────
-const {
-  idea,
-  rawCriteria,
-  aiScores,
-  teamScores,
-  rawEvaluators,
-  biasMetrics,
-} = useEvaluationData(toRef(props, "data"));
+// const { idea, rawCriteria, aiScores, teamScores, rawEvaluators, biasMetrics } =
+//   useEvaluationData(toRef(props, "data"));
 
 // ─── View Toggle State ─────────────────────────────────────────────────────
 const currentView = ref("sliders");
@@ -44,7 +37,7 @@ watch(
   (newCriteria) => {
     criteria.value = (newCriteria || []).map((crit) => ({ ...crit }));
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 // ─── Active Evaluator State ────────────────────────────────────────────────
@@ -53,7 +46,7 @@ watch(
   () => idea.value.id,
   () => {
     selectedEvaluatorIndex.value = 0;
-  }
+  },
 );
 
 // ─── Evaluators database computed reactively ──────────────────────
@@ -76,11 +69,15 @@ const evaluators = computed(() => {
   });
 });
 
-const selectedEvaluator = computed(() => evaluators.value[selectedEvaluatorIndex.value] || {});
+const selectedEvaluator = computed(
+  () => evaluators.value[selectedEvaluatorIndex.value] || {},
+);
 
 // ─── Radar Categories (Labels) ─────────────────────────────────────────────
 const getCriterionLabel = (key) => t(`evaluation.criteria.${key}.label`);
-const radarLabels = computed(() => criteria.value.map((c) => getCriterionLabel(c.key)));
+const radarLabels = computed(() =>
+  criteria.value.map((c) => getCriterionLabel(c.key)),
+);
 
 // ─── Ratings Computation Helper ────────────────────────────────────────────
 const calculateRating = (scores) => {
@@ -103,7 +100,9 @@ const strongestAspects = computed(() => {
   if (sorted.length === 0) return "";
   const maxVal = sorted[0].value;
   const top = sorted.filter((c) => c.value === maxVal).slice(0, 2);
-  return top.map((t) => `${getCriterionLabel(t.key)} (${t.value}/5)`).join(commaSeparator.value);
+  return top
+    .map((t) => `${getCriterionLabel(t.key)} (${t.value}/5)`)
+    .join(commaSeparator.value);
 });
 
 const weakestAspects = computed(() => {
@@ -111,7 +110,9 @@ const weakestAspects = computed(() => {
   if (sorted.length === 0) return "";
   const minVal = sorted[0].value;
   const bottom = sorted.filter((c) => c.value === minVal).slice(0, 2);
-  return bottom.map((b) => `${getCriterionLabel(b.key)} (${b.value}/5)`).join(commaSeparator.value);
+  return bottom
+    .map((b) => `${getCriterionLabel(b.key)} (${b.value}/5)`)
+    .join(commaSeparator.value);
 });
 
 // ─── Radar Series Styles and Builder ───────────────────────────────────────
@@ -148,8 +149,12 @@ const buildRadarSeries = (currentScores) => [
   },
 ];
 
-const sliderSeries = computed(() => buildRadarSeries(criteria.value.map((c) => c.value)));
-const biasSeries = computed(() => buildRadarSeries(selectedEvaluator.value.scores || []));
+const sliderSeries = computed(() =>
+  buildRadarSeries(criteria.value.map((c) => c.value)),
+);
+const biasSeries = computed(() =>
+  buildRadarSeries(selectedEvaluator.value.scores || []),
+);
 
 // ─── Reset Slider Event Handler ────────────────────────────────────────────
 const resetCriterion = (index) => {
@@ -184,10 +189,13 @@ const resetCriterion = (index) => {
           <span class="text-white text-xs">
             <template v-if="idea.submitter">
               {{ idea.submitter }}
-              <template v-if="idea.department"> - {{ idea.department }}</template>
+              <template v-if="idea.department">
+                - {{ idea.department }}</template
+              >
             </template>
             <template v-else>
-              {{ $t("evaluation.default_submitter") }} - {{ $t("evaluation.default_department") }}
+              {{ $t("evaluation.default_submitter") }} -
+              {{ $t("evaluation.default_department") }}
             </template>
           </span>
 

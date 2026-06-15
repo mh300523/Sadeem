@@ -10,37 +10,38 @@ import mockData from "@/mockData.json";
 export function useEvaluationData(dataRef) {
   // Navigate mockData's nested structure to find the default evaluation payload
   const defaultEvaluationData =
-    mockData.details?.default?.tabs?.find((t) => t.key === "evaluation")?.data ||
-    {};
+    mockData.details?.default?.tabs?.find((t) => t.key === "evaluation")
+      ?.data || {};
 
   const idea = computed(() => {
     const data = dataRef.value || {};
     return {
-      id: data.ideaId ?? defaultEvaluationData.ideaId ?? "IDEA-1023",
-      title: data.ideaTitle ?? defaultEvaluationData.ideaTitle ?? "",
-      submitter: data.ideaSubmitter ?? defaultEvaluationData.ideaSubmitter ?? "",
-      department: data.ideaDepartment ?? defaultEvaluationData.ideaDepartment ?? "",
+      id: data.ideaId ?? defaultEvaluationData?.ideaId,
+      title: data.ideaTitle ?? defaultEvaluationData?.ideaTitle,
+      submitter: data.ideaSubmitter ?? defaultEvaluationData?.ideaSubmitter,
+      department: data.ideaDepartment ?? defaultEvaluationData?.ideaDepartment,
     };
   });
 
   const rawCriteria = computed(() => {
-    return dataRef.value?.criteria ?? defaultEvaluationData.criteria ?? [];
+    return dataRef.value?.criteria ?? defaultEvaluationData?.criteria ?? [];
   });
 
   const aiScores = computed(() => {
-    return dataRef.value?.aiScores ?? defaultEvaluationData.aiScores ?? [];
+    return dataRef.value?.aiScores ?? defaultEvaluationData?.aiScores ?? [];
   });
 
   const teamScores = computed(() => {
-    return dataRef.value?.teamScores ?? defaultEvaluationData.teamScores ?? [];
+    return dataRef.value?.teamScores ?? defaultEvaluationData?.teamScores ?? [];
   });
 
   const rawEvaluators = computed(() => {
-    return dataRef.value?.evaluators ?? defaultEvaluationData.evaluators ?? [];
+    return dataRef.value?.evaluators ?? defaultEvaluationData?.evaluators ?? [];
   });
 
   const biasMetrics = computed(() => {
-    const metrics = dataRef.value?.biasMetrics ?? defaultEvaluationData.biasMetrics ?? {};
+    const metrics =
+      dataRef.value?.biasMetrics ?? defaultEvaluationData?.biasMetrics ?? {};
     return {
       balanceRate: metrics.balanceRate ?? "",
       averageBias: metrics.averageBias ?? "",

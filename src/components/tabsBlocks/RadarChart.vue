@@ -11,14 +11,6 @@ const props = defineProps({
     type: Array,
     required: true, // array of { name, values, strokeColor, fillColor }
   },
-  max: {
-    type: Number,
-    default: 5,
-  },
-  size: {
-    type: [Number, String],
-    default: 300,
-  },
   showLegend: {
     type: Boolean,
     default: false,
@@ -80,9 +72,6 @@ const chartOptions = computed(() => ({
   },
   yaxis: {
     show: false,
-    min: 0,
-    max: props.max,
-    tickAmount: props.max,
   },
   plotOptions: {
     radar: {
@@ -120,7 +109,7 @@ const chartOptions = computed(() => ({
   tooltip: {
     theme: "dark",
     y: {
-      formatter: (val) => `${val} / ${props.max}`,
+      formatter: (value) => value,
     },
   },
 }));

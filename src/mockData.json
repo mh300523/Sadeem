@@ -861,51 +861,18 @@
           }
         },
         {
-          "key": "evaluation",
-          "label": "details.tabs.evaluation",
+          "key": "evaluationsss",
           "icon": "evaluation",
           "data": {
-            "ideaId": "IDEA-1023",
-            "ideaTitle": "تحسين الاستجابة الذكية للطوارئ",
-            "submitter": "أحمد علي",
-            "department": "قسم البيئة",
-            "scoreCards": [
-              {
-                "key": "your",
-                "labelKey": "your_evaluation",
-                "computedKey": "yourRating"
-              },
-              {
-                "key": "team",
-                "labelKey": "team_average",
-                "computedKey": "teamRating"
-              },
-              {
-                "key": "ai",
-                "labelKey": "ai_initial_evaluation",
-                "computedKey": "aiRating"
-              }
-            ],
-            "biasMetrics": {
-              "balanceRate": "-5% to +5%",
-              "averageBias": "6% to 12%",
-              "highestBias": "أعلى 12%"
-            },
-            "biasMetricCards": [
-              { "key": "balanceRate", "labelKey": "balance_rate" },
-              { "key": "averageBias", "labelKey": "average_bias" },
-              { "key": "highestBias", "labelKey": "highest_bias" }
-            ],
-            "footnoteKeys": ["strict", "generous", "balanced"],
             "criteria": [
               {
                 "key": "creativity",
-                "weight": "20%",
+
                 "value": 3
               },
               {
                 "key": "need",
-                "weight": "20%",
+
                 "value": 3
               },
               {
@@ -915,27 +882,27 @@
               },
               {
                 "key": "sustainability",
-                "weight": "20%",
+
                 "value": 3
               },
               {
                 "key": "impact",
-                "weight": "20%",
+
                 "value": 3
               },
               {
                 "key": "alignment",
-                "weight": "20%",
+
                 "value": 3
               },
               {
                 "key": "risk",
-                "weight": "20%",
+
                 "value": 3
               },
               {
                 "key": "reputation",
-                "weight": "20%",
+
                 "value": 3
               }
             ],
@@ -948,7 +915,7 @@
                 "classification": "Balanced",
                 "averageRating": 75,
                 "teamAverage": 72,
-                "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
+
                 "scores": [4, 3, 4, 3, 5, 4, 4, 3]
               },
               {
@@ -957,7 +924,7 @@
                 "classification": "Generous",
                 "averageRating": 68,
                 "teamAverage": 72,
-                "badgeClass": "bg-blue-500 border-blue-500/30 text-white",
+
                 "scores": [4, 4, 3, 5, 4, 3, 4, 4]
               },
               {
@@ -966,7 +933,7 @@
                 "classification": "Balanced",
                 "averageRating": 71,
                 "teamAverage": 72,
-                "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
+
                 "scores": [3, 4, 3, 3, 4, 4, 3, 4]
               },
               {
@@ -975,7 +942,7 @@
                 "classification": "Strict",
                 "averageRating": 60,
                 "teamAverage": 72,
-                "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
+
                 "scores": [2, 3, 2, 4, 3, 2, 3, 2]
               },
               {
@@ -984,7 +951,7 @@
                 "classification": "Strict",
                 "averageRating": 68,
                 "teamAverage": 72,
-                "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
+
                 "scores": [3, 2, 3, 3, 3, 3, 2, 3]
               }
             ]
@@ -1811,38 +1778,11 @@
           "label": "details.tabs.evaluation",
           "icon": "evaluation",
           "data": {
-            "ideaId": "IDEA-1023",
-            "ideaTitle": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-            "submitter": "أحمد خالد",
-            "department": "الطاقة",
-            "scoreCards": [
-              {
-                "key": "your",
-                "labelKey": "your_evaluation",
-                "computedKey": "yourRating"
-              },
-              {
-                "key": "team",
-                "labelKey": "team_average",
-                "computedKey": "teamRating"
-              },
-              {
-                "key": "ai",
-                "labelKey": "ai_initial_evaluation",
-                "computedKey": "aiRating"
-              }
-            ],
             "biasMetrics": {
               "balanceRate": "-2% to +4%",
               "averageBias": "4% to 8%",
               "highestBias": "أعلى 8%"
             },
-            "biasMetricCards": [
-              { "key": "balanceRate", "labelKey": "balance_rate" },
-              { "key": "averageBias", "labelKey": "average_bias" },
-              { "key": "highestBias", "labelKey": "highest_bias" }
-            ],
-            "footnoteKeys": ["strict", "generous", "balanced"],
             "criteria": [
               {
                 "key": "creativity",
