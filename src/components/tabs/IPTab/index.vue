@@ -1,9 +1,9 @@
 <script setup>
 import { computed, ref } from "vue";
 import BaseBox from "@/components/ui/BaseBox.vue";
-import IpSummaryRow from "@/components/tabsBlocks/IpSummaryRow.vue";
-import TimelineStepper from "@/components/tabsBlocks/TimelineStepper.vue";
-import BaseButton from "@/components//ui/BaseButton.vue";
+import IpSummaryRow from "./IpSummaryRow.vue";
+import TimelineStepper from "@/components/tabs/_shared/TimelineStepper.vue";
+import BaseButton from "@/components/ui/BaseButton.vue";
 
 const props = defineProps({
   data: {

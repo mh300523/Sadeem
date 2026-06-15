@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from "vue";
-import TimelineStepper from "@/components/tabsBlocks/TimelineStepper.vue";
+import TimelineStepper from "@/components/tabs/_shared/TimelineStepper.vue";
 import SvgIcon from "@/components/ui/SvgIcon.vue";
 import BaseButton from "@/components/ui/BaseButton.vue";
 import BaseBox from "@/components/ui/BaseBox.vue";

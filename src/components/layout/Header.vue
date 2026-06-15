@@ -6,7 +6,7 @@
         <img
           src="@/assets/images/logo.png"
           alt="logo"
-          class="w-full h-full object-coverer"
+          class="w-full h-full object-cover"
         />
       </div>
       <div class="welcome-title">
@@ -40,7 +40,7 @@
     <!-- Left side Tools and Profile -->
     <div class="header-tools flex items-center gap-3 sm:gap-4">
       <!-- Language Switcher -->
-      <LanguageSwicher />
+      <LanguageSwitcher />
 
       <!-- Theme Switcher -->
       <button
@@ -91,7 +91,7 @@
 </template>
 
 <script setup>
-import LanguageSwicher from "@/components/common/LanguageSwicher.vue";
+import LanguageSwitcher from "@/components/common/LanguageSwitcher.vue";
 import SvgIcon from "@/components/ui/SvgIcon.vue";
 </script>
 <style scoped>

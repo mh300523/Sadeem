@@ -1,8 +1,8 @@
 <script setup>
-import GaugeChart from "@/components/dashboard/analytics/GaugeChart.vue";
+import GaugeChart from "@/components/charts/GaugeChart.vue";
 import BubbleCluster from "@/components/dashboard/analytics/BubbleCluster.vue";
 import ProgressBar from "@/components/dashboard/analytics/ProgressBar.vue";
-import StreamChart from "@/components/dashboard/analytics/StreamChart.vue";
+import StreamChart from "@/components/charts/StreamChart.vue";
 import BaseAnalyticBox from "@/components/ui/BaseAnalyticBox.vue";
 
 defineProps({

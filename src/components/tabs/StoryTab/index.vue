@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from "vue";
 import BaseTagList from "@/components/ui/BaseTagList.vue";
-import TimelineStepper from "@/components/tabsBlocks/TimelineStepper.vue";
+import TimelineStepper from "@/components/tabs/_shared/TimelineStepper.vue";
 import BaseBox from "@/components/ui/BaseBox.vue";
 
 const props = defineProps({

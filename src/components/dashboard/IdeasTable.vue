@@ -1,5 +1,4 @@
 <script setup>
-import { useI18n } from "vue-i18n";
 import BaseTable from "@/components/ui/BaseTable.vue";
 import SvgIcon from "@/components/ui/SvgIcon.vue";
 
@@ -17,8 +16,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-const { locale } = useI18n();
 
 function getBadgeConfig(statusId) {
   return props.statusConfigs[statusId] || props.statusConfigs.new;

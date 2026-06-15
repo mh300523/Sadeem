@@ -1,17 +1,14 @@
 <script setup>
-import { ref, computed, watch, toRef } from "vue";
+import { ref, computed, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import BaseBox from "@/components/ui/BaseBox.vue";
 import SvgIcon from "@/components/ui/SvgIcon.vue";
 import BaseButton from "@/components/ui/BaseButton.vue";
 
 // Reusable blocks
-import ScoreCard from "@/components/tabsBlocks/ScoreCard.vue";
-import EvaluationCriteriaBlock from "@/components/tabsBlocks/EvaluationCriteriaBlock.vue";
-import EvaluationBiasBlock from "@/components/tabsBlocks/EvaluationBiasBlock.vue";
-
-// Composable for data normalization
-import { useEvaluationData } from "@/composables/useEvaluationData";
+import ScoreCard from "./ScoreCard.vue";
+import EvaluationCriteriaBlock from "./EvaluationCriteriaBlock.vue";
+import EvaluationBiasBlock from "./EvaluationBiasBlock.vue";
 
 const props = defineProps({
   data: {
@@ -23,15 +20,41 @@ const props = defineProps({
 
 const { t, locale } = useI18n();
 
-// ─── Data Layer ───────────────────────────────────────────────────────────
-const {
-  idea,
-  rawCriteria,
-  aiScores,
-  teamScores,
-  rawEvaluators,
-  biasMetrics,
-} = useEvaluationData(toRef(props, "data"));
+// ─── Data Layer (Safe fallbacks directly from props.data) ───────────
+const idea = computed(() => {
+  const d = props.data || {};
+  return {
+    id: d.ideaId ?? "",
+    title: d.ideaTitle ?? "",
+    submitter: d.ideaSubmitter ?? "",
+    department: d.ideaDepartment ?? "",
+  };
+});
+
+const rawCriteria = computed(() => {
+  return props.data?.criteria ?? [];
+});
+
+const aiScores = computed(() => {
+  return props.data?.aiScores ?? [];
+});
+
+const teamScores = computed(() => {
+  return props.data?.teamScores ?? [];
+});
+
+const rawEvaluators = computed(() => {
+  return props.data?.evaluators ?? [];
+});
+
+const biasMetrics = computed(() => {
+  const metrics = props.data?.biasMetrics ?? {};
+  return {
+    balanceRate: metrics.balanceRate ?? "",
+    averageBias: metrics.averageBias ?? "",
+    highestBias: metrics.highestBias ?? "",
+  };
+});
 
 // ─── View Toggle State ─────────────────────────────────────────────────────
 const currentView = ref("sliders");
@@ -44,7 +67,7 @@ watch(
   (newCriteria) => {
     criteria.value = (newCriteria || []).map((crit) => ({ ...crit }));
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 // ─── Active Evaluator State ────────────────────────────────────────────────
@@ -53,7 +76,7 @@ watch(
   () => idea.value.id,
   () => {
     selectedEvaluatorIndex.value = 0;
-  }
+  },
 );
 
 // ─── Evaluators database computed reactively ──────────────────────
@@ -76,42 +99,72 @@ const evaluators = computed(() => {
   });
 });
 
-const selectedEvaluator = computed(() => evaluators.value[selectedEvaluatorIndex.value] || {});
+const selectedEvaluator = computed(
+  () => evaluators.value[selectedEvaluatorIndex.value] || {},
+);
 
 // ─── Radar Categories (Labels) ─────────────────────────────────────────────
 const getCriterionLabel = (key) => t(`evaluation.criteria.${key}.label`);
-const radarLabels = computed(() => criteria.value.map((c) => getCriterionLabel(c.key)));
+const radarLabels = computed(() =>
+  criteria.value.map((c) => getCriterionLabel(c.key)),
+);
 
 // ─── Ratings Computation Helper ────────────────────────────────────────────
-const calculateRating = (scores) => {
-  if (!scores || scores.length === 0) return "0.0";
-  const sum = scores.reduce((acc, val) => acc + val, 0);
-  return ((sum / (scores.length * 5)) * 100).toFixed(1);
-};
+const ratings = computed(() => {
+  // yourRating is dynamically calculated from user sliders so it changes in real-time
+  const userSum = criteria.value.reduce((acc, c) => acc + c.value, 0);
+  const userRating =
+    criteria.value.length > 0
+      ? ((userSum / (criteria.value.length * 5)) * 100).toFixed(1)
+      : "0.0";
 
-const ratings = computed(() => ({
-  yourRating: calculateRating(criteria.value.map((c) => c.value)),
-  teamRating: calculateRating(teamScores.value),
-  aiRating: calculateRating(aiScores.value),
-}));
+  return {
+    yourRating: userRating,
+    // teamRating and aiRating display the actual dynamic values from the API
+    teamRating: (props.data?.averageRating ?? 74.0).toFixed(1),
+    aiRating: (props.data?.aiScore ?? 78.0).toFixed(1),
+  };
+});
 
 // ─── AI Insights Strongest/Weakest computations ───────────────────────────
 const commaSeparator = computed(() => (locale.value === "ar" ? "، " : ", "));
 
 const strongestAspects = computed(() => {
-  const sorted = [...criteria.value].sort((a, b) => b.value - a.value);
-  if (sorted.length === 0) return "";
+  const scores = aiScores.value;
+  if (!scores || scores.length === 0 || criteria.value.length === 0) return "";
+
+  // Compute from AI scores rather than user sliders
+  const aiCriteria = criteria.value.map((c, idx) => ({
+    key: c.key,
+    value: scores[idx] ?? 0,
+  }));
+
+  const sorted = [...aiCriteria].sort((a, b) => b.value - a.value);
   const maxVal = sorted[0].value;
   const top = sorted.filter((c) => c.value === maxVal).slice(0, 2);
-  return top.map((t) => `${getCriterionLabel(t.key)} (${t.value}/5)`).join(commaSeparator.value);
+
+  return top
+    .map((t) => `${getCriterionLabel(t.key)} (${t.value}/5)`)
+    .join(commaSeparator.value);
 });
 
 const weakestAspects = computed(() => {
-  const sorted = [...criteria.value].sort((a, b) => a.value - b.value);
-  if (sorted.length === 0) return "";
+  const scores = aiScores.value;
+  if (!scores || scores.length === 0 || criteria.value.length === 0) return "";
+
+  // Compute from AI scores rather than user sliders
+  const aiCriteria = criteria.value.map((c, idx) => ({
+    key: c.key,
+    value: scores[idx] ?? 0,
+  }));
+
+  const sorted = [...aiCriteria].sort((a, b) => a.value - b.value);
   const minVal = sorted[0].value;
   const bottom = sorted.filter((c) => c.value === minVal).slice(0, 2);
-  return bottom.map((b) => `${getCriterionLabel(b.key)} (${b.value}/5)`).join(commaSeparator.value);
+
+  return bottom
+    .map((b) => `${getCriterionLabel(b.key)} (${b.value}/5)`)
+    .join(commaSeparator.value);
 });
 
 // ─── Radar Series Styles and Builder ───────────────────────────────────────
@@ -148,8 +201,12 @@ const buildRadarSeries = (currentScores) => [
   },
 ];
 
-const sliderSeries = computed(() => buildRadarSeries(criteria.value.map((c) => c.value)));
-const biasSeries = computed(() => buildRadarSeries(selectedEvaluator.value.scores || []));
+const sliderSeries = computed(() =>
+  buildRadarSeries(criteria.value.map((c) => c.value)),
+);
+const biasSeries = computed(() =>
+  buildRadarSeries(selectedEvaluator.value.scores || []),
+);
 
 // ─── Reset Slider Event Handler ────────────────────────────────────────────
 const resetCriterion = (index) => {
@@ -184,10 +241,13 @@ const resetCriterion = (index) => {
           <span class="text-white text-xs">
             <template v-if="idea.submitter">
               {{ idea.submitter }}
-              <template v-if="idea.department"> - {{ idea.department }}</template>
+              <template v-if="idea.department">
+                - {{ idea.department }}</template
+              >
             </template>
             <template v-else>
-              {{ $t("evaluation.default_submitter") }} - {{ $t("evaluation.default_department") }}
+              {{ $t("evaluation.default_submitter") }} -
+              {{ $t("evaluation.default_department") }}
             </template>
           </span>
 
@@ -247,6 +307,7 @@ const resetCriterion = (index) => {
       :series="sliderSeries"
       :strongest-aspects="strongestAspects"
       :weakest-aspects="weakestAspects"
+      :direct-note="props.data?.directNote || $t('evaluation.direct_note_text')"
       @reset-criterion="resetCriterion"
     />
 

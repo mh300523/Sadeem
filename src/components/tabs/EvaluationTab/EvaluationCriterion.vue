@@ -68,7 +68,7 @@ const thumbStyle = computed(() => {
 
 <template>
   <div
-    class="evaluation-criterion relative rtl:after:bg-linear-to-l ltr:after:bg-linear-to-r after:from-[#434343] after:to-[#A9A9A900] mb-4"
+    class="evaluation-criterion border-bottom-gradient relative rtl:after:bg-linear-to-l ltr:after:bg-linear-to-r after:from-[#434343] after:to-[#A9A9A900] mb-4"
   >
     <!-- Top Row: Title & Description and Percentage Pill -->
     <BaseBox
@@ -192,12 +192,4 @@ const thumbStyle = computed(() => {
   </div>
 </template>
 
-<style scoped>
-.evaluation-criterion::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  height: 1px;
-}
-</style>
+<style scoped></style>

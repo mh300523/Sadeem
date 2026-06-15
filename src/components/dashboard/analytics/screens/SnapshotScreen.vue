@@ -1,8 +1,8 @@
 <script setup>
 import BaseBox from "@/components/ui/BaseBox.vue";
 import KpiCard from "@/components/dashboard/analytics/KpiCard.vue";
-import GaugeChart from "@/components/dashboard/analytics/GaugeChart.vue";
-import RadarChart from "@/components/dashboard/analytics/RadarChart.vue";
+import GaugeChart from "@/components/charts/GaugeChart.vue";
+import RadarChart from "@/components/charts/RadarChart.vue";
 import BaseAnalyticBox from "@/components/ui/BaseAnalyticBox.vue";
 
 defineProps({

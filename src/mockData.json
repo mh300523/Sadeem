@@ -483,567 +483,6 @@
               },
               "team": {
                 "label": "اعضاء فريق الفكرة",
-                "members": []
-              },
-              "targetAudience": {
-                "label": "الفئة المستهدفة",
-                "items": []
-              },
-              "sector": {
-                "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
-              },
-              "technologies": {
-                "label": "التقنيات المرتبطة بالفكرة",
-                "items": []
-              },
-              "impact": {
-                "label": "نطاق الأثر",
-                "items": []
-              },
-              "readiness": {
-                "label": "مستوى الجاهزية الحالية",
-                "value": "غير محدد"
-              },
-              "attachments": {
-                "label": "الملفات المرفقة",
-                "files": []
-              }
-            },
-            "overview": {
-              "explanation": {
-                "label": "شرح الفكرة",
-                "text": ""
-              },
-              "details": {
-                "label": "تفاصيل الفكرة",
-                "items": [
-                  {
-                    "key": "targetChallenge",
-                    "label": "التحدي المستهدف",
-                    "value": "-"
-                  },
-                  {
-                    "key": "problemType",
-                    "label": "نوع المشكلة",
-                    "value": "-"
-                  },
-                  {
-                    "key": "strategicGoal",
-                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
-                    "value": "-"
-                  }
-                ],
-                "requirements": {
-                  "label": "متطلبات التنفيذ",
-                  "items": []
-                },
-                "outputs": {
-                  "label": "مخرجات الابتكار المتوقعة",
-                  "items": []
-                }
-              }
-            }
-          }
-        },
-        {
-          "key": "story",
-          "label": "details.tabs.story",
-          "icon": "story",
-          "data": {
-            "intro": {
-              "label": "فكرة في طور التكوين...",
-              "audioLabel": "استمع الى قصة الفكرة",
-              "audioDuration": "0:00",
-              "journeyBtn": "رحلة الابتكار"
-            },
-            "timeline": [],
-            "sidebar": {
-              "journey": {
-                "title": "رحلة الابتكار",
-                "steps": []
-              },
-              "features": {
-                "title": "ميزات الفكرة",
-                "items": []
-              }
-            }
-          }
-        },
-        {
-          "key": "business_model",
-          "label": "details.tabs.business_model",
-          "icon": "business",
-          "data": {}
-        },
-        {
-          "key": "alignment",
-          "label": "details.tabs.alignment",
-          "icon": "alignment",
-          "data": {}
-        },
-        {
-          "key": "ip",
-          "label": "details.tabs.ip",
-          "icon": "ip",
-          "data": {
-            "sidebar": {
-              "title": "تقييم فرصة الحماية القانونية (IP)",
-              "recommendations": {
-                "label": "التوصية التالية",
-                "steps": [
-                  {
-                    "id": 1,
-                    "title": "تقديم طلب براءة اختراع",
-                    "active": true
-                  },
-                  {
-                    "id": 2,
-                    "title": "استشارة محامي ملكية فكرية",
-                    "active": false
-                  },
-                  {
-                    "id": 3,
-                    "title": "إجراء بحث براءات",
-                    "active": false
-                  }
-                ]
-              },
-              "disclaimer": {
-                "title": "اخلاء مسؤولية قانوني",
-                "description": "هذا التقييم تم إنشاؤه باستخدام تحليل ذكاء اصطناعي وعمليات بحث أولية، وهو لأغراض استشارية فقط، ولا يُعد استشارة قانونية أو تأكيداً لإمكانية التسجيل. للحصول على حماية رسمية، يجب تقديم الطلب إلى الجهات المختصة. يُنصح باستشارة مختص في الملكية الفكرية قبل اتخاذ أي قرار."
-              },
-              "actions": {
-                "downloadReport": "تحميل تقرير الملكية الفكرية (PDF)",
-                "requestReview": "طلب مراجعة قانونية"
-              }
-            },
-            "scoreCard": {
-              "title": "درجة الملكية الفكرية",
-              "score": 78,
-              "maxScore": 100,
-              "scoreLabel": "IP Opportunity Score",
-              "scoreIcon": "solar_star-bold"
-            },
-            "summaryCard": {
-              "title": "ملخص تحليل الملكية الفكرية",
-              "rows": [
-                {
-                  "label": "مستوى فرصة الملكية الفكرية",
-                  "value": "متوسطة",
-                  "type": "badge",
-                  "dotColor": "bg-yellow-400"
-                },
-                {
-                  "label": "نوع الحماية الأساسي",
-                  "value": "براءة اختراع",
-                  "type": "text-cyan"
-                },
-                {
-                  "label": "نوع حماية إضافي (اختياري)",
-                  "value": "Copyright",
-                  "type": "text-cyan"
-                },
-                {
-                  "label": "درجة الفرصة (Opportunity Score)",
-                  "value": "78 / 100",
-                  "type": "blue-pill"
-                },
-                {
-                  "label": "درجة التشابه مع أفكار موجودة",
-                  "value": "عالي",
-                  "type": "slider",
-                  "sliderVal": 90,
-                  "dotColor": "bg-red-500"
-                }
-              ]
-            }
-          }
-        },
-        {
-          "key": "classification",
-          "label": "details.tabs.classification",
-          "icon": "classification",
-          "data": {
-            "sidebar": {
-              "title": "تصنيف الفكرة وتحديد مسارها",
-              "sections": [
-                {
-                  "key": "basic_classification",
-                  "label": "التصنيف الأساسي",
-                  "options": [
-                    {
-                      "value": "improvement",
-                      "label": "تحسيني",
-                      "selected": false
-                    },
-                    {
-                      "value": "breakthrough",
-                      "label": "خارق",
-                      "selected": true
-                    },
-                    {
-                      "value": "disruptive",
-                      "label": "مزعزع",
-                      "selected": false
-                    },
-                    {
-                      "value": "transformational",
-                      "label": "تحويلي",
-                      "selected": false
-                    }
-                  ]
-                },
-                {
-                  "key": "time_horizon",
-                  "label": "الأفق الزمني",
-                  "options": [
-                    {
-                      "value": "H1",
-                      "label": "قصير المدى: H1",
-                      "selected": false
-                    },
-                    {
-                      "value": "H2",
-                      "label": "متوسط: H2",
-                      "selected": true
-                    },
-                    {
-                      "value": "H3",
-                      "label": "طويل: H3",
-                      "selected": false
-                    }
-                  ]
-                },
-                {
-                  "key": "complexity",
-                  "label": "مستوى التعقيد",
-                  "options": [
-                    {
-                      "value": "low",
-                      "label": "منخفض",
-                      "selected": false
-                    },
-                    {
-                      "value": "medium",
-                      "label": "متوسط",
-                      "selected": true
-                    },
-                    {
-                      "value": "high",
-                      "label": "مرتفع",
-                      "selected": false
-                    }
-                  ]
-                },
-                {
-                  "key": "risk",
-                  "label": "مستوى المخاطر",
-                  "options": [
-                    {
-                      "value": "low",
-                      "label": "منخفض",
-                      "selected": true
-                    },
-                    {
-                      "value": "medium",
-                      "label": "متوسط",
-                      "selected": false
-                    },
-                    {
-                      "value": "high",
-                      "label": "مرتفع",
-                      "selected": false
-                    }
-                  ]
-                }
-              ]
-            },
-            "innovationPath": {
-              "label": "مسار الابتكار",
-              "items": [
-                {
-                  "key": "pathway1",
-                  "title": "المسار 1 - إدامة السوق",
-                  "subtitle": "المسار 1 - إدامة السوق (Pathway 1 - Market Perpetuation)",
-                  "selected": true
-                },
-                {
-                  "key": "pathway2",
-                  "title": "المسار 2 - اختراق السوق",
-                  "subtitle": "المسار 2 - اختراق السوق (Pathway 2 - Market Penetration)",
-                  "selected": false
-                },
-                {
-                  "key": "pathway3",
-                  "title": "المسار 3 - توسع السوق",
-                  "subtitle": "المسار 3 - توسع السوق (Pathway 3 - Market Broadening)",
-                  "selected": false
-                },
-                {
-                  "key": "pathway4",
-                  "title": "المسار 4 - توسع السوق",
-                  "subtitle": "المسار 4 - توسع السوق (Pathway 4 - Market Escalation)",
-                  "selected": false
-                },
-                {
-                  "key": "pathway5",
-                  "title": "المسار 5 - توسع السوق",
-                  "subtitle": "المسار 5 - توسع السوق (Pathway 5 - Market Expansion)",
-                  "selected": false
-                },
-                {
-                  "key": "pathway6",
-                  "title": "المسار 6 - توسع السوق",
-                  "subtitle": "المسار 6 - خلق السوق (Pathway 6 - Market Creation)",
-                  "selected": false
-                }
-              ]
-            },
-            "duplicateCheck": {
-              "label": "هل الفكرة مكررة؟",
-              "warningText": "تم اكتشاف فكرة مشابهة",
-              "items": [
-                {
-                  "id": "IDEA-1024",
-                  "title": "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-                  "submitter": "مصطفى كامل",
-                  "date": "22 أغسطس 2026",
-                  "similarity": 78,
-                  "isDuplicate": false,
-                  "isNotDuplicate": false
-                },
-                {
-                  "id": "IDEA-1025",
-                  "title": "نظام تحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-                  "submitter": "مصطفى كامل",
-                  "date": "22 أغسطس 2026",
-                  "similarity": 78,
-                  "isDuplicate": false,
-                  "isNotDuplicate": false
-                }
-              ]
-            },
-            "executionPlan": {
-              "label": "هل الفكرة ضمن خطة التنفيذ؟",
-              "statusText": "هذه الفكرة غير مدرجة ضمن أي مشروع حالي",
-              "project": {
-                "title": "مشروع تحسين استهلاك الطاقة",
-                "submitter": "قسم الموارد البشرية",
-                "status": "قيد التنفيذ",
-                "confirmed": false
-              }
-            },
-            "mergeSuggestion": {
-              "label": "هل يمكن دمج الفكرة؟",
-              "canMerge": true,
-              "items": [
-                {
-                  "id": "IDEA-1024",
-                  "title": "حاوية ذكية لإعادة التدوير باستخدام حساسات",
-                  "department": "قطاع البيئة",
-                  "similarity": 78
-                },
-                {
-                  "id": "IDEA-1025",
-                  "title": "حاوية ذكية لإعادة التدوير باستخدام حساسات",
-                  "department": "قطاع البيئة",
-                  "similarity": 78
-                },
-                {
-                  "id": "IDEA-1026",
-                  "title": "حاوية ذكية لإعادة التدوير باستخدام حساسات",
-                  "department": "قطاع البيئة",
-                  "similarity": 78
-                }
-              ]
-            }
-          }
-        },
-        {
-          "key": "evaluation",
-          "label": "details.tabs.evaluation",
-          "icon": "evaluation",
-          "data": {
-            "ideaId": "IDEA-1023",
-            "ideaTitle": "تحسين الاستجابة الذكية للطوارئ",
-            "submitter": "أحمد علي",
-            "department": "قسم البيئة",
-            "scoreCards": [
-              {
-                "key": "your",
-                "labelKey": "your_evaluation",
-                "computedKey": "yourRating"
-              },
-              {
-                "key": "team",
-                "labelKey": "team_average",
-                "computedKey": "teamRating"
-              },
-              {
-                "key": "ai",
-                "labelKey": "ai_initial_evaluation",
-                "computedKey": "aiRating"
-              }
-            ],
-            "biasMetrics": {
-              "balanceRate": "-5% to +5%",
-              "averageBias": "6% to 12%",
-              "highestBias": "أعلى 12%"
-            },
-            "biasMetricCards": [
-              { "key": "balanceRate", "labelKey": "balance_rate" },
-              { "key": "averageBias", "labelKey": "average_bias" },
-              { "key": "highestBias", "labelKey": "highest_bias" }
-            ],
-            "footnoteKeys": ["strict", "generous", "balanced"],
-            "criteria": [
-              {
-                "key": "creativity",
-                "weight": "20%",
-                "value": 3
-              },
-              {
-                "key": "need",
-                "weight": "20%",
-                "value": 3
-              },
-              {
-                "key": "feasibility",
-                "weight": "20%",
-                "value": 3
-              },
-              {
-                "key": "sustainability",
-                "weight": "20%",
-                "value": 3
-              },
-              {
-                "key": "impact",
-                "weight": "20%",
-                "value": 3
-              },
-              {
-                "key": "alignment",
-                "weight": "20%",
-                "value": 3
-              },
-              {
-                "key": "risk",
-                "weight": "20%",
-                "value": 3
-              },
-              {
-                "key": "reputation",
-                "weight": "20%",
-                "value": 3
-              }
-            ],
-            "aiScores": [4, 3, 4, 3, 5, 4, 4, 3],
-            "teamScores": [3, 4, 3, 4, 4, 3, 3, 4],
-            "evaluators": [
-              {
-                "name": "Khaled",
-                "bias": "+4.2%",
-                "classification": "Balanced",
-                "averageRating": 75,
-                "teamAverage": 72,
-                "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
-                "scores": [4, 3, 4, 3, 5, 4, 4, 3]
-              },
-              {
-                "name": "Sara",
-                "bias": "-5.6%",
-                "classification": "Generous",
-                "averageRating": 68,
-                "teamAverage": 72,
-                "badgeClass": "bg-blue-500 border-blue-500/30 text-white",
-                "scores": [4, 4, 3, 5, 4, 3, 4, 4]
-              },
-              {
-                "name": "Omar",
-                "bias": "-1.4%",
-                "classification": "Balanced",
-                "averageRating": 71,
-                "teamAverage": 72,
-                "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
-                "scores": [3, 4, 3, 3, 4, 4, 3, 4]
-              },
-              {
-                "name": "Lina",
-                "bias": "-16.7%",
-                "classification": "Strict",
-                "averageRating": 60,
-                "teamAverage": 72,
-                "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
-                "scores": [2, 3, 2, 4, 3, 2, 3, 2]
-              },
-              {
-                "name": "Shams",
-                "bias": "-5.6%",
-                "classification": "Strict",
-                "averageRating": 68,
-                "teamAverage": 72,
-                "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
-                "scores": [3, 2, 3, 3, 3, 3, 2, 3]
-              }
-            ]
-          }
-        },
-        {
-          "key": "decision",
-          "label": "details.tabs.decision",
-          "icon": "decision",
-          "data": {
-            "sectionTitle": "اختيار التوصية النهائية",
-            "sectionDescription": "استعرض وأثبت وأرشف هذه الفكرة، يرجى تحديد التوصية النهائية والإجراءات المترتبة عليها أدناه:",
-            "notesLabel": "ملاحظات القرار والإشعار",
-            "notesPlaceholder": "اكتب ملاحظات القرار النهائي أو التوجيهات أو الملاحظات الخاصة بالحوكمة...",
-            "modal": {
-              "title": "قرار التوجيه والاعتماد",
-              "successTitle": "تم إرسال واعتماد القرار بنجاح",
-              "successMessage": "تم إرسال الإشعارات والقرارات لكافة الأطراف والمستفيدين المعنيين."
-            },
-            "actions": [
-              { "key": "send", "label": "إرسال القرار", "variant": "primary" },
-              { "key": "draft", "label": "حفظ كمسودة", "variant": "secondary" },
-              {
-                "key": "preview-all",
-                "label": "معاينة جميع الإشعارات",
-                "variant": "secondary"
-              }
-            ],
-            "dropdownOptions": {},
-            "options": []
-          }
-        }
-      ]
-    },
-    "IDEA-1023": {
-      "id": "IDEA-1023",
-      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-      "submitter": "أحمد خالد",
-      "department": "الطاقة",
-      "status": {
-        "id": "under_evaluation",
-        "name": "قيد التقييم"
-      },
-      "averageRating": 82,
-      "evaluatorsCount": 4,
-      "aiScore": 78,
-      "tabs": [
-        {
-          "key": "overview",
-          "label": "details.tabs.overview",
-          "icon": "overview",
-          "data": {
-            "sidebar": {
-              "owner": {
-                "label": "مقدم الفكرة",
-                "name": "شمس سمير حسان"
-              },
-              "team": {
-                "label": "اعضاء فريق الفكرة",
                 "members": [
                   "ليلى عمرو محمود",
                   "نهى سليم الشرفا",
@@ -1060,11 +499,16 @@
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
+                "items": [
+                  "القطاع الحكومي"
+                ]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
-                "items": ["الذكاء الاصطناعي", "إنترنت الأشياء"]
+                "items": [
+                  "الذكاء الاصطناعي",
+                  "إنترنت الأشياء"
+                ]
               },
               "impact": {
                 "label": "نطاق الأثر",
@@ -1130,7 +574,11 @@
                 ],
                 "requirements": {
                   "label": "متطلبات التنفيذ",
-                  "items": ["بيانات", "تشريعات", "شركاء"]
+                  "items": [
+                    "بيانات",
+                    "تشريعات",
+                    "شركاء"
+                  ]
                 },
                 "outputs": {
                   "label": "مخرجات الابتكار المتوقعة",
@@ -1811,38 +1259,11 @@
           "label": "details.tabs.evaluation",
           "icon": "evaluation",
           "data": {
-            "ideaId": "IDEA-1023",
-            "ideaTitle": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-            "submitter": "أحمد خالد",
-            "department": "الطاقة",
-            "scoreCards": [
-              {
-                "key": "your",
-                "labelKey": "your_evaluation",
-                "computedKey": "yourRating"
-              },
-              {
-                "key": "team",
-                "labelKey": "team_average",
-                "computedKey": "teamRating"
-              },
-              {
-                "key": "ai",
-                "labelKey": "ai_initial_evaluation",
-                "computedKey": "aiRating"
-              }
-            ],
             "biasMetrics": {
               "balanceRate": "-2% to +4%",
               "averageBias": "4% to 8%",
               "highestBias": "أعلى 8%"
             },
-            "biasMetricCards": [
-              { "key": "balanceRate", "labelKey": "balance_rate" },
-              { "key": "averageBias", "labelKey": "average_bias" },
-              { "key": "highestBias", "labelKey": "highest_bias" }
-            ],
-            "footnoteKeys": ["strict", "generous", "balanced"],
             "criteria": [
               {
                 "key": "creativity",
@@ -1885,8 +1306,26 @@
                 "value": 3
               }
             ],
-            "aiScores": [4, 3, 4, 3, 5, 4, 4, 3],
-            "teamScores": [3, 4, 3, 4, 4, 3, 3, 4],
+            "aiScores": [
+              1,
+              3,
+              3,
+              4,
+              5,
+              1,
+              3,
+              3
+            ],
+            "teamScores": [
+              3,
+              4,
+              3,
+              4,
+              4,
+              3,
+              3,
+              4
+            ],
             "evaluators": [
               {
                 "name": "Khaled",
@@ -1894,8 +1333,16 @@
                 "classification": "Balanced",
                 "averageRating": 75,
                 "teamAverage": 72,
-                "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
-                "scores": [4, 3, 4, 3, 5, 4, 4, 3]
+                "scores": [
+                  4,
+                  3,
+                  4,
+                  3,
+                  5,
+                  4,
+                  4,
+                  3
+                ]
               },
               {
                 "name": "Sara",
@@ -1903,8 +1350,16 @@
                 "classification": "Generous",
                 "averageRating": 68,
                 "teamAverage": 72,
-                "badgeClass": "bg-blue-500 border-blue-500/30 text-white",
-                "scores": [4, 4, 3, 5, 4, 3, 4, 4]
+                "scores": [
+                  4,
+                  4,
+                  3,
+                  5,
+                  4,
+                  3,
+                  4,
+                  4
+                ]
               },
               {
                 "name": "Omar",
@@ -1912,8 +1367,16 @@
                 "classification": "Balanced",
                 "averageRating": 71,
                 "teamAverage": 72,
-                "badgeClass": "bg-[#10B981] border-[#10B981]/30 text-white",
-                "scores": [3, 4, 3, 3, 4, 4, 3, 4]
+                "scores": [
+                  3,
+                  4,
+                  3,
+                  3,
+                  4,
+                  4,
+                  3,
+                  4
+                ]
               },
               {
                 "name": "Lina",
@@ -1921,8 +1384,16 @@
                 "classification": "Strict",
                 "averageRating": 60,
                 "teamAverage": 72,
-                "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
-                "scores": [2, 3, 2, 4, 3, 2, 3, 2]
+                "scores": [
+                  2,
+                  3,
+                  2,
+                  4,
+                  3,
+                  2,
+                  3,
+                  2
+                ]
               },
               {
                 "name": "Shams",
@@ -1930,8 +1401,16 @@
                 "classification": "Strict",
                 "averageRating": 68,
                 "teamAverage": 72,
-                "badgeClass": "bg-[#EF4444] border-[#EF4444]/30 text-white",
-                "scores": [3, 2, 3, 3, 3, 3, 2, 3]
+                "scores": [
+                  3,
+                  2,
+                  3,
+                  3,
+                  3,
+                  3,
+                  2,
+                  3
+                ]
               }
             ]
           }
@@ -1951,8 +1430,16 @@
               "successMessage": "تم إرسال الإشعارات والقرارات لكافة الأطراف والمستفيدين المعنيين."
             },
             "actions": [
-              { "key": "send", "label": "إرسال القرار", "variant": "primary" },
-              { "key": "draft", "label": "حفظ كمسودة", "variant": "secondary" },
+              {
+                "key": "send",
+                "label": "إرسال القرار",
+                "variant": "primary"
+              },
+              {
+                "key": "draft",
+                "label": "حفظ كمسودة",
+                "variant": "secondary"
+              },
               {
                 "key": "preview-all",
                 "label": "معاينة جميع الإشعارات",
@@ -1961,67 +1448,166 @@
             ],
             "dropdownOptions": {
               "directionType": [
-                { "value": "prototype", "label": "تطوير نموذج أولي" },
-                { "value": "assessment", "label": "تقييم فني" },
-                { "value": "pilot", "label": "مشروع تجريبي" }
+                {
+                  "value": "prototype",
+                  "label": "تطوير نموذج أولي"
+                },
+                {
+                  "value": "assessment",
+                  "label": "تقييم فني"
+                },
+                {
+                  "value": "pilot",
+                  "label": "مشروع تجريبي"
+                }
               ],
               "executionPriority": [
-                { "value": "high", "label": "عالية" },
-                { "value": "medium", "label": "متوسطة" },
-                { "value": "low", "label": "منخفضة" }
+                {
+                  "value": "high",
+                  "label": "عالية"
+                },
+                {
+                  "value": "medium",
+                  "label": "متوسطة"
+                },
+                {
+                  "value": "low",
+                  "label": "منخفضة"
+                }
               ],
               "innovationPath": [
-                { "value": "pathway1", "label": "المسار 1 - إدامة السوق" },
-                { "value": "pathway2", "label": "المسار 2 - اختراق السوق" },
-                { "value": "pathway3", "label": "المسار 3 - توسع السوق" }
+                {
+                  "value": "pathway1",
+                  "label": "المسار 1 - إدامة السوق"
+                },
+                {
+                  "value": "pathway2",
+                  "label": "المسار 2 - اختراق السوق"
+                },
+                {
+                  "value": "pathway3",
+                  "label": "المسار 3 - توسع السوق"
+                }
               ],
               "projectManager": [
-                { "value": "ahmed", "label": "تعيين مدير: أحمد خالد" },
-                { "value": "mostafa", "label": "تعيين مدير: مصطفى كامل" }
+                {
+                  "value": "ahmed",
+                  "label": "تعيين مدير: أحمد خالد"
+                },
+                {
+                  "value": "mostafa",
+                  "label": "تعيين مدير: مصطفى كامل"
+                }
               ],
               "projectMentor": [
-                { "value": "khaled", "label": "تعيين موجه: خالد سعيد" },
-                { "value": "sara", "label": "تعيين موجه: سارة علي" }
+                {
+                  "value": "khaled",
+                  "label": "تعيين موجه: خالد سعيد"
+                },
+                {
+                  "value": "sara",
+                  "label": "تعيين موجه: سارة علي"
+                }
               ],
               "consultantMentor": [
                 {
                   "value": "advisor",
                   "label": "Innovation Consultant - Advisor"
                 },
-                { "value": "mentor", "label": "Senior Innovation Mentor" }
+                {
+                  "value": "mentor",
+                  "label": "Senior Innovation Mentor"
+                }
               ],
               "sectionType": [
-                { "value": "incubator", "label": "حاضنة تسريع الفكرة" },
-                { "value": "tech", "label": "القسم التقني" }
+                {
+                  "value": "incubator",
+                  "label": "حاضنة تسريع الفكرة"
+                },
+                {
+                  "value": "tech",
+                  "label": "القسم التقني"
+                }
               ],
               "escalationTarget": [
-                { "value": "board", "label": "مجلس الإدارة" },
-                { "value": "exec", "label": "اللجنة التنفيذية" },
-                { "value": "steering", "label": "اللجنة التوجيهية" }
+                {
+                  "value": "board",
+                  "label": "مجلس الإدارة"
+                },
+                {
+                  "value": "exec",
+                  "label": "اللجنة التنفيذية"
+                },
+                {
+                  "value": "steering",
+                  "label": "اللجنة التوجيهية"
+                }
               ],
               "escalationReason": [
-                { "value": "strategic", "label": "توجيه استراتيجي" },
-                { "value": "budget", "label": "موافقة على الميزانية" },
-                { "value": "risk", "label": "إدارة المخاطر" }
+                {
+                  "value": "strategic",
+                  "label": "توجيه استراتيجي"
+                },
+                {
+                  "value": "budget",
+                  "label": "موافقة على الميزانية"
+                },
+                {
+                  "value": "risk",
+                  "label": "إدارة المخاطر"
+                }
               ],
               "riskLevel": [
-                { "value": "high", "label": "مخاطر عالية" },
-                { "value": "medium", "label": "مخاطر متوسطة" },
-                { "value": "low", "label": "مخاطر منخفضة" }
+                {
+                  "value": "high",
+                  "label": "مخاطر عالية"
+                },
+                {
+                  "value": "medium",
+                  "label": "مخاطر متوسطة"
+                },
+                {
+                  "value": "low",
+                  "label": "مخاطر منخفضة"
+                }
               ],
               "reviewTimeline": [
-                { "value": "urgent", "label": "عاجل - خلال أسبوع" },
-                { "value": "standard", "label": "قياسي - خلال شهر" },
-                { "value": "extended", "label": "موسع - خلال ربع سنة" }
+                {
+                  "value": "urgent",
+                  "label": "عاجل - خلال أسبوع"
+                },
+                {
+                  "value": "standard",
+                  "label": "قياسي - خلال شهر"
+                },
+                {
+                  "value": "extended",
+                  "label": "موسع - خلال ربع سنة"
+                }
               ],
               "accelerationTrack": [
-                { "value": "fast", "label": "المسار السريع" },
-                { "value": "express", "label": "المسار الاستثنائي" }
+                {
+                  "value": "fast",
+                  "label": "المسار السريع"
+                },
+                {
+                  "value": "express",
+                  "label": "المسار الاستثنائي"
+                }
               ],
               "partnerType": [
-                { "value": "internal", "label": "شريك داخلي" },
-                { "value": "external", "label": "شريك خارجي" },
-                { "value": "government", "label": "جهة حكومية" }
+                {
+                  "value": "internal",
+                  "label": "شريك داخلي"
+                },
+                {
+                  "value": "external",
+                  "label": "شريك خارجي"
+                },
+                {
+                  "value": "government",
+                  "label": "جهة حكومية"
+                }
               ]
             },
             "options": [
@@ -2807,1186 +2393,20 @@
           }
         }
       ]
-    },
-    "IDEA-1024": {
-      "id": "IDEA-1024",
-      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-      "submitter": "أحمد خالد",
-      "department": "الصحة",
-      "status": {
-        "id": "waiting",
-        "name": "بانتظار التقييم"
-      },
-      "averageRating": 82,
-      "evaluatorsCount": 4,
-      "aiScore": 70,
-      "tabs": [
-        {
-          "key": "overview",
-          "label": "details.tabs.overview",
-          "icon": "overview",
-          "data": {
-            "sidebar": {
-              "owner": {
-                "label": "مقدم الفكرة",
-                "name": "شمس سمير حسان"
-              },
-              "team": {
-                "label": "اعضاء فريق الفكرة",
-                "members": [
-                  "ليلى عمرو محمود",
-                  "نهى سليم الشرفا",
-                  "سلمى محمود حسان"
-                ]
-              },
-              "targetAudience": {
-                "label": "الفئة المستهدفة",
-                "items": [
-                  "إدارات المرافق",
-                  "المؤسسات الحكومية",
-                  "برامج الاستدامة البيئية"
-                ]
-              },
-              "sector": {
-                "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
-              },
-              "technologies": {
-                "label": "التقنيات المرتبطة بالفكرة",
-                "items": ["الذكاء الاصطناعي", "إنترنت الأشياء"]
-              },
-              "impact": {
-                "label": "نطاق الأثر",
-                "items": [
-                  "خفض تكاليف الطاقة",
-                  "تحسين الاستدامة البيئية",
-                  "رفع كفاءة العمليات"
-                ]
-              },
-              "readiness": {
-                "label": "مستوى الجاهزية الحالية",
-                "value": "نموذج أولي"
-              },
-              "attachments": {
-                "label": "الملفات المرفقة",
-                "files": [
-                  {
-                    "name": "نموذج_الطاقة_AI.pdf",
-                    "type": "pdf"
-                  },
-                  {
-                    "name": "عرض_تقديمي_لنظام_الطاقة.pptx",
-                    "type": "pptx"
-                  }
-                ]
-              }
-            },
-            "overview": {
-              "explanation": {
-                "label": "شرح الفكرة",
-                "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة. بناءً على ذلك، يقدم توصيات ذكية مثل تعديل أوقات تشغيل الأجهزة، تحسين أنظمة التكييف، أو تقليل الاستهلاك في أوقات الذروة. يساهم هذا النظام في خفض التكاليف التشغيلية، تقليل البصمة الكربونية، ودعم توجهات الاستدامة داخل المؤسسة. مع إمكانية التكامل مع الأنظمة الحالية لإدارة الطاقة. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة. بناءً على ذلك، يقدم توصيات ذكية مثل تعديل أوقات تشغيل الأجهزة، تحسين أنظمة التكييف، أو تقليل الاستهلاك في أوقات الذروة بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار."
-              },
-              "details": {
-                "label": "تفاصيل الفكرة",
-                "items": [
-                  {
-                    "key": "targetChallenge",
-                    "label": "التحدي المستهدف",
-                    "value": "تقليل هدر الطاقة في المباني الحكومية الناتج عن ضعف مراقبة الاستهلاك."
-                  },
-                  {
-                    "key": "problemType",
-                    "label": "نوع المشكلة",
-                    "value": "عدم وجود نظام ذكي لتحليل استهلاك الطاقة بشكل فوري."
-                  },
-                  {
-                    "key": "strategicGoal",
-                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
-                    "value": "تحسين مستوى الاداء في القطاع الحكومي."
-                  },
-                  {
-                    "key": "origin",
-                    "label": "منشأ ومصدر الفكرة الابتكارية",
-                    "value": "ورشة الابتكار الداخلية للمؤسسة"
-                  },
-                  {
-                    "key": "goals",
-                    "label": "أهداف تطبيق الفكرة",
-                    "value": "تهدف هذه الفكرة إلى تحسين كفاءة استهلاك الطاقة داخل المنشآت من خلال استخدام تقنيات الذكاء الاصطناعي لتحليل أنماط الاستخدام والتنبؤ بالاستهلاك المستقبلي. يسعى النظام إلى تقليل الهدر في الطاقة وخفض التكاليف التشغيلية عبر تقديم توصيات ذكية مبنية على البيانات الفعلية. تهدف هذه الفكرة إلى تحسين كفاءة استهلاك الطاقة داخل المنشآت من خلال استخدام تقنيات الذكاء الاصطناعي لتحليل أنماط الاستخدام والتنبؤ بالاستهلاك المستقبلي. يسعى النظام إلى تقليل الهدر في الطاقة وخفض التكاليف التشغيلية عبر تقديم توصيات ذكية مبنية على البيانات الفعلية."
-                  }
-                ],
-                "requirements": {
-                  "label": "متطلبات التنفيذ",
-                  "items": ["بيانات", "تشريعات", "شركاء"]
-                },
-                "outputs": {
-                  "label": "مخرجات الابتكار المتوقعة",
-                  "items": [
-                    "ابتكار في الخدمة",
-                    "ابتكار في التكنولوجيا",
-                    "ابتكار في تجربة العميل",
-                    "ابتكار في التسويق",
-                    "ابتكار في التصميم"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        {
-          "key": "story",
-          "label": "details.tabs.story",
-          "icon": "story",
-          "data": {
-            "intro": {
-              "label": "فكرة في طور التكوين...",
-              "audioLabel": "استمع الى قصة الفكرة",
-              "audioDuration": "0:42",
-              "journeyBtn": "رحلة الابتكار"
-            },
-            "timeline": [
-              {
-                "id": 1,
-                "title": "الليلة الماطرة",
-                "subtitle": "حيث بدأت القصة في لحظة حرجة غيرت كل شيء",
-                "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة. بناءً على ذلك، يقدم توصيات ذكية مثل تعديل أوقات تشغيل الأجهزة، تحسين أنظمة التكييف، أو تقليل الاستهلاك في أوقات الذروة. يساهم هذا النظام في خفض التكاليف التشغيلية، تقليل البصمة الكربونية، ودعم توجهات الاستدامة داخل المؤسسة. مع إمكانية التكامل مع الأنظمة الحالية لإدارة الطاقة. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة.",
-                "card": {
-                  "type": "sammy",
-                  "avatar": "سامي",
-                  "title": "سامي المسعف المتفاني",
-                  "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر."
-                }
-              },
-              {
-                "id": 2,
-                "title": "لحظة الالهام",
-                "subtitle": "من رحم الألم تولد أعظم الأفكار",
-                "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة.",
-                "card": {
-                  "type": "quote",
-                  "title": "هكذا ولدت فكرة \"نظارة المسعف الذكية\"",
-                  "text": "بناءً على ذلك، يقدم توصيات ذكية مثل تعديل أوقات تشغيل الأجهزة، تحسين أنظمة التكييف، أو تقليل الاستهلاك في أوقات الذروة. يساهم هذا النظام في خفض التكاليف التشغيلية، تقليل البصمة الكربونية، ودعم توجهات الاستدامة داخل المؤسسة. مع إمكانية التكامل مع الأنظمة الحالية لإدارة الطاقة. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة."
-                },
-                "interactive": {
-                  "question": "ماذا لو كانت هذه التقنية متاحة؟ 🤔",
-                  "answer": "تخيل التأثير على حياة المرضى والمسعفين.",
-                  "tags": [
-                    {
-                      "name": "اكتشف الأثير",
-                      "icon": "sparkles"
-                    },
-                    {
-                      "name": "التقنية المستخدمة",
-                      "icon": "cpu"
-                    },
-                    {
-                      "name": "رؤية المستقبل",
-                      "icon": "eye"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 3,
-                "title": "الرؤية والأمل",
-                "subtitle": "نحو مستقبل أكثر إشراقاً في الطب الطارئ",
-                "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة.",
-                "card": {
-                  "type": "quote",
-                  "title": "الابتكار الحقيقي يولد من رحم المعاناة الانسانية"
-                }
-              },
-              {
-                "id": 4,
-                "title": "الخاتمة",
-                "subtitle": "في كل قطرة مطر بذرة أمل",
-                "text": "تهدف هذه الفكرة إلى تطوير نظام ذكي يعتمد على تقنيات الذكاء الاصطناعي لتحليل استهلاك الطاقة داخل المنشآت (مثل المباني الحكومية أو الشركات) والتنبؤ بأنماط الاستخدام بهدف تحسين الكفاءة وتقليل الهدر. يقوم النظام بجمع البيانات من العدادات الذكية وأجهزة الاستشعار، ثم يستخدم خوارزميات تعلم الآلة لتحليل سلوك الاستهلاك واكتشاف الأنماط غير الفعالة.",
-                "card": {
-                  "type": "quote",
-                  "title": "في كل قطرة مطر تلك الليلة، كانت بذرة أمل لمستقبل أكثر إشراقاً"
-                }
-              }
-            ],
-            "sidebar": {
-              "journey": {
-                "title": "رحلة الابتكار",
-                "steps": [
-                  {
-                    "title": "لحظة الالهام"
-                  },
-                  {
-                    "title": "ولادة الفكرة"
-                  },
-                  {
-                    "title": "التطوير والابتكار"
-                  },
-                  {
-                    "title": "المستقبل المأمول",
-                    "highlight": "عالم يصبح فيه كل مسعف أكثر دقة وفعالية، حيث لا يضطر أحد لقول \"لو كنا عرفنا أسرع\""
-                  }
-                ]
-              },
-              "features": {
-                "title": "مميزات الفكرة",
-                "items": [
-                  "ليست مجرد فكرة خيالية، بل يمكن تطويرها تدريجياً",
-                  "تقليل الشعور بالعجز أو الاعتماد على الآخرين",
-                  "تساعد في أداء الأنشطة اليومية بشكل أسهل",
-                  "تحسين جودة الحياة اليومية",
-                  "تساعد كبار السن في الاعتماد على أنفسهم",
-                  "إمكانية سماع المعلومات بدلاً من قراءتها",
-                  "تقديم معلومات فورية بناءً على ما يراه المستخدم",
-                  "تساعد المستخدم على رؤية التفاصيل بوضوح أكبر",
-                  "تقديم معلومات فورية بناءً على ما يراه المستخدم",
-                  "تقليل الحاجة لمساعدة الآخرين في المهام اليومية"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "key": "business_model",
-          "label": "details.tabs.business_model",
-          "icon": "business",
-          "data": {}
-        },
-        {
-          "key": "alignment",
-          "label": "details.tabs.alignment",
-          "icon": "alignment",
-          "data": {}
-        },
-        {
-          "key": "ip",
-          "label": "details.tabs.ip",
-          "icon": "ip",
-          "data": {}
-        },
-        {
-          "key": "classification",
-          "label": "details.tabs.classification",
-          "icon": "classification",
-          "data": {}
-        },
-        {
-          "key": "evaluation",
-          "label": "details.tabs.evaluation",
-          "icon": "evaluation",
-          "data": {}
-        },
-        {
-          "key": "decision",
-          "label": "details.tabs.decision",
-          "icon": "decision",
-          "data": {}
-        }
-      ]
-    },
-    "IDEA-1025": {
-      "id": "IDEA-1025",
-      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-      "submitter": "أحمد خالد",
-      "department": "الطاقة",
-      "status": {
-        "id": "under_evaluation",
-        "name": "قيد التقييم"
-      },
-      "averageRating": 82,
-      "evaluatorsCount": 4,
-      "aiScore": 78,
-      "tabs": [
-        {
-          "key": "overview",
-          "label": "details.tabs.overview",
-          "icon": "overview",
-          "data": {
-            "sidebar": {
-              "owner": {
-                "label": "مقدم الفكرة",
-                "name": "أحمد خالد"
-              },
-              "team": {
-                "label": "اعضاء فريق الفكرة",
-                "members": []
-              },
-              "targetAudience": {
-                "label": "الفئة المستهدفة",
-                "items": ["الطاقة"]
-              },
-              "sector": {
-                "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
-              },
-              "technologies": {
-                "label": "التقنيات المرتبطة بالفكرة",
-                "items": []
-              },
-              "impact": {
-                "label": "نطاق الأثر",
-                "items": []
-              },
-              "readiness": {
-                "label": "مستوى الجاهزية الحالية",
-                "value": "غير محدد"
-              },
-              "attachments": {
-                "label": "الملفات المرفقة",
-                "files": []
-              }
-            },
-            "overview": {
-              "explanation": {
-                "label": "شرح الفكرة",
-                "text": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي"
-              },
-              "details": {
-                "label": "تفاصيل الفكرة",
-                "items": [
-                  {
-                    "key": "targetChallenge",
-                    "label": "التحدي المستهدف",
-                    "value": "-"
-                  },
-                  {
-                    "key": "problemType",
-                    "label": "نوع المشكلة",
-                    "value": "-"
-                  },
-                  {
-                    "key": "strategicGoal",
-                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
-                    "value": "-"
-                  }
-                ],
-                "requirements": {
-                  "label": "متطلبات التنفيذ",
-                  "items": []
-                },
-                "outputs": {
-                  "label": "مخرجات الابتكار المتوقعة",
-                  "items": []
-                }
-              }
-            }
-          }
-        },
-        {
-          "key": "story",
-          "label": "details.tabs.story",
-          "icon": "story",
-          "data": {
-            "intro": {
-              "label": "فكرة في طور التكوين...",
-              "audioLabel": "استمع الى قصة الفكرة",
-              "audioDuration": "0:00",
-              "journeyBtn": "رحلة الابتكار"
-            },
-            "timeline": [],
-            "sidebar": {
-              "journey": {
-                "title": "رحلة الابتكار",
-                "steps": []
-              },
-              "features": {
-                "title": "ميزات الفكرة",
-                "items": []
-              }
-            }
-          }
-        },
-        {
-          "key": "business_model",
-          "label": "details.tabs.business_model",
-          "icon": "business",
-          "data": {}
-        },
-        {
-          "key": "alignment",
-          "label": "details.tabs.alignment",
-          "icon": "alignment",
-          "data": {}
-        },
-        {
-          "key": "ip",
-          "label": "details.tabs.ip",
-          "icon": "ip",
-          "data": {}
-        },
-        {
-          "key": "classification",
-          "label": "details.tabs.classification",
-          "icon": "classification",
-          "data": {}
-        },
-        {
-          "key": "evaluation",
-          "label": "details.tabs.evaluation",
-          "icon": "evaluation",
-          "data": {}
-        },
-        {
-          "key": "decision",
-          "label": "details.tabs.decision",
-          "icon": "decision",
-          "data": {}
-        }
-      ]
-    },
-    "IDEA-1026": {
-      "id": "IDEA-1026",
-      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-      "submitter": "أحمد خالد",
-      "department": "الصحة",
-      "status": {
-        "id": "feasible",
-        "name": "مجدية"
-      },
-      "averageRating": 82,
-      "evaluatorsCount": 4,
-      "aiScore": 78,
-      "tabs": [
-        {
-          "key": "overview",
-          "label": "details.tabs.overview",
-          "icon": "overview",
-          "data": {
-            "sidebar": {
-              "owner": {
-                "label": "مقدم الفكرة",
-                "name": "أحمد خالد"
-              },
-              "team": {
-                "label": "اعضاء فريق الفكرة",
-                "members": []
-              },
-              "targetAudience": {
-                "label": "الفئة المستهدفة",
-                "items": ["الصحة"]
-              },
-              "sector": {
-                "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
-              },
-              "technologies": {
-                "label": "التقنيات المرتبطة بالفكرة",
-                "items": []
-              },
-              "impact": {
-                "label": "نطاق الأثر",
-                "items": []
-              },
-              "readiness": {
-                "label": "مستوى الجاهزية الحالية",
-                "value": "غير محدد"
-              },
-              "attachments": {
-                "label": "الملفات المرفقة",
-                "files": []
-              }
-            },
-            "overview": {
-              "explanation": {
-                "label": "شرح الفكرة",
-                "text": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي"
-              },
-              "details": {
-                "label": "تفاصيل الفكرة",
-                "items": [
-                  {
-                    "key": "targetChallenge",
-                    "label": "التحدي المستهدف",
-                    "value": "-"
-                  },
-                  {
-                    "key": "problemType",
-                    "label": "نوع المشكلة",
-                    "value": "-"
-                  },
-                  {
-                    "key": "strategicGoal",
-                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
-                    "value": "-"
-                  }
-                ],
-                "requirements": {
-                  "label": "متطلبات التنفيذ",
-                  "items": []
-                },
-                "outputs": {
-                  "label": "مخرجات الابتكار المتوقعة",
-                  "items": []
-                }
-              }
-            }
-          }
-        },
-        {
-          "key": "story",
-          "label": "details.tabs.story",
-          "icon": "story",
-          "data": {
-            "intro": {
-              "label": "فكرة في طور التكوين...",
-              "audioLabel": "استمع الى قصة الفكرة",
-              "audioDuration": "0:00",
-              "journeyBtn": "رحلة الابتكار"
-            },
-            "timeline": [],
-            "sidebar": {
-              "journey": {
-                "title": "رحلة الابتكار",
-                "steps": []
-              },
-              "features": {
-                "title": "ميزات الفكرة",
-                "items": []
-              }
-            }
-          }
-        },
-        {
-          "key": "business_model",
-          "label": "details.tabs.business_model",
-          "icon": "business",
-          "data": {}
-        },
-        {
-          "key": "alignment",
-          "label": "details.tabs.alignment",
-          "icon": "alignment",
-          "data": {}
-        },
-        {
-          "key": "ip",
-          "label": "details.tabs.ip",
-          "icon": "ip",
-          "data": {}
-        },
-        {
-          "key": "classification",
-          "label": "details.tabs.classification",
-          "icon": "classification",
-          "data": {}
-        },
-        {
-          "key": "evaluation",
-          "label": "details.tabs.evaluation",
-          "icon": "evaluation",
-          "data": {}
-        },
-        {
-          "key": "decision",
-          "label": "details.tabs.decision",
-          "icon": "decision",
-          "data": {}
-        }
-      ]
-    },
-    "IDEA-1027": {
-      "id": "IDEA-1027",
-      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-      "submitter": "أحمد خالد",
-      "department": "الطاقة",
-      "status": {
-        "id": "evaluated",
-        "name": "تم التقييم"
-      },
-      "averageRating": 82,
-      "evaluatorsCount": 4,
-      "aiScore": 78,
-      "tabs": [
-        {
-          "key": "overview",
-          "label": "details.tabs.overview",
-          "icon": "overview",
-          "data": {
-            "sidebar": {
-              "owner": {
-                "label": "مقدم الفكرة",
-                "name": "أحمد خالد"
-              },
-              "team": {
-                "label": "اعضاء فريق الفكرة",
-                "members": []
-              },
-              "targetAudience": {
-                "label": "الفئة المستهدفة",
-                "items": ["الطاقة"]
-              },
-              "sector": {
-                "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
-              },
-              "technologies": {
-                "label": "التقنيات المرتبطة بالفكرة",
-                "items": []
-              },
-              "impact": {
-                "label": "نطاق الأثر",
-                "items": []
-              },
-              "readiness": {
-                "label": "مستوى الجاهزية الحالية",
-                "value": "غير محدد"
-              },
-              "attachments": {
-                "label": "الملفات المرفقة",
-                "files": []
-              }
-            },
-            "overview": {
-              "explanation": {
-                "label": "شرح الفكرة",
-                "text": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي"
-              },
-              "details": {
-                "label": "تفاصيل الفكرة",
-                "items": [
-                  {
-                    "key": "targetChallenge",
-                    "label": "التحدي المستهدف",
-                    "value": "-"
-                  },
-                  {
-                    "key": "problemType",
-                    "label": "نوع المشكلة",
-                    "value": "-"
-                  },
-                  {
-                    "key": "strategicGoal",
-                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
-                    "value": "-"
-                  }
-                ],
-                "requirements": {
-                  "label": "متطلبات التنفيذ",
-                  "items": []
-                },
-                "outputs": {
-                  "label": "مخرجات الابتكار المتوقعة",
-                  "items": []
-                }
-              }
-            }
-          }
-        },
-        {
-          "key": "story",
-          "label": "details.tabs.story",
-          "icon": "story",
-          "data": {
-            "intro": {
-              "label": "فكرة في طور التكوين...",
-              "audioLabel": "استمع الى قصة الفكرة",
-              "audioDuration": "0:00",
-              "journeyBtn": "رحلة الابتكار"
-            },
-            "timeline": [],
-            "sidebar": {
-              "journey": {
-                "title": "رحلة الابتكار",
-                "steps": []
-              },
-              "features": {
-                "title": "ميزات الفكرة",
-                "items": []
-              }
-            }
-          }
-        },
-        {
-          "key": "business_model",
-          "label": "details.tabs.business_model",
-          "icon": "business",
-          "data": {}
-        },
-        {
-          "key": "alignment",
-          "label": "details.tabs.alignment",
-          "icon": "alignment",
-          "data": {}
-        },
-        {
-          "key": "ip",
-          "label": "details.tabs.ip",
-          "icon": "ip",
-          "data": {}
-        },
-        {
-          "key": "classification",
-          "label": "details.tabs.classification",
-          "icon": "classification",
-          "data": {}
-        },
-        {
-          "key": "evaluation",
-          "label": "details.tabs.evaluation",
-          "icon": "evaluation",
-          "data": {}
-        },
-        {
-          "key": "decision",
-          "label": "details.tabs.decision",
-          "icon": "decision",
-          "data": {}
-        }
-      ]
-    },
-    "IDEA-1028": {
-      "id": "IDEA-1028",
-      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-      "submitter": "أحمد خالد",
-      "department": "الطاقة",
-      "status": {
-        "id": "late",
-        "name": "متأخر"
-      },
-      "averageRating": 82,
-      "evaluatorsCount": 4,
-      "aiScore": 78,
-      "tabs": [
-        {
-          "key": "overview",
-          "label": "details.tabs.overview",
-          "icon": "overview",
-          "data": {
-            "sidebar": {
-              "owner": {
-                "label": "مقدم الفكرة",
-                "name": "أحمد خالد"
-              },
-              "team": {
-                "label": "اعضاء فريق الفكرة",
-                "members": []
-              },
-              "targetAudience": {
-                "label": "الفئة المستهدفة",
-                "items": ["الطاقة"]
-              },
-              "sector": {
-                "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
-              },
-              "technologies": {
-                "label": "التقنيات المرتبطة بالفكرة",
-                "items": []
-              },
-              "impact": {
-                "label": "نطاق الأثر",
-                "items": []
-              },
-              "readiness": {
-                "label": "مستوى الجاهزية الحالية",
-                "value": "غير محدد"
-              },
-              "attachments": {
-                "label": "الملفات المرفقة",
-                "files": []
-              }
-            },
-            "overview": {
-              "explanation": {
-                "label": "شرح الفكرة",
-                "text": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي"
-              },
-              "details": {
-                "label": "تفاصيل الفكرة",
-                "items": [
-                  {
-                    "key": "targetChallenge",
-                    "label": "التحدي المستهدف",
-                    "value": "-"
-                  },
-                  {
-                    "key": "problemType",
-                    "label": "نوع المشكلة",
-                    "value": "-"
-                  },
-                  {
-                    "key": "strategicGoal",
-                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
-                    "value": "-"
-                  }
-                ],
-                "requirements": {
-                  "label": "متطلبات التنفيذ",
-                  "items": []
-                },
-                "outputs": {
-                  "label": "مخرجات الابتكار المتوقعة",
-                  "items": []
-                }
-              }
-            }
-          }
-        },
-        {
-          "key": "story",
-          "label": "details.tabs.story",
-          "icon": "story",
-          "data": {
-            "intro": {
-              "label": "فكرة في طور التكوين...",
-              "audioLabel": "استمع الى قصة الفكرة",
-              "audioDuration": "0:00",
-              "journeyBtn": "رحلة الابتكار"
-            },
-            "timeline": [],
-            "sidebar": {
-              "journey": {
-                "title": "رحلة الابتكار",
-                "steps": []
-              },
-              "features": {
-                "title": "ميزات الفكرة",
-                "items": []
-              }
-            }
-          }
-        },
-        {
-          "key": "business_model",
-          "label": "details.tabs.business_model",
-          "icon": "business",
-          "data": {}
-        },
-        {
-          "key": "alignment",
-          "label": "details.tabs.alignment",
-          "icon": "alignment",
-          "data": {}
-        },
-        {
-          "key": "ip",
-          "label": "details.tabs.ip",
-          "icon": "ip",
-          "data": {}
-        },
-        {
-          "key": "classification",
-          "label": "details.tabs.classification",
-          "icon": "classification",
-          "data": {}
-        },
-        {
-          "key": "evaluation",
-          "label": "details.tabs.evaluation",
-          "icon": "evaluation",
-          "data": {}
-        },
-        {
-          "key": "decision",
-          "label": "details.tabs.decision",
-          "icon": "decision",
-          "data": {}
-        }
-      ]
-    },
-    "IDEA-1029": {
-      "id": "IDEA-1029",
-      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-      "submitter": "أحمد خالد",
-      "department": "الطاقة",
-      "status": {
-        "id": "project",
-        "name": "تحولت لمشروع"
-      },
-      "averageRating": 82,
-      "evaluatorsCount": 4,
-      "aiScore": 78,
-      "tabs": [
-        {
-          "key": "overview",
-          "label": "details.tabs.overview",
-          "icon": "overview",
-          "data": {
-            "sidebar": {
-              "owner": {
-                "label": "مقدم الفكرة",
-                "name": "أحمد خالد"
-              },
-              "team": {
-                "label": "اعضاء فريق الفكرة",
-                "members": []
-              },
-              "targetAudience": {
-                "label": "الفئة المستهدفة",
-                "items": ["الطاقة"]
-              },
-              "sector": {
-                "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
-              },
-              "technologies": {
-                "label": "التقنيات المرتبطة بالفكرة",
-                "items": []
-              },
-              "impact": {
-                "label": "نطاق الأثر",
-                "items": []
-              },
-              "readiness": {
-                "label": "مستوى الجاهزية الحالية",
-                "value": "غير محدد"
-              },
-              "attachments": {
-                "label": "الملفات المرفقة",
-                "files": []
-              }
-            },
-            "overview": {
-              "explanation": {
-                "label": "شرح الفكرة",
-                "text": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي"
-              },
-              "details": {
-                "label": "تفاصيل الفكرة",
-                "items": [
-                  {
-                    "key": "targetChallenge",
-                    "label": "التحدي المستهدف",
-                    "value": "-"
-                  },
-                  {
-                    "key": "problemType",
-                    "label": "نوع المشكلة",
-                    "value": "-"
-                  },
-                  {
-                    "key": "strategicGoal",
-                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
-                    "value": "-"
-                  }
-                ],
-                "requirements": {
-                  "label": "متطلبات التنفيذ",
-                  "items": []
-                },
-                "outputs": {
-                  "label": "مخرجات الابتكار المتوقعة",
-                  "items": []
-                }
-              }
-            }
-          }
-        },
-        {
-          "key": "story",
-          "label": "details.tabs.story",
-          "icon": "story",
-          "data": {
-            "intro": {
-              "label": "فكرة في طور التكوين...",
-              "audioLabel": "استمع الى قصة الفكرة",
-              "audioDuration": "0:00",
-              "journeyBtn": "رحلة الابتكار"
-            },
-            "timeline": [],
-            "sidebar": {
-              "journey": {
-                "title": "رحلة الابتكار",
-                "steps": []
-              },
-              "features": {
-                "title": "ميزات الفكرة",
-                "items": []
-              }
-            }
-          }
-        },
-        {
-          "key": "business_model",
-          "label": "details.tabs.business_model",
-          "icon": "business",
-          "data": {}
-        },
-        {
-          "key": "alignment",
-          "label": "details.tabs.alignment",
-          "icon": "alignment",
-          "data": {}
-        },
-        {
-          "key": "ip",
-          "label": "details.tabs.ip",
-          "icon": "ip",
-          "data": {}
-        },
-        {
-          "key": "classification",
-          "label": "details.tabs.classification",
-          "icon": "classification",
-          "data": {}
-        },
-        {
-          "key": "evaluation",
-          "label": "details.tabs.evaluation",
-          "icon": "evaluation",
-          "data": {}
-        },
-        {
-          "key": "decision",
-          "label": "details.tabs.decision",
-          "icon": "decision",
-          "data": {}
-        }
-      ]
-    },
-    "IDEA-1030": {
-      "id": "IDEA-1030",
-      "title": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي",
-      "submitter": "أحمد خالد",
-      "department": "الطاقة",
-      "status": {
-        "id": "infeasible",
-        "name": "غير مجدية"
-      },
-      "averageRating": 82,
-      "evaluatorsCount": 4,
-      "aiScore": 78,
-      "tabs": [
-        {
-          "key": "overview",
-          "label": "details.tabs.overview",
-          "icon": "overview",
-          "data": {
-            "sidebar": {
-              "owner": {
-                "label": "مقدم الفكرة",
-                "name": "أحمد خالد"
-              },
-              "team": {
-                "label": "اعضاء فريق الفكرة",
-                "members": []
-              },
-              "targetAudience": {
-                "label": "الفئة المستهدفة",
-                "items": ["الطاقة"]
-              },
-              "sector": {
-                "label": "القطاع المعني بالفكرة",
-                "items": ["القطاع الحكومي"]
-              },
-              "technologies": {
-                "label": "التقنيات المرتبطة بالفكرة",
-                "items": []
-              },
-              "impact": {
-                "label": "نطاق الأثر",
-                "items": []
-              },
-              "readiness": {
-                "label": "مستوى الجاهزية الحالية",
-                "value": "غير محدد"
-              },
-              "attachments": {
-                "label": "الملفات المرفقة",
-                "files": []
-              }
-            },
-            "overview": {
-              "explanation": {
-                "label": "شرح الفكرة",
-                "text": "نظام ذكي لتحسين استهلاك الطاقة باستخدام الذكاء الاصطناعي"
-              },
-              "details": {
-                "label": "تفاصيل الفكرة",
-                "items": [
-                  {
-                    "key": "targetChallenge",
-                    "label": "التحدي المستهدف",
-                    "value": "-"
-                  },
-                  {
-                    "key": "problemType",
-                    "label": "نوع المشكلة",
-                    "value": "-"
-                  },
-                  {
-                    "key": "strategicGoal",
-                    "label": "الهدف الاستراتيجي المرتبط بالفكرة",
-                    "value": "-"
-                  }
-                ],
-                "requirements": {
-                  "label": "متطلبات التنفيذ",
-                  "items": []
-                },
-                "outputs": {
-                  "label": "مخرجات الابتكار المتوقعة",
-                  "items": []
-                }
-              }
-            }
-          }
-        },
-        {
-          "key": "story",
-          "label": "details.tabs.story",
-          "icon": "story",
-          "data": {
-            "intro": {
-              "label": "فكرة في طور التكوين...",
-              "audioLabel": "استمع الى قصة الفكرة",
-              "audioDuration": "0:00",
-              "journeyBtn": "رحلة الابتكار"
-            },
-            "timeline": [],
-            "sidebar": {
-              "journey": {
-                "title": "رحلة الابتكار",
-                "steps": []
-              },
-              "features": {
-                "title": "ميزات الفكرة",
-                "items": []
-              }
-            }
-          }
-        },
-        {
-          "key": "business_model",
-          "label": "details.tabs.business_model",
-          "icon": "business",
-          "data": {}
-        },
-        {
-          "key": "alignment",
-          "label": "details.tabs.alignment",
-          "icon": "alignment",
-          "data": {}
-        },
-        {
-          "key": "ip",
-          "label": "details.tabs.ip",
-          "icon": "ip",
-          "data": {}
-        },
-        {
-          "key": "classification",
-          "label": "details.tabs.classification",
-          "icon": "classification",
-          "data": {}
-        },
-        {
-          "key": "evaluation",
-          "label": "details.tabs.evaluation",
-          "icon": "evaluation",
-          "data": {}
-        },
-        {
-          "key": "decision",
-          "label": "details.tabs.decision",
-          "icon": "decision",
-          "data": {}
-        }
-      ]
     }
   },
   "analytics": {
     "liveSignal": {
       "value": "1,248",
-      "sparkline": [30, 60, 80, 70, 60, 50, 40]
+      "sparkline": [
+        30,
+        60,
+        80,
+        70,
+        60,
+        50,
+        40
+      ]
     },
     "quickActions": [
       {
@@ -4021,7 +2441,15 @@
             "value": "88%",
             "percentage": "+5.3%",
             "changeLabelKey": "الأفكار المتوائمة",
-            "sparkline": [30, 60, 80, 70, 60, 50, 40],
+            "sparkline": [
+              30,
+              60,
+              80,
+              70,
+              60,
+              50,
+              40
+            ],
             "growthType": "up",
             "badgeColor": "text-[#21C2DD] bg-[#7DD3FC]/10"
           },
@@ -4032,7 +2460,15 @@
             "value": "88%",
             "percentage": "+5.3%",
             "changeLabelKey": "المشاريع المعتمدة 298",
-            "sparkline": [30, 60, 80, 70, 60, 50, 40],
+            "sparkline": [
+              30,
+              60,
+              80,
+              70,
+              60,
+              50,
+              40
+            ],
             "growthType": "up",
             "badgeColor": "text-[#05D989] bg-[#05D989]/10"
           },
@@ -4043,7 +2479,15 @@
             "value": "88%",
             "percentage": "+5.3%",
             "changeLabelKey": "نمو الأفكار",
-            "sparkline": [30, 60, 80, 70, 60, 50, 40],
+            "sparkline": [
+              30,
+              60,
+              80,
+              70,
+              60,
+              50,
+              40
+            ],
             "growthType": "up",
             "badgeColor": "text-white bg-white/10"
           },
@@ -4054,7 +2498,15 @@
             "value": "88%",
             "percentage": "+5.3%",
             "changeLabelKey": "مقارنة بالربع الأخير",
-            "sparkline": [30, 60, 80, 70, 60, 50, 40],
+            "sparkline": [
+              30,
+              60,
+              80,
+              70,
+              60,
+              50,
+              40
+            ],
             "growthType": "down",
             "badgeColor": "text-[#21C2DD] bg-[#7DD3FC]/10"
           }
@@ -4064,7 +2516,14 @@
           "series": [
             {
               "name": "Portfolio Radar",
-              "data": [88, 78, 82, 80, 53, 79]
+              "data": [
+                88,
+                78,
+                82,
+                80,
+                53,
+                79
+              ]
             }
           ],
           "categories": [
@@ -4165,36 +2624,87 @@
           }
         ],
         "heatmap": {
-          "categories": ["الاتصالات", "الدعم", "الرقمية", "الطبية", "العمليات"],
+          "categories": [
+            "الاتصالات",
+            "الدعم",
+            "الرقمية",
+            "الطبية",
+            "العمليات"
+          ],
           "series": [
             {
               "name": "قابلة للتنفيذ",
               "data": [
-                { "value": "45", "color": "#05D989" },
-                { "value": "81", "color": "#018AAF" },
-                { "value": "142", "color": "#EF4444" },
-                { "value": "96", "color": "#7F4FFF" },
-                { "value": "118", "color": "#FF8E53" }
+                {
+                  "value": "45",
+                  "color": "#05D989"
+                },
+                {
+                  "value": "81",
+                  "color": "#018AAF"
+                },
+                {
+                  "value": "142",
+                  "color": "#EF4444"
+                },
+                {
+                  "value": "96",
+                  "color": "#7F4FFF"
+                },
+                {
+                  "value": "118",
+                  "color": "#FF8E53"
+                }
               ]
             },
             {
               "name": "إعادة تصميم",
               "data": [
-                { "value": "25", "color": "#05D989" },
-                { "value": "49", "color": "#018AAF" },
-                { "value": "71", "color": "#FF8E53" },
-                { "value": "54", "color": "#018AAF" },
-                { "value": "62", "color": "#7F4FFF" }
+                {
+                  "value": "25",
+                  "color": "#05D989"
+                },
+                {
+                  "value": "49",
+                  "color": "#018AAF"
+                },
+                {
+                  "value": "71",
+                  "color": "#FF8E53"
+                },
+                {
+                  "value": "54",
+                  "color": "#018AAF"
+                },
+                {
+                  "value": "62",
+                  "color": "#7F4FFF"
+                }
               ]
             },
             {
               "name": "غير قابلة للتنفيذ",
               "data": [
-                { "value": "17", "color": "#05D989" },
-                { "value": "35", "color": "#FF8E53" },
-                { "value": "27", "color": "#7F4FFF" },
-                { "value": "18", "color": "#018AAF" },
-                { "value": "22", "color": "#018AAF" }
+                {
+                  "value": "17",
+                  "color": "#05D989"
+                },
+                {
+                  "value": "35",
+                  "color": "#FF8E53"
+                },
+                {
+                  "value": "27",
+                  "color": "#7F4FFF"
+                },
+                {
+                  "value": "18",
+                  "color": "#018AAF"
+                },
+                {
+                  "value": "22",
+                  "color": "#018AAF"
+                }
               ]
             }
           ]
@@ -4225,7 +2735,12 @@
       "portfolio": {
         "sunburst": {
           "total": "1,248",
-          "series": [41, 24, 18, 17],
+          "series": [
+            41,
+            24,
+            18,
+            17
+          ],
           "labels": [
             "ابتكار تدريجي",
             "ابتكار اختراقي",
@@ -4233,7 +2748,6 @@
             "ابتكار تحوّلي"
           ]
         },
-
         "bubbles": [
           {
             "name": "الذكاء الاصطناعي",
@@ -4288,12 +2802,36 @@
           "series": [
             {
               "data": [
-                { "x": "الخدمة", "y": 412, "fillColor": "#018AAF1A" },
-                { "x": "التقنية", "y": 138, "fillColor": "#7F4FFF1A" },
-                { "x": "نموذج الأعمال", "y": 141, "fillColor": "#05D9894D" },
-                { "x": "العمليات", "y": 201, "fillColor": "#FF8E531A" },
-                { "x": "السياسات", "y": 119, "fillColor": "#EF44441A" },
-                { "x": "المنتج", "y": 137, "fillColor": "#018AAF1A" }
+                {
+                  "x": "الخدمة",
+                  "y": 412,
+                  "fillColor": "#018AAF1A"
+                },
+                {
+                  "x": "التقنية",
+                  "y": 138,
+                  "fillColor": "#7F4FFF1A"
+                },
+                {
+                  "x": "نموذج الأعمال",
+                  "y": 141,
+                  "fillColor": "#05D9894D"
+                },
+                {
+                  "x": "العمليات",
+                  "y": 201,
+                  "fillColor": "#FF8E531A"
+                },
+                {
+                  "x": "السياسات",
+                  "y": 119,
+                  "fillColor": "#EF44441A"
+                },
+                {
+                  "x": "المنتج",
+                  "y": 137,
+                  "fillColor": "#018AAF1A"
+                }
               ]
             }
           ]
@@ -4327,9 +2865,18 @@
         ],
         "typeSummary": {
           "headers": [
-            { "key": "type", "label": "النوع" },
-            { "key": "ideas", "label": "عدد الأفكار" },
-            { "key": "share", "label": "النسبة" }
+            {
+              "key": "type",
+              "label": "النوع"
+            },
+            {
+              "key": "ideas",
+              "label": "عدد الأفكار"
+            },
+            {
+              "key": "share",
+              "label": "النسبة"
+            }
           ],
           "items": [
             {
@@ -4358,9 +2905,18 @@
       "impact": {
         "expected": {
           "headers": [
-            { "key": "indicatorKey", "label": "المؤشر" },
-            { "key": "value", "label": "القيمة" },
-            { "key": "statusKey", "label": "الحالة" }
+            {
+              "key": "indicatorKey",
+              "label": "المؤشر"
+            },
+            {
+              "key": "value",
+              "label": "القيمة"
+            },
+            {
+              "key": "statusKey",
+              "label": "الحالة"
+            }
           ],
           "items": [
             {
@@ -4397,9 +2953,18 @@
         },
         "measured": {
           "headers": [
-            { "key": "indicatorKey", "label": "المؤشر" },
-            { "key": "value", "label": "القيمة" },
-            { "key": "statusKey", "label": "الحالة" }
+            {
+              "key": "indicatorKey",
+              "label": "المؤشر"
+            },
+            {
+              "key": "value",
+              "label": "القيمة"
+            },
+            {
+              "key": "statusKey",
+              "label": "الحالة"
+            }
           ],
           "items": [
             {
@@ -4454,9 +3019,18 @@
         ],
         "themes": {
           "headers": [
-            { "key": "theme", "label": "الموضوع" },
-            { "key": "ideas", "label": "عدد الأفكار" },
-            { "key": "score", "label": "النسبة" }
+            {
+              "key": "theme",
+              "label": "الموضوع"
+            },
+            {
+              "key": "ideas",
+              "label": "عدد الأفكار"
+            },
+            {
+              "key": "score",
+              "label": "النسبة"
+            }
           ],
           "items": [
             {
@@ -4485,9 +3059,18 @@
       "governance": {
         "indicators": {
           "headers": [
-            { "key": "kpiKey", "label": "المؤشر KPI" },
-            { "key": "value", "label": "القيمة" },
-            { "key": "statusKey", "label": "الحالة" }
+            {
+              "key": "kpiKey",
+              "label": "المؤشر KPI"
+            },
+            {
+              "key": "value",
+              "label": "القيمة"
+            },
+            {
+              "key": "statusKey",
+              "label": "الحالة"
+            }
           ],
           "items": [
             {
@@ -4534,31 +3117,76 @@
             {
               "name": "التحيز",
               "data": [
-                { "value": "جيد", "color": "#05D989" },
-                { "value": "منخفض", "color": "#05D989" },
-                { "value": "منخفض", "color": "#05D989" },
-                { "value": "منخفض", "color": "#018AAF" },
-                { "value": "منخفض", "color": "#018AAF" }
+                {
+                  "value": "جيد",
+                  "color": "#05D989"
+                },
+                {
+                  "value": "منخفض",
+                  "color": "#05D989"
+                },
+                {
+                  "value": "منخفض",
+                  "color": "#05D989"
+                },
+                {
+                  "value": "منخفض",
+                  "color": "#018AAF"
+                },
+                {
+                  "value": "منخفض",
+                  "color": "#018AAF"
+                }
               ]
             },
             {
               "name": "مدة الدورة",
               "data": [
-                { "value": "5>", "color": "#05D989" },
-                { "value": "3.8", "color": "#05D989" },
-                { "value": "4.1", "color": "#018AAF" },
-                { "value": "4.4", "color": "#018AAF" },
-                { "value": "4.8", "color": "#7F4FFF" }
+                {
+                  "value": "5>",
+                  "color": "#05D989"
+                },
+                {
+                  "value": "3.8",
+                  "color": "#05D989"
+                },
+                {
+                  "value": "4.1",
+                  "color": "#018AAF"
+                },
+                {
+                  "value": "4.4",
+                  "color": "#018AAF"
+                },
+                {
+                  "value": "4.8",
+                  "color": "#7F4FFF"
+                }
               ]
             },
             {
               "name": "نسبة الإنجاز",
               "data": [
-                { "value": "85%", "color": "#05D989" },
-                { "value": "91%", "color": "#05D989" },
-                { "value": "87%", "color": "#018AAF" },
-                { "value": "83%", "color": "#018AAF" },
-                { "value": "79%", "color": "#7F4FFF" }
+                {
+                  "value": "85%",
+                  "color": "#05D989"
+                },
+                {
+                  "value": "91%",
+                  "color": "#05D989"
+                },
+                {
+                  "value": "87%",
+                  "color": "#018AAF"
+                },
+                {
+                  "value": "83%",
+                  "color": "#018AAF"
+                },
+                {
+                  "value": "79%",
+                  "color": "#7F4FFF"
+                }
               ]
             }
           ]
@@ -4620,15 +3248,42 @@
         "streamSeries": [
           {
             "name": "Theme A",
-            "data": [30, 29, 30, 29, 30, 29, 29, 30]
+            "data": [
+              30,
+              29,
+              30,
+              29,
+              30,
+              29,
+              29,
+              30
+            ]
           },
           {
             "name": "Theme B",
-            "data": [25, 24, 25, 24, 25, 24, 24, 25]
+            "data": [
+              25,
+              24,
+              25,
+              24,
+              25,
+              24,
+              24,
+              25
+            ]
           },
           {
             "name": "Theme C",
-            "data": [20, 19, 20, 19, 20, 19, 19, 20]
+            "data": [
+              20,
+              19,
+              20,
+              19,
+              20,
+              19,
+              19,
+              20
+            ]
           }
         ],
         "aiCommentaryKey": "analytics.commentary.text"

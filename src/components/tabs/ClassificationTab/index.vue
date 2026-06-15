@@ -2,10 +2,10 @@
 import { computed, ref, watch } from "vue";
 import BaseBox from "@/components/ui/BaseBox.vue";
 import BaseRadioGroup from "@/components/ui/BaseRadioGroup.vue";
-import PathSelect from "@/components/tabsBlocks/PathSelect.vue";
-import DuplicateIdeaCard from "@/components/tabsBlocks/DuplicateIdeaCard.vue";
-import MergeSuggestionCard from "@/components/tabsBlocks/MergeSuggestionCard.vue";
-import ExecutionPlanCard from "@/components/tabsBlocks/ExecutionPlanCard.vue";
+import PathSelect from "./PathSelect.vue";
+import DuplicateIdeaCard from "./DuplicateIdeaCard.vue";
+import MergeSuggestionCard from "./MergeSuggestionCard.vue";
+import ExecutionPlanCard from "./ExecutionPlanCard.vue";
 
 const props = defineProps({
   data: {

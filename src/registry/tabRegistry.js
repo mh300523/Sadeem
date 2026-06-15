@@ -1,12 +1,12 @@
-import OverviewTab from "@/components/tabs/OverviewTab.vue";
-import StoryTab from "@/components/tabs/StoryTab.vue";
-import BusinessModelTab from "@/components/tabs/BusinessModelTab.vue";
-import StrategicAlignmentTab from "@/components/tabs/StrategicAlignmentTab.vue";
-import IPTab from "@/components/tabs/IPTab.vue";
-import ClassificationTab from "@/components/tabs/ClassificationTab.vue";
-import EvaluationTab from "@/components/tabs/EvaluationTab.vue";
-import DecisionTab from "@/components/tabs/DecisionTab.vue";
-import PlaceholderTab from "@/components/tabs/PlaceholderTab.vue";
+import OverviewTab from "@/components/tabs/OverviewTab/index.vue";
+import StoryTab from "@/components/tabs/StoryTab/index.vue";
+import BusinessModelTab from "@/components/tabs/BusinessModelTab/index.vue";
+import StrategicAlignmentTab from "@/components/tabs/StrategicAlignmentTab/index.vue";
+import IPTab from "@/components/tabs/IPTab/index.vue";
+import ClassificationTab from "@/components/tabs/ClassificationTab/index.vue";
+import EvaluationTab from "@/components/tabs/EvaluationTab/index.vue";
+import DecisionTab from "@/components/tabs/DecisionTab/index.vue";
+import PlaceholderTab from "@/components/tabs/PlaceholderTab/index.vue";
 
 export const tabRegistry = {
   overview: OverviewTab,
@@ -16,7 +16,7 @@ export const tabRegistry = {
   ip: IPTab,
   classification: ClassificationTab,
   evaluation: EvaluationTab,
-  decision: PlaceholderTab,
+  decision: DecisionTab,
 };
 
 export const iconRegistry = {

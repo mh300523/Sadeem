@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from "vue";
-import BaseChart from "@/components/ui/BaseChart.vue";
+import BaseChart from "./BaseChart.vue";
 import BaseAnalyticBox from "@/components/ui/BaseAnalyticBox.vue";
 
 const props = defineProps({
@@ -17,9 +17,6 @@ const chartOptions = computed(() => {
       stacked: true,
       sparkline: {
         enabled: true,
-      },
-      toolbar: {
-        show: false,
       },
       animations: {
         enabled: true,
@@ -40,7 +37,6 @@ const chartOptions = computed(() => {
       show: false,
     },
     tooltip: {
-      theme: "dark",
       x: {
         show: false,
       },

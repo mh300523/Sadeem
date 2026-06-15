@@ -1,7 +1,23 @@
+<script setup>
+import BaseBox from "@/components/ui/BaseBox.vue";
+
+defineProps({
+  evaluator: {
+    type: Object,
+    required: true,
+  },
+  isActive: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+defineEmits(["click"]);
+</script>
 <template>
-  <div
-    @click="$emit('click')"
-    class="p-3.5 rounded-xl border transition-all cursor-pointer text-right flex flex-col gap-2 select-none"
+  <BaseBox
+    type="glass"
+    class="p-4 rounded-xl"
     :class="
       isActive
         ? 'bg-[#161F30] border-[#018AAF]'
@@ -11,13 +27,17 @@
     <!-- Top Row: Name and Bias Rating Badge -->
     <div class="flex justify-between items-center">
       <div class="flex items-center gap-2">
-        <span class="text-[10px] font-bold text-white/40">{{ $t("evaluation.bias") }}</span>
-        <span class="text-xs font-bold text-[#33BCE1]">{{ evaluator.bias }}</span>
+        <span class="text-[10px] font-bold text-white/40">{{
+          $t("evaluation.bias")
+        }}</span>
+        <span class="text-xs font-bold text-[#33BCE1]">{{
+          evaluator.bias
+        }}</span>
         <span
           class="px-2 py-0.5 rounded-md text-[9px] font-bold border"
           :class="evaluator.badgeClass"
         >
-          {{ evaluator.classificationText }}
+          {{ evaluator.classification }}
         </span>
       </div>
       <h4 class="text-white text-xs font-bold">
@@ -56,25 +76,15 @@
 
     <!-- Link -->
     <span
+      @click="$emit('click')"
       class="text-[9px] block text-left mt-1 transition-colors duration-300"
-      :class="isActive ? 'text-[#33BCE1] underline' : 'text-[#33BCE1]/70 hover:text-[#33BCE1]'"
+      :class="
+        isActive
+          ? 'text-[#33BCE1] underline'
+          : 'text-[#33BCE1]/70 hover:text-[#33BCE1]'
+      "
     >
       {{ $t("evaluation.click_to_compare") }}
     </span>
-  </div>
+  </BaseBox>
 </template>
-
-<script setup>
-defineProps({
-  evaluator: {
-    type: Object,
-    required: true,
-  },
-  isActive: {
-    type: Boolean,
-    default: false,
-  },
-});
-
-defineEmits(["click"]);
-</script>
