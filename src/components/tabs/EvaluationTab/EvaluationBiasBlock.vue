@@ -1,8 +1,8 @@
 <script setup>
 import BaseBox from "@/components/ui/BaseBox.vue";
-import RadarChart from "@/components/tabsBlocks/RadarChart.vue";
-import EvaluatorCard from "@/components/tabsBlocks/EvaluatorCard.vue";
-import BiasMetricCard from "@/components/tabsBlocks/BiasMetricCard.vue";
+import RadarChart from "./RadarChart.vue";
+import EvaluatorCard from "./EvaluatorCard.vue";
+import BiasMetricCard from "./BiasMetricCard.vue";
 
 defineProps({
   evaluators: {

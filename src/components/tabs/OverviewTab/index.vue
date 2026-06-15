@@ -1,9 +1,9 @@
 <script setup>
 import { computed } from "vue";
-import OwnerCard from "@/components/tabsBlocks/OwnerCard.vue";
+import OwnerCard from "./OwnerCard.vue";
 import BaseTagList from "@/components/ui/BaseTagList.vue";
-import AttachmentsList from "@/components/tabsBlocks/AttachmentsList.vue";
-import DetailsGrid from "@/components/tabsBlocks/DetailsGrid.vue";
+import AttachmentsList from "./AttachmentsList.vue";
+import DetailsGrid from "./DetailsGrid.vue";
 import BaseBox from "@/components/ui/BaseBox.vue";
 
 const props = defineProps({

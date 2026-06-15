@@ -6,9 +6,9 @@ import SvgIcon from "@/components/ui/SvgIcon.vue";
 import BaseButton from "@/components/ui/BaseButton.vue";
 
 // Reusable blocks
-import ScoreCard from "@/components/tabsBlocks/ScoreCard.vue";
-import EvaluationCriteriaBlock from "@/components/tabsBlocks/EvaluationCriteriaBlock.vue";
-import EvaluationBiasBlock from "@/components/tabsBlocks/EvaluationBiasBlock.vue";
+import ScoreCard from "./ScoreCard.vue";
+import EvaluationCriteriaBlock from "./EvaluationCriteriaBlock.vue";
+import EvaluationBiasBlock from "./EvaluationBiasBlock.vue";
 
 const props = defineProps({
   data: {

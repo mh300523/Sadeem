@@ -1,7 +1,7 @@
 <script setup>
 import BaseBox from "@/components/ui/BaseBox.vue";
-import RadarChart from "@/components/tabsBlocks/RadarChart.vue";
-import EvaluationCriterion from "@/components/tabsBlocks/EvaluationCriterion.vue";
+import RadarChart from "./RadarChart.vue";
+import EvaluationCriterion from "./EvaluationCriterion.vue";
 
 defineProps({
   criteria: {
