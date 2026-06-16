@@ -1,6 +1,5 @@
 <script setup>
 import { computed } from "vue";
-import { useI18n } from "vue-i18n";
 import BaseChart from "./BaseChart.vue";
 
 const props = defineProps({
@@ -24,29 +23,15 @@ const props = defineProps({
     type: Number,
     default: undefined,
   },
-  strokeWidth: {
-    type: Number,
-    default: undefined,
-  },
-  markerSize: {
-    type: Number,
-    default: undefined,
-  },
-  labelFontSize: {
-    type: String,
-    default: "",
-  },
-  labelColor: {
-    type: String,
-    default: "",
-  },
   height: {
     type: [Number, String],
     default: undefined,
   },
+  width: {
+    type: [String, Number],
+    default: undefined,
+  },
 });
-
-const { t } = useI18n();
 
 const chartSeries = computed(() => {
   return props.series.map((s) => {
@@ -71,57 +56,33 @@ const resolvedOpacity = computed(() => {
   return props.series.length === 1 ? 0.5 : 0.12;
 });
 
-const resolvedStrokeWidth = computed(() => {
-  if (props.strokeWidth !== undefined) return props.strokeWidth;
-  return props.series.length === 1 ? 1.5 : 2;
-});
-
-const resolvedMarkerSize = computed(() => {
-  if (props.markerSize !== undefined) return props.markerSize;
-  return props.series.length === 1 ? 0 : 3;
-});
-
-const resolvedLabelFontSize = computed(() => {
-  if (props.labelFontSize) return props.labelFontSize;
-  return props.series.length === 1 ? "12px" : "9px";
-});
-
-const resolvedLabelColor = computed(() => {
-  if (props.labelColor) return props.labelColor;
-  return props.series.length === 1 ? "rgba(255, 255, 255, 0.7)" : "rgba(255, 255, 255, 0.45)";
-});
-
 const resolvedHeight = computed(() => {
   if (props.height !== undefined) return props.height;
+  return props.series.length === 1 ? 300 : 400;
+});
+
+const resolvedWidth = computed(() => {
+  if (props.width !== undefined) return props.width;
   return props.series.length === 1 ? 300 : 400;
 });
 
 const chartOptions = computed(() => ({
   chart: {
     type: "radar",
-    animations: {
-      enabled: true,
-      easing: "easeinout",
-      speed: 300,
-      dynamicAnimation: {
-        enabled: true,
-        speed: 250,
-      },
-    },
   },
   colors: resolvedColors.value,
   stroke: {
     show: true,
-    width: resolvedStrokeWidth.value,
+    width: 1,
     colors: resolvedColors.value,
   },
   fill: {
     opacity: resolvedOpacity.value,
   },
   markers: {
-    size: resolvedMarkerSize.value,
+    size: 3,
     hover: {
-      size: resolvedMarkerSize.value ? resolvedMarkerSize.value + 2 : 0,
+      size: 4,
     },
   },
   xaxis: {
@@ -129,9 +90,8 @@ const chartOptions = computed(() => ({
     labels: {
       show: true,
       style: {
-        colors: Array(props.categories.length).fill(resolvedLabelColor.value),
-        fontSize: resolvedLabelFontSize.value,
-        fontWeight: props.series.length === 1 ? 400 : 500,
+        colors: "rgba(255, 255, 255, 0.7)",
+        fontSize: "10px",
       },
     },
   },
@@ -179,7 +139,12 @@ const chartOptions = computed(() => ({
 </script>
 
 <template>
-  <BaseChart :height="resolvedHeight" :options="chartOptions" :series="chartSeries" />
+  <BaseChart
+    :height="resolvedHeight"
+    :width="resolvedWidth"
+    :options="chartOptions"
+    :series="chartSeries"
+  />
 </template>
 
 <style scoped></style>

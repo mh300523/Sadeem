@@ -77,7 +77,7 @@ defineEmits(["reset-criterion"]);
           <!-- AI Analysis insights panel -->
           <div class="mt-2">
             <h2
-              class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
+              class="gradient-purple py-4 px-5 rounded-2xl text-white font-medium mb-4"
             >
               {{ $t("evaluation.ai_analysis") }}
             </h2>

@@ -17,16 +17,25 @@ const props = defineProps({
   },
   width: {
     type: [String, Number],
-    default: "100%",
+    default: "",
   },
 });
 
 // Deep merge helper to combine nested options safely
 function deepMerge(target, source) {
   const output = { ...target };
-  if (target && typeof target === "object" && source && typeof source === "object") {
+  if (
+    target &&
+    typeof target === "object" &&
+    source &&
+    typeof source === "object"
+  ) {
     Object.keys(source).forEach((key) => {
-      if (source[key] && typeof source[key] === "object" && !Array.isArray(source[key])) {
+      if (
+        source[key] &&
+        typeof source[key] === "object" &&
+        !Array.isArray(source[key])
+      ) {
         if (!(key in target)) {
           output[key] = source[key];
         } else {
