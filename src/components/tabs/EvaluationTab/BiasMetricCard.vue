@@ -1,15 +1,5 @@
-<template>
-  <div
-    class="p-3.5 rounded-xl bg-[#161F30] border border-white/5 text-right flex flex-col gap-1 select-none"
-  >
-    <span class="text-white/40 text-[9px] block">{{ label }}</span>
-    <p class="text-white text-xs font-bold leading-normal">
-      {{ value }}
-    </p>
-  </div>
-</template>
-
 <script setup>
+import BaseBox from "@/components/ui/BaseBox.vue";
 defineProps({
   label: {
     type: String,
@@ -21,3 +11,12 @@ defineProps({
   },
 });
 </script>
+
+<template>
+  <BaseBox class="py-5 px-4 rounded-[20px] border border-[#06B6D4]/42">
+    <h4 class="text-white/70 mb-3.5">{{ label }}</h4>
+    <p class="text-white text-lg md:text-2xl font-bold leading-normal">
+      {{ value }}
+    </p>
+  </BaseBox>
+</template>

@@ -34,6 +34,15 @@ const props = defineProps({
     type: String,
     default: "value",
   },
+  classes: {
+    type: String,
+    default: "",
+  },
+
+  labelClasses: {
+    type: String,
+    default: "",
+  },
 
   buttonClass: {
     type: String,
@@ -56,10 +65,17 @@ const displayValue = computed(() => {
 </script>
 
 <template>
-  <div class="flex items-center gap-2 w-full md:w-auto">
-    <span v-if="label" class="text-gray-400 text-sm whitespace-nowrap">
+  <div
+    class="w-full md:w-auto flex gap-3"
+    :class="classes ? classes : 'items-center '"
+  >
+    <label
+      v-if="label"
+      class="text-white/76 uppercase whitespace-nowrap"
+      :class="labelClasses"
+    >
       {{ label }}
-    </span>
+    </label>
 
     <Listbox v-model="model" as="div" class="relative w-full">
       <ListboxButton
@@ -75,35 +91,42 @@ const displayValue = computed(() => {
           :selected-option="selectedOption"
           :display-value="displayValue"
         >
-          <span class="font-normal text-[#F0F9FF] truncate">
+          <span class="font-normal text-[#858585] truncate">
             {{ displayValue }}
           </span>
 
-          <svg
-            class="w-4 h-4 ms-2 text-white shrink-0"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          <!-- Arrow toggle button on the left (in RTL) -->
+          <span
+            class="select-arrow flex items-center justify-center text-white"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
+            <svg
+              class="w-4 h-4 text-white shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </span>
         </slot>
       </ListboxButton>
 
       <transition
-        leave-active-class="transition duration-100 ease-in"
+        leave-active-class="transition duration-200 ease-in-out"
         leave-from-class="opacity-100"
         leave-to-class="opacity-0"
       >
         <ListboxOptions
+          class="absolute z-50 mt-2 max-h-100 min-w-full overflow-auto backdrop-blur-xl rounded-xl border"
           :class="
-            optionsClass ||
-            'absolute z-50 mt-2 max-h-60 min-w-full overflow-auto rounded-xl bg-[#0c1427] border border-gray-700 py-1 shadow-lg shadow-black/50 focus:outline-none backdrop-blur-md'
+            optionsClass
+              ? optionsClass
+              : 'rounded-xl bg-[#051E2E] border-white/10'
           "
         >
           <ListboxOption
@@ -121,13 +144,13 @@ const displayValue = computed(() => {
             >
               <li
                 :class="[
-                  active ? 'bg-blue-600/30 text-blue-400' : 'text-gray-300',
-                  'cursor-pointer select-none py-2 px-4 rtl:text-right transition-colors whitespace-nowrap',
+                  active ? 'bg-[#FF6B35]/70 text-white' : 'text-white/80',
+                  'cursor-pointer select-none py-2 px-4  transition-colors whitespace-nowrap',
                 ]"
               >
                 <span
                   :class="[
-                    selected ? 'font-bold text-white' : 'font-normal',
+                    selected ? 'font-meduim text-white' : 'font-normal',
                     'block truncate',
                   ]"
                 >

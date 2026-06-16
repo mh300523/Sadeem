@@ -3,6 +3,7 @@ import BaseBox from "@/components/ui/BaseBox.vue";
 import RadarChart from "@/components/charts/RadarChart.vue";
 import EvaluatorCard from "./EvaluatorCard.vue";
 import BiasMetricCard from "./BiasMetricCard.vue";
+import BaseButton from "@/components/ui/BaseButton.vue";
 
 defineProps({
   evaluators: {
@@ -38,12 +39,12 @@ defineEmits(["select-evaluator", "back"]);
   <!-- Dashboard header with back button -->
 
   <div class="lg:col-span-9">
-    <div class="flex justify-between mb-10">
+    <div class="flex items-start justify-between mb-10">
       <div class="flex gap-4">
         <!-- Back arrow button -->
-        <button
+        <BaseButton
           @click="$emit('back')"
-          class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition-all cursor-pointer"
+          class="w-11 h-11 bg-white/10 hover:bg-white/30 text-white flex items-center justify-center p-1!"
           :title="$t('evaluation.evaluation_criteria')"
         >
           <svg
@@ -59,122 +60,108 @@ defineEmits(["select-evaluator", "back"]);
               d="M9 5l7 7-7 7"
             />
           </svg>
-        </button>
+        </BaseButton>
         <div class="">
-          <h3
-            class="text-white text-base md:text-lg font-bold flex items-center gap-3"
-          >
-            <span>{{ $t("evaluation.bias_dashboard_title") }}</span>
+          <h3 class="text-white text-lg md:text-2xl font-medium mb-3">
+            {{ $t("evaluation.bias_dashboard_title") }}
           </h3>
           <!-- Description text -->
-          <p class="text-white/60 text-xs leading-relaxed">
+          <p class="text-white/70 text-xs leading-relaxed">
             {{ $t("evaluation.bias_dashboard_description") }}
           </p>
         </div>
       </div>
 
-      <button
-        class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-[rgba(1,138,175,0.2)] to-[rgba(127,79,255,0.2)] border border-[#7F4FFF]/30 text-[#7F4FFF] text-[10px] font-bold hover:bg-white/5 transition-colors cursor-pointer"
-      >
+      <BaseButton class="px-10! bg-[#5CE1E6]/10 text-[#5CE1E6] font-medium">
         {{ $t("evaluation.evaluator_manager_mode") }}
-      </button>
+      </BaseButton>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
       <!-- Center: Bias radar details & stats -->
       <div class="lg:col-span-7">
         <BaseBox class="p-6 border border-[#06B6D46B] rounded-2xl">
+          <div class="mb-4">
+            <h2 class="text-white text-lg md:text-2xl font-medium mb-3">
+              {{ $t("evaluation.bias_comparison_title") }}
+            </h2>
+            <!-- Description text -->
+            <p class="text-white/70 text-xs leading-relaxed">
+              {{ $t("evaluation.bias_comparison_description") }}
+            </p>
+          </div>
           <!-- Row display selected evaluator metrics -->
-          <div
-            class="grid grid-cols-3 gap-4 border border-white/5 p-4 rounded-xl bg-[#161F30]/50 text-center"
+          <BaseBox
+            type="glass"
+            class="grid grid-cols-3 gap-4 border border-[#06B6D4]/42 rounded-[20px] bg-[#161F30]/50"
           >
-            <!-- Classification -->
-            <div>
-              <span class="text-white/40 text-[10px] block mb-1">{{
-                $t("evaluation.classification")
-              }}</span>
-              <p class="text-[#06B6D4] text-sm md:text-base font-bold">
-                {{ selectedEvaluator.classificationText }}
+            <!-- Selected Evaluator -->
+            <div class="py-5 px-4 border border-[#06B6D4]/42 rounded-[12px]">
+              <h4 class="text-white/70 mb-3">
+                {{ $t("evaluation.selected_evaluator") }}
+              </h4>
+              <p class="text-white text-lg md:text-2xl font-bold">
+                {{ selectedEvaluator.name }}
               </p>
             </div>
-
             <!-- Bias percentage -->
-            <div>
-              <span class="text-white/40 text-[10px] block mb-1">{{
-                $t("evaluation.bias_percentage")
-              }}</span>
-              <p class="text-white text-sm md:text-base font-bold">
+            <div class="py-5 px-4 border border-[#06B6D4]/42 rounded-[12px]">
+              <h4 class="text-white/70 mb-3">
+                {{ $t("evaluation.bias_percentage") }}
+              </h4>
+              <p class="text-white text-lg md:text-2xl font-bold">
                 {{ selectedEvaluator.bias }}
               </p>
             </div>
 
-            <!-- Selected Evaluator -->
-            <div>
-              <span class="text-white/40 text-[10px] block mb-1">{{
-                $t("evaluation.selected_evaluator")
-              }}</span>
-              <p class="text-white text-sm md:text-base font-bold">
-                {{ selectedEvaluator.name }}
+            <!-- Classification -->
+            <div class="py-5 px-4 border border-[#06B6D4]/42 rounded-[12px]">
+              <h4 class="text-white/70 mb-3">
+                {{ $t("evaluation.classification") }}
+              </h4>
+              <p class="text-white text-lg md:text-2xl font-bold">
+                {{ selectedEvaluator.classificationText }}
               </p>
             </div>
-          </div>
+          </BaseBox>
 
           <!-- Big Radar Chart in Center -->
-          <div class="w-full h-[280px] flex items-center justify-center my-2">
+          <BaseBox type="glass" class="rounded-2xl my-8">
             <RadarChart
               :categories="radarLabels"
               :series="series"
-              :size="260"
+              :show-legend="true"
             />
-          </div>
-
-          <!-- Color legends row -->
-          <div class="flex justify-center gap-6 border-b border-white/10 pb-4">
-            <div class="flex items-center gap-2 text-[10px] text-white/70">
-              <span class="w-2.5 h-2.5 rounded-sm bg-[#3B82F6]"></span>
-              <span>{{ $t("evaluation.legends.current") }}</span>
-            </div>
-            <div class="flex items-center gap-2 text-[10px] text-white/70">
-              <span class="w-2.5 h-2.5 rounded-sm bg-[#F59E0B]"></span>
-              <span>{{ $t("evaluation.legends.team") }}</span>
-            </div>
-            <div class="flex items-center gap-2 text-[10px] text-white/70">
-              <span class="w-2.5 h-2.5 rounded-sm bg-[#10B981]"></span>
-              <span>{{ $t("evaluation.legends.ai") }}</span>
-            </div>
-          </div>
+          </BaseBox>
 
           <!-- Bias Metrics Section bottom -->
           <div class="flex flex-col gap-4 pt-1">
-            <button
-              class="w-full py-2 rounded-xl bg-gradient-to-r from-[#018AAF] to-[#8B5CF6] text-white text-xs font-bold text-center"
+            <h2
+              class="gradient-purple py-4 px-5 rounded-2xl text-white font-medium mb-4"
             >
               {{ $t("evaluation.bias_metrics") }}
-            </button>
+            </h2>
 
-            <p class="text-white/50 text-[10px] leading-relaxed">
+            <p class="text-white/70 leading-relaxed">
               {{ $t("evaluation.bias_metrics_explanation") }}
             </p>
 
             <!-- Metrics details columns using BiasMetricCard! -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <BiasMetricCard
-                :label="$t('evaluation.balance_rate')"
-                :value="$t('evaluation.balance_rate_value')"
-              />
-              <BiasMetricCard
-                :label="$t('evaluation.average_bias')"
-                :value="$t('evaluation.average_bias_value')"
-              />
-              <BiasMetricCard
-                :label="$t('evaluation.highest_bias')"
-                :value="$t('evaluation.highest_bias_value')"
-              />
-            </div>
+
+            <BiasMetricCard
+              :label="$t('evaluation.balance_rate')"
+              :value="$t('evaluation.balance_rate_value')"
+            />
+            <BiasMetricCard
+              :label="$t('evaluation.average_bias')"
+              :value="$t('evaluation.average_bias_value')"
+            />
+            <BiasMetricCard
+              :label="$t('evaluation.highest_bias')"
+              :value="$t('evaluation.highest_bias_value')"
+            />
 
             <!-- Informational footnotes -->
-            <div
-              class="mt-1 flex flex-col gap-1 text-[10px] text-white/40 pr-1 leading-relaxed"
-            >
+            <div class="mt-1 flex flex-col gap-1 text-white/70 leading-relaxed">
               <p>{{ $t("evaluation.footnotes.strict") }}</p>
               <p>{{ $t("evaluation.footnotes.generous") }}</p>
               <p>{{ $t("evaluation.footnotes.balanced") }}</p>
@@ -186,7 +173,7 @@ defineEmits(["select-evaluator", "back"]);
       <div class="lg:col-span-5">
         <BaseBox class="p-6 border border-[#06B6D46B] rounded-2xl">
           <h2
-            class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
+            class="gradient-purple py-4 px-5 rounded-2xl text-white font-medium mb-4"
           >
             {{ $t("evaluation.evaluators") }}
           </h2>
