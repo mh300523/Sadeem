@@ -1,4 +1,5 @@
 <script setup>
+import BaseBox from "@/components/ui/BaseBox.vue";
 const modelValue = defineModel({
   type: Boolean,
   default: false,
@@ -29,19 +30,19 @@ const toggleSelection = () => {
 </script>
 
 <template>
-  <div
+  <baseBox
     @click="toggleSelection"
-    class="p-4 rounded-xl border border-white/10 bg-transparent flex items-center justify-between gap-4 cursor-pointer select-none transition-colors hover:bg-white/5"
+    class="py-4.5 px-5 rounded-[20px] border border-[#06B6D4]/32 bg-transparent flex items-center justify-between gap-4 cursor-pointer select-none transition-colors hover:bg-white/5"
   >
     <!-- Checkbox and Text Container -->
     <div class="flex items-start gap-4">
       <!-- Checkbox Square -->
       <span
-        class="w-5 h-5 mt-0.5 shrink-0 rounded-sm flex items-center justify-center transition-all duration-300 border"
+        class="w-6 h-6 mt-1.5 shrink-0 rounded-sm flex items-center justify-center transition-all duration-300"
         :class="
           modelValue
-            ? 'bg-[#10B981] border-transparent text-white'
-            : 'bg-[#161F30] border-white/20 text-transparent'
+            ? 'bg-[#10B981] text-white'
+            : 'bg-[#D9D9D9]/20 text-transparent'
         "
       >
         <svg
@@ -60,13 +61,12 @@ const toggleSelection = () => {
 
       <!-- Title & Subtitle -->
       <div class="flex flex-col gap-1 text-right">
-        <span class="text-white text-xs md:text-sm font-bold">{{ title }}</span>
-        <span
-          v-if="subtitle"
-          class="text-white/50 text-[10px] md:text-xs leading-relaxed"
-        >
+        <h4 class="text-white md:text-base font-bold">
+          {{ title }}
+        </h4>
+        <p v-if="subtitle" class="text-white/70 leading-relaxed">
           {{ subtitle }}
-        </span>
+        </p>
       </div>
     </div>
 
@@ -88,5 +88,5 @@ const toggleSelection = () => {
         {{ badgeText }}
       </span>
     </div>
-  </div>
+  </baseBox>
 </template>

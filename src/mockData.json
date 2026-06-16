@@ -499,16 +499,11 @@
               },
               "sector": {
                 "label": "القطاع المعني بالفكرة",
-                "items": [
-                  "القطاع الحكومي"
-                ]
+                "items": ["القطاع الحكومي"]
               },
               "technologies": {
                 "label": "التقنيات المرتبطة بالفكرة",
-                "items": [
-                  "الذكاء الاصطناعي",
-                  "إنترنت الأشياء"
-                ]
+                "items": ["الذكاء الاصطناعي", "إنترنت الأشياء"]
               },
               "impact": {
                 "label": "نطاق الأثر",
@@ -574,11 +569,7 @@
                 ],
                 "requirements": {
                   "label": "متطلبات التنفيذ",
-                  "items": [
-                    "بيانات",
-                    "تشريعات",
-                    "شركاء"
-                  ]
+                  "items": ["بيانات", "تشريعات", "شركاء"]
                 },
                 "outputs": {
                   "label": "مخرجات الابتكار المتوقعة",
@@ -1306,26 +1297,8 @@
                 "value": 3
               }
             ],
-            "aiScores": [
-              1,
-              3,
-              3,
-              4,
-              5,
-              1,
-              3,
-              3
-            ],
-            "teamScores": [
-              3,
-              4,
-              3,
-              4,
-              4,
-              3,
-              3,
-              4
-            ],
+            "aiScores": [1, 3, 3, 4, 5, 1, 3, 3],
+            "teamScores": [3, 4, 3, 4, 4, 3, 3, 4],
             "evaluators": [
               {
                 "name": "Khaled",
@@ -1333,16 +1306,7 @@
                 "classification": "Balanced",
                 "averageRating": 75,
                 "teamAverage": 72,
-                "scores": [
-                  4,
-                  3,
-                  4,
-                  3,
-                  5,
-                  4,
-                  4,
-                  3
-                ]
+                "scores": [4, 3, 4, 3, 5, 4, 4, 3]
               },
               {
                 "name": "Sara",
@@ -1350,16 +1314,7 @@
                 "classification": "Generous",
                 "averageRating": 68,
                 "teamAverage": 72,
-                "scores": [
-                  4,
-                  4,
-                  3,
-                  5,
-                  4,
-                  3,
-                  4,
-                  4
-                ]
+                "scores": [4, 4, 3, 5, 4, 3, 4, 4]
               },
               {
                 "name": "Omar",
@@ -1367,16 +1322,7 @@
                 "classification": "Balanced",
                 "averageRating": 71,
                 "teamAverage": 72,
-                "scores": [
-                  3,
-                  4,
-                  3,
-                  3,
-                  4,
-                  4,
-                  3,
-                  4
-                ]
+                "scores": [3, 4, 3, 3, 4, 4, 3, 4]
               },
               {
                 "name": "Lina",
@@ -1384,16 +1330,7 @@
                 "classification": "Strict",
                 "averageRating": 60,
                 "teamAverage": 72,
-                "scores": [
-                  2,
-                  3,
-                  2,
-                  4,
-                  3,
-                  2,
-                  3,
-                  2
-                ]
+                "scores": [2, 3, 2, 4, 3, 2, 3, 2]
               },
               {
                 "name": "Shams",
@@ -1401,16 +1338,7 @@
                 "classification": "Strict",
                 "averageRating": 68,
                 "teamAverage": 72,
-                "scores": [
-                  3,
-                  2,
-                  3,
-                  3,
-                  3,
-                  3,
-                  2,
-                  3
-                ]
+                "scores": [3, 2, 3, 3, 3, 3, 2, 3]
               }
             ]
           }
@@ -1447,24 +1375,40 @@
               }
             ],
             "dropdownOptions": {
-              "directionType": [
+              "projectManager": [
                 {
-                  "value": "prototype",
-                  "label": "تطوير نموذج أولي"
+                  "value": "ahmed",
+                  "label": "أحمد خالد"
                 },
                 {
-                  "value": "assessment",
-                  "label": "تقييم فني"
-                },
-                {
-                  "value": "pilot",
-                  "label": "مشروع تجريبي"
+                  "value": "mostafa",
+                  "label": "مصطفى كامل"
                 }
               ],
-              "executionPriority": [
+              "innovationVehicle": [
+                {
+                  "value": "v1",
+                  "label": "مركبة الابتكار الداخلية"
+                },
+                {
+                  "value": "v2",
+                  "label": "مركبة الابتكار الخارجية"
+                }
+              ],
+              "executionOwner": [
+                {
+                  "value": "dtOffice",
+                  "label": "مكتب التحول الرقمي"
+                },
+                {
+                  "value": "innovationAdvisory",
+                  "label": "مركز الابتكار والإرشاد"
+                }
+              ],
+              "priority": [
                 {
                   "value": "high",
-                  "label": "عالية"
+                  "label": "مرتفعة"
                 },
                 {
                   "value": "medium",
@@ -1475,48 +1419,24 @@
                   "label": "منخفضة"
                 }
               ],
-              "innovationPath": [
+              "executionSector": [
                 {
-                  "value": "pathway1",
-                  "label": "المسار 1 - إدامة السوق"
+                  "value": "operations",
+                  "label": "قطاع العمليات"
                 },
                 {
-                  "value": "pathway2",
-                  "label": "المسار 2 - اختراق السوق"
-                },
-                {
-                  "value": "pathway3",
-                  "label": "المسار 3 - توسع السوق"
+                  "value": "finance",
+                  "label": "قطاع المالية"
                 }
               ],
-              "projectManager": [
+              "executionScope": [
                 {
-                  "value": "ahmed",
-                  "label": "تعيين مدير: أحمد خالد"
+                  "value": "crossDept",
+                  "label": "تنفيذ مشترك بين الادارات"
                 },
                 {
-                  "value": "mostafa",
-                  "label": "تعيين مدير: مصطفى كامل"
-                }
-              ],
-              "projectMentor": [
-                {
-                  "value": "khaled",
-                  "label": "تعيين موجه: خالد سعيد"
-                },
-                {
-                  "value": "sara",
-                  "label": "تعيين موجه: سارة علي"
-                }
-              ],
-              "consultantMentor": [
-                {
-                  "value": "advisor",
-                  "label": "Innovation Consultant - Advisor"
-                },
-                {
-                  "value": "mentor",
-                  "label": "Senior Innovation Mentor"
+                  "value": "departmental",
+                  "label": "تنفيذ ضمن ادارة واحدة"
                 }
               ],
               "sectionType": [
@@ -1615,94 +1535,82 @@
                 "key": "accept",
                 "label": "قبول",
                 "description": "تحويل الفكرة إلى مشروع ابتكاري داخل المنصة.",
-                "pathTitle": "مسار قرار قبول الفكرة",
-                "pathDescription": "تم اعتماد الفكرة وسيتم توجيهها للتحويل لمشروع ابتكاري فعلي وتعيين الفريق المسؤول.",
+                "pathTitle": "مسار تنفيذ قرار القبول",
                 "sections": [
                   {
                     "type": "dropdowns",
-                    "groups": [
+                    "title": "إعدادات التنفيذ الأساسية",
+                    "fields": [
                       {
-                        "label": "معايير التوجيه",
-                        "cols": 3,
-                        "fields": [
-                          {
-                            "id": "directionType",
-                            "placeholder": "نوع التوجيه",
-                            "optionsKey": "directionType",
-                            "default": "prototype"
-                          },
-                          {
-                            "id": "executionPriority",
-                            "placeholder": "أولوية التنفيذ",
-                            "optionsKey": "executionPriority",
-                            "default": "high"
-                          },
-                          {
-                            "id": "innovationPath",
-                            "placeholder": "مسار الابتكار",
-                            "optionsKey": "innovationPath",
-                            "default": "pathway1"
-                          }
-                        ]
+                        "id": "f1",
+                        "label": "تعيين مدير المشروع",
+                        "optionsKey": "projectManager"
                       },
                       {
-                        "label": "تعيين مدير وموجه",
-                        "cols": 2,
-                        "fields": [
-                          {
-                            "id": "projectManager",
-                            "placeholder": "مدير المشروع",
-                            "optionsKey": "projectManager",
-                            "default": "ahmed"
-                          },
-                          {
-                            "id": "projectMentor",
-                            "placeholder": "موجه المشروع",
-                            "optionsKey": "projectMentor",
-                            "default": "khaled"
-                          }
-                        ]
+                        "id": "f2",
+                        "label": "اختيار مركبة الابتكار",
+                        "optionsKey": "innovationVehicle"
+                      },
+                      {
+                        "id": "f3",
+                        "label": "تحديد مالك التنفيذ",
+                        "optionsKey": "executionOwner"
+                      },
+                      {
+                        "id": "f4",
+                        "label": "درجة الأولوية",
+                        "optionsKey": "priority"
+                      },
+                      {
+                        "id": "f5",
+                        "label": "القطاع المسؤول عن التنفيذ",
+                        "optionsKey": "executionSector"
+                      },
+                      {
+                        "id": "f6",
+                        "label": "نطاق التنفيذ",
+                        "optionsKey": "executionScope"
                       }
                     ]
                   },
                   {
                     "type": "checklist",
-                    "title": "إجراءات التوجيه والاعتماد",
+                    "title": "طلبات التنفيذ الاختيارية",
                     "items": [
                       {
                         "id": "c1",
-                        "label": "طلب ميزانية أولية",
-                        "desc": "طلب تمويل أولي لبدء مرحلة النمذجة أو الاختبار.",
+                        "label": "طلب نموذج أولي",
+                        "desc": "إضافة مهمة تطوير نموذج أولي للمشروع.",
                         "checked": true
                       },
                       {
                         "id": "c2",
-                        "label": "طلب دراسة جدوى",
-                        "desc": "إجراء دراسة تفصيلية للجدوى المالية والاقتصادية.",
+                        "label": "طلب مرحلة تجريبية",
+                        "desc": "إنشاء مرحلة Pilot للتجربة والتحقق.",
                         "checked": false
                       },
                       {
                         "id": "c3",
-                        "label": "طلب تقييم تقني",
-                        "desc": "تقييم متعمق للمتطلبات التقنية والأمنية للفكرة.",
+                        "label": "طلب دراسة جدوى",
+                        "desc": "إضافة مهمة دراسة جدوى للمشروع.",
                         "checked": false
                       },
                       {
                         "id": "c4",
-                        "label": "طلب نموذج تجريبي",
-                        "desc": "بناء PoC أو نموذج مبدئي لاختبار فرضيات الفكرة.",
+                        "label": "طلب دراسة حالة أعمال",
+                        "desc": "إعداد دراسة Business Case تفصيلية.",
                         "checked": false
                       },
                       {
                         "id": "c5",
-                        "label": "طلب دراسة حالة العمل",
-                        "desc": "تطوير وثيقة Business Case شاملة للمشروع.",
+                        "label": "طلب تقييم تقني",
+                        "desc": "تحويل المشروع للمراجعة التقنية.",
                         "checked": false
                       },
                       {
                         "id": "c6",
-                        "label": "طلب تقييم تنافسي",
-                        "desc": "تحليل الحلول المماثلة في السوق والمنافسين.",
+                        "label": "طلب تقييم مخاطر",
+                        "desc": "تحويل المشروع لفريق الحوكمة والمخاطر.",
                         "checked": false
                       }
                     ]
@@ -2398,15 +2306,7 @@
   "analytics": {
     "liveSignal": {
       "value": "1,248",
-      "sparkline": [
-        30,
-        60,
-        80,
-        70,
-        60,
-        50,
-        40
-      ]
+      "sparkline": [30, 60, 80, 70, 60, 50, 40]
     },
     "quickActions": [
       {
@@ -2441,15 +2341,7 @@
             "value": "88%",
             "percentage": "+5.3%",
             "changeLabelKey": "الأفكار المتوائمة",
-            "sparkline": [
-              30,
-              60,
-              80,
-              70,
-              60,
-              50,
-              40
-            ],
+            "sparkline": [30, 60, 80, 70, 60, 50, 40],
             "growthType": "up",
             "badgeColor": "text-[#21C2DD] bg-[#7DD3FC]/10"
           },
@@ -2460,15 +2352,7 @@
             "value": "88%",
             "percentage": "+5.3%",
             "changeLabelKey": "المشاريع المعتمدة 298",
-            "sparkline": [
-              30,
-              60,
-              80,
-              70,
-              60,
-              50,
-              40
-            ],
+            "sparkline": [30, 60, 80, 70, 60, 50, 40],
             "growthType": "up",
             "badgeColor": "text-[#05D989] bg-[#05D989]/10"
           },
@@ -2479,15 +2363,7 @@
             "value": "88%",
             "percentage": "+5.3%",
             "changeLabelKey": "نمو الأفكار",
-            "sparkline": [
-              30,
-              60,
-              80,
-              70,
-              60,
-              50,
-              40
-            ],
+            "sparkline": [30, 60, 80, 70, 60, 50, 40],
             "growthType": "up",
             "badgeColor": "text-white bg-white/10"
           },
@@ -2498,15 +2374,7 @@
             "value": "88%",
             "percentage": "+5.3%",
             "changeLabelKey": "مقارنة بالربع الأخير",
-            "sparkline": [
-              30,
-              60,
-              80,
-              70,
-              60,
-              50,
-              40
-            ],
+            "sparkline": [30, 60, 80, 70, 60, 50, 40],
             "growthType": "down",
             "badgeColor": "text-[#21C2DD] bg-[#7DD3FC]/10"
           }
@@ -2516,14 +2384,7 @@
           "series": [
             {
               "name": "Portfolio Radar",
-              "data": [
-                88,
-                78,
-                82,
-                80,
-                53,
-                79
-              ]
+              "data": [88, 78, 82, 80, 53, 79]
             }
           ],
           "categories": [
@@ -2624,13 +2485,7 @@
           }
         ],
         "heatmap": {
-          "categories": [
-            "الاتصالات",
-            "الدعم",
-            "الرقمية",
-            "الطبية",
-            "العمليات"
-          ],
+          "categories": ["الاتصالات", "الدعم", "الرقمية", "الطبية", "العمليات"],
           "series": [
             {
               "name": "قابلة للتنفيذ",
@@ -2735,12 +2590,7 @@
       "portfolio": {
         "sunburst": {
           "total": "1,248",
-          "series": [
-            41,
-            24,
-            18,
-            17
-          ],
+          "series": [41, 24, 18, 17],
           "labels": [
             "ابتكار تدريجي",
             "ابتكار اختراقي",
@@ -3248,42 +3098,15 @@
         "streamSeries": [
           {
             "name": "Theme A",
-            "data": [
-              30,
-              29,
-              30,
-              29,
-              30,
-              29,
-              29,
-              30
-            ]
+            "data": [30, 29, 30, 29, 30, 29, 29, 30]
           },
           {
             "name": "Theme B",
-            "data": [
-              25,
-              24,
-              25,
-              24,
-              25,
-              24,
-              24,
-              25
-            ]
+            "data": [25, 24, 25, 24, 25, 24, 24, 25]
           },
           {
             "name": "Theme C",
-            "data": [
-              20,
-              19,
-              20,
-              19,
-              20,
-              19,
-              19,
-              20
-            ]
+            "data": [20, 19, 20, 19, 20, 19, 19, 20]
           }
         ],
         "aiCommentaryKey": "analytics.commentary.text"
