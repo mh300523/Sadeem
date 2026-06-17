@@ -3,6 +3,7 @@ import { ref, computed } from "vue";
 import BaseBox from "@/components/ui/BaseBox.vue";
 import BaseActionModal from "@/components/ui/BaseActionModal.vue";
 import BaseTextarea from "@/components/ui/BaseTextarea.vue";
+import BaseButton from "@/components/ui/BaseButton.vue";
 
 // Import local UI Schema Configuration from global config folder
 import { decisionSchema } from "@/config/decisionSchema";
@@ -42,14 +43,16 @@ const options = computed(() => Object.values(decisionSchema));
 const selectedOptionKey = ref(Object.keys(decisionSchema)[0] || "");
 
 const currentOption = computed(
-  () => decisionSchema[selectedOptionKey.value] || null
+  () => decisionSchema[selectedOptionKey.value] || null,
 );
 
 const currentSections = computed(() => currentOption.value?.sections || []);
 
 // Dynamic resolved recipients list for the active path
 const currentRecipientsList = computed(() => {
-  return currentSections.value.find((s) => s.type === "recipients")?.items || [];
+  return (
+    currentSections.value.find((s) => s.type === "recipients")?.items || []
+  );
 });
 
 // ─── Isolated State Management (Keyed by Recommendation Key) ───────────────
@@ -64,10 +67,15 @@ const formStates = ref({
 // Seed isolated states from the static schema configuration directly on initialization
 Object.entries(decisionSchema).forEach(([key, option]) => {
   option.sections.forEach((section) => {
-    const fieldsList = section.fields || section.groups?.flatMap((g) => g.fields) || [];
-    fieldsList.forEach((field) => {
-      formStates.value[key].fields[field.id] = field.default ?? "";
-    });
+    if (section.type === "textarea") {
+      formStates.value[key].fields[section.id] = section.default ?? "";
+    } else {
+      const fieldsList =
+        section.fields || section.groups?.flatMap((g) => g.fields) || [];
+      fieldsList.forEach((field) => {
+        formStates.value[key].fields[field.id] = field.default ?? "";
+      });
+    }
     (section.items || []).forEach((item) => {
       formStates.value[key].checklist[item.id] = item.checked ?? false;
     });
@@ -96,11 +104,14 @@ const handleAction = (actionKey) => {
 
     // Filter and collect inputs that belong to the active path only
     for (const section of currentSections.value) {
-      if (section.type === "dropdowns" || section.type === "conditional-dropdowns") {
-        const fieldsList = section.fields || section.groups?.flatMap((g) => g.fields) || [];
+      if (section.type === "dropdowns") {
+        const fieldsList =
+          section.fields || section.groups?.flatMap((g) => g.fields) || [];
         fieldsList.forEach((field) => {
           payload.fields[field.id] = activeState.fields[field.id] ?? "";
         });
+      } else if (section.type === "textarea") {
+        payload.fields[section.id] = activeState.fields[section.id] ?? "";
       }
       if (section.type === "checklist") {
         for (const item of section.items) {
@@ -109,22 +120,24 @@ const handleAction = (actionKey) => {
       }
       if (section.type === "recipients") {
         for (const item of section.items) {
-          // If the item has a condition, check it dynamically
-          if (item.condition) {
-            const { targetId, expectedValue } = item.condition;
-            if (activeState.checklist[targetId] !== expectedValue) {
-              continue; // Skip this recipient if its condition is not met
-            }
-          }
           payload.recipients[item.id] = activeState.checklist[item.id] ?? false;
         }
       }
     }
 
-    console.log("Submitting Clean Serialized Payload:", JSON.stringify(payload, null, 2));
+    console.log(
+      "Submitting Clean Serialized Payload:",
+      JSON.stringify(payload, null, 2),
+    );
     successModalOpen.value = true;
   } else if (actionKey === "draft") {
-    console.log("Saving draft locally for option:", activeKey, JSON.stringify(activeState, null, 2));
+    console.log(
+      "Saving draft locally for option:",
+      activeKey,
+      JSON.stringify(activeState, null, 2),
+    );
+  } else if (actionKey === "preview-all") {
+    console.log("Previewing all notifications locally");
   }
 };
 </script>
@@ -145,10 +158,7 @@ const handleAction = (actionKey) => {
   </div>
 
   <!-- Option cards grid -->
-  <RecommendationCards
-    v-model="selectedOptionKey"
-    :options="options"
-  />
+  <RecommendationCards v-model="selectedOptionKey" :options="options" />
 
   <!-- ═══════════════════════════════════════════════════════════════════════
          SECTION 2 — Active Path (configuration-driven section rendering)
@@ -157,18 +167,23 @@ const handleAction = (actionKey) => {
     <!-- Path title + description header -->
     <!-- Main config sections box -->
     <BaseBox type="glass" class="p-6 mb-6">
-      <div class="mb-5 border-b border-white/5 pb-4">
+      <div class="mb-5">
         <h3 class="primary-text-gradient text-lg md:text-xl font-medium mb-2">
           {{ currentOption.pathTitle }}
         </h3>
-        <h4 v-if="currentOption.pathDescription" class="text-white text-xs md:text-sm font-medium mt-3">
+        <h4
+          v-if="currentOption.pathDescription"
+          class="text-white text-xs md:text-sm font-medium mt-3"
+        >
           {{ currentOption.pathDescription }}
         </h4>
       </div>
 
       <!-- Render each non-notification section in order -->
       <template
-        v-for="section in currentSections.filter(s => s.type !== 'notification')"
+        v-for="section in currentSections.filter(
+          (s) => s.type !== 'notification',
+        )"
         :key="section.type + (section.title || '')"
       >
         <!-- ── reject-summary: red warning banner + summary cards ─────────── -->
@@ -189,13 +204,13 @@ const handleAction = (actionKey) => {
               :label="group.label"
               :fields="group.fields"
               :dropdown-options="dropdownOptions"
-              :cols="group.cols || 2"
             />
           </template>
           <!-- Handle flat fields lists -->
           <template v-else>
             <DropdownGroup
               v-model="formStates[selectedOptionKey].fields"
+              :label="section.title"
               :fields="section.fields || []"
               :dropdown-options="dropdownOptions"
             />
@@ -210,24 +225,16 @@ const handleAction = (actionKey) => {
           :items="section.items"
         />
 
-        <!-- ── conditional-dropdowns: shown only when trigger checkbox is checked ── -->
-        <template
-          v-else-if="
-            section.type === 'conditional-dropdowns' &&
-            formStates[selectedOptionKey].checklist[section.triggerCheckboxId]
-          "
-        >
-          <DropdownGroup
-            v-for="group in section.groups"
-            :key="group.label"
-            v-model="formStates[selectedOptionKey].fields"
-            :label="group.label"
-            :fields="group.fields"
-            :dropdown-options="dropdownOptions"
-            :cols="group.cols || 2"
-            :is-conditional="true"
+        <!-- ── textarea: dynamic textarea field ────────────────────────────── -->
+        <div v-else-if="section.type === 'textarea'" class="mb-6">
+          <BaseTextarea
+            v-model="formStates[selectedOptionKey].fields[section.id]"
+            :placeholder="section.placeholder"
+            :rows="section.rows || 4"
+            :label="section.label"
+            labelClass="font-medium mb-2"
           />
-        </template>
+        </div>
 
         <!-- ── recipients: grid of checkable recipient cards with badges ─────── -->
         <RecipientsChecklist
@@ -242,7 +249,9 @@ const handleAction = (actionKey) => {
 
     <!-- Separate BaseBox for Notification Preview -->
     <template
-      v-for="section in currentSections.filter(s => s.type === 'notification')"
+      v-for="section in currentSections.filter(
+        (s) => s.type === 'notification',
+      )"
       :key="section.type"
     >
       <BaseBox type="glass" class="p-6 mb-6">
@@ -260,29 +269,38 @@ const handleAction = (actionKey) => {
   <!-- ═══════════════════════════════════════════════════════════════════════
          SECTION 3 — Notes & Action Buttons
      ════════════════════════════════════════════════════════════════════════ -->
-  <BaseBox class="gradient-border rounded-2xl p-6 flex flex-col gap-4">
-    <h3 class="text-white text-sm md:text-base font-bold">{{ tabData.notesLabel }}</h3>
+  <BaseBox
+    type="glass"
+    class="gradient-border rounded-2xl p-6 flex flex-col gap-4"
+  >
     <BaseTextarea
       v-model="feedbackNotes"
       :placeholder="tabData.notesPlaceholder"
-      :rows="3"
+      :rows="6"
+      :label="tabData.notesLabel"
+      labelClass="primary-text-gradient text-lg md:text-xl font-medium mb-2"
     />
 
-    <!-- Action buttons (rendered from data.actions) -->
-    <div class="flex flex-col sm:flex-row justify-end items-center gap-3 mt-1">
-      <button
-        v-for="action in tabData.actions"
-        :key="action.key"
-        @click="handleAction(action.key)"
-        class="w-full sm:w-auto px-7 py-3 rounded-xl text-sm font-bold transition-colors cursor-pointer text-center"
-        :class="
-          action.variant === 'primary'
-            ? 'bg-[#32BEA6] hover:bg-[#28a38e] text-white'
-            : 'bg-[#1A2338]/50 border border-white/10 hover:bg-[#1A2338] text-white/80'
-        "
+    <!-- Action buttons -->
+    <div class="flex flex-col sm:flex-row items-center gap-3 mt-1">
+      <BaseButton
+        @click="handleAction('send')"
+        class="w-full sm:w-auto min-w-[180px] rounded-xl rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#05D989] to-[#018AAF] text-white font-bold"
       >
-        {{ action.label }}
-      </button>
+        {{ $t("actions.send_decision") }}
+      </BaseButton>
+      <BaseButton
+        @click="handleAction('draft')"
+        class="w-full ] sm:w-auto min-w-[180px] rounded-xl text-center bg-[#32BEA6]/10 border border-[#32BEA6]/10 text-[#32BEA6] font-bold"
+      >
+        {{ $t("actions.save_draft") }}
+      </BaseButton>
+      <BaseButton
+        @click="handleAction('preview-all')"
+        class="w-full sm:w-auto min-w-[180px] rounded-xl text-center bg-white/10 border border-white/20 text-[#94A3B8] font-bold"
+      >
+        {{ $t("actions.preview_all_notifications") }}
+      </BaseButton>
     </div>
   </BaseBox>
 
@@ -297,7 +315,9 @@ const handleAction = (actionKey) => {
     @close="successModalOpen = false"
   >
     <div class="p-6">
-      <div class="flex flex-col items-center justify-center text-center py-6 gap-4">
+      <div
+        class="flex flex-col items-center justify-center text-center py-6 gap-4"
+      >
         <div
           class="w-16 h-16 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981]"
         >

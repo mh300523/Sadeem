@@ -158,7 +158,7 @@ function togglePlay() {
               {{ step.card.avatar }}
             </div>
 
-            <div class="flex-1 flex flex-col gap-1 text-right">
+            <div class="flex-1 flex flex-col gap-1">
               <h3 class="text-white text-xl font-bold">
                 {{ step.card.title }}
               </h3>

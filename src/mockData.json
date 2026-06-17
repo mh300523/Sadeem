@@ -1521,6 +1521,16 @@
                   "label": "القسم التقني"
                 }
               ],
+              "consultantMentor": [
+                {
+                  "value": "advisor",
+                  "label": "مستشار الابتكار"
+                },
+                {
+                  "value": "expert",
+                  "label": "خبير فني"
+                }
+              ],
               "escalationTarget": [
                 {
                   "value": "board",

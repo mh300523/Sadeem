@@ -194,8 +194,6 @@ export const decisionSchema = {
     label: "إعادة تحسين",
     description: "إرجاع الفكرة للمبتكر لإعادة تحسين المحتوى.",
     pathTitle: "مسار قرار إعادة التحسين",
-    pathDescription:
-      "إرجاع الفكرة للمبتكر لإعادة تحسين المحتوى أو توفير تفاصيل إضافية قبل المراجعة القادمة.",
     sections: [
       {
         type: "checklist",
@@ -204,45 +202,45 @@ export const decisionSchema = {
           {
             id: "r1",
             label: "طلب توضيحات إضافية",
-            desc: "طلب تفاصيل حول الفكرة أو المشكلة أو الأثر المقترح.",
+            desc: "طلب تفاصيل إضافية حول الفكرة أو المشكلة أو الحل المقترح.",
             checked: true,
           },
           {
             id: "r2",
             label: "طلب بيانات داعمة",
-            desc: "طلب أرقام أو إحصاءات أو دراسات أو أدلة تدعم الفكرة.",
+            desc: "طلب أرقام أو مرفقات أو دراسات أو أمثلة تدعم الفكرة.",
             checked: false,
           },
           {
             id: "r3",
             label: "دعوة مستشار / موجه ابتكار",
-            desc: "إشراك مستشار يساهم في تحسين الفكرة تقنياً أو تنظيمياً وإعادة تقييمها.",
+            desc: "إشراك مستشار ابتكار لدعم صاحب الفكرة في تحسينها وإعادة تقديمها.",
             checked: false,
           },
           {
             id: "r4",
             label: "تحسين نموذج العمل",
-            desc: "طلب تحسين نموذج العمل التجاري أو نموذج طرح القيمة الخاص بالفكرة.",
+            desc: "طلب تحسين نموذج العمل التجاري أو نموذج خلق القيمة المرتبط بالفكرة.",
             checked: false,
           },
         ],
       },
       {
-        type: "conditional-dropdowns",
-        triggerCheckboxId: "r3",
+        type: "dropdowns",
         groups: [
           {
             label: "تعيين مستشار / موجه الابتكار",
-            cols: 2,
             fields: [
               {
                 id: "consultantMentor",
+                label: "مستشار/مرشد في مجال الابتكار",
                 placeholder: "اختر مستشار/موجه الابتكار",
                 optionsKey: "consultantMentor",
                 default: "advisor",
               },
               {
                 id: "sectionType",
+                label: "اختيار حاضنة / مسار",
                 placeholder: "اختر حاضنة/مسار",
                 optionsKey: "sectionType",
                 default: "incubator",
@@ -252,6 +250,15 @@ export const decisionSchema = {
         ],
       },
       {
+        type: "textarea",
+        id: "reviseNotes",
+        label: "ملاحظات قبل الإرسال",
+        placeholder:
+          "يرجى التركيز على توضيح المشكلة بشكل أدق، وإضافة بيانات داعمة، وتحسين نموذج العمل قبل إعادة تقديم الفكرة للتقييم ...",
+        default: "",
+        rows: 4,
+      },
+      {
         type: "recipients",
         title: "المستفيدون من الإشعارات",
         description: "اختر المستفيدين الذين سيصلهم إشعار بقرار إعادة التحسين:",
@@ -259,7 +266,7 @@ export const decisionSchema = {
           {
             id: "rb1",
             label: "صاحب الفكرة",
-            desc: "يتلقى إشعاراً بطلب إعادة التحسين والملاحظات المرفقة.",
+            desc: "يستلم طلب إعادة التحسين مع الإجراءات المطلوبة والملاحظات قبل إعادة التقديم.",
             badge: "إشعار أساسي",
             badgeType: "primary",
             checked: true,
@@ -267,14 +274,10 @@ export const decisionSchema = {
           {
             id: "rb2",
             label: "مستشار / موجه الابتكار",
-            desc: "يظهر عند اختيار دعوة موجه في قائمة الإجراءات.",
+            desc: "يستلم دعوة لمساندة صاحب الفكرة في تطويرها وإعادة تقديمها بصورة أقوى.",
             badge: "يظهر عند اختيار دعوة موجه",
             badgeType: "outline",
             checked: false,
-            condition: {
-              targetId: "r3",
-              expectedValue: true,
-            },
           },
         ],
       },
@@ -299,17 +302,18 @@ export const decisionSchema = {
         groups: [
           {
             label: "معايير التسريع",
-            cols: 2,
             fields: [
               {
                 id: "accelerationTrack",
-                placeholder: "مسار التسريع",
+                label: "مسار التسريع",
+                placeholder: "اختر مسار التسريع",
                 optionsKey: "accelerationTrack",
                 default: "fast",
               },
               {
                 id: "executionPriority",
-                placeholder: "أولوية التنفيذ",
+                label: "أولوية التنفيذ",
+                placeholder: "اختر أولوية التنفيذ",
                 optionsKey: "executionPriority",
                 default: "high",
               },
@@ -317,17 +321,19 @@ export const decisionSchema = {
           },
           {
             label: "الشراكة والتنفيذ",
-            cols: 2,
+
             fields: [
               {
                 id: "projectManager",
-                placeholder: "مدير المشروع",
+                label: "مدير المشروع",
+                placeholder: "اختر مدير المشروع",
                 optionsKey: "projectManager",
                 default: "ahmed",
               },
               {
                 id: "partnerType",
-                placeholder: "نوع الشراكة",
+                label: "نوع الشراكة",
+                placeholder: "اختر نوع الشراكة",
                 optionsKey: "partnerType",
                 default: "internal",
               },
@@ -485,17 +491,19 @@ export const decisionSchema = {
         groups: [
           {
             label: "جهة التصعيد والسبب",
-            cols: 2,
+
             fields: [
               {
                 id: "escalationTarget",
-                placeholder: "جهة التصعيد",
+                label: "جهة التصعيد",
+                placeholder: "اختر جهة التصعيد",
                 optionsKey: "escalationTarget",
                 default: "board",
               },
               {
                 id: "escalationReason",
-                placeholder: "سبب التصعيد",
+                label: "سبب التصعيد",
+                placeholder: "اختر سبب التصعيد",
                 optionsKey: "escalationReason",
                 default: "strategic",
               },
@@ -503,17 +511,18 @@ export const decisionSchema = {
           },
           {
             label: "مستوى المخاطر والجدول الزمني",
-            cols: 2,
             fields: [
               {
                 id: "riskLevel",
-                placeholder: "مستوى المخاطر",
+                label: "مستوى المخاطر",
+                placeholder: "اختر مستوى المخاطر",
                 optionsKey: "riskLevel",
                 default: "high",
               },
               {
                 id: "reviewTimeline",
-                placeholder: "الجدول الزمني للمراجعة",
+                label: "الجدول الزمني للمراجعة",
+                placeholder: "اختر الجدول الزمني للمراجعة",
                 optionsKey: "reviewTimeline",
                 default: "urgent",
               },

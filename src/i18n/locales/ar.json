@@ -44,7 +44,9 @@
     "link_idea_contributor": "ربط مقدم الفكرة كمساهم",
     "close_duplicate": "إغلاق الفكرة كمكررة",
     "send_notification": "إرسال إشعار",
-    "confirm_merge": "تأكيد الدمج "
+    "confirm_merge": "تأكيد الدمج ",
+    "send_decision": "إرسال القرار",
+    "preview_all_notifications": "معاينة جميع الإشعارات"
   },
   "duplicate_modal_intro": "يرجى اختيار الإجراء المناسب للتعامل مع هذه الفكرة المكررة",
   "create_merge_state": "إنشاء حالة دمج",

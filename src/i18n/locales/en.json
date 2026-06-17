@@ -43,7 +43,9 @@
     "not_in_project_plan": "Not within the plan",
     "close_duplicate": "Close Idea as Duplicate",
     "send_notification": "Send Notification",
-    "confirm_merge": "Confirm Merge"
+    "confirm_merge": "Confirm Merge",
+    "send_decision": "Send Decision",
+    "preview_all_notifications": "Preview All Notifications"
   },
   "duplicate_modal_intro": "Please select the appropriate action to deal with this duplicate idea",
   "create_merge_state": "Create Merge State",

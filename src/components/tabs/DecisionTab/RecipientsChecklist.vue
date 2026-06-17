@@ -1,5 +1,4 @@
 <script setup>
-import { watch } from "vue";
 import BaseCheckableCard from "@/components/ui/BaseCheckableCard.vue";
 
 const modelValue = defineModel({
@@ -7,7 +6,7 @@ const modelValue = defineModel({
   required: true,
 });
 
-const props = defineProps({
+defineProps({
   title: {
     type: String,
     required: true,
@@ -21,32 +20,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-// Dynamic Condition Watcher:
-// If any checkbox target that controls visibility changes, and the condition is no longer met,
-// we automatically reset the dependent recipient to unchecked.
-watch(
-  modelValue,
-  (newVal) => {
-    for (const item of props.items) {
-      if (item.condition) {
-        const { targetId, expectedValue } = item.condition;
-        if (newVal[targetId] !== expectedValue && newVal[item.id]) {
-          newVal[item.id] = false;
-        }
-      }
-    }
-  },
-  { deep: true },
-);
-
-const isRecipientVisible = (item) => {
-  if (item.condition) {
-    const { targetId, expectedValue } = item.condition;
-    return modelValue.value[targetId] === expectedValue;
-  }
-  return true;
-};
 </script>
 
 <template>
@@ -66,7 +39,6 @@ const isRecipientVisible = (item) => {
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <template v-for="item in items" :key="item.id">
         <BaseCheckableCard
-          v-if="isRecipientVisible(item)"
           v-model="modelValue[item.id]"
           :title="item.label"
           :subtitle="item.desc"

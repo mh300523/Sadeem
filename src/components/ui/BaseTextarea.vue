@@ -1,48 +1,8 @@
-<template>
-  <div class="w-full" :class="attrs.class" :style="attrs.style">
-    <label
-      v-if="label"
-      :for="inputId"
-      class="block text-xs font-bold mb-1.5 text-white/95 transition-colors duration-300"
-    >
-      <span v-if="required" class="text-red-500">*</span>
-      {{ label }}
-    </label>
-    <div class="relative overflow-hidden">
-      <textarea
-        :id="inputId"
-        :placeholder="placeholder"
-        :value="modelValue"
-        :disabled="disabled"
-        :rows="rows"
-        v-bind="inputAttrs"
-        :class="inputClasses"
-        @input="handleInput"
-        @blur="handleBlur"
-        @focus="handleFocus"
-      ></textarea>
-
-      <!-- Premium focus animation line (expanding from center) -->
-    </div>
-
-    <!-- Error Text -->
-    <p v-if="error" class="mt-1 text-xs font-semibold text-red-500">
-      {{ error }}
-    </p>
-    <!-- Hint Text -->
-    <p v-if="hint && !error" class="mt-1 text-[11px] text-white/40">
-      {{ hint }}
-    </p>
-  </div>
-</template>
-
 <script setup>
 import { computed, ref, useAttrs } from "vue";
-import { useI18n } from "vue-i18n";
 
 defineOptions({ inheritAttrs: false });
 
-const { locale } = useI18n();
 const attrs = useAttrs();
 
 const props = defineProps({
@@ -78,6 +38,10 @@ const props = defineProps({
     type: Number,
     default: 4,
   },
+  labelClass: {
+    type: String,
+    default: "",
+  },
   inputClass: {
     type: String,
     default: "",
@@ -104,7 +68,7 @@ const inputClasses = computed(() => {
   }
 
   const baseClasses =
-    "w-full block bg-[#051E2E] text-[#858585] placeholder-[#858585] focus:outline-none transition-all duration-300 disabled:cursor-not-allowed peer border resize-y";
+    "w-full block bg-[#051E2E]/40 text-[#858585] placeholder-[#858585] focus:outline-none transition-all duration-300 disabled:cursor-not-allowed peer border resize-y";
 
   const stateClasses = props.error
     ? "border-red-500/30 focus:border-red-500"
@@ -129,5 +93,42 @@ const handleBlur = (event) => {
   emit("blur", event);
 };
 </script>
+
+<template>
+  <div class="w-full" :class="attrs.class" :style="attrs.style">
+    <label
+      v-if="label"
+      :for="inputId"
+      class="block text-xs text-white/76 uppercase whitespace-nowrap"
+      :class="labelClass"
+    >
+      <span v-if="required" class="text-red-500">*</span>
+      {{ label }}
+    </label>
+    <div class="relative overflow-hidden">
+      <textarea
+        :id="inputId"
+        :placeholder="placeholder"
+        :value="modelValue"
+        :disabled="disabled"
+        :rows="rows"
+        v-bind="inputAttrs"
+        :class="inputClasses"
+        @input="handleInput"
+        @blur="handleBlur"
+        @focus="handleFocus"
+      ></textarea>
+    </div>
+
+    <!-- Error Text -->
+    <p v-if="error" class="mt-1 text-xs font-semibold text-red-500">
+      {{ error }}
+    </p>
+    <!-- Hint Text -->
+    <p v-if="hint && !error" class="mt-1 text-[11px] text-white/40">
+      {{ hint }}
+    </p>
+  </div>
+</template>
 
 <style scoped></style>

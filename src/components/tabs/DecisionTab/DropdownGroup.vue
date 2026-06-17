@@ -19,14 +19,6 @@ defineProps({
     type: Object,
     required: true,
   },
-  cols: {
-    type: Number,
-    default: 2,
-  },
-  isConditional: {
-    type: Boolean,
-    default: false,
-  },
 });
 
 const resolveOptions = (options, key) => {
@@ -35,23 +27,14 @@ const resolveOptions = (options, key) => {
 </script>
 
 <template>
-  <div :class="isConditional ? 'flex flex-col gap-3' : 'mb-6'">
+  <div class="mb-6">
     <!-- Group Title -->
-    <h4
-      v-if="label"
-      class="text-white/60 text-[10px] md:text-xs font-bold uppercase tracking-wide mb-3"
-    >
+    <h4 v-if="label" class="text-white text-xs font-medium tracking-wide mb-3">
       {{ label }}
     </h4>
 
     <!-- Fields Grid -->
-    <div
-      class="grid grid-cols-1 gap-6"
-      :class="[
-        cols === 1 ? 'grid-cols-1' : 'md:grid-cols-2',
-        isConditional ? 'border border-white/5 p-4 rounded-xl bg-[#161F30]/30' : ''
-      ]"
-    >
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <BaseSelect
         v-for="field in fields"
         :key="field.id"
