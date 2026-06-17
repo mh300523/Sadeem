@@ -52,6 +52,9 @@
   "merged_success_title": "Merge state created successfully",
   "merged_success_desc": "The idea submitters will be notified to start collaborating",
   "notifications": {
+    "signature_greeting": "With best regards,",
+    "signature_platform": "Sadeem Innovation Platform",
+    "button_label": "Open Innovation Project Platform",
     "duplicate": {
       "title": "Confirm Duplicate Action",
       "subject": "Subject: Thank you and appreciation for your innovative contribution",

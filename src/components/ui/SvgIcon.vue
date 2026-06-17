@@ -1,5 +1,5 @@
 <script setup>
-import { defineAsyncComponent } from "vue";
+import { computed, defineAsyncComponent } from "vue";
 
 const props = defineProps({
   name: {
@@ -17,13 +17,17 @@ const props = defineProps({
   },
 });
 
-const icon = defineAsyncComponent(() => {
-  return import(`../../assets/images/icons/${props.name}.svg`);
+const icon = computed(() => {
+  if (!props.name) return null;
+  return defineAsyncComponent(() => {
+    return import(`../../assets/images/icons/${props.name}.svg`);
+  });
 });
 </script>
 
 <template>
   <component
+    v-if="icon"
     :is="icon"
     fill="currentColor"
     :class="classes"

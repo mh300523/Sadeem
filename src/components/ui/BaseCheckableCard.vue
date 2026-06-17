@@ -73,17 +73,7 @@ const toggleSelection = () => {
     <!-- Optional Left Badge -->
     <div v-if="badgeText" class="shrink-0">
       <span
-        class="px-3 py-1 rounded-md text-[10px] font-bold"
-        :class="{
-          'bg-[#018AAF]/20 border border-[#018AAF]/30 text-[#33BCE1]':
-            badgeType === 'primary',
-          'bg-white/5 border border-white/10 text-white/50':
-            badgeType === 'outline',
-          'bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981]':
-            badgeType === 'success',
-          'bg-[#FFB017]/10 border border-[#FFB017]/20 text-[#FFB017]':
-            badgeType === 'warning',
-        }"
+        class="px-5 py-2.5 rounded-full bg-[#7DD3FC]/10 text-[#7DD3FC] font-medium"
       >
         {{ badgeText }}
       </span>
