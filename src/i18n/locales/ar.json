@@ -53,6 +53,9 @@
   "merged_success_title": "تم إنشاء حالة دمج بنجاح",
   "merged_success_desc": "سيتم إشعار مقدمي الأفكار لبدء التعاون",
   "notifications": {
+    "signature_greeting": "مع خالص التقدير،",
+    "signature_platform": "منصة سديم للابتكار",
+    "button_label": "فتح منصة المشروع الابتكاري",
     "duplicate": {
       "title": "تأكيد إجراء التكرار",
       "subject": "الموضوع: شكر وتقدير لمساهمتك الابتكارية",
