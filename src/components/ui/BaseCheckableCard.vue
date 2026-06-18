@@ -74,8 +74,12 @@ const toggleSelection = () => {
         {{ badgeText }}
       </span>
     </div>
-    <p v-if="subtitle" class="text-white/70 leading-relaxed mt-1">
+    <p v-if="subtitle" class="text-white/70 leading-relaxed mt-0.5 ms-10">
       {{ subtitle }}
     </p>
+    <!-- Slot for nested content (e.g. sub-checklists) -->
+    <div @click.stop>
+      <slot />
+    </div>
   </BaseBox>
 </template>

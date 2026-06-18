@@ -1,6 +1,8 @@
 <script setup>
+import BaseBox from "@/components/ui/BaseBox.vue";
+
 defineProps({
-  warningText: {
+  title: {
     type: String,
     required: true,
   },
@@ -12,25 +14,23 @@ defineProps({
 </script>
 
 <template>
-  <div class="flex flex-col gap-5 mb-6">
-    <div
-      class="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs md:text-sm leading-relaxed"
-    >
-      {{ warningText }}
-    </div>
+  <div class="mb-6">
+    <h4 v-if="title" class="text-white text-xs md:text-sm font-medium mb-3.5">
+      {{ title }}
+    </h4>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div
+      <BaseBox
         v-for="item in summaryItems"
         :key="item.label"
-        class="p-4 rounded-xl bg-[#161F30] border border-white/5 flex flex-col gap-1.5"
+        class="p-4 rounded-xl border-2 border-[#06B6D4]/32 flex flex-col gap-1.5"
       >
-        <span class="text-white/40 text-[10px] font-bold uppercase tracking-wide">
+        <h3 class="text-white font-medium">
           {{ item.label }}
-        </span>
-        <p class="text-white/80 text-xs md:text-sm leading-relaxed">
+        </h3>
+        <p class="text-white/70 leading-relaxed">
           {{ item.text }}
         </p>
-      </div>
+      </BaseBox>
     </div>
   </div>
 </template>

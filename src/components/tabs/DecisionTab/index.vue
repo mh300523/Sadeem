@@ -15,6 +15,7 @@ import DropdownGroup from "./DropdownGroup.vue";
 import ActionChecklist from "./ActionChecklist.vue";
 import RecipientsChecklist from "./RecipientsChecklist.vue";
 import NotificationPreview from "./NotificationPreview.vue";
+import EscalationSummary from "./EscalationSummary.vue";
 
 const props = defineProps({
   data: {
@@ -69,6 +70,13 @@ Object.entries(decisionSchema).forEach(([key, option]) => {
   option.sections.forEach((section) => {
     if (section.type === "textarea") {
       formStates.value[key].fields[section.id] = section.default ?? "";
+    } else if (section.type === "sub-checklists") {
+      (section.groups || []).forEach((group) => {
+        formStates.value[key].checklist[group.id] = group.checked ?? false;
+        (group.items || []).forEach((item) => {
+          formStates.value[key].checklist[item.id] = item.checked ?? false;
+        });
+      });
     } else {
       const fieldsList =
         section.fields || section.groups?.flatMap((g) => g.fields) || [];
@@ -116,6 +124,16 @@ const handleAction = (actionKey) => {
       if (section.type === "checklist") {
         for (const item of section.items) {
           payload.checklist[item.id] = activeState.checklist[item.id] ?? false;
+        }
+      }
+      if (section.type === "sub-checklists") {
+        for (const group of section.groups) {
+          payload.checklist[group.id] =
+            activeState.checklist[group.id] ?? false;
+          for (const item of group.items) {
+            payload.checklist[item.id] =
+              activeState.checklist[item.id] ?? false;
+          }
         }
       }
       if (section.type === "recipients") {
@@ -171,12 +189,20 @@ const handleAction = (actionKey) => {
         <h3 class="primary-text-gradient text-lg md:text-xl font-medium mb-2">
           {{ currentOption.pathTitle }}
         </h3>
-        <h4
-          v-if="currentOption.pathDescription"
-          class="text-white text-xs md:text-sm font-medium mt-3"
+        <div
+          v-if="currentOption.pathmessage"
+          class="bg-[#06B6D4]/10 border border-dashed border-[#06B6D4] p-5 rounded-2xl mt-3 w-fit"
         >
-          {{ currentOption.pathDescription }}
-        </h4>
+          <p class="text-[#06B6D4]">
+            {{ currentOption.pathmessage }}
+          </p>
+          <div
+            class="bg-[#FB3748]/10 border border-[#FB3748] text-[#FB3748] px-3 py-1 rounded-full mt-3 w-fit"
+            v-if="currentOption.pathmessageBadge"
+          >
+            {{ currentOption.pathmessageBadge }}
+          </div>
+        </div>
       </div>
 
       <!-- Render each non-notification section in order -->
@@ -189,7 +215,7 @@ const handleAction = (actionKey) => {
         <!-- ── reject-summary: red warning banner + summary cards ─────────── -->
         <RejectSummary
           v-if="section.type === 'reject-summary'"
-          :warning-text="section.warningText"
+          :title="section.title"
           :summary-items="section.summaryItems"
         />
 
@@ -223,6 +249,45 @@ const handleAction = (actionKey) => {
           v-model="formStates[selectedOptionKey].checklist"
           :title="section.title"
           :items="section.items"
+        />
+
+        <!-- ── board-info: Information card about the Strategic Board ────── -->
+        <div v-else-if="section.type === 'board-info'" class="mb-6">
+          <h4
+            v-if="section.title"
+            class="text-white text-xs md:text-sm font-medium mb-3"
+          >
+            {{ section.title }}
+          </h4>
+          <BaseBox class="border border-[#06B6D4]/32 px-6 py-5 rounded-[20px]">
+            <p class="text-white text-base leading-relaxed font-light">
+              {{ section.text }}
+            </p>
+            <div
+              v-if="section.badge"
+              class="px-5 py-2 mt-3 rounded-full bg-[#7DD3FC]/10 border border-[#7DD3FC] text-[#7DD3FC] w-fit"
+            >
+              {{ section.badge }}
+            </div>
+          </BaseBox>
+        </div>
+
+        <!-- ── sub-checklists: multi-column hierarchical checklists ────────── -->
+        <ActionChecklist
+          v-else-if="section.type === 'sub-checklists'"
+          v-model="formStates[selectedOptionKey].checklist"
+          :title="section.title"
+          :groups="section.groups"
+        />
+
+        <!-- ── escalation-summary: AI Escalation Summary cards ────────────── -->
+        <EscalationSummary
+          v-else-if="section.type === 'escalation-summary'"
+          :title="section.title"
+          :info-text="section.infoText"
+          :cards="section.cards"
+          :rec-title="section.recTitle"
+          :rec-card="section.recCard"
         />
 
         <!-- ── textarea: dynamic textarea field ────────────────────────────── -->
