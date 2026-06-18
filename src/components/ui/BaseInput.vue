@@ -12,7 +12,7 @@
       <!-- Prefix Slot -->
       <div
         v-if="$slots.prefix"
-        class="absolute start-3 top-1/2 -translate-y-1/2 text-white/40 z-10 flex items-center justify-center"
+        class="absolute inset-s-3 top-1/2 -translate-y-1/2 text-white/40 z-10 flex items-center justify-center"
         :class="{
           'pointer-events-none': [
             'date',
@@ -49,7 +49,7 @@
       <!-- Suffix Slot -->
       <div
         v-if="$slots.suffix"
-        class="absolute end-3 top-1/2 -translate-y-1/2 text-white/40 z-10 flex items-center justify-center"
+        class="absolute inset-e-3 top-1/2 -translate-y-1/2 text-white/40 z-10 flex items-center justify-center"
         :class="{
           'pointer-events-none': [
             'date',

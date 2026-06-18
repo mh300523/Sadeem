@@ -36,7 +36,7 @@ function togglePlay() {
 
           <!-- Premium Wave Audio Player UI -->
           <div
-            class="p-4 rounded-2xl rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#06B6D4]/90 via-[#3B82F6] to-[#FF6B35]/50"
+            class="p-4 rounded-2xl rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4]/90 via-[#3B82F6] to-[#FF6B35]/50"
           >
             <h4 class="text-white mb-2">
               {{ storyData.intro?.audioLabel }}
@@ -50,7 +50,7 @@ function togglePlay() {
               >
                 <svg
                   v-if="!isPlaying"
-                  class="w-5 h-5 translate-x-[1px]"
+                  class="w-5 h-5 translate-x-px"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -73,7 +73,7 @@ function togglePlay() {
                 <div
                   v-for="i in 30"
                   :key="i"
-                  class="w-[3px] rounded-full bg-gradient-to-t from-orange-400 to-amber-500 transition-all duration-300"
+                  class="w-[3px] rounded-full bg-linear-to-t from-orange-400 to-amber-500 transition-all duration-300"
                   :class="isPlaying ? 'animate-wave-bar' : 'h-3'"
                   :style="{
                     animationDelay: `${i * 0.15}s`,
@@ -103,7 +103,7 @@ function togglePlay() {
           <BaseTagList
             v-if="sidebarData.features?.items?.length"
             :items="sidebarData.features.items"
-            class="rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B] to-[#1E293B] rounded-xl overflow-hidden p-[14px] backdrop-blur-xl border border-white/6"
+            class="rtl:bg-linear-to-l ltr:bg-linear-to-r from-[#1E293B] to-[#1E293B] rounded-xl overflow-hidden p-[14px] backdrop-blur-xl border border-white/6"
             :classes="{
               pill: 'bg-[#06B6D4]/10 text-white/76',
               icon: 'border-[#06B6D4] text-[#06B6D4]',
@@ -153,7 +153,7 @@ function togglePlay() {
             class="flex items-center gap-4.5 py-[30px] px-5 rounded-2xl white-border bg-[url('@/assets/images/sammy-card-bg.png')] bg-cover bg-center bg-no-repeat mt-4"
           >
             <div
-              class="w-[100px] h-[100px] rounded-full rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#0A2A40] to-[#1B4D72] backdrop-blur-xl text-white flex items-center justify-center shrink-0 font-bold text-[22px] shadow-md"
+              class="w-[100px] h-[100px] rounded-full rtl:bg-linear-to-l ltr:bg-linear-to-r from-[#0A2A40] to-[#1B4D72] backdrop-blur-xl text-white flex items-center justify-center shrink-0 font-bold text-[22px] shadow-md"
             >
               {{ step.card.avatar }}
             </div>
@@ -171,7 +171,7 @@ function togglePlay() {
           <!-- Quote Card -->
           <div
             v-else-if="step.card && step.card.type === 'quote'"
-            class="mt-[14px] mb-6 p-7 rounded-2xl white-border bg-[url('@/assets/images/quote-bg.png')] bg-cover bg-top bg-no-repeat mt-2 text-center"
+            class="mb-6 p-7 rounded-2xl white-border bg-[url('@/assets/images/quote-bg.png')] bg-cover bg-top bg-no-repeat mt-2 text-center"
           >
             <h3 class="text-white text-lg md:text-xl font-bold">
               {{ step.card.title }}
@@ -189,7 +189,7 @@ function togglePlay() {
           <!-- Step 2 Interactive Box -->
           <div
             v-if="step.interactive"
-            class="p-5 rounded-[20px] rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#FF6B35] to-[#8B5CF6] flex flex-col items-center"
+            class="p-5 rounded-[20px] rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#FF6B35] to-[#8B5CF6] flex flex-col items-center"
           >
             <h4 class="text-white text-sm md:text-lg font-bold">
               {{ step.interactive.question }}
