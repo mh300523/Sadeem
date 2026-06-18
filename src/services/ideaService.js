@@ -1,4 +1,5 @@
 import mockData from "@/mockData.json";
+import { decisionSchema } from "@/config/decisionSchema";
 
 /**
  * Service layer to mimic asynchronous API requests.
@@ -40,6 +41,48 @@ export const ideaService = {
       setTimeout(() => {
         resolve(JSON.parse(JSON.stringify(mockData.analytics)));
       }, 600); // 600ms latency
+    });
+  },
+
+  /**
+   * Fetches UI decision schema configurations.
+   * @returns {Promise<Object>}
+   */
+  async getDecisionSchema() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(JSON.parse(JSON.stringify(decisionSchema)));
+      }, 300); // 300ms latency
+    });
+  },
+
+  /**
+   * Submits a final decision for an idea.
+   * @param {string} ideaId - The ID of the idea
+   * @param {Object} payload - The decision data payload
+   * @returns {Promise<Object>}
+   */
+  async submitDecision(ideaId, payload) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log(`API HTTP POST - /api/ideas/${ideaId}/decision : SUCCESS`, payload);
+        resolve({ success: true, message: "تم إرسال القرار بنجاح" });
+      }, 500); // 500ms latency
+    });
+  },
+
+  /**
+   * Saves a decision draft for an idea.
+   * @param {string} ideaId - The ID of the idea
+   * @param {Object} payload - The decision data payload
+   * @returns {Promise<Object>}
+   */
+  async saveDecisionDraft(ideaId, payload) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log(`API HTTP POST - /api/ideas/${ideaId}/decision/draft : SUCCESS`, payload);
+        resolve({ success: true, message: "تم حفظ المسودة بنجاح" });
+      }, 400); // 400ms latency
     });
   },
 };

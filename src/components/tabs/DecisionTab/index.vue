@@ -1,12 +1,12 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import BaseBox from "@/components/ui/BaseBox.vue";
 import BaseActionModal from "@/components/ui/BaseActionModal.vue";
 import BaseTextarea from "@/components/ui/BaseTextarea.vue";
 import BaseButton from "@/components/ui/BaseButton.vue";
 
-// Import local UI Schema Configuration from global config folder
-import { decisionSchema } from "@/config/decisionSchema";
+// Import service layer to consume mock APIs
+import { ideaService } from "@/services/ideaService";
 
 // Import custom sub-components
 import RecommendationCards from "./RecommendationCards.vue";
@@ -37,15 +37,23 @@ defineEmits([
 const tabData = computed(() => props.data || {});
 const dropdownOptions = computed(() => tabData.value.dropdownOptions || {});
 
-// ─── Resolve Options array from local decisionSchema ────────────────────────
-const options = computed(() => Object.values(decisionSchema));
+// ─── State Management ────────────────────────────────────────────────────────
+const decisionSchema = ref(null);
+const loading = ref(true);
 
-// ─── Selected option key (default to first option in schema) ─────────────────
-const selectedOptionKey = ref(Object.keys(decisionSchema)[0] || "");
+// ─── Resolve Options array from dynamic decisionSchema ────────────────────────
+const options = computed(() => {
+  return decisionSchema.value ? Object.values(decisionSchema.value) : [];
+});
 
-const currentOption = computed(
-  () => decisionSchema[selectedOptionKey.value] || null,
-);
+// ─── Selected option key (default to empty string, set inside onMounted) ─────────────────
+const selectedOptionKey = ref("");
+
+const currentOption = computed(() => {
+  return (decisionSchema.value && selectedOptionKey.value)
+    ? decisionSchema.value[selectedOptionKey.value]
+    : null;
+});
 
 const currentSections = computed(() => currentOption.value?.sections || []);
 
@@ -65,95 +73,125 @@ const formStates = ref({
   reject: { fields: {}, checklist: {} },
 });
 
-// Seed isolated states from the static schema configuration directly on initialization
-Object.entries(decisionSchema).forEach(([key, option]) => {
-  option.sections.forEach((section) => {
-    if (section.type === "textarea") {
-      formStates.value[key].fields[section.id] = section.default ?? "";
-    } else if (section.type === "sub-checklists") {
-      (section.groups || []).forEach((group) => {
-        formStates.value[key].checklist[group.id] = group.checked ?? false;
-        (group.items || []).forEach((item) => {
+onMounted(async () => {
+  loading.value = true;
+  try {
+    const fetchedSchema = await ideaService.getDecisionSchema();
+    decisionSchema.value = fetchedSchema;
+
+    const keys = Object.keys(fetchedSchema);
+    if (keys.length > 0) {
+      selectedOptionKey.value = keys[0];
+    }
+
+    // Seed isolated states from the fetched schema configuration
+    Object.entries(fetchedSchema).forEach(([key, option]) => {
+      if (!formStates.value[key]) {
+        formStates.value[key] = { fields: {}, checklist: {} };
+      }
+      option.sections.forEach((section) => {
+        if (section.type === "textarea") {
+          formStates.value[key].fields[section.id] = section.default ?? "";
+        } else if (section.type === "sub-checklists") {
+          (section.groups || []).forEach((group) => {
+            formStates.value[key].checklist[group.id] = group.checked ?? false;
+            (group.items || []).forEach((item) => {
+              formStates.value[key].checklist[item.id] = item.checked ?? false;
+            });
+          });
+        } else {
+          const fieldsList =
+            section.fields || section.groups?.flatMap((g) => g.fields) || [];
+          fieldsList.forEach((field) => {
+            formStates.value[key].fields[field.id] = field.default ?? "";
+          });
+        }
+        (section.items || []).forEach((item) => {
           formStates.value[key].checklist[item.id] = item.checked ?? false;
         });
       });
-    } else {
-      const fieldsList =
-        section.fields || section.groups?.flatMap((g) => g.fields) || [];
-      fieldsList.forEach((field) => {
-        formStates.value[key].fields[field.id] = field.default ?? "";
-      });
-    }
-    (section.items || []).forEach((item) => {
-      formStates.value[key].checklist[item.id] = item.checked ?? false;
     });
-  });
+  } catch (error) {
+    console.error("Failed to load decision schema:", error);
+  } finally {
+    loading.value = false;
+  }
 });
 
 // ─── Notes & Modal ───────────────────────────────────────────────────────────
 const feedbackNotes = ref("");
 const successModalOpen = ref(false);
 
-const handleAction = (actionKey) => {
-  const activeKey = selectedOptionKey.value;
-  const activeState = formStates.value[activeKey];
+// Helper to construct a clean serialized payload for the active recommendation
+const buildPayload = (activeKey, activeState) => {
+  const payload = {
+    action: "send_decision",
+    recommendationKey: activeKey,
+    notes: feedbackNotes.value,
+    fields: {},
+    checklist: {},
+    recipients: {},
+  };
 
-  if (actionKey === "send") {
-    // ─── Simple Local Serializer ───
-    // Packages only the relevant inputs, filters and structures them cleanly for the API
-    const payload = {
-      action: "send_decision",
-      recommendationKey: activeKey,
-      notes: feedbackNotes.value,
-      fields: {},
-      checklist: {},
-      recipients: {},
-    };
-
-    // Filter and collect inputs that belong to the active path only
-    for (const section of currentSections.value) {
-      if (section.type === "dropdowns") {
-        const fieldsList =
-          section.fields || section.groups?.flatMap((g) => g.fields) || [];
-        fieldsList.forEach((field) => {
-          payload.fields[field.id] = activeState.fields[field.id] ?? "";
-        });
-      } else if (section.type === "textarea") {
-        payload.fields[section.id] = activeState.fields[section.id] ?? "";
+  for (const section of currentSections.value) {
+    if (section.type === "dropdowns") {
+      const fieldsList =
+        section.fields || section.groups?.flatMap((g) => g.fields) || [];
+      fieldsList.forEach((field) => {
+        payload.fields[field.id] = activeState.fields[field.id] ?? "";
+      });
+    } else if (section.type === "textarea") {
+      payload.fields[section.id] = activeState.fields[section.id] ?? "";
+    }
+    if (section.type === "checklist") {
+      for (const item of section.items) {
+        payload.checklist[item.id] = activeState.checklist[item.id] ?? false;
       }
-      if (section.type === "checklist") {
-        for (const item of section.items) {
-          payload.checklist[item.id] = activeState.checklist[item.id] ?? false;
-        }
-      }
-      if (section.type === "sub-checklists") {
-        for (const group of section.groups) {
-          payload.checklist[group.id] =
-            activeState.checklist[group.id] ?? false;
-          for (const item of group.items) {
-            payload.checklist[item.id] =
-              activeState.checklist[item.id] ?? false;
-          }
-        }
-      }
-      if (section.type === "recipients") {
-        for (const item of section.items) {
-          payload.recipients[item.id] = activeState.checklist[item.id] ?? false;
+    }
+    if (section.type === "sub-checklists") {
+      for (const group of section.groups) {
+        payload.checklist[group.id] =
+          activeState.checklist[group.id] ?? false;
+        for (const item of group.items) {
+          payload.checklist[item.id] =
+            activeState.checklist[item.id] ?? false;
         }
       }
     }
+    if (section.type === "recipients") {
+      for (const item of section.items) {
+        payload.recipients[item.id] = activeState.checklist[item.id] ?? false;
+      }
+    }
+  }
+  return payload;
+};
 
-    console.log(
-      "Submitting Clean Serialized Payload:",
-      JSON.stringify(payload, null, 2),
-    );
-    successModalOpen.value = true;
+const handleAction = async (actionKey) => {
+  const activeKey = selectedOptionKey.value;
+  const activeState = formStates.value[activeKey];
+  if (!activeState) return;
+
+  const payload = buildPayload(activeKey, activeState);
+
+  if (actionKey === "send") {
+    try {
+      const response = await ideaService.submitDecision(tabData.value.ideaId, payload);
+      if (response.success) {
+        successModalOpen.value = true;
+      }
+    } catch (err) {
+      console.error("Failed to submit decision:", err);
+    }
   } else if (actionKey === "draft") {
-    console.log(
-      "Saving draft locally for option:",
-      activeKey,
-      JSON.stringify(activeState, null, 2),
-    );
+    try {
+      const response = await ideaService.saveDecisionDraft(tabData.value.ideaId, payload);
+      if (response.success) {
+        console.log("Draft saved successfully:", response.message);
+      }
+    } catch (err) {
+      console.error("Failed to save draft:", err);
+    }
   } else if (actionKey === "preview-all") {
     console.log("Previewing all notifications locally");
   }
@@ -161,22 +199,29 @@ const handleAction = (actionKey) => {
 </script>
 
 <template>
-  <!-- ═══════════════════════════════════════════════════════════════════════
-         SECTION 1 — Option Selection Cards
-     ════════════════════════════════════════════════════════════════════════ -->
-
-  <!-- Section header -->
-  <div class="mb-5">
-    <h2 class="primary-text-gradient text-lg md:text-xl font-medium mb-2">
-      {{ tabData.sectionTitle }}
-    </h2>
-    <p class="text-white/70 text-xs md:text-sm leading-relaxed">
-      {{ tabData.sectionDescription }}
-    </p>
+  <!-- Loading spinner indicator matching the dark sleek premium theme -->
+  <div v-if="loading" class="flex flex-col items-center justify-center py-20 gap-3">
+    <div class="w-10 h-10 border-4 border-white/10 border-t-[#06B6D4] rounded-full animate-spin"></div>
+    <span class="text-[#94A3B8] text-sm font-medium">جاري تحميل الإعدادات...</span>
   </div>
 
-  <!-- Option cards grid -->
-  <RecommendationCards v-model="selectedOptionKey" :options="options" />
+  <div v-else>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+           SECTION 1 — Option Selection Cards
+       ════════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Section header -->
+    <div class="mb-5">
+      <h2 class="primary-text-gradient text-lg md:text-xl font-medium mb-2">
+        {{ tabData.sectionTitle }}
+      </h2>
+      <p class="text-white/70 text-xs md:text-sm leading-relaxed">
+        {{ tabData.sectionDescription }}
+      </p>
+    </div>
+
+    <!-- Option cards grid -->
+    <RecommendationCards v-model="selectedOptionKey" :options="options" />
 
   <!-- ═══════════════════════════════════════════════════════════════════════
          SECTION 2 — Active Path (configuration-driven section rendering)
@@ -408,6 +453,7 @@ const handleAction = (actionKey) => {
       </div>
     </div>
   </BaseActionModal>
+  </div>
 </template>
 
 <style scoped>
