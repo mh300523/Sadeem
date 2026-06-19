@@ -1,6 +1,9 @@
 <script setup>
 import { computed } from "vue";
 import BaseChart from "./BaseChart.vue";
+import { useTheme } from "@/composables/useTheme";
+
+const { isDark } = useTheme();
 
 const props = defineProps({
   value: {
@@ -34,7 +37,7 @@ const chartOptions = computed(() => {
           background: "transparent",
         },
         track: {
-          background: "rgba(255,255,255,0.5)",
+          background: isDark.value ? "rgba(255,255,255,0.15)" : "rgba(15,23,42,0.08)",
           strokeWidth: "60%",
           margin: 0,
         },
@@ -46,7 +49,7 @@ const chartOptions = computed(() => {
             offsetY: 8,
             fontSize: "24px",
             fontWeight: "600",
-            color: "rgba(255,255,255,0.9)",
+            color: isDark.value ? "rgba(255,255,255,0.9)" : "#0f172a",
             formatter: (val) => Math.round(val),
           },
         },
@@ -68,7 +71,7 @@ const chartOptions = computed(() => {
 
 <template>
   <BaseChart type="radialBar" :options="chartOptions" :series="[value]" />
-  <p class="text-white/70 text-xs text-center">
+  <p class="text-theme-text/70 text-xs text-center">
     {{ label }}
   </p>
 </template>

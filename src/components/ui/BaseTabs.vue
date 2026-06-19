@@ -27,10 +27,10 @@ const emit = defineEmits([
   "view-idea",
 ]);
 
-const activeTabClass = "bg-[#8B5CF6] text-white";
+const activeTabClass = "bg-[#8B5CF6] text-theme-text";
 
 const inactiveTabClass =
-  "bg-[#8B5CF6]/10 text-white/70 hover:bg-[#8B5CF6] hover:text-white";
+  "bg-[#8B5CF6]/10 text-theme-text/70 hover:bg-[#8B5CF6] hover:text-theme-text";
 
 const selectedIndex = computed(() => {
   const index = props.tabs.findIndex((tab) => tab.key === props.activeTab);

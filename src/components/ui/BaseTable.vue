@@ -14,11 +14,11 @@ defineProps({
   },
   headerClass: {
     type: String,
-    default: "border-b border-white",
+    default: "border-b border-theme-border",
   },
   rowClass: {
     type: String,
-    default: "border-b border-white/30 last:border-b-0",
+    default: "border-b border-theme-border/30 last:border-b-0",
   },
   cellClass: {
     type: String,
@@ -35,7 +35,7 @@ defineProps({
           <th
             v-for="header in headers"
             :key="header.key"
-            class="p-3 font-normal text-xs text-white/70 text-start whitespace-nowrap min-w-[110px]"
+            class="p-3 font-normal text-xs text-theme-text/70 text-start whitespace-nowrap min-w-[110px]"
             :class="headerClass"
           >
             <!-- Slot for custom header rendering -->

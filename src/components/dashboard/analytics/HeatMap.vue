@@ -36,7 +36,7 @@ const props = defineProps({
       <div
         v-for="cat in categories"
         :key="cat"
-        class="text-xs font-normal text-white/70 text-center pb-1"
+        class="text-xs font-normal text-theme-text/70 text-center pb-1"
       >
         {{ cat }}
       </div>
@@ -44,14 +44,14 @@ const props = defineProps({
       <!-- Y-axis rows (series) -->
       <template v-for="row in series" :key="row.name">
         <!-- Row header (category name) -->
-        <div class="text-[12px] text-white/70 pe-2">
+        <div class="text-[12px] text-theme-text/70 pe-2">
           {{ row.name }}
         </div>
         <!-- Data cells -->
         <div
           v-for="(cell, idx) in row.data"
           :key="idx"
-          class="rounded-xl flex items-center justify-center font-medium text-white transition-all duration-200 hover:brightness-120"
+          class="rounded-xl flex items-center justify-center font-medium text-theme-text transition-all duration-200 hover:brightness-120"
           :class="classes"
           :style="{
             width: `${cellSize}px`,

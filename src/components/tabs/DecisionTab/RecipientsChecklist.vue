@@ -30,7 +30,7 @@ defineProps({
       </h2>
       <p
         v-if="description"
-        class="text-white/70 text-xs md:text-sm leading-relaxed"
+        class="text-theme-text/70 text-xs md:text-sm leading-relaxed"
       >
         {{ description }}
       </p>

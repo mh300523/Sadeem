@@ -12,7 +12,7 @@ defineProps({
 <template>
   <BaseBox class="white-border rounded-2xl overflow-hidden">
     <!-- Header Bar Title Banner -->
-    <div class="gradient-purple text-white py-3 px-6 font-bold text-base">
+    <div class="gradient-purple text-theme-text py-3 px-6 font-bold text-base">
       {{ data.label }}
     </div>
 
@@ -20,10 +20,10 @@ defineProps({
     <div class="px-6 divide-y divide-[#a9a9a9]/30">
       <!-- Loop through normal text details items -->
       <div v-for="item in data.items" :key="item.key" class="py-4">
-        <h4 class="text-xs mb-1 text-white/50">
+        <h4 class="text-xs mb-1 text-theme-text/50">
           {{ item.label }}
         </h4>
-        <p class="text-white text-base font-medium leading-relaxed">
+        <p class="text-theme-text text-base font-medium leading-relaxed">
           {{ item.value }}
         </p>
       </div>
@@ -34,7 +34,7 @@ defineProps({
         :label="data.requirements.label"
         :items="data.requirements.items"
         :classes="{
-          pill: 'bg-[#F6D06E]/10 text-white text-base font-medium',
+          pill: 'bg-[#F6D06E]/10 text-theme-text text-base font-medium',
           icon: 'border-[#F6D06E] text-[#EEB252]',
         }"
       />
@@ -46,7 +46,7 @@ defineProps({
         :label="data.outputs.label"
         :items="data.outputs.items"
         :classes="{
-          pill: 'bg-[#F6D06E]/10 text-white text-base font-medium',
+          pill: 'bg-[#F6D06E]/10 text-theme-text text-base font-medium',
           icon: 'border-[#F6D06E] text-[#EEB252]',
         }"
       />

@@ -69,19 +69,19 @@ const handleSend = () => {
 
       <!-- Recipient field -->
       <div>
-        <h4 class="text-white font-medium mb-1.5">المرسل إليه:</h4>
+        <h4 class="text-theme-text font-medium mb-1.5">المرسل إليه:</h4>
 
         <!-- Tags -->
         <div class="flex items-center flex-wrap gap-2 mb-3">
           <div
             v-for="(email, idx) in recipients"
             :key="idx"
-            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FF6B35]/14 text-white/90 text-xs border border-white/10"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FF6B35]/14 text-theme-text/90 text-xs border border-white/10"
           >
             <span>{{ email }}</span>
             <button
               @click="removeRecipient(idx)"
-              class="text-white/40 hover:text-white transition-colors focus:outline-none cursor-pointer text-sm font-bold"
+              class="text-theme-text/40 hover:text-theme-text transition-colors focus:outline-none cursor-pointer text-sm font-bold"
             >
               &times;
             </button>
@@ -103,8 +103,8 @@ const handleSend = () => {
 
       <!-- Styled message block -->
       <div>
-        <div class="text-white/70 leading-relaxed my-3">
-          <h4 class="font-medium text-white text-2xl mb-3">
+        <div class="text-theme-text/70 leading-relaxed my-3">
+          <h4 class="font-medium text-theme-text text-2xl mb-3">
             {{ content.subject }}
           </h4>
           <p
@@ -144,7 +144,7 @@ const handleSend = () => {
         />
       </div>
 
-      <p class="text-white/60 text-xs my-4">
+      <p class="text-theme-text/60 text-xs my-4">
         مع خالص التقدير،<br />
         <span class="text-[#05D989] inline-block font-medium mt-2"
           >فريق منصة سديم</span
@@ -155,7 +155,7 @@ const handleSend = () => {
       <div class="mt-2">
         <BaseButton
           @click="handleSend"
-          class="w-full py-3.5 font-bold text-white rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#05D989] to-[#018AAF]"
+          class="w-full py-3.5 font-bold text-theme-text rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#05D989] to-[#018AAF]"
         >
           {{ $t("actions.send_notification") }}
         </BaseButton>

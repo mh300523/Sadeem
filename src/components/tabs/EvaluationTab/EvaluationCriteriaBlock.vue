@@ -36,7 +36,7 @@ defineEmits(["reset-criterion"]);
 
 <template>
   <div class="lg:col-span-9">
-    <h2 class="text-white mb-3">
+    <h2 class="text-theme-text mb-3">
       {{ $t("evaluation.evaluation_criteria") }}
     </h2>
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -62,7 +62,7 @@ defineEmits(["reset-criterion"]);
       <div class="lg:col-span-5">
         <BaseBox class="p-6 border border-[#06B6D46B] rounded-2xl">
           <h3
-            class="text-white text-sm md:text-base font-bold border-b border-white/10 pb-2"
+            class="text-theme-text text-sm md:text-base font-bold border-b border-white/10 pb-2"
           >
             {{ $t("evaluation.radar_chart_title") }}
           </h3>
@@ -77,7 +77,7 @@ defineEmits(["reset-criterion"]);
           <!-- AI Analysis insights panel -->
           <div class="mt-2">
             <h2
-              class="gradient-purple py-4 px-5 rounded-2xl text-white font-medium mb-4"
+              class="gradient-purple py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
             >
               {{ $t("evaluation.ai_analysis") }}
             </h2>

@@ -77,10 +77,10 @@ const thumbStyle = computed(() => {
     >
       <!-- Title & Description -->
       <div>
-        <h3 class="text-white font-bold mb-1.5">
+        <h3 class="text-theme-text font-bold mb-1.5">
           {{ label }}
         </h3>
-        <p class="text-white/70 text-[10px] leading-relaxed">
+        <p class="text-theme-text/70 text-[10px] leading-relaxed">
           {{ description }}
         </p>
       </div>
@@ -109,7 +109,7 @@ const thumbStyle = computed(() => {
               <!-- Scale numbers 1 to 5 (Above the track, aligned with ticks) -->
 
               <div
-                class="absolute left-6 right-6 flex justify-between text-white font-meduim mb-2 -top-8"
+                class="absolute left-6 right-6 flex justify-between text-theme-text font-meduim mb-2 -top-8"
               >
                 <span v-for="n in 5" :key="n">{{ n }}</span>
               </div>
@@ -158,7 +158,7 @@ const thumbStyle = computed(() => {
         <div class="flex items-center h-[24px] shrink-0">
           <BaseButton
             @click="$emit('reset')"
-            class="text-white/70 hover:text-white p-0!"
+            class="text-theme-text/70 hover:text-theme-text p-0!"
             title="Reset"
           >
             <!-- Clockwise/Counter-clockwise circular arrow matching designs -->
@@ -179,11 +179,11 @@ const thumbStyle = computed(() => {
 
       <!-- Bottom Row: Selected Rating pill and text (Far Right in RTL, Left in LTR) -->
       <div class="flex items-center gap-2.5 mt-6">
-        <span class="text-white/70 text-xs">
+        <span class="text-theme-text/70 text-xs">
           {{ $t("evaluation.selected_rating") }}
         </span>
         <span
-          class="min-w-11 h-7 rounded-full bg-[#FF6B35] text-white font-medium flex items-center justify-center"
+          class="min-w-11 h-7 rounded-full bg-[#FF6B35] text-theme-text font-medium flex items-center justify-center"
         >
           {{ modelValue }}
         </span>

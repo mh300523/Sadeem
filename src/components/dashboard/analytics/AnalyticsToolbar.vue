@@ -34,12 +34,14 @@ const emit = defineEmits(["update:filters"]);
         />
 
         <!-- Export button (leftmost in RTL) -->
-        <BaseButton class="gradient-purple py-2! text-white w-full md:w-auto">
+        <BaseButton
+          class="gradient-purple py-2! text-theme-text w-full md:w-auto"
+        >
           {{ $t("analytics.actions.export_pdf") }}
         </BaseButton>
       </div>
     </div>
-    <p class="text-xs text-white/70 leading-relaxed">
+    <p class="text-xs text-theme-text/70 leading-relaxed">
       {{ $t(`analytics.screens.${activeScreen}_desc`) }}
     </p>
   </div>

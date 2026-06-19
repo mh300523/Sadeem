@@ -30,7 +30,9 @@ const emit = defineEmits([
       <div
         class="flex flex-col items-center justify-center text-center py-4 gap-6"
       >
-        <h3 class="text-white text-sm md:text-base font-medium leading-relaxed">
+        <h3
+          class="text-theme-text text-sm md:text-base font-medium leading-relaxed"
+        >
           {{ $t("duplicate_modal_intro") }}
         </h3>
 
@@ -38,7 +40,7 @@ const emit = defineEmits([
           <!-- Button 1 -->
           <BaseButton
             @click="emit('link-contributor')"
-            class="!py-3.5 font-bold text-white rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#05D989] to-[#018AAF]"
+            class="!py-3.5 font-bold text-theme-text rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#05D989] to-[#018AAF]"
           >
             {{ $t("actions.link_idea_contributor") }}
           </BaseButton>

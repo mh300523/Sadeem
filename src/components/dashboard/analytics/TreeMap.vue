@@ -21,11 +21,11 @@ const data = props.series?.[0]?.data ?? [];
       }"
       :title="`${item.x} - ${item.y}`"
     >
-      <span class="text-[10px] text-white">
+      <span class="text-[10px] text-theme-text">
         {{ item.x }}
       </span>
 
-      <span class="text-base font-bold text-white">
+      <span class="text-base font-bold text-theme-text">
         {{ item.y }}
       </span>
     </div>

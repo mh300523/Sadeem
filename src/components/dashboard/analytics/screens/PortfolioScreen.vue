@@ -54,21 +54,21 @@ defineProps({
       >
         <!-- Custom rendering for type -->
         <template #cell(type)="{ value }">
-          <span class="text-xs text-white/70">
+          <span class="text-xs text-theme-text/70">
             {{ value }}
           </span>
         </template>
 
         <!-- Custom rendering for ideas -->
         <template #cell(ideas)="{ value }">
-          <span class="text-white font-bold text-lg md:text-xl">
+          <span class="text-theme-text font-bold text-lg md:text-xl">
             {{ value }}
           </span>
         </template>
 
         <!-- Custom rendering for share -->
         <template #cell(share)="{ value }">
-          <span class="text-white font-bold text-lg md:text-xl">
+          <span class="text-theme-text font-bold text-lg md:text-xl">
             {{ value }}
           </span>
         </template>

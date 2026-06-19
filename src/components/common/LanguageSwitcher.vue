@@ -35,7 +35,7 @@ const selectLang = (lang) => {
       class="flex items-center gap-1 bg-white rounded-full py-2 px-3 shadow-md cursor-pointer transition-all hover:shadow-lg border border-[#a0a0a0]"
     >
       <div
-        class="w-[18px] h-[18px] rounded-full bg-[#1abc9c] flex items-center justify-center text-white"
+        class="w-[18px] h-[18px] rounded-full bg-[#1abc9c] flex items-center justify-center text-theme-text"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

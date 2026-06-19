@@ -21,7 +21,7 @@ defineProps({
     >
       {{ title }}
     </h2>
-    <p v-if="subtitle" class="text-xs text-white/70 mb-7">
+    <p v-if="subtitle" class="text-xs text-theme-text/70 mb-7">
       {{ subtitle }}
     </p>
     <slot />

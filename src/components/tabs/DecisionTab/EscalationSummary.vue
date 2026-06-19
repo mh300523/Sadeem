@@ -27,7 +27,7 @@ defineProps({
   <div class="mb-6 flex flex-col gap-6">
     <!-- Header with Title and Cyan Info Badge -->
     <div class="">
-      <h2 class="text-white text-xs md:text-sm font-medium mb-3.5">
+      <h2 class="text-theme-text text-xs md:text-sm font-medium mb-3.5">
         {{ title }}
       </h2>
       <div
@@ -45,10 +45,10 @@ defineProps({
         :key="card.title"
         class="border border-white/10 bg-[#061E2E]/40 p-5 rounded-[20px] flex flex-col gap-2"
       >
-        <h3 class="text-white">
+        <h3 class="text-theme-text">
           {{ card.title }}
         </h3>
-        <p class="text-white/70 text-xs md:text-sm leading-relaxed">
+        <p class="text-theme-text/70 text-xs md:text-sm leading-relaxed">
           {{ card.text }}
         </p>
       </div>
@@ -56,16 +56,16 @@ defineProps({
 
     <!-- AI Recommendation Section -->
     <div class="mt-2">
-      <h2 class="text-white text-xs md:text-sm font-medium mb-3.5">
+      <h2 class="text-theme-text text-xs md:text-sm font-medium mb-3.5">
         {{ recTitle }}
       </h2>
       <div
         class="border border-white/5 bg-[#061E2E]/40 p-5 rounded-[20px] flex flex-col gap-2"
       >
-        <h3 class="text-white">
+        <h3 class="text-theme-text">
           {{ recCard.title }}
         </h3>
-        <p class="text-white/70 text-xs md:text-sm leading-relaxed">
+        <p class="text-theme-text/70 text-xs md:text-sm leading-relaxed">
           {{ recCard.text }}
         </p>
       </div>

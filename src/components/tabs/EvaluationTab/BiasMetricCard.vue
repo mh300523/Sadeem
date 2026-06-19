@@ -14,8 +14,8 @@ defineProps({
 
 <template>
   <BaseBox class="py-5 px-4 rounded-[20px] border border-[#06B6D4]/42">
-    <h4 class="text-white/70 mb-3.5">{{ label }}</h4>
-    <p class="text-white text-lg md:text-2xl font-bold leading-normal">
+    <h4 class="text-theme-text/70 mb-3.5">{{ label }}</h4>
+    <p class="text-theme-text text-lg md:text-2xl font-bold leading-normal">
       {{ value }}
     </p>
   </BaseBox>

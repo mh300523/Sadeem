@@ -68,11 +68,11 @@ const inputClasses = computed(() => {
   }
 
   const baseClasses =
-    "w-full block bg-[#051E2E]/40 text-[#858585] placeholder-[#858585] focus:outline-none transition-all duration-300 disabled:cursor-not-allowed peer border resize-y";
+    "w-full block bg-theme-input/40 text-theme-input-text placeholder-theme-input-placeholder focus:outline-none transition-all duration-300 disabled:cursor-not-allowed peer border resize-y";
 
   const stateClasses = props.error
     ? "border-red-500/30 focus:border-red-500"
-    : "border-white/10 focus:border-[#05D989]/50";
+    : "border-theme-input-border focus:border-[#05D989]/50";
 
   return [baseClasses, "px-4 py-3 text-sm rounded-lg", stateClasses]
     .filter(Boolean)
@@ -99,7 +99,7 @@ const handleBlur = (event) => {
     <label
       v-if="label"
       :for="inputId"
-      class="block text-xs text-white/76 uppercase whitespace-nowrap"
+      class="block text-xs text-theme-text/76 uppercase whitespace-nowrap"
       :class="labelClass"
     >
       <span v-if="required" class="text-red-500">*</span>
@@ -125,7 +125,7 @@ const handleBlur = (event) => {
       {{ error }}
     </p>
     <!-- Hint Text -->
-    <p v-if="hint && !error" class="mt-1 text-[11px] text-white/40">
+    <p v-if="hint && !error" class="mt-1 text-[11px] text-theme-text/40">
       {{ hint }}
     </p>
   </div>

@@ -38,7 +38,10 @@ const toggleItem = (group, item) => {
 
 <template>
   <div class="mb-6">
-    <h4 v-if="title" class="text-white text-xs md:text-sm font-medium mb-3.5">
+    <h4
+      v-if="title"
+      class="text-theme-text text-xs md:text-sm font-medium mb-3.5"
+    >
       {{ title }}
     </h4>
 
@@ -73,7 +76,7 @@ const toggleItem = (group, item) => {
               class="w-5 h-5 shrink-0 rounded-[4px] flex items-center justify-center transition-all duration-300"
               :class="
                 modelValue[item.id]
-                  ? 'bg-[#10B981] text-white'
+                  ? 'bg-[#10B981] text-theme-text'
                   : 'bg-white/5 text-transparent border border-white/10 group-hover/item:border-white/20'
               "
             >
@@ -91,7 +94,7 @@ const toggleItem = (group, item) => {
               </svg>
             </span>
             <span
-              class="text-white/80 transition-colors group-hover/item:text-white"
+              class="text-theme-text/80 transition-colors group-hover/item:text-theme-text"
             >
               {{ item.label }}
             </span>

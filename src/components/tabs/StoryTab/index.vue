@@ -38,7 +38,7 @@ function togglePlay() {
           <div
             class="p-4 rounded-2xl rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4]/90 via-[#3B82F6] to-[#FF6B35]/50"
           >
-            <h4 class="text-white mb-2">
+            <h4 class="text-theme-text mb-2">
               {{ storyData.intro?.audioLabel }}
             </h4>
 
@@ -105,7 +105,7 @@ function togglePlay() {
             :items="sidebarData.features.items"
             class="rtl:bg-linear-to-l ltr:bg-linear-to-r from-[#1E293B] to-[#1E293B] rounded-xl overflow-hidden p-[14px] backdrop-blur-xl border border-white/6"
             :classes="{
-              pill: 'bg-[#06B6D4]/10 text-white/76',
+              pill: 'bg-[#06B6D4]/10 text-theme-text/76',
               icon: 'border-[#06B6D4] text-[#06B6D4]',
             }"
           />
@@ -126,15 +126,17 @@ function togglePlay() {
           <div class="flex gap-2 mb-[14px]">
             <!-- Circle Step Number badge -->
             <span
-              class="w-10 h-10 rounded-full bg-[#FF6B35] text-white flex items-center justify-center text-lg font-medium shrink-0"
+              class="w-10 h-10 rounded-full bg-[#FF6B35] text-theme-text flex items-center justify-center text-lg font-medium shrink-0"
             >
               {{ step.id }}
             </span>
             <h4
-              class="text-white text-base md:text-xl font-bold flex items-center gap-2"
+              class="text-theme-text text-base md:text-xl font-bold flex items-center gap-2"
             >
               {{ step.title }}
-              <span class="text-white/50 text-xs font-normal leading-relaxed">
+              <span
+                class="text-theme-text/50 text-xs font-normal leading-relaxed"
+              >
                 ({{ step.subtitle }})
               </span>
             </h4>
@@ -142,7 +144,7 @@ function togglePlay() {
 
           <!-- Description Text -->
           <p
-            class="text-white text-xs md:text-sm leading-relaxed text-justify whitespace-pre-line"
+            class="text-theme-text text-xs md:text-sm leading-relaxed text-justify whitespace-pre-line"
           >
             {{ step.text }}
           </p>
@@ -153,16 +155,16 @@ function togglePlay() {
             class="flex items-center gap-4.5 py-[30px] px-5 rounded-2xl white-border bg-[url('@/assets/images/sammy-card-bg.png')] bg-cover bg-center bg-no-repeat mt-4"
           >
             <div
-              class="w-[100px] h-[100px] rounded-full rtl:bg-linear-to-l ltr:bg-linear-to-r from-[#0A2A40] to-[#1B4D72] backdrop-blur-xl text-white flex items-center justify-center shrink-0 font-bold text-[22px] shadow-md"
+              class="w-[100px] h-[100px] rounded-full rtl:bg-linear-to-l ltr:bg-linear-to-r from-[#0A2A40] to-[#1B4D72] backdrop-blur-xl text-theme-text flex items-center justify-center shrink-0 font-bold text-[22px] shadow-md"
             >
               {{ step.card.avatar }}
             </div>
 
             <div class="flex-1 flex flex-col gap-1">
-              <h3 class="text-white text-xl font-bold">
+              <h3 class="text-theme-text text-xl font-bold">
                 {{ step.card.title }}
               </h3>
-              <p class="text-white leading-relaxed">
+              <p class="text-theme-text leading-relaxed">
                 {{ step.card.text }}
               </p>
             </div>
@@ -173,7 +175,7 @@ function togglePlay() {
             v-else-if="step.card && step.card.type === 'quote'"
             class="mb-6 p-7 rounded-2xl white-border bg-[url('@/assets/images/quote-bg.png')] bg-cover bg-top bg-no-repeat mt-2 text-center"
           >
-            <h3 class="text-white text-lg md:text-xl font-bold">
+            <h3 class="text-theme-text text-lg md:text-xl font-bold">
               {{ step.card.title }}
             </h3>
           </div>
@@ -181,7 +183,7 @@ function togglePlay() {
           <!-- Paragraph after card (specifically for quote type where we want the description outside the card) -->
           <p
             v-if="step.card && step.card.type === 'quote' && step.card.text"
-            class="text-white text-xs md:text-sm leading-relaxed text-justify whitespace-pre-line mt-4 mb-6"
+            class="text-theme-text text-xs md:text-sm leading-relaxed text-justify whitespace-pre-line mt-4 mb-6"
           >
             {{ step.card.text }}
           </p>
@@ -191,10 +193,10 @@ function togglePlay() {
             v-if="step.interactive"
             class="p-5 rounded-[20px] rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#FF6B35] to-[#8B5CF6] flex flex-col items-center"
           >
-            <h4 class="text-white text-sm md:text-lg font-bold">
+            <h4 class="text-theme-text text-sm md:text-lg font-bold">
               {{ step.interactive.question }}
             </h4>
-            <p class="text-white text-xs md:text-sm my-2">
+            <p class="text-theme-text text-xs md:text-sm my-2">
               {{ step.interactive.answer }}
             </p>
 

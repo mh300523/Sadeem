@@ -17,7 +17,7 @@ defineProps({
   <div
     class="rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#FF8E53] to-[#FF6B35] p-[14px] rounded-[20px] mt-6"
   >
-    <h4 class="text-white/50 text-xs tracking-wide uppercase mb-1">
+    <h4 class="text-theme-text/50 text-xs tracking-wide uppercase mb-1">
       {{ label }}
     </h4>
 
@@ -31,7 +31,7 @@ defineProps({
     >
       <div class="flex items-center justify-between w-100">
         <h4
-          class="text-white text-base font-medium truncate"
+          class="text-theme-text text-base font-medium truncate"
           :title="file.name"
         >
           {{ file.name }}

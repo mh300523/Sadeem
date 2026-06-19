@@ -39,13 +39,13 @@ const emit = defineEmits(["close"]);
       class="gradient-purple flex items-center justify-between px-4 py-4.5 rounded-t-[20px]"
     >
       <!--  Title -->
-      <h3 class="text-white text-sm font-bold">
+      <h3 class="text-theme-text text-sm font-bold">
         {{ title }}
       </h3>
       <!-- Close Button on the left in RTL / right in LTR -->
       <button
         @click="emit('close')"
-        class="text-white hover:text-[#FF705D] cursor-pointer"
+        class="text-theme-text hover:text-[#FF705D] cursor-pointer"
       >
         <svg
           class="w-5 h-5"

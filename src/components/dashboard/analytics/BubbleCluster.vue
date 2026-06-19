@@ -35,10 +35,10 @@ const bubbleStyles = computed(() =>
       :style="bubbleStyles[i]"
       :title="`${bubble.name} - ${bubble.value}`"
     >
-      <span class="bubble-name text-white text-nowrap text-[10px]">{{
+      <span class="bubble-name text-theme-text text-nowrap text-[10px]">{{
         bubble.name
       }}</span>
-      <span class="bubble-value text-white font-medium">{{
+      <span class="bubble-value text-theme-text font-medium">{{
         bubble.value
       }}</span>
     </div>

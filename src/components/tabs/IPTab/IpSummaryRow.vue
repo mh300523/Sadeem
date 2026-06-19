@@ -14,7 +14,9 @@ defineProps({
     class="gradient-border mb-[14px] last:mb-0 flex flex-col sm:flex-row sm:items-center justify-between px-9 py-8 rounded-[20px]"
   >
     <!-- Right side (in RTL): Row Label -->
-    <h4 class="text-white text-xs md:text-sm font-medium leading-none flex-1">
+    <h4
+      class="text-theme-text text-xs md:text-sm font-medium leading-none flex-1"
+    >
       {{ row.label }}
     </h4>
 
@@ -71,7 +73,7 @@ defineProps({
           >
             <SvgIcon name="caret" />
             <span
-              class="flex items-center gap-1.5 bg-[#FB3748]/10 px-2 py-1 rounded-full text-white mt-1"
+              class="flex items-center gap-1.5 bg-[#FB3748]/10 px-2 py-1 rounded-full text-theme-text mt-1"
             >
               <span>{{ row.value }}</span>
               <span

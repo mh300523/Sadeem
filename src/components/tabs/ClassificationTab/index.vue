@@ -132,7 +132,7 @@ const handleExecutionPlanChange = (status) => {
           >
             <!-- Orange header capsule matching screenshots -->
             <h2
-              class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
+              class="gradient-orange py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
             >
               {{ section.label }}
             </h2>
@@ -168,7 +168,7 @@ const handleExecutionPlanChange = (status) => {
         >
           <!-- Title & Badges -->
           <div class="">
-            <h3 class="text-white text-sm md:text-base font-medium mb-3">
+            <h3 class="text-theme-text text-sm md:text-base font-medium mb-3">
               {{ tabData.duplicateCheck.label }}
             </h3>
             <div class="flex items-center gap-2 flex-wrap">
@@ -206,7 +206,7 @@ const handleExecutionPlanChange = (status) => {
       >
         <!-- Card Header -->
         <div class="">
-          <h3 class="text-white text-sm md:text-base font-medium mb-3">
+          <h3 class="text-theme-text text-sm md:text-base font-medium mb-3">
             {{ tabData.executionPlan.label }}
           </h3>
           <span
@@ -232,7 +232,7 @@ const handleExecutionPlanChange = (status) => {
         class="rounded-[20px] p-6 gradient-border"
       >
         <div class="border-b border-[#A9A9A9]/30 pb-4 mb-4">
-          <h3 class="text-white text-sm md:text-base font-medium mb-3">
+          <h3 class="text-theme-text text-sm md:text-base font-medium mb-3">
             {{ tabData.mergeSuggestion.label }}
           </h3>
           <span
@@ -242,7 +242,7 @@ const handleExecutionPlanChange = (status) => {
             نعم
           </span>
 
-          <p class="text-white/50 text-xs">الأفكار المقترحة للدمج:</p>
+          <p class="text-theme-text/50 text-xs">الأفكار المقترحة للدمج:</p>
         </div>
         <!-- Horizontal scrollable/wrapped grid list of cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

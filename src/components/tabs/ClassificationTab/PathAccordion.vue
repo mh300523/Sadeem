@@ -31,18 +31,23 @@ function selectPath(key) {
 </script>
 
 <template>
-  <div class="border border-white/10 rounded-[20px] p-6 bg-[#1E293B]/40 backdrop-blur-xl">
+  <div
+    class="border border-white/10 rounded-[20px] p-6 bg-[#1E293B]/40 backdrop-blur-xl"
+  >
     <!-- Header -->
     <div class="flex items-center justify-between mb-4">
-      <h3 class="text-white text-base md:text-lg font-bold">
+      <h3 class="text-theme-text text-base md:text-lg font-bold">
         {{ label }}
       </h3>
       <!-- Toggle Button -->
       <button
         @click="toggleExpanded"
-        class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all cursor-pointer focus:outline-none"
+        class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-theme-text/70 hover:text-theme-text hover:bg-white/10 transition-all cursor-pointer focus:outline-none"
       >
-        <span class="transform transition-transform duration-300" :class="{ 'rotate-180': !isExpanded }">
+        <span
+          class="transform transition-transform duration-300"
+          :class="{ 'rotate-180': !isExpanded }"
+        >
           ▲
         </span>
       </button>
@@ -51,7 +56,11 @@ function selectPath(key) {
     <!-- Paths List -->
     <div
       class="transition-all duration-500 overflow-hidden flex flex-col gap-3"
-      :class="isExpanded ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'"
+      :class="
+        isExpanded
+          ? 'max-h-[800px] opacity-100'
+          : 'max-h-0 opacity-0 pointer-events-none'
+      "
     >
       <div
         v-for="path in items"
@@ -66,23 +75,33 @@ function selectPath(key) {
       >
         <h4
           class="text-sm font-bold transition-colors"
-          :class="modelValue === path.key ? 'text-[#009DFE]' : 'text-white group-hover:text-[#009DFE]'"
+          :class="
+            modelValue === path.key
+              ? 'text-[#009DFE]'
+              : 'text-theme-text group-hover:text-[#009DFE]'
+          "
         >
           {{ path.title }}
         </h4>
-        <p class="text-xs text-white/50 mt-1 leading-relaxed">
+        <p class="text-xs text-theme-text/50 mt-1 leading-relaxed">
           {{ path.subtitle }}
         </p>
       </div>
     </div>
 
     <!-- Collapsed Summary View (shows selected only when collapsed) -->
-    <div v-if="!isExpanded" class="p-4 rounded-xl border border-[#009DFE] bg-[#009DFE]/10 text-right">
-      <div v-for="path in items.filter(p => p.key === modelValue)" :key="path.key">
+    <div
+      v-if="!isExpanded"
+      class="p-4 rounded-xl border border-[#009DFE] bg-[#009DFE]/10 text-right"
+    >
+      <div
+        v-for="path in items.filter((p) => p.key === modelValue)"
+        :key="path.key"
+      >
         <h4 class="text-sm font-bold text-[#009DFE]">
           {{ path.title }}
         </h4>
-        <p class="text-xs text-white/50 mt-1">
+        <p class="text-xs text-theme-text/50 mt-1">
           {{ path.subtitle }}
         </p>
       </div>

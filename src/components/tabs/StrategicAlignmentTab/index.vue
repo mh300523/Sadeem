@@ -25,7 +25,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
       >
         <!-- Number Badge -->
         <span
-          class="w-10 h-10 rounded-full bg-[#FF6B35] text-white flex items-center justify-center shrink-0 text-lg font-bold"
+          class="w-10 h-10 rounded-full bg-[#FF6B35] text-theme-text flex items-center justify-center shrink-0 text-lg font-bold"
         >
           {{ strategy.id }}
         </span>
@@ -34,7 +34,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
         <div class="">
           <!-- Header (Title & Badges) -->
           <div class="flex flex-wrap items-center gap-2">
-            <h3 class="text-white text-sm md:text-base font-medium">
+            <h3 class="text-theme-text text-sm md:text-base font-medium">
               {{ strategy.title }}
             </h3>
 
@@ -46,7 +46,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
 
               <!-- Alignment status badge -->
               <span
-                class="gradient-border px-4 py-1 rounded-full text-sm text-white bg-[#06B6D4]/10"
+                class="gradient-border px-4 py-1 rounded-full text-sm text-theme-text bg-[#06B6D4]/10"
               >
                 {{ strategy.alignmentType }}
               </span>
@@ -55,7 +55,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
 
           <!-- Analysis text -->
           <p
-            class="text-white/76 text-xs md:text-sm mt-3 leading-relaxed text-justify whitespace-pre-line"
+            class="text-theme-text/76 text-xs md:text-sm mt-3 leading-relaxed text-justify whitespace-pre-line"
           >
             {{ strategy.analysis }}
           </p>
@@ -65,7 +65,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
             <li
               v-for="(bullet, bIdx) in strategy.bullets"
               :key="bIdx"
-              class="flex items-start gap-2.5 text-white/76 text-xs md:text-sm leading-relaxed"
+              class="flex items-start gap-2.5 text-theme-text/76 text-xs md:text-sm leading-relaxed"
             >
               <span
                 class="w-1.5 h-1.5 rounded-full bg-[#06B6D4] shrink-0 mt-2"
@@ -104,7 +104,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
             >
               <!-- Stat 1 with Percentage -->
               <template v-if="index === 0">
-                <h4 class="text-white/76 text-xs leading-none mb-2">
+                <h4 class="text-theme-text/76 text-xs leading-none mb-2">
                   {{ step.label }}
                 </h4>
                 <div class="flex items-baseline gap-1.5">
@@ -113,7 +113,9 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
                   >
                     {{ step.value }}
                   </span>
-                  <span class="text-white text-xs md:text-sm leading-relaxed">
+                  <span
+                    class="text-theme-text text-xs md:text-sm leading-relaxed"
+                  >
                     {{ step.badge }}
                   </span>
                 </div>
@@ -121,10 +123,10 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
 
               <!-- Other GII items -->
               <template v-else>
-                <h4 class="text-white/76 text-xs leading-normal mb-2">
+                <h4 class="text-theme-text/76 text-xs leading-normal mb-2">
                   {{ step.label }}:
                 </h4>
-                <p class="text-white text-xs md:text-sm leading-relaxed">
+                <p class="text-theme-text text-xs md:text-sm leading-relaxed">
                   {{ step.text }}
                 </p>
               </template>
@@ -135,7 +137,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
         <!-- Final Summary Card -->
         <div class="">
           <h2
-            class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
+            class="gradient-orange py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
           >
             {{ sidebarData.summary.title }}
           </h2>
@@ -147,8 +149,8 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
               :key="idx"
               class="mb-1"
             >
-              <span class="text-white text-xs"> {{ item.label }}: </span>
-              <span class="text-white/76 text-xs leading-normal">
+              <span class="text-theme-text text-xs"> {{ item.label }}: </span>
+              <span class="text-theme-text/76 text-xs leading-normal">
                 {{ item.value }}
               </span>
             </div>
@@ -158,14 +160,14 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
               v-if="sidebarData.summary.gaps"
               class="border-t border-b border-[#06B6D4]/20 my-2 py-2"
             >
-              <span class="text-white text-xs md-text-sm">
+              <span class="text-theme-text text-xs md-text-sm">
                 {{ sidebarData.summary.gaps.label }}
               </span>
               <ul class="flex flex-col gap-1">
                 <li
                   v-for="(gap, gIdx) in sidebarData.summary.gaps.items"
                   :key="gIdx"
-                  class="flex items-start gap-1.5 text-white/50 text-[11px] md:text-xs leading-relaxed"
+                  class="flex items-start gap-1.5 text-theme-text/50 text-[11px] md:text-xs leading-relaxed"
                 >
                   <span
                     class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-1.5"
@@ -177,7 +179,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
 
             <!-- Recommendations Section -->
             <div v-if="sidebarData.summary.recommendations" class="">
-              <span class="text-white text-xs font-bold">
+              <span class="text-theme-text text-xs font-bold">
                 {{ sidebarData.summary.recommendations.label }}
               </span>
               <ul class="flex flex-col gap-1">
@@ -185,7 +187,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
                   v-for="(rec, rIdx) in sidebarData.summary.recommendations
                     .items"
                   :key="rIdx"
-                  class="flex items-start gap-1.5 text-white/50 text-[11px] md:text-xs leading-relaxed"
+                  class="flex items-start gap-1.5 text-theme-text/50 text-[11px] md:text-xs leading-relaxed"
                 >
                   <span
                     class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-1.5"

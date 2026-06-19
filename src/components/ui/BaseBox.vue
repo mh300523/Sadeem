@@ -23,7 +23,7 @@ const props = defineProps({
       type === 'glass'
         ? 'gradient-border gradient-sky-blue'
         : gradientbg ||
-          'rtl:bg-linear-to-l ltr:bg-linear-to-r from-[#1E293B]/60 to-[#1E293B]/30',
+          'rtl:bg-linear-to-l ltr:bg-linear-to-r from-theme-row-start to-theme-row-end',
     ]"
   >
     <slot></slot>

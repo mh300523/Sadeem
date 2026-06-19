@@ -80,7 +80,7 @@ const resolvedNotification = computed(() => {
     </h2>
     <p
       v-if="section.description"
-      class="text-white/70 text-xs md:text-sm leading-relaxed"
+      class="text-theme-text/70 text-xs md:text-sm leading-relaxed"
     >
       {{ section.description }}
     </p>
@@ -115,13 +115,13 @@ const resolvedNotification = computed(() => {
       >
         <!-- Subject -->
 
-        <h3 class="font-medium text-white text-xl md:text-2xl">
+        <h3 class="font-medium text-theme-text text-xl md:text-2xl">
           {{ resolvedNotification.subject }}
         </h3>
 
         <!-- Body -->
         <div
-          class="text-white/80 text-xs md:text-sm leading-relaxed whitespace-pre-line"
+          class="text-theme-text/80 text-xs md:text-sm leading-relaxed whitespace-pre-line"
         >
           {{ resolvedNotification.body }}
         </div>
@@ -138,7 +138,7 @@ const resolvedNotification = computed(() => {
         <div
           class="pt-2.5 pb-3.5 border-t border-[#A9A9A9]/30 flex flex-col gap-1"
         >
-          <span class="text-white text-[11px]">
+          <span class="text-theme-text text-[11px]">
             {{ t("notifications.signature_greeting") }}
           </span>
           <span class="text-[#05D989] font-medium">
@@ -152,7 +152,7 @@ const resolvedNotification = computed(() => {
   <!-- Empty State if no recipients selected -->
   <div
     v-else
-    class="border border-dashed border-white/10 rounded-2xl bg-[#161F30]/10 p-8 text-center text-white/40 text-xs md:text-sm"
+    class="border border-dashed border-white/10 rounded-2xl bg-[#161F30]/10 p-8 text-center text-theme-text/40 text-xs md:text-sm"
   >
     يرجى تحديد مستلم واحد على الأقل لمعاينة الإشعارات.
   </div>

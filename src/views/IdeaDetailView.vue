@@ -39,7 +39,7 @@ watch(
   () => route.params.id,
   () => {
     loadIdeaDetails();
-  }
+  },
 );
 
 // Load API response from Pinia store
@@ -157,7 +157,10 @@ const onViewIdea = (idea) => {
 // Re-use Badge Styling from Config
 const statusConfigs = computed(() => store.statusConfigs);
 function getBadgeConfig(statusId) {
-  return statusConfigs.value?.[statusId] || statusConfigs.value?.new || { bgClass: "", iconName: "" };
+  return (
+    statusConfigs.value?.[statusId] ||
+    statusConfigs.value?.new || { bgClass: "", iconName: "" }
+  );
 }
 
 // Dynamic Tabs Definition from normalized API response payload
@@ -176,7 +179,10 @@ const tabsList = computed(() => {
     </div>
 
     <!-- Error State -->
-    <div v-else-if="store.detailsError" class="mt-6 p-6 bg-red-950/20 border border-red-500/30 rounded-2xl text-center">
+    <div
+      v-else-if="store.detailsError"
+      class="mt-6 p-6 bg-red-950/20 border border-red-500/30 rounded-2xl text-center"
+    >
       <div class="text-red-400 font-medium mb-3">{{ store.detailsError }}</div>
       <button
         @click="loadIdeaDetails"
@@ -190,17 +196,19 @@ const tabsList = computed(() => {
     <div v-else-if="ideaDetails.id">
       <!-- Top Details Header Card (Wrapped in Card Container matching the screens) -->
       <div class="border-b border-white/20 pb-4 mb-8">
-        <div class="flex flex-col lg:flex-row justify-between items-start gap-6">
+        <div
+          class="flex flex-col lg:flex-row justify-between items-start gap-6"
+        >
           <!-- Right Side (Back button, Title, Meta info) -->
           <div>
             <!-- ID + Status Pill -->
             <div class="flex items-center gap-3">
-              <span class="font-bold text-white text-2xl">
+              <span class="font-bold text-theme-text text-2xl">
                 {{ ideaDetails.id }}
               </span>
 
               <span
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm text-white shadow-[0_2px_10px_rgba(0,0,0,0.25)] backdrop-blur-sm"
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm text-theme-text shadow-[0_2px_10px_rgba(0,0,0,0.25)] backdrop-blur-sm"
                 :class="[getBadgeConfig(ideaDetails.status?.id).bgClass]"
               >
                 <SvgIcon
@@ -220,7 +228,9 @@ const tabsList = computed(() => {
               <!-- 1. Submitter -->
               <div class="flex items-center gap-1.5">
                 <SvgIcon name="solar_user" />
-                <span class="text-white/76">{{ ideaDetails.submitter }}</span>
+                <span class="text-theme-text/76">{{
+                  ideaDetails.submitter
+                }}</span>
               </div>
 
               <span
@@ -230,7 +240,9 @@ const tabsList = computed(() => {
               <!-- 2. Department -->
               <div class="flex items-center gap-1.5">
                 <SvgIcon name="solar_pie-chart" />
-                <span class="text-white/76">{{ ideaDetails.department }}</span>
+                <span class="text-theme-text/76">{{
+                  ideaDetails.department
+                }}</span>
               </div>
 
               <span
@@ -240,7 +252,7 @@ const tabsList = computed(() => {
               <!-- 3. Evaluators Count -->
               <div class="flex items-center gap-1.5">
                 <SvgIcon name="solar_users-group" />
-                <span class="text-white/76">{{
+                <span class="text-theme-text/76">{{
                   ideaDetails.evaluatorsCount
                 }}</span>
               </div>
@@ -252,7 +264,7 @@ const tabsList = computed(() => {
               <!-- 4. Average Rating -->
               <div class="flex items-center gap-1.5">
                 <SvgIcon name="solar_star" />
-                <span class="text-white/76"
+                <span class="text-theme-text/76"
                   >{{ ideaDetails.averageRating }} / 100</span
                 >
               </div>
@@ -263,7 +275,7 @@ const tabsList = computed(() => {
 
               <!-- 5. AI score badge (Cyan border, sparkle icon, text exactly matches screenshot) -->
               <div
-                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm bg-[#018AAF] text-white backdrop-blur-2xl"
+                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm bg-[#018AAF] text-theme-text backdrop-blur-2xl"
               >
                 <SvgIcon name="ai_icon" />
                 <span
@@ -280,12 +292,12 @@ const tabsList = computed(() => {
           >
             <!-- Invite Evaluator Button -->
             <BaseButton
-              class="gradient-orange text-white shadow-[0_30px_30px_0_rgba(255,107,53,0.3)]"
+              class="gradient-orange text-theme-text shadow-[0_30px_30px_0_rgba(255,107,53,0.3)]"
             >
               {{ $t("actions.invite_evaluator") }}
             </BaseButton>
             <!-- Start Evaluation Button -->
-            <BaseButton class="gradient-purple text-white shadow-lg">
+            <BaseButton class="gradient-purple text-theme-text shadow-lg">
               {{ $t("actions.start_evaluation") }}
             </BaseButton>
 

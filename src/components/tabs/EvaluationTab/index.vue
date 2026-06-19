@@ -232,13 +232,13 @@ const resetCriterion = (index) => {
         <div
           class="px-7 py-5 rounded-2xl rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35]"
         >
-          <h3 class="text-white text-base font-bold">
+          <h3 class="text-theme-text text-base font-bold">
             {{ idea.id }}
           </h3>
-          <h4 class="text-white text-lg font-bold leading-normal">
+          <h4 class="text-theme-text text-lg font-bold leading-normal">
             {{ idea.title || $t("evaluation.default_idea_title") }}
           </h4>
-          <span class="text-white text-xs">
+          <span class="text-theme-text text-xs">
             <template v-if="idea.submitter">
               {{ idea.submitter }}
               <template v-if="idea.department">
@@ -252,7 +252,7 @@ const resetCriterion = (index) => {
           </span>
 
           <span
-            class="block mt-4.5 w-fit px-3 py-2 rounded-full bg-[#32BEA6] text-white text-xs"
+            class="block mt-4.5 w-fit px-3 py-2 rounded-full bg-[#32BEA6] text-theme-text text-xs"
           >
             {{ $t("evaluation.live_radar_active") }}
           </span>

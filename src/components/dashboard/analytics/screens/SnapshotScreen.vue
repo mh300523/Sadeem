@@ -74,13 +74,13 @@ const emit = defineEmits(["select-kpi"]);
           >
             <span
               v-if="idx % 2 === 0"
-              class="text-base md:text-lg font-bold text-white"
+              class="text-base md:text-lg font-bold text-theme-text"
             >
               {{ step.value }}
             </span>
             <h4
               v-else
-              class="text-xs text-white/70 truncate max-w-[80px] md:max-w-none"
+              class="text-xs text-theme-text/70 truncate max-w-[80px] md:max-w-none"
             >
               {{ $t(step.labelKey) }}
             </h4>
@@ -97,13 +97,13 @@ const emit = defineEmits(["select-kpi"]);
           >
             <span
               v-if="idx % 2 !== 0"
-              class="text-base md:text-lg font-bold text-white"
+              class="text-base md:text-lg font-bold text-theme-text"
             >
               {{ step.value }}
             </span>
             <h4
               v-else
-              class="text-xs text-white/70 truncate max-w-[80px] md:max-w-none"
+              class="text-xs text-theme-text/70 truncate max-w-[80px] md:max-w-none"
             >
               {{ $t(step.labelKey) }}
             </h4>
@@ -123,10 +123,10 @@ const emit = defineEmits(["select-kpi"]);
           :key="idx"
           class="p-4 rounded-xl border border-white/5 bg-white/3 text-right ltr:text-left animate-pulse-subtle"
         >
-          <h3 class="text-xs text-white/70 block mb-3">
+          <h3 class="text-xs text-theme-text/70 block mb-3">
             {{ out.label }}
           </h3>
-          <span class="text-lg font-bold text-white italic">{{
+          <span class="text-lg font-bold text-theme-text italic">{{
             out.value
           }}</span>
         </BaseBox>

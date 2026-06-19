@@ -57,14 +57,14 @@ function getMaxValue(bars) {
             <h2 class="sidebar-gradient-title secondery-text-gradient">
               {{ data?.title }}
             </h2>
-            <p class="text-xs text-white/70 leading-relaxed">
+            <p class="text-xs text-theme-text/70 leading-relaxed">
               {{ data?.desc }}
             </p>
           </div>
           <!-- Close Button (Left in RTL, Right in LTR) -->
           <button
             @click="$emit('close')"
-            class="w-4 h-4 flex items-center justify-center text-white hover:text-danger cursor-pointer"
+            class="w-4 h-4 flex items-center justify-center text-theme-text hover:text-danger cursor-pointer"
           >
             <svg
               class="w-4 h-4"
@@ -92,10 +92,10 @@ function getMaxValue(bars) {
             :key="idx"
             class="p-4 rounded-2xl bg-[#0b2035]/30 border border-white/10 transition-colors hover:border-white/30"
           >
-            <h3 class="font-meduim text-white mb-1.5">
+            <h3 class="font-meduim text-theme-text mb-1.5">
               {{ m.label }}
             </h3>
-            <p class="text-white/70 text-xs leading-relaxed">
+            <p class="text-theme-text/70 text-xs leading-relaxed">
               {{ m.value }}
             </p>
           </BaseBox>
@@ -104,7 +104,7 @@ function getMaxValue(bars) {
         <!-- Breakdown Visualization Block -->
 
         <BaseAnalyticBox v-if="data?.bars && data.bars.length" class="p-4 mt-6">
-          <h4 class="font-medium text-white uppercase mb-3">
+          <h4 class="font-medium text-theme-text uppercase mb-3">
             {{ $t("analytics.drawer.breakdown") }}
           </h4>
           <ProgressBar

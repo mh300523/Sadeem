@@ -26,7 +26,7 @@ const tabData = computed(() => props.data || {});
       >
         <!-- Title and Icon Badge -->
         <div class="flex items-center gap-3">
-          <h3 class="text-white text-sm md:text-base font-medium">
+          <h3 class="text-theme-text text-sm md:text-base font-medium">
             {{ tabData.scoreCard.title }}
           </h3>
           <!-- Glow Score Badge -->
@@ -35,7 +35,7 @@ const tabData = computed(() => props.data || {});
           </span>
         </div>
         <div
-          class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#018AAF] text-white text-xs md:text-sm mt-[14px]"
+          class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#018AAF] text-theme-text text-xs md:text-sm mt-[14px]"
         >
           <span>{{ tabData.scoreCard.scoreLabel }} ⭐</span>
         </div>
@@ -47,7 +47,7 @@ const tabData = computed(() => props.data || {});
         class="rounded-[20px] border border-[#06B6D4]/42 overflow-hidden bg-[#1E293B]/40 backdrop-blur-xl"
       >
         <!-- Banner Header (Cyan to Purple Gradient) -->
-        <div class="gradient-purple py-8 px-7 text-white text-right">
+        <div class="gradient-purple py-8 px-7 text-theme-text text-right">
           <h3 class="text-base md:text-xl font-bold leading-normal">
             {{ tabData.summaryCard.title }}
           </h3>
@@ -86,7 +86,7 @@ const tabData = computed(() => props.data || {});
               class="gradient-border p-4.5 flex-1 gradient-sky-blue backdrop-blur-xl rounded-xl"
             >
               <span
-                class="text-xs md:text-sm font-semibold leading-none text-white"
+                class="text-xs md:text-sm font-semibold leading-none text-theme-text"
                 >{{ step.title }}</span
               >
             </div>
@@ -96,14 +96,14 @@ const tabData = computed(() => props.data || {});
         <!-- Legal Disclaimer Block -->
         <div class="">
           <h2
-            class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
+            class="gradient-orange py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
           >
             <span>{{ tabData.sidebar.disclaimer.title }}</span>
           </h2>
 
           <BaseBox class="gradient-border p-4">
             <p
-              class="text-white text-sm md:text-base font-medium leading-relaxed text-justify"
+              class="text-theme-text text-sm md:text-base font-medium leading-relaxed text-justify"
             >
               {{ tabData.sidebar.disclaimer.description }}
             </p>
@@ -114,11 +114,11 @@ const tabData = computed(() => props.data || {});
               class="flex flex-col gap-3 mt-2"
             >
               <!-- Download PDF -->
-              <BaseButton class="gradient-orange text-white">
+              <BaseButton class="gradient-orange text-theme-text">
                 {{ tabData.sidebar.actions.downloadReport }}
               </BaseButton>
               <!-- Request Review -->
-              <BaseButton class="gradient-purple text-white">
+              <BaseButton class="gradient-purple text-theme-text">
                 {{ tabData.sidebar.actions.requestReview }}
               </BaseButton>
             </div>

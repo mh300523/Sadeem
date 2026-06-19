@@ -26,7 +26,7 @@ const emit = defineEmits(["close"]);
       >
         <!-- Success Checkmark Circle -->
         <div
-          class="w-16 h-16 rounded-full bg-[#32BEA6] flex items-center justify-center text-white"
+          class="w-16 h-16 rounded-full bg-[#32BEA6] flex items-center justify-center text-theme-text"
         >
           <svg
             class="w-8 h-8 stroke-[3px]"
@@ -41,10 +41,10 @@ const emit = defineEmits(["close"]);
             />
           </svg>
         </div>
-        <h3 class="text-white text-lg font-bold">
+        <h3 class="text-theme-text text-lg font-bold">
           {{ $t("merged_success_title") }}
         </h3>
-        <p class="text-white/60 text-xs md:text-sm">
+        <p class="text-theme-text/60 text-xs md:text-sm">
           {{ $t("merged_success_desc") }}
         </p>
       </div>

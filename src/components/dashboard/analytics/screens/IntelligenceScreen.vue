@@ -64,7 +64,7 @@ function getProgressColor(type) {
 
     <!-- AI Commentary note block -->
     <BaseAnalyticBox :title="$t('analytics.intelligence_tab.commentary_title')">
-      <BaseAnalyticBox class="whitespace-pre-line text-white">
+      <BaseAnalyticBox class="whitespace-pre-line text-theme-text">
         {{ $t(screenData.aiCommentaryKey) }}
       </BaseAnalyticBox>
     </BaseAnalyticBox>

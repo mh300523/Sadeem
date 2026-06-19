@@ -5,21 +5,25 @@ defineProps({
   data: {
     type: Object,
     required: false,
-    default: () => ({})
+    default: () => ({}),
   },
   tabName: {
     type: String,
     required: false,
-    default: ""
-  }
+    default: "",
+  },
 });
 
 const { t } = useI18n();
 </script>
 
 <template>
-  <div class="w-full flex flex-col items-center justify-center py-16 px-4 border border-white/5 bg-[#060e1d]/40 rounded-3xl backdrop-blur-xl shadow-2xl animate-fade-in">
-    <div class="relative w-20 h-20 mb-6 flex items-center justify-center rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 shadow-[0_0_30px_rgba(137,90,247,0.2)]">
+  <div
+    class="w-full flex flex-col items-center justify-center py-16 px-4 border border-white/5 bg-[#060e1d]/40 rounded-3xl backdrop-blur-xl shadow-2xl animate-fade-in"
+  >
+    <div
+      class="relative w-20 h-20 mb-6 flex items-center justify-center rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 shadow-[0_0_30px_rgba(137,90,247,0.2)]"
+    >
       <svg
         class="w-10 h-10 animate-pulse"
         fill="none"
@@ -35,19 +39,25 @@ const { t } = useI18n();
       </svg>
       <!-- Subtle glow dot -->
       <span class="absolute -top-1 -right-1 flex h-3.5 w-3.5">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-purple-500"></span>
+        <span
+          class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"
+        ></span>
+        <span
+          class="relative inline-flex rounded-full h-3.5 w-3.5 bg-purple-500"
+        ></span>
       </span>
     </div>
 
-    <h3 class="text-xl md:text-2xl font-bold text-white mb-2 text-center">
+    <h3 class="text-xl md:text-2xl font-bold text-theme-text mb-2 text-center">
       <span v-if="tabName">{{ tabName }}</span>
-      <span v-else>{{ t('details.coming_soon') }}</span>
-      - {{ t('details.coming_soon') }}
+      <span v-else>{{ t("details.coming_soon") }}</span>
+      - {{ t("details.coming_soon") }}
     </h3>
-    
-    <p class="text-slate-400 text-sm md:text-base max-w-md text-center leading-relaxed">
-      {{ t('details.coming_soon_desc') }}
+
+    <p
+      class="text-slate-400 text-sm md:text-base max-w-md text-center leading-relaxed"
+    >
+      {{ t("details.coming_soon_desc") }}
     </p>
 
     <!-- Decorative elements -->

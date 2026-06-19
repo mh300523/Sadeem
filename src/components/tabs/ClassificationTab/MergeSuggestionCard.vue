@@ -16,11 +16,11 @@ const emit = defineEmits(["merge-request", "view-idea"]);
   <div class="p-6 !rounded-[20px] gradient-border">
     <!-- Top Row: Score & ID -->
     <div class="flex items-center gap-2">
-      <h3 class="text-white text-sm md:text-base font-bold">
+      <h3 class="text-theme-text text-sm md:text-base font-bold">
         {{ idea.id }}
       </h3>
       <span
-        class="px-2 py-0.5 rounded-full bg-[#FF6B35] text-white font-medium"
+        class="px-2 py-0.5 rounded-full bg-[#FF6B35] text-theme-text font-medium"
       >
         %{{ idea.similarity }}
       </span>
@@ -33,7 +33,7 @@ const emit = defineEmits(["merge-request", "view-idea"]);
       >
         {{ idea.title }}
       </h4>
-      <span class="text-white text-xs">
+      <span class="text-theme-text text-xs">
         {{ idea.department }}
       </span>
     </div>
@@ -42,7 +42,7 @@ const emit = defineEmits(["merge-request", "view-idea"]);
     <div class="flex items-center justify-center gap-2 pt-2">
       <!-- View Idea Button -->
       <BaseButton
-        class="gradient-purple flex items-center gap-2 text-white !text-xs"
+        class="gradient-purple flex items-center gap-2 text-theme-text !text-xs"
         @click="emit('view-idea', idea)"
       >
         {{ $t("actions.view_idea") }}

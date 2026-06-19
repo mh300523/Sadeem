@@ -44,7 +44,7 @@ defineEmits(["select-evaluator", "back"]);
         <!-- Back arrow button -->
         <BaseButton
           @click="$emit('back')"
-          class="w-11 h-11 bg-white/10 hover:bg-white/30 text-white flex items-center justify-center p-1!"
+          class="w-11 h-11 bg-white/10 hover:bg-white/30 text-theme-text flex items-center justify-center p-1!"
           :title="$t('evaluation.evaluation_criteria')"
         >
           <svg
@@ -62,11 +62,11 @@ defineEmits(["select-evaluator", "back"]);
           </svg>
         </BaseButton>
         <div class="">
-          <h3 class="text-white text-lg md:text-2xl font-medium mb-3">
+          <h3 class="text-theme-text text-lg md:text-2xl font-medium mb-3">
             {{ $t("evaluation.bias_dashboard_title") }}
           </h3>
           <!-- Description text -->
-          <p class="text-white/70 text-xs leading-relaxed">
+          <p class="text-theme-text/70 text-xs leading-relaxed">
             {{ $t("evaluation.bias_dashboard_description") }}
           </p>
         </div>
@@ -81,11 +81,11 @@ defineEmits(["select-evaluator", "back"]);
       <div class="lg:col-span-7">
         <BaseBox class="p-6 border border-[#06B6D46B] rounded-2xl">
           <div class="mb-4">
-            <h2 class="text-white text-lg md:text-2xl font-medium mb-3">
+            <h2 class="text-theme-text text-lg md:text-2xl font-medium mb-3">
               {{ $t("evaluation.bias_comparison_title") }}
             </h2>
             <!-- Description text -->
-            <p class="text-white/70 text-xs leading-relaxed">
+            <p class="text-theme-text/70 text-xs leading-relaxed">
               {{ $t("evaluation.bias_comparison_description") }}
             </p>
           </div>
@@ -96,29 +96,29 @@ defineEmits(["select-evaluator", "back"]);
           >
             <!-- Selected Evaluator -->
             <div class="py-5 px-4 border border-[#06B6D4]/42 rounded-[12px]">
-              <h4 class="text-white/70 mb-3">
+              <h4 class="text-theme-text/70 mb-3">
                 {{ $t("evaluation.selected_evaluator") }}
               </h4>
-              <p class="text-white text-lg md:text-2xl font-bold">
+              <p class="text-theme-text text-lg md:text-2xl font-bold">
                 {{ selectedEvaluator.name }}
               </p>
             </div>
             <!-- Bias percentage -->
             <div class="py-5 px-4 border border-[#06B6D4]/42 rounded-[12px]">
-              <h4 class="text-white/70 mb-3">
+              <h4 class="text-theme-text/70 mb-3">
                 {{ $t("evaluation.bias_percentage") }}
               </h4>
-              <p class="text-white text-lg md:text-2xl font-bold">
+              <p class="text-theme-text text-lg md:text-2xl font-bold">
                 {{ selectedEvaluator.bias }}
               </p>
             </div>
 
             <!-- Classification -->
             <div class="py-5 px-4 border border-[#06B6D4]/42 rounded-[12px]">
-              <h4 class="text-white/70 mb-3">
+              <h4 class="text-theme-text/70 mb-3">
                 {{ $t("evaluation.classification") }}
               </h4>
-              <p class="text-white text-lg md:text-2xl font-bold">
+              <p class="text-theme-text text-lg md:text-2xl font-bold">
                 {{ selectedEvaluator.classificationText }}
               </p>
             </div>
@@ -136,12 +136,12 @@ defineEmits(["select-evaluator", "back"]);
           <!-- Bias Metrics Section bottom -->
           <div class="flex flex-col gap-4 pt-1">
             <h2
-              class="gradient-purple py-4 px-5 rounded-2xl text-white font-medium mb-4"
+              class="gradient-purple py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
             >
               {{ $t("evaluation.bias_metrics") }}
             </h2>
 
-            <p class="text-white/70 leading-relaxed">
+            <p class="text-theme-text/70 leading-relaxed">
               {{ $t("evaluation.bias_metrics_explanation") }}
             </p>
 
@@ -161,7 +161,9 @@ defineEmits(["select-evaluator", "back"]);
             />
 
             <!-- Informational footnotes -->
-            <div class="mt-1 flex flex-col gap-1 text-white/70 leading-relaxed">
+            <div
+              class="mt-1 flex flex-col gap-1 text-theme-text/70 leading-relaxed"
+            >
               <p>{{ $t("evaluation.footnotes.strict") }}</p>
               <p>{{ $t("evaluation.footnotes.generous") }}</p>
               <p>{{ $t("evaluation.footnotes.balanced") }}</p>
@@ -173,7 +175,7 @@ defineEmits(["select-evaluator", "back"]);
       <div class="lg:col-span-5">
         <BaseBox class="p-6 border border-[#06B6D46B] rounded-2xl">
           <h2
-            class="gradient-purple py-4 px-5 rounded-2xl text-white font-medium mb-4"
+            class="gradient-purple py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
           >
             {{ $t("evaluation.evaluators") }}
           </h2>

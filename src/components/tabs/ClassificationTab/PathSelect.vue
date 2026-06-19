@@ -44,20 +44,20 @@ const model = computed({
       <template #trigger="{ selectedOption }">
         <!-- Selected Item content on the right (in RTL) -->
         <div v-if="selectedOption" class="text-start">
-          <h4 class="text-white text-sm font-medium">
+          <h4 class="text-theme-text text-sm font-medium">
             {{ selectedOption.title }}
           </h4>
-          <p class="text-xs text-white/60 mt-0.5 leading-relaxed">
+          <p class="text-xs text-theme-text/60 mt-0.5 leading-relaxed">
             {{ selectedOption.subtitle }}
           </p>
         </div>
 
         <!-- Arrow toggle button on the left (in RTL) -->
         <span
-          class="w-6 h-6 rounded-md bg-[#D9D9D9]/16 flex items-center justify-center text-white"
+          class="w-6 h-6 rounded-md bg-[#D9D9D9]/16 flex items-center justify-center text-theme-text"
         >
           <svg
-            class="w-4 h-4 text-white/70"
+            class="w-4 h-4 text-theme-text/70"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -77,10 +77,10 @@ const model = computed({
         <li
           class="cursor-pointer py-5 px-[14px] border-b border-[#A9A9A9] last:border-b-0 overflow-hidden"
         >
-          <h4 class="font-semibold text-white text-sm truncate">
+          <h4 class="font-semibold text-theme-text text-sm truncate">
             {{ option.title }}
           </h4>
-          <p class="text-xs text-white/60 mt-1 truncate">
+          <p class="text-xs text-theme-text/60 mt-1 truncate">
             {{ option.subtitle }}
           </p>
         </li>

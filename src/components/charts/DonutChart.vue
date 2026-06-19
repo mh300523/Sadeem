@@ -2,6 +2,9 @@
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import BaseChart from "./BaseChart.vue";
+import { useTheme } from "@/composables/useTheme";
+
+const { isDark } = useTheme();
 
 const props = defineProps({
   series: {
@@ -50,14 +53,14 @@ const chartOptions = computed(() => {
             name: {
               show: true,
               fontSize: "12px",
-              color: "rgba(255,255,255,0.76)",
+              color: isDark.value ? "rgba(255,255,255,0.76)" : "#64748b",
               offsetY: 20,
             },
             value: {
               show: true,
               fontSize: "20px",
               fontWeight: "700",
-              color: "#ffffff",
+              color: isDark.value ? "#ffffff" : "#0f172a",
               offsetY: -15,
               formatter: (val) => `${val}%`,
             },
@@ -65,7 +68,7 @@ const chartOptions = computed(() => {
               show: true,
               showAlways: true,
               label: t(props.totalLabelKey),
-              color: "rgba(255,255,255,0.76)",
+              color: isDark.value ? "rgba(255,255,255,0.76)" : "#64748b",
               fontSize: "12px",
               formatter: () => props.totalValue,
             },
@@ -88,8 +91,8 @@ const chartOptions = computed(() => {
       :key="idx"
       class="flex items-center justify-between gap-2 mb-2.5 last:mb-0"
     >
-      <span class="text-xs text-white/70">{{ $t(lbl) }}</span>
-      <span class="text-white font-medium">{{ series[idx] }}%</span>
+      <span class="text-xs text-theme-text/70">{{ $t(lbl) }}</span>
+      <span class="text-theme-text font-medium">{{ series[idx] }}%</span>
     </li>
   </ul>
 </template>

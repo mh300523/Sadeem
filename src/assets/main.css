@@ -1,6 +1,21 @@
 @import "tailwindcss";
 @import "./base.css";
 
+/* Main content area - theme-aware background */
+.main-content-bg {
+  background-image:
+    var(--main-gradient-rtl), url("@/assets/images/Header-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: background-image 0.5s ease;
+}
+html[dir="ltr"] .main-content-bg {
+  background-image:
+    var(--main-gradient-ltr), url("@/assets/images/Header-bg.png");
+}
+
 .sidebar-container {
   z-index: 1;
   position: relative;
@@ -41,7 +56,7 @@ html[dir="ltr"] .sidebar-container::before {
   pointer-events: none;
 }
 .gradient-border {
-  @apply rtl:before:bg-linear-to-bl ltr:before:bg-linear-to-br before:from-[#895AF7]/50 before:to-[#06B6D4]/0 rounded-[14px];
+  @apply rtl:before:bg-linear-to-bl ltr:before:bg-linear-to-br before:from-[var(--gradient-border-from)] before:to-[var(--gradient-border-to)] rounded-[14px];
 }
 .primary-text-gradient {
   @apply text-transparent bg-clip-text rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#8B5CF6] max-w-fit;
@@ -57,10 +72,10 @@ html[dir="ltr"] .sidebar-container::before {
   @apply rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#7F4FFF];
 }
 .gradient-sky-blue {
-  @apply rtl:bg-linear-to-bl ltr:bg-linear-to-br from-[#895AF7]/12 via-[#06B6D4]/5 to-[#503591]/0;
+  @apply rtl:bg-linear-to-bl ltr:bg-linear-to-br from-[var(--gradient-sky-from)] via-[var(--gradient-sky-via)] to-[var(--gradient-sky-to)];
 }
 .white-border {
-  @apply border border-white/10;
+  @apply border border-theme-border/10;
 }
 .sidebar-gradient-title {
   @apply uppercase tracking-wider font-bold text-xl mb-4;

@@ -45,10 +45,12 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
       >
         <div class="mb-4">
           <h3
-            class="text-white text-base md:text-xl font-bold flex items-center gap-2"
+            class="text-theme-text text-base md:text-xl font-bold flex items-center gap-2"
           >
             {{ businessData.interactiveExperience.title }}
-            <span class="text-white/50 text-xs font-normal leading-relaxed">
+            <span
+              class="text-theme-text/50 text-xs font-normal leading-relaxed"
+            >
               {{ businessData.interactiveExperience.subtitle }}
             </span>
           </h3>
@@ -66,7 +68,7 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
             >
               {{ stat.value }}
             </div>
-            <h4 class="text-white/76 text-xs md:text-sm leading-normal">
+            <h4 class="text-theme-text/76 text-xs md:text-sm leading-normal">
               {{ stat.label }}
             </h4>
           </div>
@@ -75,13 +77,13 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
         <!-- Action Buttons -->
         <div class="flex flex-wrap gap-4 justify-end">
           <BaseButton
-            class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#FF6B35] to-[#FF8E53] text-white"
+            class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#FF6B35] to-[#FF8E53] text-theme-text"
           >
             {{ businessData.interactiveExperience.buttons?.brochure }}
           </BaseButton>
 
           <BaseButton
-            class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#018AAF] to-[#7F4FFF] text-white"
+            class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#018AAF] to-[#7F4FFF] text-theme-text"
           >
             {{ businessData.interactiveExperience.buttons?.details }}
           </BaseButton>
@@ -93,11 +95,11 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
         class="white-border rounded-2xl backdrop-blur-xl mt-6 overflow-hidden"
       >
         <!-- Banner Header -->
-        <div class="py-4 px-6 gradient-purple text-white">
+        <div class="py-4 px-6 gradient-purple text-theme-text">
           <h3 class="text-base md:text-xl font-bold leading-normal mb-2">
             {{ businessData.canvas.title }}
           </h3>
-          <p class="text-white/80 text-xs">
+          <p class="text-theme-text/80 text-xs">
             {{ businessData.canvas.subtitle }}
           </p>
         </div>
@@ -114,12 +116,12 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
             </div>
             <div class="">
               <h4
-                class="text-white text-sm md:text-base font-medium leading-none mb-2"
+                class="text-theme-text text-sm md:text-base font-medium leading-none mb-2"
               >
                 {{ item.title }}
               </h4>
               <p
-                class="text-white/60 text-xs leading-relaxed text-justify whitespace-pre-line"
+                class="text-theme-text/60 text-xs leading-relaxed text-justify whitespace-pre-line"
               >
                 {{ item.content }}
               </p>

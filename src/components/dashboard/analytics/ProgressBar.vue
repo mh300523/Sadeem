@@ -43,7 +43,7 @@ const percentage = computed(() => {
 <template>
   <!-- ProgressBar Row -->
   <div class="flex items-center gap-3 mb-7 last:mb-0" :class="classes">
-    <h4 class="text-xs text-white/70 w-26 shrink-0" :class="titleClasses">
+    <h4 class="text-xs text-theme-text/70 w-26 shrink-0" :class="titleClasses">
       {{ label }}
     </h4>
 
@@ -60,7 +60,7 @@ const percentage = computed(() => {
       </div>
 
       <!-- Numeric value right side if not top labels -->
-      <span class="font-bold text-white">
+      <span class="font-bold text-theme-text">
         {{ valueText }}
       </span>
     </div>

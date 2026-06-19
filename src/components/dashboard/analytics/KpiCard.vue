@@ -57,12 +57,12 @@ const growthColorClass = computed(() => {
   <BaseAnalyticBox class="p-4 cursor-pointer" @click="$emit('select', id)">
     <!-- Header Row: Badge and Title -->
     <div class="flex justify-between items-center gap-2.5">
-      <h5 class="text-xs text-white/76">
+      <h5 class="text-xs text-theme-text/76">
         {{ title }}
       </h5>
       <span
         class="px-3 py-1.5 rounded-full text-xs"
-        :class="badgeColor ? badgeColor : 'text-white bg-white/10'"
+        :class="badgeColor ? badgeColor : 'text-theme-text bg-white/10'"
       >
         {{ badge }}
       </span>
@@ -70,7 +70,7 @@ const growthColorClass = computed(() => {
 
     <!-- Value Row: Main KPI reading -->
     <div class="my-2">
-      <span class="text-white text-3xl font-extrabold italic">
+      <span class="text-theme-text text-3xl font-extrabold italic">
         {{ value }}
       </span>
     </div>
@@ -83,7 +83,7 @@ const growthColorClass = computed(() => {
 
     <!-- Footer Row: Growth & Supporting Metric -->
     <div class="flex justify-between items-center mt-5">
-      <span class="text-xs text-white/76">
+      <span class="text-xs text-theme-text/76">
         {{ changeLabelKey }}
       </span>
       <span

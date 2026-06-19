@@ -71,7 +71,7 @@ const displayValue = computed(() => {
   >
     <label
       v-if="label"
-      class="text-white/76 uppercase whitespace-nowrap"
+      class="text-theme-text/76 uppercase whitespace-nowrap"
       :class="labelClasses"
     >
       {{ label }}
@@ -83,7 +83,7 @@ const displayValue = computed(() => {
         :class="
           buttonClass
             ? buttonClass
-            : ' bg-[#162239] border border-white/10 px-4 py-2 rounded-full'
+            : ' bg-theme-input border border-theme-input-border text-theme-input-text px-4 py-2 rounded-full'
         "
       >
         <slot
@@ -91,16 +91,16 @@ const displayValue = computed(() => {
           :selected-option="selectedOption"
           :display-value="displayValue"
         >
-          <span class="font-normal text-[#858585] truncate">
+          <span class="font-normal text-theme-input-placeholder truncate">
             {{ displayValue }}
           </span>
 
           <!-- Arrow toggle button on the left (in RTL) -->
           <span
-            class="select-arrow flex items-center justify-center text-white"
+            class="select-arrow flex items-center justify-center text-theme-text"
           >
             <svg
-              class="w-4 h-4 text-white shrink-0"
+              class="w-4 h-4 text-theme-text shrink-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -126,7 +126,7 @@ const displayValue = computed(() => {
           :class="
             optionsClass
               ? optionsClass
-              : 'rounded-xl bg-[#051E2E] border-white/10'
+              : 'rounded-xl bg-theme-card border-theme-card-border'
           "
         >
           <ListboxOption
@@ -144,13 +144,15 @@ const displayValue = computed(() => {
             >
               <li
                 :class="[
-                  active ? 'bg-[#FF6B35]/70 text-white' : 'text-white/80',
+                  active
+                    ? 'bg-[#FF6B35]/70 text-theme-text'
+                    : 'text-theme-text/80',
                   'cursor-pointer select-none py-2 px-4  transition-colors whitespace-nowrap',
                 ]"
               >
                 <span
                   :class="[
-                    selected ? 'font-meduim text-white' : 'font-normal',
+                    selected ? 'font-meduim text-theme-text' : 'font-normal',
                     'block truncate',
                   ]"
                 >

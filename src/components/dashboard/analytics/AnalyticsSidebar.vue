@@ -28,24 +28,24 @@ const emit = defineEmits(["update:activeScreen"]);
 
 <template>
   <aside class="lg:col-span-3">
-    <BaseBox class="border border-white/10 rounded-2xl py-6">
+    <BaseBox class="border border-theme-border/10 rounded-2xl py-6">
       <!-- Brand logo section -->
-      <div class="px-6 pb-[20px] border-b border-white/40 mb-4">
+      <div class="px-6 pb-[20px] border-b border-theme-border/40 mb-4">
         <h1 class="sidebar-gradient-title secondery-text-gradient">
           {{ $t("analytics.sidebar.brand_title") }}
         </h1>
-        <p class="text-white">
+        <p class="text-theme-text">
           {{ $t("analytics.sidebar.brand_subtitle") }}
         </p>
       </div>
 
       <!-- Navigation tabs -->
       <div class="px-6">
-        <ul class="divide-y divide-white/20">
+        <ul class="divide-y divide-theme-border/20">
           <li v-for="scrKey in Object.keys(screens)" :key="scrKey" class="py-4">
             <button
               @click="emit('update:activeScreen', scrKey)"
-              class="w-full flex justify-between items-center gap-3.5 cursor-pointer font-medium text-white text-base md:text-lg hover:text-[#FF6B35]"
+              class="w-full flex justify-between items-center gap-3.5 cursor-pointer font-medium text-theme-text text-base md:text-lg hover:text-[#FF6B35]"
             >
               <div class="flex items-center gap-2.5">
                 <span
@@ -81,10 +81,10 @@ const emit = defineEmits(["update:activeScreen"]);
           </h4>
 
           <div class="flex items-center justify-between mt-2">
-            <h5 class="text-xs text-white/76">
+            <h5 class="text-xs text-theme-text/76">
               {{ $t("analytics.total_platform_ideas") }}
             </h5>
-            <span class="text-white text-3xl font-extrabold italic">
+            <span class="text-theme-text text-3xl font-extrabold italic">
               {{ liveSignal.value }}
             </span>
           </div>
@@ -97,14 +97,14 @@ const emit = defineEmits(["update:activeScreen"]);
       <div class="px-6">
         <!-- Orange pill button-style header -->
         <h2
-          class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
+          class="gradient-orange py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
         >
           {{ $t("analytics.quick_actions") }}
         </h2>
         <BaseButton
           v-for="action in quickActions"
           :key="action.id"
-          class="w-full !py-4 !justify-between !rounded-2xl border border-white/10 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#1E293B]/60 to-[#1E293B]/30 backdrop-blur-xl text-white hover:translate-x-[-2px] mb-3"
+          class="w-full py-4! justify-between! rounded-2xl! border border-theme-border/10 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-theme-row-start to-theme-row-end backdrop-blur-xl text-theme-text hover:translate-x-[-2px] mb-3"
         >
           {{ $t(action.labelKey) }}
         </BaseButton>

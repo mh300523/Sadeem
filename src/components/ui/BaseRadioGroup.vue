@@ -46,7 +46,7 @@ defineProps({
           class="px-4.5 py-1.5 rounded-full text-xs md:text-sm font-medium cursor-pointer transition-all duration-300 focus:outline-none"
           :class="
             checked
-              ? 'bg-[#018AAF] text-white'
+              ? 'bg-[#018AAF] text-theme-text'
               : 'bg-[#018AAF]/16 text-[#33BCE1]'
           "
         >
@@ -67,13 +67,13 @@ defineProps({
         as="template"
       >
         <div
-          class="flex items-center gap-2.5 text-xs text-white cursor-pointer focus:outline-none"
+          class="flex items-center gap-2.5 text-xs text-theme-text cursor-pointer focus:outline-none"
         >
           <span
             class="w-5 h-5 rounded-sm flex items-center justify-center transition-all duration-300 border border-transparent"
             :class="
               checked
-                ? `${opt.activeClass} text-white`
+                ? `${opt.activeClass} text-theme-text`
                 : 'bg-[#D9D9D9]/16 text-transparent border-white/10 hover:border-white/20'
             "
           >

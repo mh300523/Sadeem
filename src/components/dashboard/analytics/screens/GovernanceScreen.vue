@@ -21,14 +21,14 @@ const props = defineProps({
       >
         <!-- Custom KPI cell -->
         <template #cell(kpiKey)="{ value }">
-          <span class="text-xs text-white/70">
+          <span class="text-xs text-theme-text/70">
             {{ $t(value) }}
           </span>
         </template>
 
         <!-- Custom value cell -->
         <template #cell(value)="{ value }">
-          <span class="text-white font-medium text-sm md:text-base">
+          <span class="text-theme-text font-medium text-sm md:text-base">
             {{ value }}
           </span>
         </template>

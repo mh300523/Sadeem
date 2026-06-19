@@ -40,12 +40,12 @@ const executionPlanOptions = [
           {{ project.title }}
         </h4>
         <span
-          class="px-3.5 py-1.5 rounded-full border border-[#009DFE] text-white text-sm bg-[#009DFE]/10"
+          class="px-3.5 py-1.5 rounded-full border border-[#009DFE] text-theme-text text-sm bg-[#009DFE]/10"
         >
           {{ project.status }}
         </span>
       </div>
-      <p class="text-white text-xs">
+      <p class="text-theme-text text-xs">
         {{ project.submitter }}
       </p>
     </div>
@@ -54,7 +54,7 @@ const executionPlanOptions = [
     <div class="flex flex-col items-end gap-3">
       <!-- Link Project Button -->
       <BaseButton
-        class="py-2 px-5 gradient-purple flex items-center gap-2 text-white w-fit"
+        class="py-2 px-5 gradient-purple flex items-center gap-2 text-theme-text w-fit"
         @click="emit('link-project', project)"
       >
         {{ $t("actions.link_idea_to_project") }}

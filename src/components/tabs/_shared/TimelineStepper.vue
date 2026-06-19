@@ -23,7 +23,7 @@ defineProps({
     <!-- Optional Title Header -->
     <h2
       v-if="title"
-      class="gradient-orange py-4 px-5 rounded-2xl text-white font-medium mb-4"
+      class="gradient-orange py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
     >
       {{ title }}
     </h2>
@@ -53,10 +53,10 @@ defineProps({
             <BaseBox
               class="step-card white-border relative z-10 rounded-xl p-3"
             >
-              <h4 class="mb-2 text-white text-sm md:text-base">
+              <h4 class="mb-2 text-theme-text text-sm md:text-base">
                 {{ step.title }}
               </h4>
-              <p class="text-white/50 text-xs md:text-sm">
+              <p class="text-theme-text/50 text-xs md:text-sm">
                 {{ step.description }}
               </p>
             </BaseBox>

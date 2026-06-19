@@ -3,7 +3,7 @@
     <label
       v-if="label"
       :for="inputId"
-      class="block text-xs font-bold mb-1.5 text-white/95 transition-colors duration-300 text-right"
+      class="block text-xs font-bold mb-1.5 text-theme-text/95 transition-colors duration-300 text-right"
     >
       <span v-if="required" class="text-red-500">*</span>
       {{ label }}
@@ -12,7 +12,7 @@
       <!-- Prefix Slot -->
       <div
         v-if="$slots.prefix"
-        class="absolute inset-s-3 top-1/2 -translate-y-1/2 text-white/40 z-10 flex items-center justify-center"
+        class="absolute inset-s-3 top-1/2 -translate-y-1/2 text-theme-text/40 z-10 flex items-center justify-center"
         :class="{
           'pointer-events-none': [
             'date',
@@ -49,7 +49,7 @@
       <!-- Suffix Slot -->
       <div
         v-if="$slots.suffix"
-        class="absolute inset-e-3 top-1/2 -translate-y-1/2 text-white/40 z-10 flex items-center justify-center"
+        class="absolute inset-e-3 top-1/2 -translate-y-1/2 text-theme-text/40 z-10 flex items-center justify-center"
         :class="{
           'pointer-events-none': [
             'date',
@@ -69,7 +69,7 @@
       {{ error }}
     </p>
     <!-- Hint Text -->
-    <p v-if="hint && !error" class="mt-1 text-[11px] text-white/40 text-right">
+    <p v-if="hint && !error" class="mt-1 text-[11px] text-theme-text/40 text-right">
       {{ hint }}
     </p>
   </div>
@@ -152,7 +152,7 @@ const inputClasses = computed(() => {
   }
 
   const baseClasses =
-    "w-full block bg-[#051E2E] text-[#858585] placeholder-[#858585] focus:outline-none transition-all duration-300 disabled:cursor-not-allowed peer border";
+    "w-full block bg-theme-input text-theme-input-text placeholder-theme-input-placeholder focus:outline-none transition-all duration-300 disabled:cursor-not-allowed peer border";
 
   const sizeClasses = {
     sm: "px-3 py-1.5 text-xs rounded-lg",
@@ -162,7 +162,7 @@ const inputClasses = computed(() => {
 
   const stateClasses = props.error
     ? "border-red-500/30 focus:border-red-500"
-    : "border-white/10 focus:border-[#05D989]/50";
+    : "border-theme-input-border focus:border-[#05D989]/50";
 
   const phoneFieldClasses = props.phoneField ? "rounded-r-none" : "";
   const placeholderClasses = "placeholder:text-right";

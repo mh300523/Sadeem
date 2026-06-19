@@ -16,11 +16,11 @@ defineProps({
 <template>
   <BaseBox type="glass" class="p-5 mb-4 :last:mb-0">
     <h3
-      class="text-white font-bold mb-3 pb-4 border-bottom-gradient relative rtl:after:bg-linear-to-l ltr:after:bg-linear-to-r after:from-[#434343] after:to-[#A9A9A900]"
+      class="text-theme-text font-bold mb-3 pb-4 border-bottom-gradient relative rtl:after:bg-linear-to-l ltr:after:bg-linear-to-r after:from-[#434343] after:to-[#A9A9A900]"
     >
       {{ analyticType }}
     </h3>
-    <p class="text-white/70">
+    <p class="text-theme-text/70">
       {{ analyticContent }}
     </p>
   </BaseBox>

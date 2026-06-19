@@ -32,7 +32,7 @@ const emit = defineEmits(["close", "confirm"]);
     <div class="p-6">
       <div class="pb-4">
         <div class="mb-4">
-          <h4 class="text-white text-base font-medium mb-2">
+          <h4 class="text-theme-text text-base font-medium mb-2">
             {{ $t("current_idea") }}
           </h4>
           <p
@@ -43,7 +43,7 @@ const emit = defineEmits(["close", "confirm"]);
         </div>
 
         <div>
-          <h4 class="text-white text-base font-medium mb-2">
+          <h4 class="text-theme-text text-base font-medium mb-2">
             {{ $t("selected_idea") }}
           </h4>
           <p
@@ -57,7 +57,7 @@ const emit = defineEmits(["close", "confirm"]);
         <div class="flex flex-col sm:flex-row gap-3 mt-10">
           <BaseButton
             @click="emit('confirm')"
-            class="flex-1 font-bold text-white rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#05D989] to-[#018AAF]"
+            class="flex-1 font-bold text-theme-text rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#05D989] to-[#018AAF]"
           >
             {{ $t("actions.confirm_merge") }}
           </BaseButton>

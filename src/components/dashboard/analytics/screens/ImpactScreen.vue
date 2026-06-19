@@ -21,14 +21,14 @@ defineProps({
       >
         <!-- Custom indicator key cell -->
         <template #cell(indicatorKey)="{ value }">
-          <span class="text-xs text-white/70">
+          <span class="text-xs text-theme-text/70">
             {{ $t(value) }}
           </span>
         </template>
 
         <!-- Custom value cell -->
         <template #cell(value)="{ value }">
-          <span class="text-white font-medium text-sm md:text-base">
+          <span class="text-theme-text font-medium text-sm md:text-base">
             {{ value }}
           </span>
         </template>
@@ -56,14 +56,14 @@ defineProps({
       >
         <!-- Custom indicator key cell -->
         <template #cell(indicatorKey)="{ value }">
-          <span class="text-xs text-white/70">
+          <span class="text-xs text-theme-text/70">
             {{ $t(value) }}
           </span>
         </template>
 
         <!-- Custom value cell -->
         <template #cell(value)="{ value }">
-          <span class="text-white font-medium text-sm md:text-base">
+          <span class="text-theme-text font-medium text-sm md:text-base">
             {{ value }}
           </span>
         </template>
@@ -105,21 +105,21 @@ defineProps({
       >
         <!-- Custom theme cell -->
         <template #cell(theme)="{ value }">
-          <span class="text-xs text-white/70">
+          <span class="text-xs text-theme-text/70">
             {{ value }}
           </span>
         </template>
 
         <!-- Custom ideas cell -->
         <template #cell(ideas)="{ value }">
-          <span class="text-white font-bold text-lg md:text-xl">
+          <span class="text-theme-text font-bold text-lg md:text-xl">
             {{ value }}
           </span>
         </template>
 
         <!-- Custom score cell -->
         <template #cell(score)="{ value }">
-          <span class="text-white font-bold text-lg md:text-xl">
+          <span class="text-theme-text font-bold text-lg md:text-xl">
             {{ value }}
           </span>
         </template>

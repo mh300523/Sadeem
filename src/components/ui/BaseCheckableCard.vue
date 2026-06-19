@@ -43,7 +43,7 @@ const toggleSelection = () => {
           class="w-6 h-6 mt-1 shrink-0 rounded-sm flex items-center justify-center transition-all duration-300"
           :class="
             modelValue
-              ? 'bg-[#10B981] text-white'
+              ? 'bg-[#10B981] text-theme-text'
               : 'bg-[#D9D9D9]/20 text-transparent'
           "
         >
@@ -61,7 +61,7 @@ const toggleSelection = () => {
           </svg>
         </span>
 
-        <h4 class="text-white md:text-base font-bold">
+        <h4 class="text-theme-text md:text-base font-bold">
           {{ title }}
         </h4>
       </div>
@@ -74,7 +74,7 @@ const toggleSelection = () => {
         {{ badgeText }}
       </span>
     </div>
-    <p v-if="subtitle" class="text-white/70 leading-relaxed mt-0.5 ms-10">
+    <p v-if="subtitle" class="text-theme-text/70 leading-relaxed mt-0.5 ms-10">
       {{ subtitle }}
     </p>
     <!-- Slot for nested content (e.g. sub-checklists) -->

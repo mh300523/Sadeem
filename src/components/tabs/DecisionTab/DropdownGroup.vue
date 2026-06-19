@@ -29,7 +29,10 @@ const resolveOptions = (options, key) => {
 <template>
   <div class="mb-6">
     <!-- Group Title -->
-    <h4 v-if="label" class="text-white text-xs font-medium tracking-wide mb-3">
+    <h4
+      v-if="label"
+      class="text-theme-text text-xs font-medium tracking-wide mb-3"
+    >
       {{ label }}
     </h4>
 

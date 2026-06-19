@@ -29,11 +29,13 @@ defineProps({
     >
       <h3
         class="text-base md:text-lg font-bold transition-colors duration-300 mb-4"
-        :class="modelValue === option.key ? 'text-[#46E1E6]' : 'text-white'"
+        :class="
+          modelValue === option.key ? 'text-[#46E1E6]' : 'text-theme-text'
+        "
       >
         {{ option.label }}
       </h3>
-      <p class="text-white/70 leading-normal text-xs md:text-sm">
+      <p class="text-theme-text/70 leading-normal text-xs md:text-sm">
         {{ option.description }}
       </p>
     </BaseBox>

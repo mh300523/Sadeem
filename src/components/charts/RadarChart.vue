@@ -1,6 +1,9 @@
 <script setup>
 import { computed } from "vue";
 import BaseChart from "./BaseChart.vue";
+import { useTheme } from "@/composables/useTheme";
+
+const { isDark } = useTheme();
 
 const props = defineProps({
   series: {
@@ -90,7 +93,7 @@ const chartOptions = computed(() => ({
     labels: {
       show: true,
       style: {
-        colors: "rgba(255, 255, 255, 0.7)",
+        colors: isDark.value ? "rgba(255, 255, 255, 0.7)" : "#0f172a",
         fontSize: "10px",
       },
     },
@@ -102,8 +105,8 @@ const chartOptions = computed(() => ({
   plotOptions: {
     radar: {
       polygons: {
-        strokeColors: "rgba(255, 255, 255, 0.06)",
-        connectorColors: "rgba(255, 255, 255, 0.06)",
+        strokeColors: isDark.value ? "rgba(255, 255, 255, 0.06)" : "rgba(15, 23, 42, 0.08)",
+        connectorColors: isDark.value ? "rgba(255, 255, 255, 0.06)" : "rgba(15, 23, 42, 0.08)",
         fill: {
           colors: ["transparent"],
         },
@@ -116,7 +119,7 @@ const chartOptions = computed(() => ({
     horizontalAlign: "center",
     fontSize: "10px",
     labels: {
-      colors: "rgba(255, 255, 255, 0.7)",
+      colors: isDark.value ? "rgba(255, 255, 255, 0.7)" : "#0f172a",
       useSeriesColors: false,
     },
     markers: {
