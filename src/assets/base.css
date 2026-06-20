@@ -194,17 +194,3 @@ select,
 textarea {
   transition: 0.3s ease-in-out;
 }
-
-html[dir="ltr"] {
-  --gradient-angle-multiplier: 1;
-}
-
-html[dir="rtl"] {
-  --gradient-angle-multiplier: -1;
-}
-
-.dynamic-gradient-angle {
-  --resolved-angle: calc(
-    180deg + (var(--gradient-angle) - 180deg) * var(--gradient-angle-multiplier)
-  );
-}

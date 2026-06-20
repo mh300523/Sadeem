@@ -13,7 +13,7 @@ const emit = defineEmits(["merge-request", "view-idea"]);
 </script>
 
 <template>
-  <div class="p-6 !rounded-[20px] gradient-border">
+  <div class="p-4 sm:p-6 rounded-[20px]! gradient-border">
     <!-- Top Row: Score & ID -->
     <div class="flex items-center gap-2">
       <h3 class="text-theme-text text-sm md:text-base font-bold">
