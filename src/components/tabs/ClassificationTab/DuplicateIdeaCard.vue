@@ -47,7 +47,7 @@ const toggleOptions = [
         </span>
       </div>
       <h4
-        class="primary-text-gradient text-sm md:text-base font-bold leading-normal my-2"
+        class="text-gradient-primary text-sm md:text-base font-bold leading-normal my-2"
       >
         {{ idea.title }}
       </h4>
@@ -62,7 +62,7 @@ const toggleOptions = [
     <div class="flex flex-col lg:items-end gap-3">
       <!-- View Idea Button -->
       <BaseButton
-        class="gradient-purple flex items-center gap-2 text-theme-text w-fit"
+        class="bg-gradient-primary flex items-center gap-2 text-theme-text w-fit"
         @click="emit('view-idea', idea)"
       >
         {{ $t("actions.view_idea") }}

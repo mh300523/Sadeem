@@ -12,7 +12,11 @@ const languages = ["ar", "en"];
     <button
       type="button"
       @click="isOpen = !isOpen"
+      @keydown.escape="isOpen = false"
       class="flex items-center gap-1 bg-white rounded-full py-2 px-3 shadow-md border border-[#a0a0a0] text-[#0d1e3e] font-semibold cursor-pointer"
+      aria-haspopup="listbox"
+      :aria-expanded="isOpen"
+      :aria-label="$t('header.select_language')"
     >
       <!-- Fixed Globe Icon -->
       <svg
@@ -57,12 +61,15 @@ const languages = ["ar", "en"];
     <!-- Dropdown Menu -->
     <div
       v-show="isOpen"
+      role="listbox"
       class="absolute top-full inset-s-0 mt-1 bg-white rounded-xl shadow-lg w-32 overflow-hidden z-50 border border-gray-100 text-[#0d1e3e] font-semibold"
     >
       <button
         v-for="code in languages"
         :key="code"
         type="button"
+        role="option"
+        :aria-selected="locale === code"
         @click="
           locale = code;
           isOpen = false;

@@ -36,7 +36,7 @@ const emit = defineEmits(["close"]);
 
     <!-- Header Gradient capsule -->
     <div
-      class="gradient-purple flex items-center justify-between px-4 py-4.5 rounded-t-[20px]"
+      class="bg-gradient-primary flex items-center justify-between px-4 py-4.5 rounded-t-[20px]"
     >
       <!--  Title -->
       <h3 class="text-theme-text font-bold">

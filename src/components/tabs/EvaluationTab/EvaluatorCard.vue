@@ -36,7 +36,7 @@ defineEmits(["click"]);
     <!-- Rating data stats -->
     <ul class="text-[10px] text-theme-text/50">
       <li class="flex items-center gap-2">
-        <span class="text-theme-text-70">{{
+        <span class="text-theme-text/70">{{
           $t("evaluation.evaluator_average_rating")
         }}</span>
         <span class="text-theme-text font-bold text-xl">{{
@@ -44,7 +44,7 @@ defineEmits(["click"]);
         }}</span>
       </li>
       <li class="flex items-center gap-2">
-        <span class="text-theme-text-70">{{
+        <span class="text-theme-text/70">{{
           $t("evaluation.team_average")
         }}</span>
         <span class="text-theme-text font-bold text-xl">{{
@@ -62,7 +62,7 @@ defineEmits(["click"]);
 
     <!-- Mini progress bar -->
     <span
-      class="inline-flex items-center w-full h-4 p-1 bg-[#1A2B40] rounded-full overflow-hidden mt-1 shadow-[0_6px_6px_rgba(0,0,0,0.2)]"
+      class="inline-flex items-center w-full h-4 p-1 bg-theme-input border border-theme-input-border rounded-full overflow-hidden mt-1 shadow-[0_6px_6px_rgba(0,0,0,0.2)]"
     >
       <span
         class="inline-block h-full rounded-full"

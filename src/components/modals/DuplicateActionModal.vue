@@ -54,7 +54,7 @@ const emit = defineEmits([
           <!-- Button 3 -->
           <BaseButton
             @click="emit('send-notification')"
-            class="py-3.5! font-bold text-[#94A3B8] bg-white/10 border border-white/20"
+            class="py-3.5! font-bold text-theme-neutral-text bg-theme-neutral-bg border border-theme-neutral-border"
           >
             {{ $t("actions.send_notification") }}
           </BaseButton>

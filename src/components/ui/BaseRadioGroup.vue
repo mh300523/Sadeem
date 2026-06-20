@@ -46,8 +46,8 @@ defineProps({
           class="px-4.5 py-1.5 rounded-full text-xs md:text-sm font-medium cursor-pointer transition-all duration-300 focus:outline-none"
           :class="
             checked
-              ? 'bg-[#018AAF] text-theme-text'
-              : 'bg-[#018AAF]/16 text-[#33BCE1]'
+              ? 'bg-theme-accent-primary-bg border border-theme-accent-primary text-theme-accent-primary font-bold shadow-xs'
+              : 'bg-theme-card/40 border border-theme-border/20 text-theme-text/70 hover:border-theme-accent-primary hover:text-theme-accent-primary'
           "
         >
           <slot name="label" :option="opt" :checked="checked">
@@ -74,7 +74,7 @@ defineProps({
             :class="
               checked
                 ? `${opt.activeClass} text-theme-text`
-                : 'bg-[#D9D9D9]/16 text-transparent border-white/10 hover:border-white/20'
+                : 'bg-theme-text/10 text-transparent border border-theme-border/30 hover:border-theme-accent-primary/50'
             "
           >
             <svg

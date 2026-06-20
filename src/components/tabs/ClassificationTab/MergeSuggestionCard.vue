@@ -29,7 +29,7 @@ const emit = defineEmits(["merge-request", "view-idea"]);
     <!-- Center content -->
     <div class="flex-1 flex flex-col gap-1 py-1">
       <h4
-        class="primary-text-gradient text-xs md:text-base font-bold leading-relaxed line-clamp-2"
+        class="text-gradient-primary text-xs md:text-base font-bold leading-relaxed line-clamp-2"
       >
         {{ idea.title }}
       </h4>
@@ -42,9 +42,8 @@ const emit = defineEmits(["merge-request", "view-idea"]);
     <div
       class="flex flex-col md:flex-row items-center justify-center gap-2 pt-2"
     >
-      <!-- View Idea Button -->
       <BaseButton
-        class="gradient-purple flex items-center gap-2 text-theme-text text-xs! w-full md:w-auto"
+        class="bg-gradient-primary flex items-center gap-2 text-theme-text text-xs! w-full md:w-auto"
         @click="emit('view-idea', idea)"
       >
         {{ $t("actions.view_idea") }}

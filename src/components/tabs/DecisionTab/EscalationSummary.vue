@@ -32,7 +32,7 @@ defineProps({
       </h2>
       <div
         v-if="infoText"
-        class="bg-[#06B6D4]/10 border border-dashed border-[#06B6D4] px-4 py-2.5 rounded-xl text-[#06B6D4] text-xs font-semibold w-fit"
+        class="bg-theme-accent-primary-bg border border-dashed border-theme-accent-primary px-4 py-2.5 rounded-xl text-theme-accent-primary text-xs font-semibold w-fit"
       >
         {{ infoText }}
       </div>
@@ -43,7 +43,7 @@ defineProps({
       <div
         v-for="card in cards"
         :key="card.title"
-        class="border border-white/10 bg-[#061E2E]/40 p-5 rounded-[20px] flex flex-col gap-2"
+        class="border border-theme-card-border bg-theme-card/40 p-5 rounded-[20px] flex flex-col gap-2"
       >
         <h3 class="text-theme-text">
           {{ card.title }}
@@ -60,7 +60,7 @@ defineProps({
         {{ recTitle }}
       </h2>
       <div
-        class="border border-white/5 bg-[#061E2E]/40 p-5 rounded-[20px] flex flex-col gap-2"
+        class="border border-theme-card-border bg-theme-card/40 p-5 rounded-[20px] flex flex-col gap-2"
       >
         <h3 class="text-theme-text">
           {{ recCard.title }}

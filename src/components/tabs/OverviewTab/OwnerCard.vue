@@ -14,7 +14,7 @@ defineProps({
   >
     <!-- Presenter Info text on the Right -->
     <div class="">
-      <h4 class="text-theme-text-50 text-xs mb-0.5">
+      <h4 class="text-theme-text/50 text-xs mb-0.5">
         {{ data.label }}
       </h4>
       <p class="text-theme-text text-xl font-bold">

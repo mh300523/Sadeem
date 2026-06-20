@@ -21,11 +21,11 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
     <!-- Sidebar Column (will render on the right in RTL, and left in LTR) -->
     <div class="lg:col-span-3">
       <BaseBox
-        class="sidebar-container relative px-[14px] py-5 white-border rounded-2xl"
+        class="sidebar-robot-panel relative px-[14px] py-5 border-subtle rounded-2xl"
       >
         <!-- Space Card -->
 
-        <h2 class="sidebar-gradient-title secondery-text-gradient">
+        <h2 class="panel-title text-gradient-secondary">
           {{ sidebarData.title || "مشروع ابتكاري متقدم..." }}
         </h2>
 
@@ -41,7 +41,7 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
     <div class="lg:col-span-9">
       <!-- Interactive Experience Card -->
       <div
-        class="white-border rounded-2xl p-4 sm:p-6 bg-[url('@/assets/images/storytab-side-bg.png')] bg-cover bg-center bg-no-repeat"
+        class="border-subtle rounded-2xl p-4 sm:p-6 bg-[url('@/assets/images/storytab-side-bg.png')] bg-cover bg-center bg-no-repeat"
       >
         <div class="mb-4">
           <h3
@@ -61,10 +61,10 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
           <div
             v-for="(stat, idx) in businessData.interactiveExperience.stats"
             :key="idx"
-            class="gradient-border p-2 lg:p-4 gradient-sky-blue backdrop-blur-xl"
+            class="gradient-border p-2 lg:p-4 bg-gradient-surface backdrop-blur-xl"
           >
             <div
-              class="text-transparent bg-clip-text gradient-purple text-xl lg:text-3xl font-extrabold mb-1 italic"
+              class="text-transparent bg-clip-text bg-gradient-primary text-xl lg:text-3xl font-extrabold mb-1 italic"
             >
               {{ stat.value }}
             </div>
@@ -92,10 +92,10 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
 
       <!-- Business Model Canvas Section -->
       <div
-        class="white-border rounded-2xl backdrop-blur-xl mt-6 overflow-hidden"
+        class="border-subtle rounded-2xl backdrop-blur-xl mt-6 overflow-hidden"
       >
         <!-- Banner Header -->
-        <div class="py-4 px-6 gradient-purple text-theme-text">
+        <div class="py-4 px-6 bg-gradient-primary text-theme-text">
           <h3 class="text-base md:text-xl font-bold leading-normal mb-2">
             {{ businessData.canvas.title }}
           </h3>

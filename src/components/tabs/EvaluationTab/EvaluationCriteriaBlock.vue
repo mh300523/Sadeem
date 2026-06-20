@@ -42,7 +42,7 @@ defineEmits(["reset-criterion"]);
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
       <!-- Center: 8 Criteria sliders (Data-driven EvaluationCriteria!) -->
       <div class="lg:col-span-7">
-        <BaseBox class="p-4 sm:p-6 border border-[#06B6D46B] rounded-2xl">
+        <BaseBox class="p-4 sm:p-6 border border-theme-accent-primary/42 rounded-2xl">
           <!-- Criteria sliders wrapper list -->
           <div class="">
             <EvaluationCriterion
@@ -60,9 +60,9 @@ defineEmits(["reset-criterion"]);
 
       <!-- Left card: Radar spider map & AI analysis results -->
       <div class="lg:col-span-5">
-        <BaseBox class="p-4 sm:p-6 border border-[#06B6D46B] rounded-2xl">
+        <BaseBox class="p-4 sm:p-6 border border-theme-accent-primary/42 rounded-2xl">
           <h3
-            class="text-theme-text text-sm md:text-base font-bold border-b border-white/10 pb-2"
+            class="text-theme-text text-sm md:text-base font-bold border-b border-theme-border/20 pb-2"
           >
             {{ $t("evaluation.radar_chart_title") }}
           </h3>
@@ -77,7 +77,7 @@ defineEmits(["reset-criterion"]);
           <!-- AI Analysis insights panel -->
           <div class="mt-2">
             <h2
-              class="gradient-purple py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
+              class="bg-gradient-primary py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
             >
               {{ $t("evaluation.ai_analysis") }}
             </h2>

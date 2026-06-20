@@ -26,11 +26,11 @@ function togglePlay() {
     <!-- Sidebar Column -->
     <div class="lg:col-span-3">
       <div
-        class="sidebar-container relative bg-[url('@/assets/images/storytab-side-bg.png')] bg-cover bg-center bg-no-repeat rounded-[16px] px-4 py-5"
+        class="sidebar-robot-panel relative bg-[url('@/assets/images/storytab-side-bg.png')] bg-cover bg-center bg-no-repeat rounded-[16px] px-4 py-5"
       >
         <!-- Audio Player Card -->
         <div class="rounded-[24px]">
-          <h2 class="sidebar-gradient-title secondery-text-gradient">
+          <h2 class="panel-title text-gradient-secondary">
             {{ storyData.intro?.label }}
           </h2>
 
@@ -96,17 +96,17 @@ function togglePlay() {
 
         <!-- Features checklist card -->
         <div class="">
-          <h4 class="sidebar-gradient-title secondery-text-gradient">
+          <h4 class="panel-title text-gradient-secondary">
             {{ sidebarData.features?.title }}
           </h4>
 
           <BaseTagList
             v-if="sidebarData.features?.items?.length"
             :items="sidebarData.features.items"
-            class="rtl:bg-linear-to-l ltr:bg-linear-to-r from-[#1E293B] to-[#1E293B] rounded-xl overflow-hidden p-[14px] backdrop-blur-xl border border-white/6"
+            class="rtl:bg-linear-to-l ltr:bg-linear-to-r from-theme-row-start to-theme-row-end rounded-xl overflow-hidden p-[14px] backdrop-blur-xl border-subtle"
             :classes="{
-              pill: 'bg-[#06B6D4]/10 text-theme-text/76',
-              icon: 'border-[#06B6D4] text-[#06B6D4]',
+              pill: 'bg-theme-accent-primary-bg text-theme-text/76',
+              icon: 'border-theme-accent-primary text-theme-accent-primary',
             }"
           />
         </div>
@@ -118,7 +118,7 @@ function togglePlay() {
       <BaseBox
         v-for="step in storyData.timeline"
         :key="step.id"
-        class="white-border p-4 sm:p-6 rounded-2xl mb-6 last:mb-0"
+        class="border-subtle p-4 sm:p-6 rounded-2xl mb-6 last:mb-0"
       >
         <!-- Step content card -->
         <div class="">
@@ -152,19 +152,19 @@ function togglePlay() {
           <!-- Sammy Card -->
           <div
             v-if="step.card && step.card.type === 'sammy'"
-            class="flex flex-col md:flex-row items-center gap-4.5 py-[30px] px-5 rounded-2xl white-border bg-[url('@/assets/images/sammy-card-bg.png')] bg-cover bg-center bg-no-repeat mt-4"
+            class="flex flex-col md:flex-row items-center gap-4.5 py-[30px] px-5 rounded-2xl border-subtle bg-[url('@/assets/images/sammy-card-bg.png')] bg-cover bg-center bg-no-repeat mt-4"
           >
             <div
-              class="w-[100px] h-[100px] rounded-full rtl:bg-linear-to-l ltr:bg-linear-to-r from-[#0A2A40] to-[#1B4D72] backdrop-blur-xl text-theme-text flex items-center justify-center shrink-0 font-bold text-[22px] shadow-md"
+              class="w-[100px] h-[100px] rounded-full rtl:bg-linear-to-l ltr:bg-linear-to-r from-[#0A2A40] to-[#1B4D72] backdrop-blur-xl text-white flex items-center justify-center shrink-0 font-bold text-[22px] shadow-md"
             >
               {{ step.card.avatar }}
             </div>
 
             <div class="flex-1 flex flex-col gap-1">
-              <h3 class="text-theme-text md:text-xl font-bold">
+              <h3 class="text-white md:text-xl font-bold">
                 {{ step.card.title }}
               </h3>
-              <p class="text-theme-text leading-relaxed md:text-base">
+              <p class="text-white leading-relaxed md:text-base">
                 {{ step.card.text }}
               </p>
             </div>
@@ -173,9 +173,9 @@ function togglePlay() {
           <!-- Quote Card -->
           <div
             v-else-if="step.card && step.card.type === 'quote'"
-            class="mb-6 p-7 rounded-2xl white-border bg-[url('@/assets/images/quote-bg.png')] bg-cover bg-top bg-no-repeat mt-2 text-center"
+            class="mb-6 p-7 rounded-2xl border-subtle bg-[url('@/assets/images/quote-bg.png')] bg-cover bg-top bg-no-repeat mt-2 text-center"
           >
-            <h3 class="text-theme-text text-lg md:text-xl font-bold">
+            <h3 class="text-white text-lg md:text-xl font-bold">
               {{ step.card.title }}
             </h3>
           </div>

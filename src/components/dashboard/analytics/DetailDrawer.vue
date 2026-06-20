@@ -48,13 +48,13 @@ function getMaxValue(bars) {
       ]"
     >
       <div
-        class="aside-container min-h-full gradient-border gradient-sky-blue bg-[#02142D] p-4 sm:p-6 rounded-e-none! rounded-s-[40px]!"
+        class="aside-container min-h-full gradient-border bg-gradient-surface bg-[#02142D] p-4 sm:p-6 rounded-e-none! rounded-s-[40px]!"
       >
         <!-- Head Section -->
         <div class="flex justify-between items-start gap-4 mb-5">
           <!-- Title & Subtitle (Right in RTL, Left in LTR) -->
           <div class="">
-            <h2 class="sidebar-gradient-title secondery-text-gradient">
+            <h2 class="panel-title text-gradient-secondary">
               {{ data?.title }}
             </h2>
             <p class="text-xs text-theme-text/70 leading-relaxed">

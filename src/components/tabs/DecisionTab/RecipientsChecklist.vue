@@ -25,7 +25,7 @@ defineProps({
 <template>
   <div class="mt-6">
     <div class="mb-4">
-      <h2 class="primary-text-gradient text-lg md:text-xl font-medium mb-2">
+      <h2 class="text-gradient-primary text-lg md:text-xl font-medium mb-2">
         {{ title }}
       </h2>
       <p

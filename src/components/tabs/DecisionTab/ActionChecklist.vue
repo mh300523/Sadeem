@@ -76,8 +76,8 @@ const toggleItem = (group, item) => {
               class="w-4 h-4 sm:w-5 sm:h-5 shrink-0 rounded-[4px] flex items-center justify-center transition-all duration-300"
               :class="
                 modelValue[item.id]
-                  ? 'bg-[#10B981] text-theme-text'
-                  : 'bg-white/5 text-transparent border border-white/10 group-hover/item:border-white/20'
+                  ? 'bg-[#10B981] text-white'
+                  : 'bg-theme-text/10 text-transparent border border-theme-border/30'
               "
             >
               <svg

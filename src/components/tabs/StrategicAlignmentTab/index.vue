@@ -40,13 +40,13 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
 
             <div class="flex items-center gap-2 shrink-0">
               <!-- Percentage badge -->
-              <span class="badge-percentage">
+              <span class="badge-gradient">
                 {{ strategy.percentage }}
               </span>
 
               <!-- Alignment status badge -->
               <span
-                class="gradient-border px-4 py-1 rounded-ful text-theme-text bg-[#06B6D4]/10"
+                class="gradient-border px-4 py-1 rounded-full text-theme-text bg-theme-accent-primary-bg"
               >
                 {{ strategy.alignmentType }}
               </span>
@@ -68,7 +68,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
               class="flex items-start gap-2.5 text-theme-text/76 text-xs md:text-sm leading-relaxed"
             >
               <span
-                class="w-1.5 h-1.5 rounded-full bg-[#06B6D4] shrink-0 mt-2"
+                class="w-1.5 h-1.5 rounded-full bg-theme-accent-primary shrink-0 mt-2"
               ></span>
               <span>{{ bullet }}</span>
             </li>
@@ -79,11 +79,11 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
     <!-- Sidebar Column (Right in RTL, Left in LTR) -->
     <div class="lg:col-span-3">
       <BaseBox
-        class="sidebar-container px-[14px] py-5 white-border rounded-2xl"
+        class="sidebar-robot-panel px-[14px] py-5 border-subtle rounded-2xl"
       >
         <!-- Intro Card with Astronaut -->
         <div class="mb-[14px]">
-          <h2 class="sidebar-gradient-title secondery-text-gradient">
+          <h2 class="panel-title text-gradient-secondary">
             {{ sidebarData.title }}
           </h2>
           <p class="text-[#7F8C8D] leading-relaxed text-justify">
@@ -100,7 +100,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
         >
           <template #card="{ step, index }">
             <div
-              class="gradient-border p-3 flex-1 gradient-sky-blue backdrop-blur-xl rounded-xl"
+              class="gradient-border p-3 flex-1 bg-gradient-surface backdrop-blur-xl rounded-xl"
             >
               <!-- Stat 1 with Percentage -->
               <template v-if="index === 0">
@@ -109,7 +109,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
                 </h4>
                 <div class="flex items-baseline gap-1.5">
                   <span
-                    class="text-transparent bg-clip-text gradient-purple text-3xl font-extrabold mb-1 italic"
+                    class="text-transparent bg-clip-text bg-gradient-primary text-3xl font-extrabold mb-1 italic"
                   >
                     {{ step.value }}
                   </span>
@@ -137,7 +137,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
         <!-- Final Summary Card -->
         <div class="">
           <h2
-            class="gradient-orange py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
+            class="bg-gradient-accent py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
           >
             {{ sidebarData.summary.title }}
           </h2>
@@ -158,7 +158,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
             <!-- Gaps Section -->
             <div
               v-if="sidebarData.summary.gaps"
-              class="border-t border-b border-[#06B6D4]/20 my-2 py-2"
+              class="border-t border-b border-theme-accent-primary/20 my-2 py-2"
             >
               <span class="text-theme-text text-xs md-text-sm">
                 {{ sidebarData.summary.gaps.label }}
@@ -170,7 +170,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
                   class="flex items-start gap-1.5 text-theme-text/50 text-[11px] md:text-xs leading-relaxed"
                 >
                   <span
-                    class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-1.5"
+                    class="w-1.5 h-1.5 rounded-full bg-theme-accent-primary shrink-0 mt-1.5"
                   ></span>
                   <span>{{ gap }}</span>
                 </li>
@@ -190,7 +190,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
                   class="flex items-start gap-1.5 text-theme-text/50 text-[11px] md:text-xs leading-relaxed"
                 >
                   <span
-                    class="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-1.5"
+                    class="w-1.5 h-1.5 rounded-full bg-theme-accent-primary shrink-0 mt-1.5"
                   ></span>
                   <span>{{ rec }}</span>
                 </li>

@@ -19,7 +19,7 @@ const { t } = useI18n();
 
 <template>
   <div
-    class="w-full flex flex-col items-center justify-center py-16 px-4 border border-white/5 bg-[#060e1d]/40 rounded-3xl backdrop-blur-xl shadow-2xl animate-fade-in"
+    class="w-full flex flex-col items-center justify-center py-16 px-4 border border-theme-card-border/50 bg-theme-card/40 rounded-3xl backdrop-blur-xl shadow-2xl animate-fade-in"
   >
     <div
       class="relative w-20 h-20 mb-6 flex items-center justify-center rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 shadow-[0_0_30px_rgba(137,90,247,0.2)]"

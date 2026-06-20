@@ -10,9 +10,9 @@ defineProps({
 </script>
 
 <template>
-  <BaseBox class="white-border rounded-2xl overflow-hidden">
+  <BaseBox class="border-subtle rounded-2xl overflow-hidden">
     <!-- Header Bar Title Banner -->
-    <div class="gradient-purple text-theme-text py-3 px-6 font-bold text-base">
+    <div class="bg-gradient-primary text-theme-text py-3 px-6 font-bold text-base">
       {{ data.label }}
     </div>
 

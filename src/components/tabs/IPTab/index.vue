@@ -30,7 +30,7 @@ const tabData = computed(() => props.data || {});
             {{ tabData.scoreCard.title }}
           </h3>
           <!-- Glow Score Badge -->
-          <span class="badge-percentage">
+          <span class="badge-gradient">
             {{ tabData.scoreCard.maxScore }} / {{ tabData.scoreCard.score }}
           </span>
         </div>
@@ -44,10 +44,10 @@ const tabData = computed(() => props.data || {});
       <!-- 2. IP Analysis Summary Box -->
       <div
         v-if="tabData.summaryCard"
-        class="rounded-[20px] border border-[#06B6D4]/42 overflow-hidden bg-[#1E293B]/40 backdrop-blur-xl"
+        class="rounded-[20px] border border-theme-accent-primary/42 overflow-hidden rtl:bg-linear-to-l ltr:bg-linear-to-r from-theme-row-start to-theme-row-end backdrop-blur-xl"
       >
         <!-- Banner Header (Cyan to Purple Gradient) -->
-        <div class="gradient-purple py-8 px-7 text-theme-text text-right">
+        <div class="bg-gradient-primary py-8 px-7 text-theme-text text-right">
           <h3 class="text-base md:text-xl font-bold leading-normal">
             {{ tabData.summaryCard.title }}
           </h3>
@@ -67,10 +67,10 @@ const tabData = computed(() => props.data || {});
     <!-- Left Sidebar Column (Second in HTML for RTL float-left layout) -->
     <div class="lg:col-span-3">
       <BaseBox
-        class="sidebar-container px-[14px] py-5 white-border rounded-2xl"
+        class="sidebar-robot-panel px-[14px] py-5 border-subtle rounded-2xl"
       >
         <!-- Sidebar Title with Astronaut background -->
-        <h4 class="sidebar-gradient-title secondery-text-gradient">
+        <h4 class="panel-title text-gradient-secondary">
           {{ tabData.sidebar.title }}
         </h4>
 
@@ -83,7 +83,7 @@ const tabData = computed(() => props.data || {});
         >
           <template #card="{ step }">
             <div
-              class="gradient-border p-4.5 flex-1 gradient-sky-blue backdrop-blur-xl rounded-xl"
+              class="gradient-border p-4.5 flex-1 bg-gradient-surface backdrop-blur-xl rounded-xl"
             >
               <span
                 class="text-xs md:text-sm font-semibold leading-none text-theme-text"
@@ -96,7 +96,7 @@ const tabData = computed(() => props.data || {});
         <!-- Legal Disclaimer Block -->
         <div class="">
           <h2
-            class="gradient-orange py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
+            class="bg-gradient-accent py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
           >
             <span>{{ tabData.sidebar.disclaimer.title }}</span>
           </h2>
@@ -114,11 +114,11 @@ const tabData = computed(() => props.data || {});
               class="flex flex-col gap-3 mt-2"
             >
               <!-- Download PDF -->
-              <BaseButton class="gradient-orange text-theme-text">
+              <BaseButton class="bg-gradient-accent text-theme-text">
                 {{ tabData.sidebar.actions.downloadReport }}
               </BaseButton>
               <!-- Request Review -->
-              <BaseButton class="gradient-purple text-theme-text">
+              <BaseButton class="bg-gradient-primary text-theme-text">
                 {{ tabData.sidebar.actions.requestReview }}
               </BaseButton>
             </div>

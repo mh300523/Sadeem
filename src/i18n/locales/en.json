@@ -1,7 +1,11 @@
 {
   "header": {
     "welcome_user": "Welcome Shams Hassan,",
-    "welcome_planet": "Welcome to Planet Sadeem!"
+    "welcome_planet": "Welcome to Planet Sadeem!",
+    "lock_session": "Lock session",
+    "theme_dark": "Switch to dark mode",
+    "theme_light": "Switch to light mode",
+    "select_language": "Select language"
   },
   "lang": {
     "ar": "العربية",
@@ -57,6 +61,7 @@
     "signature_greeting": "With best regards,",
     "signature_platform": "Sadeem Innovation Platform",
     "button_label": "Open Innovation Project Platform",
+    "empty_state_select_recipient": "Please select at least one recipient to preview notifications.",
     "duplicate": {
       "title": "Confirm Duplicate Action",
       "subject": "Subject: Thank you and appreciation for your innovative contribution",

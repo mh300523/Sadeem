@@ -57,13 +57,19 @@ export const useIdeaStore = defineStore("ideaStore", () => {
     detailsLoading.value = true;
     detailsError.value = null;
     try {
+      // If the page is reloaded, dashboard ideas might not be loaded.
+      // We load them first to ensure we can find and merge the base idea details.
+      if (ideas.value.length === 0) {
+        await fetchDashboard();
+      }
+
       const rawDetails = await ideaService.getIdeaDetails(id);
       const baseIdea = ideas.value.find((idea) => idea.id === id) || {};
 
       // Enrich details dynamically with base idea attributes
       const merged = {
         ...rawDetails,
-        id: baseIdea.id || rawDetails.id || id,
+        id: baseIdea.id || id || rawDetails.id,
         title: baseIdea.title || rawDetails.title || "فكرة افتراضية",
         submitter: baseIdea.submitter || rawDetails.submitter || "غير معروف",
         department: baseIdea.department || rawDetails.department || "غير محدد",

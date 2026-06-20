@@ -76,7 +76,7 @@ const handleSend = () => {
           <div
             v-for="(email, idx) in recipients"
             :key="idx"
-            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FF6B35]/14 text-theme-text/90 text-xs border border-white/10"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FF6B35]/14 text-theme-text/90 text-xs border border-theme-border/30"
           >
             <span>{{ email }}</span>
             <button

@@ -56,7 +56,7 @@ const panelRef = ref(null);
               <DialogPanel
                 ref="panelRef"
                 tabindex="-1"
-                class="relative rounded-[20px] w-full max-w-2xl bg-[#112033]"
+                class="relative rounded-[20px] w-full max-w-2xl bg-theme-modal border border-theme-modal-border"
               >
                 <slot />
               </DialogPanel>

@@ -50,7 +50,7 @@ const percentage = computed(() => {
     <div class="w-full flex items-center gap-2">
       <!-- Bar Track -->
       <div
-        class="flex-1 h-5 rounded-full bg-white/10 border border-white/10 overflow-hidden relative"
+        class="flex-1 h-5 rounded-full bg-theme-text/10 border border-theme-text/10 overflow-hidden relative"
       >
         <div
           class="h-full rounded-full"

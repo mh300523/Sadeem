@@ -32,7 +32,7 @@ const toggleSelection = () => {
 <template>
   <BaseBox
     @click="toggleSelection"
-    class="py-3 px-3 sm:py-4.5 sm:px-5 rounded-[20px] border border-[#06B6D4]/32 gap-4 cursor-pointer"
+    class="py-3 px-3 sm:py-4.5 sm:px-5 rounded-[20px] border border-theme-accent-primary/32 gap-4 cursor-pointer"
   >
     <!-- Checkbox and Text Container -->
 
@@ -43,8 +43,8 @@ const toggleSelection = () => {
           class="w-4 h-4 sm:w-6 sm:h-6 mt-1 shrink-0 rounded-sm flex items-center justify-center transition-all duration-300"
           :class="
             modelValue
-              ? 'bg-[#10B981] text-theme-text'
-              : 'bg-[#D9D9D9]/20 text-transparent'
+              ? 'bg-[#10B981] text-white'
+              : 'bg-theme-text/10 text-transparent border border-theme-border/30'
           "
         >
           <svg
@@ -69,7 +69,7 @@ const toggleSelection = () => {
       <!-- Optional Left Badge -->
       <span
         v-if="badgeText"
-        class="px-2 sm:px-5 py-2 rounded-full bg-[#7DD3FC]/10 text-[#7DD3FC] text-[10px] md:text-sm sm:font-medium shrink-0"
+        class="px-2 sm:px-5 py-2 rounded-full bg-theme-accent-secondary-bg text-theme-accent-secondary text-[10px] md:text-sm sm:font-medium shrink-0"
       >
         {{ badgeText }}
       </span>

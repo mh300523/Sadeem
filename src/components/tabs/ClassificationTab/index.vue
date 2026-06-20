@@ -116,10 +116,10 @@ const handleExecutionPlanChange = (status) => {
     <!-- Right Sidebar Column (First in HTML for RTL float-right layout) -->
     <div class="lg:col-span-3">
       <BaseBox
-        class="sidebar-container relative px-[14px] py-5 white-border rounded-2xl"
+        class="sidebar-robot-panel relative px-[14px] py-5 border-subtle rounded-2xl"
       >
         <!-- Sidebar Title with Astronaut background -->
-        <h2 class="sidebar-gradient-title secondery-text-gradient">
+        <h2 class="panel-title text-gradient-secondary">
           {{ tabData.sidebar.title }}
         </h2>
 
@@ -132,7 +132,7 @@ const handleExecutionPlanChange = (status) => {
           >
             <!-- Orange header capsule matching screenshots -->
             <h2
-              class="gradient-orange py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
+              class="bg-gradient-accent py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
             >
               {{ section.label }}
             </h2>

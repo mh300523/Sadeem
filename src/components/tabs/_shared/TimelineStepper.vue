@@ -23,7 +23,7 @@ defineProps({
     <!-- Optional Title Header -->
     <h2
       v-if="title"
-      class="gradient-orange py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
+      class="bg-gradient-accent py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
     >
       {{ title }}
     </h2>
@@ -50,9 +50,7 @@ defineProps({
         <!-- Card Slot / Default Card fallback -->
         <div class="flex-1 ms-2">
           <slot name="card" :step="step" :index="idx">
-            <BaseBox
-              class="step-card white-border relative z-10 rounded-xl p-3"
-            >
+            <BaseBox class="step-card relative z-10 rounded-xl p-3">
               <h4 class="mb-2 text-theme-text text-sm md:text-base">
                 {{ step.title }}
               </h4>
@@ -73,26 +71,25 @@ defineProps({
   position: absolute;
   width: 1px;
   height: calc(100% + 28px - var(--bullet-height));
-  border-inline-end: 1px dashed white;
+  border-inline-end: 1px dashed var(--stepper-line-color);
   top: calc(var(--bullet-height) + 6px);
   left: 50%;
   transform: translateX(-50%);
 }
 .step-card {
   position: relative;
+  border: 1px solid var(--stepper-card-border);
 }
 .step-card::before {
   content: "";
   position: absolute;
   top: 24px;
   inset-inline-start: -6px;
-  background-color: beige;
   width: 10px;
   height: 10px;
-  background-color: transparent;
-  border-block-start: 1px solid rgba(255, 255, 255, 0.16);
-  border-inline-start: 1px solid rgba(255, 255, 255, 0.16);
-  background-color: #1e293b;
+  border-block-start: 1px solid var(--stepper-card-border);
+  border-inline-start: 1px solid var(--stepper-card-border);
+  background-color: var(--stepper-arrow-bg);
   transform: rotate(45deg);
 }
 </style>

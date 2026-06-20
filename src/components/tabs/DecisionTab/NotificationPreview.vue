@@ -97,11 +97,11 @@ const resolvedNotification = computed(() => {
         v-for="recipient in activeRecipients"
         :key="recipient.id"
         @click="selectedRecipientId = recipient.id"
-        class="w-full border rounded-2xl! mb-2.5 last:mb-0"
+        class="w-full border rounded-2xl! mb-2.5 last:mb-0 recipient-btn"
         :class="
           selectedRecipientId === recipient.id
-            ? 'bg-[#46E1E6]/10 border-[#46E1E6] text-[#46E1E6] font-bold'
-            : 'bg-[#1E293B99]/60 border-[#06B6D4]/42 hover:border-[#46E1E6] text-[#46E1E6]'
+            ? 'bg-theme-accent-primary-bg border-theme-accent-primary text-theme-accent-primary font-bold recipient-btn-active'
+            : 'bg-theme-inactive-bg border-theme-inactive-border hover:border-theme-accent-primary text-theme-accent-primary recipient-btn-inactive'
         "
       >
         {{ recipient.label }}
@@ -111,7 +111,7 @@ const resolvedNotification = computed(() => {
     <!-- Right side: Notification Preview Card -->
     <div class="lg:col-span-9">
       <div
-        class="px-6 py-8 rounded-3xl bg-[#11203366]/40 border border-white/10 flex flex-col gap-4"
+        class="px-6 py-8 rounded-3xl bg-theme-preview-bg border border-theme-preview-border flex flex-col gap-4 preview-card"
       >
         <!-- Subject -->
 
@@ -129,7 +129,7 @@ const resolvedNotification = computed(() => {
         <!-- CTA Button -->
 
         <BaseButton
-          class="bg-[#7DD3FC]/10 border border-[#7DD3FC] text-[#7DD3FC] w-fit"
+          class="bg-theme-accent-secondary-bg border border-theme-accent-secondary text-theme-accent-secondary w-fit cta-btn"
         >
           {{ resolvedNotification.buttonLabel }}
         </BaseButton>
@@ -148,12 +148,13 @@ const resolvedNotification = computed(() => {
       </div>
     </div>
   </div>
-
   <!-- Empty State if no recipients selected -->
   <div
     v-else
-    class="border border-dashed border-white/10 rounded-2xl bg-[#161F30]/10 p-8 text-center text-theme-text/40 text-xs md:text-sm"
+    class="border border-dashed border-theme-preview-border rounded-2xl bg-theme-empty-bg p-8 text-center text-theme-text/40 text-xs md:text-sm empty-state"
   >
-    يرجى تحديد مستلم واحد على الأقل لمعاينة الإشعارات.
+    {{ t("notifications.empty_state_select_recipient") }}
   </div>
 </template>
+
+<style scoped></style>

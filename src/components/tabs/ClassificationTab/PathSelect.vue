@@ -37,8 +37,8 @@ const model = computed({
       optionLabel="title"
       classes="flex-col"
       labelClasses="font-medium"
-      buttonClass="p-4 rounded-xl gradient-border rtl:bg-gradient-to-bl ltr:bg-gradient-to-br from-[#895AF7]/30 via-[#06B6D4]/10 to-[#503591]/0"
-      optionsClass="border-[#895AF7]/42 bg-[#1E293B]/70"
+      buttonClass="p-4 rounded-xl gradient-border rtl:bg-gradient-to-bl ltr:bg-gradient-to-br from-[#895AF7]/30 via-theme-accent-primary-bg to-[#503591]/0"
+      optionsClass="border-[#895AF7]/42 bg-theme-card/95"
     >
       <!-- Custom Trigger Slot -->
       <template #trigger="{ selectedOption }">
@@ -54,7 +54,7 @@ const model = computed({
 
         <!-- Arrow toggle button on the left (in RTL) -->
         <span
-          class="w-6 h-6 rounded-md bg-[#D9D9D9]/16 flex items-center justify-center text-theme-text"
+          class="w-6 h-6 rounded-md bg-theme-text/10 flex items-center justify-center text-theme-text"
         >
           <svg
             class="w-4 h-4 text-theme-text/70"

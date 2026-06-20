@@ -191,13 +191,13 @@ const handleAction = async (actionKey) => {
         payload,
       );
       if (response.success) {
-        console.log("Draft saved successfully:", response.message);
+        // Draft saved successfully
       }
     } catch (err) {
       console.error("Failed to save draft:", err);
     }
   } else if (actionKey === "preview-all") {
-    console.log("Previewing all notifications locally");
+    // Preview all notifications locally
   }
 };
 </script>
@@ -209,7 +209,7 @@ const handleAction = async (actionKey) => {
     class="flex flex-col items-center justify-center py-20 gap-3"
   >
     <div
-      class="w-10 h-10 border-4 border-white/10 border-t-[#06B6D4] rounded-full animate-spin"
+      class="w-10 h-10 border-4 border-white/10 border-t-theme-accent-primary rounded-full animate-spin"
     ></div>
     <span class="text-[#94A3B8] text-sm font-medium"
       >جاري تحميل الإعدادات...</span
@@ -223,7 +223,7 @@ const handleAction = async (actionKey) => {
 
     <!-- Section header -->
     <div class="mb-5">
-      <h2 class="primary-text-gradient text-lg md:text-xl font-medium mb-2">
+      <h2 class="text-gradient-primary text-lg md:text-xl font-medium mb-2">
         {{ tabData.sectionTitle }}
       </h2>
       <p class="text-theme-text/70 text-xs md:text-sm leading-relaxed">
@@ -242,14 +242,14 @@ const handleAction = async (actionKey) => {
       <!-- Main config sections box -->
       <BaseBox type="glass" class="p-4 sm:p-6 mb-6">
         <div class="mb-5">
-          <h3 class="primary-text-gradient text-lg md:text-xl font-medium mb-2">
+          <h3 class="text-gradient-primary text-lg md:text-xl font-medium mb-2">
             {{ currentOption.pathTitle }}
           </h3>
           <div
             v-if="currentOption.pathmessage"
-            class="bg-[#06B6D4]/10 border border-dashed border-[#06B6D4] p-5 rounded-2xl mt-3 w-fit"
+            class="bg-theme-accent-primary-bg border border-dashed border-theme-accent-primary p-5 rounded-2xl mt-3 w-fit"
           >
-            <p class="text-[#06B6D4]">
+            <p class="text-theme-accent-primary">
               {{ currentOption.pathmessage }}
             </p>
             <div
@@ -316,14 +316,14 @@ const handleAction = async (actionKey) => {
               {{ section.title }}
             </h4>
             <BaseBox
-              class="border border-[#06B6D4]/32 px-6 py-5 rounded-[20px]"
+              class="border border-theme-accent-primary/32 px-6 py-5 rounded-[20px]"
             >
               <p class="text-theme-text text-base leading-relaxed font-light">
                 {{ section.text }}
               </p>
               <div
                 v-if="section.badge"
-                class="px-5 py-2 mt-3 rounded-full bg-[#7DD3FC]/10 border border-[#7DD3FC] text-[#7DD3FC] w-fit"
+                class="px-5 py-2 mt-3 rounded-full bg-theme-accent-secondary-bg border border-theme-accent-secondary text-theme-accent-secondary w-fit"
               >
                 {{ section.badge }}
               </div>
@@ -401,7 +401,7 @@ const handleAction = async (actionKey) => {
         :placeholder="tabData.notesPlaceholder"
         :rows="6"
         :label="tabData.notesLabel"
-        labelClass="primary-text-gradient text-lg md:text-xl font-medium mb-2"
+        labelClass="text-gradient-primary text-lg md:text-xl font-medium mb-2"
       />
 
       <!-- Action buttons -->
@@ -414,13 +414,13 @@ const handleAction = async (actionKey) => {
         </BaseButton>
         <BaseButton
           @click="handleAction('draft')"
-          class="w-full ] sm:w-auto min-w-[180px] rounded-xl text-center bg-[#32BEA6]/10 border border-[#32BEA6]/10 text-[#32BEA6] font-bold"
+          class="w-full sm:w-auto min-w-[180px] rounded-xl text-center bg-[#32BEA6]/10 border border-[#32BEA6]/10 text-[#32BEA6] font-bold"
         >
           {{ $t("actions.save_draft") }}
         </BaseButton>
         <BaseButton
           @click="handleAction('preview-all')"
-          class="w-full sm:w-auto min-w-[180px] rounded-xl text-center bg-white/10 border border-white/20 text-[#94A3B8] font-bold"
+          class="w-full sm:w-auto min-w-[180px] rounded-xl text-center bg-theme-neutral-bg border border-theme-neutral-border text-theme-neutral-text font-bold"
         >
           {{ $t("actions.preview_all_notifications") }}
         </BaseButton>

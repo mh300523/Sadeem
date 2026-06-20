@@ -46,7 +46,7 @@ const resolveOptions = (options, key) => {
         :options="resolveOptions(dropdownOptions, field.optionsKey)"
         :placeholder="field.placeholder || field.label"
         classes="flex flex-col gap-2.5"
-        buttonClass="bg-[#051E2E]/40 border-[#ffffff]/10 px-4 py-2.5 rounded-[18px]"
+        buttonClass="bg-theme-input border border-theme-input-border text-theme-input-text px-4 py-2.5 rounded-[18px]"
       />
     </div>
   </div>

@@ -94,7 +94,7 @@ defineProps({
         :max="100"
         :label="band.label"
         :valueText="`${band.percentage}%`"
-        customFillClass="bg-gradient-to-r from-[#06b6d4] to-[#8b5cf6]"
+        customFillClass="bg-gradient-to-r from-theme-accent-primary to-[#8b5cf6]"
       />
     </BaseAnalyticBox>
 

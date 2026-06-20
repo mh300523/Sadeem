@@ -31,7 +31,7 @@ const emit = defineEmits(["update:activeScreen"]);
     <BaseBox class="border border-theme-border/10 rounded-2xl py-6">
       <!-- Brand logo section -->
       <div class="px-6 pb-[20px] border-b border-theme-border/40 mb-4">
-        <h1 class="sidebar-gradient-title secondery-text-gradient">
+        <h1 class="panel-title text-gradient-secondary">
           {{ $t("analytics.sidebar.brand_title") }}
         </h1>
         <p class="text-theme-text">
@@ -97,14 +97,14 @@ const emit = defineEmits(["update:activeScreen"]);
       <div class="px-6">
         <!-- Orange pill button-style header -->
         <h2
-          class="gradient-orange py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
+          class="bg-gradient-accent py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
         >
           {{ $t("analytics.quick_actions") }}
         </h2>
         <BaseButton
           v-for="action in quickActions"
           :key="action.id"
-          class="w-full py-4! justify-between! rounded-2xl! border border-theme-border/10 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-theme-row-start to-theme-row-end backdrop-blur-xl text-theme-text hover:translate-x-[-2px] mb-3"
+          class="w-full py-4! justify-between! rounded-2xl! border border-theme-border/10 rtl:bg-linear-to-l ltr:bg-linear-to-r from-theme-row-start to-theme-row-end backdrop-blur-xl text-theme-text hover:translate-x-[-2px] mb-3"
         >
           {{ $t(action.labelKey) }}
         </BaseButton>

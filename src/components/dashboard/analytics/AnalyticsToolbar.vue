@@ -21,7 +21,7 @@ const emit = defineEmits(["update:filters"]);
     <div
       class="flex flex-col lg:flex-row justify-between items-center lg:items-center gap-5 mb-2"
     >
-      <h1 class="text-lg lg:text-xl font-bold primary-text-gradient">
+      <h1 class="text-lg lg:text-xl font-bold text-gradient-primary">
         {{ $t(`analytics.screens.${activeScreen}`) }}
       </h1>
 
@@ -33,9 +33,8 @@ const emit = defineEmits(["update:filters"]);
           buttonClass="rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#018AAF]/10 to-[#7F4FFF]/10 px-4 py-2 rounded-full"
         />
 
-        <!-- Export button (leftmost in RTL) -->
         <BaseButton
-          class="gradient-purple py-2! text-theme-text w-full md:w-auto"
+          class="bg-gradient-primary py-2! text-theme-text w-full md:w-auto"
         >
           {{ $t("analytics.actions.export_pdf") }}
         </BaseButton>

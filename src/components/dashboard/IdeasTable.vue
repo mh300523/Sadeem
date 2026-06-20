@@ -28,7 +28,7 @@ function getBadgeConfig(statusId) {
     :items="ideas"
     tableClass="ideas-table border-separate border-spacing-y-3 min-w-[1350px]  border border-theme-card-border bg-theme-card/50 p-4 sm:p-6 backdrop-blur-xl "
     headerClass="pt-0!"
-    rowClass="rtl:bg-linear-to-l ltr:bg-linear-to-r from-theme-row-start to-theme-row-end backdrop-blur-xl"
+    rowClass="rtl:bg-linear-to-l ltr:bg-linear-to-r from-theme-row-start to-theme-row-end backdrop-blur-xl rounded-[20px] overflow-hidden"
     cellClass="border-y border-theme-border/10 group-hover:border-theme-border/20 first:border-s first:rounded-s-[20px] last:border-e last:rounded-e-[20px]"
   >
     <!-- Custom cell for Idea ID -->
@@ -120,7 +120,7 @@ function getBadgeConfig(statusId) {
     <!-- Custom cell for Status Badge -->
     <template #cell(status)="{ item }">
       <div
-        class="flex items-center justify-center gap-1 px-4 py-2 min-w-[130px] min-h-[32px] rounded-full text-theme-text"
+        class="flex items-center justify-center gap-1 px-4 py-2 min-w-[130px] min-h-[32px] rounded-full text-white"
         :class="[getBadgeConfig(item.status.id).bgClass]"
       >
         <!-- Icon -->

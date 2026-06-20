@@ -25,7 +25,7 @@ defineProps({
       <BaseBox
         v-for="item in summaryItems"
         :key="item.label"
-        class="p-4 rounded-xl border-2 border-[#06B6D4]/32 flex flex-col gap-1.5"
+        class="p-4 rounded-xl border-2 border-theme-accent-primary/32 flex flex-col gap-1.5"
       >
         <h3 class="text-theme-text font-medium">
           {{ item.label }}

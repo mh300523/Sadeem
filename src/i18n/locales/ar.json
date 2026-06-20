@@ -1,7 +1,11 @@
 {
   "header": {
     "welcome_user": "مرحبًا",
-    "welcome_planet": "مرحبًا بك في كوكب سديم!"
+    "welcome_planet": "مرحبًا بك في كوكب سديم!",
+    "lock_session": "قفل الجلسة",
+    "theme_dark": "تفعيل الوضع الداكن",
+    "theme_light": "تفعيل الوضع المضيء",
+    "select_language": "اختر اللغة"
   },
   "lang": {
     "ar": "العربية",
@@ -58,6 +62,7 @@
     "signature_greeting": "مع خالص التقدير،",
     "signature_platform": "منصة سديم للابتكار",
     "button_label": "فتح منصة المشروع الابتكاري",
+    "empty_state_select_recipient": "يرجى تحديد مستلم واحد على الأقل لمعاينة الإشعارات.",
     "duplicate": {
       "title": "تأكيد إجراء التكرار",
       "subject": "الموضوع: شكر وتقدير لمساهمتك الابتكارية",

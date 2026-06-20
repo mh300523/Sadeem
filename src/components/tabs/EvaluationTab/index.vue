@@ -219,10 +219,10 @@ const resetCriterion = (index) => {
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
     <!-- Right Sidebar (Static across dashboard view states) -->
     <div class="lg:col-span-3">
-      <BaseBox class="p-3 white-border rounded-2xl">
+      <BaseBox class="p-3 border-subtle rounded-2xl">
         <!-- Sidebar Title with Stars -->
         <div class="flex justify-between items-center pb-3">
-          <h2 class="sidebar-gradient-title secondery-text-gradient mb-0!">
+          <h2 class="panel-title text-gradient-secondary mb-0!">
             {{ $t("evaluation.title") }}
           </h2>
           <SvgIcon name="stars" />
@@ -278,7 +278,7 @@ const resetCriterion = (index) => {
         <BaseButton
           v-if="currentView === 'sliders'"
           @click="currentView = 'bias'"
-          class="w-full py-3 border border-[#5CE1E6] text-[#5CE1E6] hover:bg-[#5CE1E6]/5 font-medium"
+          class="w-full py-3 border border-theme-accent-primary text-theme-accent-primary hover:bg-theme-accent-primary-bg font-medium"
         >
           <span>{{ $t("evaluation.show_bias_ratio") }}</span>
           <svg

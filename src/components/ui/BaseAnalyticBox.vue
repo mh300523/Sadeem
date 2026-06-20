@@ -17,7 +17,7 @@ defineProps({
   <BaseBox class="rounded-[20px] p-4 sm:p-6" type="glass">
     <h2
       v-if="title"
-      class="text-base lg:text-lg font-bold primary-text-gradient mb-3"
+      class="text-base lg:text-lg font-bold text-gradient-primary mb-3"
     >
       {{ title }}
     </h2>

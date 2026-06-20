@@ -195,7 +195,7 @@ const tabsList = computed(() => {
     <!-- Ready State -->
     <div v-else-if="ideaDetails.id">
       <!-- Top Details Header Card (Wrapped in Card Container matching the screens) -->
-      <div class="border-b border-white/20 pb-4 mb-8">
+      <div class="border-b border-theme-border/30 pb-4 mb-8">
         <div
           class="flex flex-col lg:flex-row justify-between items-start gap-6"
         >
@@ -208,7 +208,7 @@ const tabsList = computed(() => {
               </span>
 
               <span
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-theme-text shadow-[0_2px_10px_rgba(0,0,0,0.25)] backdrop-blur-sm"
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-white shadow-[0_2px_10px_rgba(0,0,0,0.25)] backdrop-blur-sm"
                 :class="[getBadgeConfig(ideaDetails.status?.id).bgClass]"
               >
                 <SvgIcon
@@ -234,7 +234,7 @@ const tabsList = computed(() => {
               </div>
 
               <span
-                class="w-1 h-1 rounded-full bg-slate-700 hidden md:block"
+                class="w-1 h-1 rounded-full bg-theme-border hidden md:block"
               ></span>
 
               <!-- 2. Department -->
@@ -246,7 +246,7 @@ const tabsList = computed(() => {
               </div>
 
               <span
-                class="w-1 h-1 rounded-full bg-slate-700 hidden md:block"
+                class="w-1 h-1 rounded-full bg-theme-border hidden md:block"
               ></span>
 
               <!-- 3. Evaluators Count -->
@@ -258,7 +258,7 @@ const tabsList = computed(() => {
               </div>
 
               <span
-                class="w-1 h-1 rounded-full bg-slate-700 hidden md:block"
+                class="w-1 h-1 rounded-full bg-theme-border hidden md:block"
               ></span>
 
               <!-- 4. Average Rating -->
@@ -270,12 +270,12 @@ const tabsList = computed(() => {
               </div>
 
               <span
-                class="w-1 h-1 rounded-full bg-slate-700 hidden md:block"
+                class="w-1 h-1 rounded-full bg-theme-border hidden md:block"
               ></span>
 
               <!-- 5. AI score badge (Cyan border, sparkle icon, text exactly matches screenshot) -->
               <div
-                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#018AAF] text-theme-text backdrop-blur-2xl"
+                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#018AAF] text-white backdrop-blur-2xl"
               >
                 <SvgIcon name="ai_icon" />
                 <span
@@ -292,12 +292,12 @@ const tabsList = computed(() => {
           >
             <!-- Invite Evaluator Button -->
             <BaseButton
-              class="gradient-orange text-theme-text shadow-[0_30px_30px_0_rgba(255,107,53,0.3)]"
+              class="bg-gradient-accent text-theme-text shadow-[0_30px_30px_0_rgba(255,107,53,0.3)]"
             >
               {{ $t("actions.invite_evaluator") }}
             </BaseButton>
             <!-- Start Evaluation Button -->
-            <BaseButton class="gradient-purple text-theme-text shadow-lg">
+            <BaseButton class="bg-gradient-primary text-theme-text shadow-lg">
               {{ $t("actions.start_evaluation") }}
             </BaseButton>
 

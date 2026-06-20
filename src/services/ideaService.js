@@ -65,7 +65,6 @@ export const ideaService = {
   async submitDecision(ideaId, payload) {
     return new Promise((resolve) => {
       setTimeout(() => {
-        console.log(`API HTTP POST - /api/ideas/${ideaId}/decision : SUCCESS`, payload);
         resolve({ success: true, message: "تم إرسال القرار بنجاح" });
       }, 500); // 500ms latency
     });
@@ -80,7 +79,6 @@ export const ideaService = {
   async saveDecisionDraft(ideaId, payload) {
     return new Promise((resolve) => {
       setTimeout(() => {
-        console.log(`API HTTP POST - /api/ideas/${ideaId}/decision/draft : SUCCESS`, payload);
         resolve({ success: true, message: "تم حفظ المسودة بنجاح" });
       }, 400); // 400ms latency
     });

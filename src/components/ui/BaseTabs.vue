@@ -84,7 +84,7 @@ function handleTabChange(index) {
     </div>
 
     <TabPanels>
-      <BaseBox class="rounded-[20px] p-6 white-border">
+      <BaseBox class="rounded-[20px] p-6 border-subtle">
         <TabPanel v-for="tab in resolvedTabs" :key="tab.key" :unmount="true">
           <component
             :is="tab.component"

@@ -9,6 +9,7 @@ const { isDark, toggleTheme } = useTheme();
     @click="toggleTheme"
     class="relative flex items-center w-16 h-10 rounded-full p-1 shadow-md transition-colors duration-300 cursor-pointer overflow-hidden shrink-0"
     :class="isDark ? 'bg-[#02142d]' : 'bg-[#e2e8f0]'"
+    :aria-label="isDark ? $t('header.theme_light') : $t('header.theme_dark')"
   >
     <div
       class="w-7 h-7 rounded-full shadow flex items-center justify-center transition-all duration-300"

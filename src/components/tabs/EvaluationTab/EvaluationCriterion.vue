@@ -99,12 +99,12 @@ const thumbStyle = computed(() => {
         <div class="flex-1 flex flex-col relative">
           <!-- Custom Slider Track and Thumb -->
           <div
-            class="h-8 flex items-center bg-[#1E293B] rounded-full shadow-[0_8px_8px_rgba(0,0,0,0.4)]"
+            class="h-8 flex items-center bg-theme-input border border-theme-input-border rounded-full shadow-[0_8px_8px_rgba(0,0,0,0.2)]"
           >
             <!-- Background Track -->
             <div
               ref="trackRef"
-              class="w-[90%] relative h-[2px] rtl:bg-linear-to-l ltr:bg-linear-to-r from-[#1E293B] via-[#222D3F] to-[#283345] rounded-full pointer-events-none m-auto"
+              class="w-[90%] relative h-[2px] bg-theme-text/25 rounded-full pointer-events-none m-auto"
             >
               <!-- Scale numbers 1 to 5 (Above the track, aligned with ticks) -->
 
@@ -132,11 +132,11 @@ const thumbStyle = computed(() => {
 
               <!-- Custom Glassmorphic Thumb with bright cyan center dot -->
               <span
-                class="absolute w-6 h-6 rounded-full bg-[#121E31] border border-white/20 shadow-[0_0_10px_rgba(0,226,255,0.4)] flex items-center justify-center pointer-events-none transition-all duration-75 top-1/2 -translate-y-1/2"
+                class="absolute w-6 h-6 rounded-full bg-theme-card border border-theme-card-border/80 shadow-[0_0_10px_rgba(6,182,212,0.4)] flex items-center justify-center pointer-events-none transition-all duration-75 top-1/2 -translate-y-1/2"
                 :style="thumbStyle"
               >
                 <span
-                  class="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_6px_#00E2FF]"
+                  class="w-1.5 h-1.5 rounded-full bg-theme-accent-primary shadow-[0_0_6px_var(--accent-primary-text)]"
                 ></span>
               </span>
             </div>
@@ -183,7 +183,7 @@ const thumbStyle = computed(() => {
           {{ $t("evaluation.selected_rating") }}
         </span>
         <span
-          class="min-w-11 h-7 rounded-full bg-[#FF6B35] text-theme-text font-medium flex items-center justify-center"
+          class="min-w-11 h-7 rounded-full bg-[#FF6B35] text-white font-medium flex items-center justify-center"
         >
           {{ modelValue }}
         </span>

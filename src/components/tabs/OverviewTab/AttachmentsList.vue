@@ -29,7 +29,7 @@ defineProps({
       target="_blank"
       class="flex items-center justify-between px-3 py-1 rounded-full bg-white/10 mb-[14px] last:mb-0"
     >
-      <div class="flex items-center justify-between w-100">
+      <div class="flex items-center justify-between w-full">
         <h4
           class="text-theme-text text-base font-medium truncate"
           :title="file.name"

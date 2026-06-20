@@ -21,7 +21,7 @@ const props = defineProps({
     :class="[
       classes,
       type === 'glass'
-        ? 'gradient-border gradient-sky-blue'
+        ? 'gradient-border bg-gradient-surface'
         : gradientbg ||
           'rtl:bg-linear-to-l ltr:bg-linear-to-r from-theme-row-start to-theme-row-end',
     ]"

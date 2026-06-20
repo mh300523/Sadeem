@@ -14,6 +14,8 @@ import SvgIcon from "@/components/ui/SvgIcon.vue";
         <img
           src="@/assets/images/logo.png"
           alt="logo"
+          width="70"
+          height="70"
           class="w-full h-full object-cover"
         />
       </div>
@@ -37,7 +39,7 @@ import SvgIcon from "@/components/ui/SvgIcon.vue";
         class="px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer"
         :class="
           $route.path === '/'
-            ? 'gradient-purple text-white shadow-[0_0_12px_rgba(6,182,212,0.3)]'
+            ? 'bg-gradient-primary text-white shadow-[0_0_12px_rgba(6,182,212,0.3)]'
             : 'text-white/60 hover:text-white hover:bg-white/5'
         "
       >
@@ -48,8 +50,8 @@ import SvgIcon from "@/components/ui/SvgIcon.vue";
         class="px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer"
         :class="
           $route.path.startsWith('/analytics')
-            ? 'gradient-orange text-white shadow-[0_0_12px_rgba(255,107,53,0.3)]'
-            : 'text-white/60 hover:text-theme-text hover:bg-white/5'
+            ? 'bg-gradient-accent text-white shadow-[0_0_12px_rgba(255,107,53,0.3)]'
+            : 'text-white/60 hover:text-white hover:bg-white/5'
         "
       >
         {{ $t("analytics.title") }}
@@ -66,7 +68,9 @@ import SvgIcon from "@/components/ui/SvgIcon.vue";
 
       <!-- Lock Icon -->
       <button
-        class="lock-icon w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md transition-transform hover:scale-105 shrink-0"
+        type="button"
+        class="lock-icon w-10 h-10 rounded-full bg-white flex items-center justify-center transition-transform shrink-0"
+        :aria-label="$t('header.lock_session')"
       >
         <SvgIcon name="lock" />
       </button>
@@ -81,11 +85,15 @@ import SvgIcon from "@/components/ui/SvgIcon.vue";
           <img
             src="@/assets/images/logo.png"
             alt="profile"
+            width="48"
+            height="48"
             class="w-full h-full object-cover"
           />
         </div>
         <div class="profile-info text-right">
-          <div class="text-theme-text font-bold lg:text-base">شمس حسان</div>
+          <div class="text-white font-bold text-[10px] sm:text-base">
+            شمس حسان
+          </div>
           <div class="text-[#FCFCFD] text-xs">مقيم</div>
         </div>
       </div>

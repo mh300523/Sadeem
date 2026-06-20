@@ -16,7 +16,7 @@ const props = defineProps({
 <template>
   <h1
     :class="classes"
-    class="main-title text-lg md:text-2xl font-bold primary-text-gradient mb-2"
+    class="main-title text-lg md:text-2xl font-bold text-gradient-primary mb-2"
   >
     {{ name }}
   </h1>

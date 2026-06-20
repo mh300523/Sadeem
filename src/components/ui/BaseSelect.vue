@@ -66,8 +66,8 @@ const displayValue = computed(() => {
 
 <template>
   <div
-    class="w-full md:w-auto flex flex-col md:flex-row gap-3"
-    :class="classes ? classes : 'md:items-center '"
+    class="w-full md:w-auto flex gap-3"
+    :class="classes ? classes : 'md:items-center flex-col lg:flex-row'"
   >
     <label
       v-if="label"

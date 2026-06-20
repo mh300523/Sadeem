@@ -42,9 +42,10 @@ defineEmits(["select-evaluator", "back"]);
     <div class="flex items-start justify-between flex-wrap gap-3 mb-10">
       <div class="flex gap-4">
         <!-- Back arrow button -->
+        <!-- Back arrow button -->
         <BaseButton
           @click="$emit('back')"
-          class="w-11 h-11 bg-white/10 hover:bg-white/30 text-theme-text flex items-center justify-center p-1!"
+          class="w-11 h-11 bg-theme-icon-btn hover:bg-theme-icon-btn-hover text-theme-text flex items-center justify-center p-1!"
           :title="$t('evaluation.evaluation_criteria')"
         >
           <svg
@@ -72,14 +73,16 @@ defineEmits(["select-evaluator", "back"]);
         </div>
       </div>
 
-      <BaseButton class="px-10! bg-[#5CE1E6]/10 text-[#5CE1E6] font-medium">
+      <BaseButton
+        class="px-10! bg-theme-accent-primary-bg text-theme-accent-primary font-medium"
+      >
         {{ $t("evaluation.evaluator_manager_mode") }}
       </BaseButton>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
       <!-- Center: Bias radar details & stats -->
       <div class="lg:col-span-7">
-        <BaseBox class="p-4 sm:p-6 border border-[#06B6D46B] rounded-2xl">
+        <BaseBox class="p-4 sm:p-6 border border-theme-accent-primary/42 rounded-2xl">
           <div class="mb-4">
             <h2 class="text-theme-text text-lg md:text-2xl font-medium mb-3">
               {{ $t("evaluation.bias_comparison_title") }}
@@ -92,10 +95,10 @@ defineEmits(["select-evaluator", "back"]);
           <!-- Row display selected evaluator metrics -->
           <BaseBox
             type="glass"
-            class="grid sm:grid-cols-3 gap-4 border border-[#06B6D4]/42 rounded-[20px] bg-[#161F30]/50"
+            class="grid sm:grid-cols-3 gap-4 border border-theme-accent-primary/42 rounded-[20px] bg-theme-row-start"
           >
             <!-- Selected Evaluator -->
-            <div class="py-5 px-4 border border-[#06B6D4]/42 rounded-[12px]">
+            <div class="py-5 px-4 border border-theme-accent-primary/42 rounded-[12px]">
               <h4 class="text-theme-text/70 mb-3">
                 {{ $t("evaluation.selected_evaluator") }}
               </h4>
@@ -104,7 +107,7 @@ defineEmits(["select-evaluator", "back"]);
               </p>
             </div>
             <!-- Bias percentage -->
-            <div class="py-5 px-4 border border-[#06B6D4]/42 rounded-[12px]">
+            <div class="py-5 px-4 border border-theme-accent-primary/42 rounded-[12px]">
               <h4 class="text-theme-text/70 mb-3">
                 {{ $t("evaluation.bias_percentage") }}
               </h4>
@@ -114,7 +117,7 @@ defineEmits(["select-evaluator", "back"]);
             </div>
 
             <!-- Classification -->
-            <div class="py-5 px-4 border border-[#06B6D4]/42 rounded-[12px]">
+            <div class="py-5 px-4 border border-theme-accent-primary/42 rounded-[12px]">
               <h4 class="text-theme-text/70 mb-3">
                 {{ $t("evaluation.classification") }}
               </h4>
@@ -136,7 +139,7 @@ defineEmits(["select-evaluator", "back"]);
           <!-- Bias Metrics Section bottom -->
           <div class="flex flex-col gap-4 pt-1">
             <h2
-              class="gradient-purple py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
+              class="bg-gradient-primary py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
             >
               {{ $t("evaluation.bias_metrics") }}
             </h2>
@@ -173,9 +176,9 @@ defineEmits(["select-evaluator", "back"]);
       </div>
       <!-- Left side (Evaluators list column using EvaluatorCard!) -->
       <div class="lg:col-span-5">
-        <BaseBox class="p-4 sm:p-6 border border-[#06B6D46B] rounded-2xl">
+        <BaseBox class="p-4 sm:p-6 border border-theme-accent-primary/42 rounded-2xl">
           <h2
-            class="gradient-purple py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
+            class="bg-gradient-primary py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
           >
             {{ $t("evaluation.evaluators") }}
           </h2>

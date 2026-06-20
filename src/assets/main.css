@@ -1,7 +1,9 @@
 @import "tailwindcss";
 @import "./base.css";
 
-/* Main content area - theme-aware background */
+/* -------------------------------------------------------------
+   Main Page Layout Backgrounds
+   ------------------------------------------------------------- */
 .main-content-bg {
   background-image:
     var(--main-gradient-rtl), url("@/assets/images/Header-bg.png");
@@ -11,16 +13,22 @@
   background-attachment: fixed;
   transition: background-image 0.5s ease;
 }
+
 html[dir="ltr"] .main-content-bg {
   background-image:
     var(--main-gradient-ltr), url("@/assets/images/Header-bg.png");
 }
 
-.sidebar-container {
+/* -------------------------------------------------------------
+   Decorative Components
+   ------------------------------------------------------------- */
+/* Sidebar Panel decorated with a Robot graphic */
+.sidebar-robot-panel {
   z-index: 1;
   position: relative;
 }
-.sidebar-container::before {
+
+.sidebar-robot-panel::before {
   content: "";
   display: inline-block;
   width: 100%;
@@ -31,20 +39,26 @@ html[dir="ltr"] .main-content-bg {
   inset-inline-start: 0;
   z-index: -1;
 }
-html[dir="ltr"] .sidebar-container::before {
+
+html[dir="ltr"] .sidebar-robot-panel::before {
   transform: rotateY(180deg);
 }
 
+/* -------------------------------------------------------------
+   Borders & Outlines
+   ------------------------------------------------------------- */
+/* High premium gradient border effect */
 .gradient-border {
   position: relative;
 }
+
 .gradient-border::before {
   content: "";
   display: inline-block;
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 1px; /* border thickness */
+  padding: 0.5px; /* border thickness */
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -55,35 +69,17 @@ html[dir="ltr"] .sidebar-container::before {
   mask-composite: exclude;
   pointer-events: none;
 }
+
 .gradient-border {
   @apply rtl:before:bg-linear-to-bl ltr:before:bg-linear-to-br before:from-(--gradient-border-from) before:to-(--gradient-border-to) rounded-[14px];
 }
-.primary-text-gradient {
-  @apply text-transparent bg-clip-text rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#8B5CF6] max-w-fit;
-}
-.secondery-text-gradient {
-  @apply text-transparent bg-clip-text rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35] max-w-fit;
+
+/* Subtle theme-aware card border */
+.border-subtle {
+  @apply border border-theme-border/16;
 }
 
-.gradient-orange {
-  @apply rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#FF8E53] to-[#FF6B35];
-}
-.gradient-purple {
-  @apply rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#7F4FFF];
-}
-.gradient-sky-blue {
-  @apply rtl:bg-linear-to-bl ltr:bg-linear-to-br from-(--gradient-sky-from) via-(--gradient-sky-via) to-(--gradient-sky-to);
-}
-.white-border {
-  @apply border border-theme-border/10;
-}
-.sidebar-gradient-title {
-  @apply uppercase tracking-wider font-bold text-xl mb-4;
-}
-.badge-percentage {
-  @apply px-2 py-1 rounded-full rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#FF6B35] text-white shadow-sm;
-}
-
+/* Decorative bottom gradient divider line */
 .border-bottom-gradient::after {
   content: "";
   display: inline-block;
@@ -92,4 +88,48 @@ html[dir="ltr"] .sidebar-container::before {
   width: 100%;
   height: 1px;
   inset-inline: 0;
+}
+
+/* -------------------------------------------------------------
+   Gradient Backgrounds & Fills
+   ------------------------------------------------------------- */
+/* Brand Primary Action Gradient (Cyan -> Blue -> Purple) */
+.bg-gradient-primary {
+  @apply rtl:bg-linear-to-r ltr:bg-linear-to-l from-theme-accent-primary via-[#3B82F6] to-[#7F4FFF];
+}
+
+/* Brand Accent Gradient (Peach -> Orange) */
+.bg-gradient-accent {
+  @apply rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#FF8E53] to-[#FF6B35];
+}
+
+/* Translucent Soft Card Surface Gradient */
+.bg-gradient-surface {
+  @apply rtl:bg-linear-to-bl ltr:bg-linear-to-br from-(--gradient-surface-from) via-(--gradient-surface-via) to-(--gradient-surface-to);
+}
+
+/* -------------------------------------------------------------
+   Text Gradients & Typography Styles
+   ------------------------------------------------------------- */
+/* Primary Heading Gradient Text */
+.text-gradient-primary {
+  @apply text-transparent bg-clip-text rtl:bg-linear-to-r ltr:bg-linear-to-l from-theme-accent-primary via-[#3B82F6] to-[#8B5CF6] max-w-fit;
+}
+
+/* Secondary Heading Gradient Text */
+.text-gradient-secondary {
+  @apply text-transparent bg-clip-text rtl:bg-linear-to-r ltr:bg-linear-to-l from-theme-accent-primary via-[#3B82F6] to-[#FF6B35] max-w-fit;
+}
+
+/* Standardized Panel Title Style */
+.panel-title {
+  @apply uppercase tracking-wider font-bold text-xl mb-4;
+}
+
+/* -------------------------------------------------------------
+   Badges
+   ------------------------------------------------------------- */
+/* Primary Brand Gradient Badge */
+.badge-gradient {
+  @apply px-2 py-1 rounded-full rtl:bg-linear-to-r ltr:bg-linear-to-l from-theme-accent-primary via-[#3B82F6] to-[#FF6B35] text-white shadow-sm;
 }

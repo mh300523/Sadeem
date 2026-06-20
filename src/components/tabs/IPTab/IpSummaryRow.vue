@@ -43,7 +43,7 @@ defineProps({
       </span>
 
       <!-- 3. degree MODE -->
-      <div v-else-if="row.type === 'degree'" class="badge-percentage">
+      <div v-else-if="row.type === 'degree'" class="badge-gradient">
         {{ row.value }}
       </div>
 

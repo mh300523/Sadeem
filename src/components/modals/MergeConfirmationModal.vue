@@ -36,7 +36,7 @@ const emit = defineEmits(["close", "confirm"]);
             {{ $t("current_idea") }}
           </h4>
           <p
-            class="primary-text-gradient text-sm md:text-base font-bold leading-relaxed"
+            class="text-gradient-primary text-sm md:text-base font-bold leading-relaxed"
           >
             {{ currentIdeaTitle }}
           </p>
@@ -47,7 +47,7 @@ const emit = defineEmits(["close", "confirm"]);
             {{ $t("selected_idea") }}
           </h4>
           <p
-            class="text-[#33BCE1] text-sm md:text-base font-bold leading-relaxed"
+            class="text-theme-accent-primary text-sm md:text-base font-bold leading-relaxed"
           >
             {{ selectedIdeaTitle }}
           </p>
@@ -63,7 +63,7 @@ const emit = defineEmits(["close", "confirm"]);
           </BaseButton>
           <BaseButton
             @click="emit('close')"
-            class="flex-1 font-bold text-[#94A3B8] bg-white/10 border border-white/20"
+            class="flex-1 font-bold text-theme-neutral-text bg-theme-neutral-bg border border-theme-neutral-border"
           >
             <svg
               class="w-4 h-4"

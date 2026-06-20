@@ -28,8 +28,8 @@ const ownerData = computed(() => {
     <!-- Right Content Area -->
     <div class="lg:col-span-9">
       <!-- Idea Explanation Card -->
-      <BaseBox class="rounded-[20px] p-4 sm:p-6 mb-6 white-border">
-        <h3 class="text-xs text-theme-text-50 uppercase tracking-wider mb-1">
+      <BaseBox class="rounded-[20px] p-4 sm:p-6 mb-6 border-subtle">
+        <h3 class="text-xs text-theme-text/50 uppercase tracking-wider mb-1">
           {{ data?.overview?.explanation?.label }}
         </h3>
         <p
@@ -44,7 +44,7 @@ const ownerData = computed(() => {
     </div>
     <!-- Left Sidebar (Presenter and Team Details) -->
     <div class="lg:col-span-3">
-      <BaseBox class="rounded-[20px] p-3 white-border">
+      <BaseBox class="rounded-[20px] p-3 border-subtle">
         <OwnerCard :data="ownerData" />
 
         <!-- Team Members Section -->
@@ -56,11 +56,11 @@ const ownerData = computed(() => {
           <div
             v-for="(member, idx) in data?.sidebar?.team?.members"
             :key="idx"
-            class="flex items-center justify-between border border-white/6 rounded-xl p-[10px] text-theme-text backdrop-blur-xl mb-3"
+            class="flex items-center justify-between border-subtle rounded-xl p-[10px] text-theme-text backdrop-blur-xl mb-3"
           >
             <span>{{ member }}</span>
             <span
-              class="w-5 h-5 flex items-center justify-center text-theme-text text-xs border border-white rounded-full p-1.5 shrink-0"
+              class="w-5 h-5 flex items-center justify-center text-theme-text text-xs border border-theme-border/50 rounded-full p-1.5 shrink-0"
             >
               {{ idx + 1 }}
             </span>
@@ -102,8 +102,8 @@ const ownerData = computed(() => {
           :items="data?.sidebar?.impact?.items"
           class="border-b border-[#A9A9A9]/40 border-dashed"
           :classes="{
-            pill: 'bg-[#06B6D4]/10 text-theme-text/76',
-            icon: 'border-[#06B6D4] text-[#06B6D4]',
+            pill: 'bg-theme-accent-primary-bg text-theme-text/76',
+            icon: 'border-theme-accent-primary text-theme-accent-primary',
           }"
         />
 
@@ -113,7 +113,7 @@ const ownerData = computed(() => {
             {{ data?.sidebar?.readiness?.label }}
           </span>
           <span
-            class="inline-flex items-center px-3.5 py-1.5 rounded-full bg-[#FF6B35] text-theme-text"
+            class="inline-flex items-center px-3.5 py-1.5 rounded-full bg-[#FF6B35] text-white"
           >
             {{ data?.sidebar?.readiness?.value }}
           </span>

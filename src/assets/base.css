@@ -56,33 +56,44 @@
 }
 
 :root {
+  /* -------------------------------------------------------------
+     Core Colors
+     ------------------------------------------------------------- */
   --color-light: #ffffff;
   --color-dark: #02142d;
 
-  /* Dark mode default */
+  /* -------------------------------------------------------------
+     Dark Mode Defaults (Default Theme State)
+     ------------------------------------------------------------- */
+  /* General Layout Elements */
   --text-color: var(--color-light);
   --bg-color: var(--color-dark);
   --border-color: rgba(255, 255, 255, 0.1);
 
+  /* Card Surfaces */
   --card-bg: #060e1d;
   --card-border: rgba(30, 41, 59, 0.3);
 
+  /* Form & Input Fields */
   --input-bg: #051e2e;
-  --input-border: rgba(255, 255, 255, 0.1);
-  --input-text: var(--color-light);
+  --input-border: var(--border-color);
+  --input-text: var(--text-color);
   --input-placeholder: #858585;
 
+  /* Data Table Elements */
   --table-row-start: rgba(30, 41, 59, 0.6);
   --table-row-end: rgba(30, 41, 59, 0.3);
 
+  /* Borders & Highlights Gradients */
   --gradient-border-from: rgba(137, 90, 247, 0.5);
   --gradient-border-to: rgba(6, 182, 212, 0);
 
-  --gradient-sky-from: rgba(137, 90, 247, 0.12);
-  --gradient-sky-via: rgba(6, 182, 212, 0.05);
-  --gradient-sky-to: rgba(80, 53, 145, 0);
+  /* Background Gradient Overlays */
+  --gradient-surface-from: rgba(137, 90, 247, 0.12);
+  --gradient-surface-via: rgba(6, 182, 212, 0.05);
+  --gradient-surface-to: rgba(80, 53, 145, 0);
 
-  /* Main content gradients (dark default) */
+  /* Main View Background Gradients */
   --main-gradient-ltr: linear-gradient(
     to right,
     rgba(2, 20, 45, 0.8) 60%,
@@ -93,32 +104,71 @@
     rgba(2, 20, 45, 0.9) 60%,
     rgba(0, 0, 0, 0.5) 100%
   );
+
+  /* Stepper / Timeline */
+  --stepper-line-color: rgba(255, 255, 255, 0.3);
+  --stepper-card-border: rgba(255, 255, 255, 0.16);
+  --stepper-arrow-bg: #1e293b;
+
+  /* Accent Primary Elements */
+  --accent-primary-text: #46e1e6;
+  --accent-primary-bg: rgba(70, 225, 230, 0.1);
+
+  /* Icon Button Backgrounds */
+  --icon-btn-bg: rgba(239, 239, 239, 0.2);
+  --icon-btn-hover-bg: rgba(255, 255, 255, 0.3);
+
+  /* Component specific overrides (exact colors) */
+  --inactive-btn-bg: var(--table-row-start);
+  --inactive-btn-border: rgba(6, 182, 212, 0.42);
+  --preview-bg: rgba(17, 32, 51, 0.4);
+  --preview-border: var(--border-color);
+  --empty-bg: rgba(22, 31, 48, 0.1);
+  --accent-secondary-text: #7dd3fc;
+  --accent-secondary-bg: rgba(125, 211, 252, 0.1);
+
+  /* Neutral Outline Button */
+  --neutral-btn-bg: var(--border-color);
+  --neutral-btn-border: rgba(255, 255, 255, 0.2);
+  --neutral-btn-text: #94a3b8;
+
+  /* Modal Overlay Surfaces */
+  --modal-bg: #112033;
+  --modal-border: rgba(255, 255, 255, 0.1);
 }
 
 .light {
+  /* -------------------------------------------------------------
+     Light Mode Overrides
+     ------------------------------------------------------------- */
+  /* General Layout Elements */
   --text-color: var(--color-dark);
   --bg-color: var(--color-light);
   --border-color: rgba(15, 23, 42, 0.1);
 
+  /* Card Surfaces */
   --card-bg: #ffffff;
   --card-border: rgba(15, 23, 42, 0.08);
 
-  --input-bg: #ffffff;
+  /* Form & Input Fields */
+  --input-bg: var(--card-bg);
   --input-border: rgba(15, 23, 42, 0.15);
-  --input-text: #0f172a;
   --input-placeholder: #94a3b8;
 
+  /* Data Table Elements */
   --table-row-start: rgba(255, 255, 255, 0.9);
   --table-row-end: rgba(241, 245, 249, 0.75);
 
+  /* Borders & Highlights Gradients */
   --gradient-border-from: rgba(15, 23, 42, 0.12);
   --gradient-border-to: rgba(15, 23, 42, 0.03);
 
-  --gradient-sky-from: rgba(255, 255, 255, 0.75);
-  --gradient-sky-via: rgba(255, 255, 255, 0.6);
-  --gradient-sky-to: rgba(255, 255, 255, 0.45);
+  /* Background Gradient Overlays */
+  --gradient-surface-from: rgba(255, 255, 255, 0.75);
+  --gradient-surface-via: rgba(255, 255, 255, 0.6);
+  --gradient-surface-to: rgba(255, 255, 255, 0.45);
 
-  /* Light mode gradients */
+  /* Main View Background Gradients */
   --main-gradient-ltr: linear-gradient(
     to right,
     rgba(255, 255, 255, 0.8) 60%,
@@ -129,9 +179,43 @@
     rgba(240, 245, 255, 0.9) 60%,
     rgba(255, 255, 255, 0.5) 100%
   );
+
+  /* Stepper / Timeline */
+  --stepper-line-color: rgba(15, 23, 42, 0.2);
+  --stepper-card-border: rgba(15, 23, 42, 0.12);
+  --stepper-arrow-bg: var(--card-bg);
+
+  /* Accent Primary Elements */
+  --accent-primary-text: #0e7490;
+  --accent-primary-bg: rgba(14, 116, 144, 0.08);
+
+  /* Icon Button Backgrounds */
+  --icon-btn-bg: rgba(15, 23, 42, 0.08);
+  --icon-btn-hover-bg: rgba(15, 23, 42, 0.15);
+
+  /* Component specific overrides (exact colors) */
+  --inactive-btn-bg: rgba(255, 255, 255, 0.4);
+  --inactive-btn-border: rgba(14, 116, 144, 0.2);
+  --preview-bg: var(--card-bg);
+  --preview-border: var(--card-border);
+  --empty-bg: rgba(15, 23, 42, 0.04);
+  --accent-secondary-text: #0284c7;
+  --accent-secondary-bg: rgba(2, 132, 199, 0.08);
+
+  /* Neutral Outline Button */
+  --neutral-btn-bg: rgba(15, 23, 42, 0.05);
+  --neutral-btn-border: rgba(15, 23, 42, 0.12);
+  --neutral-btn-text: #475569;
+
+  /* Modal Overlay Surfaces */
+  --modal-bg: var(--card-bg);
+  --modal-border: var(--card-border);
 }
 
 @theme {
+  /* -------------------------------------------------------------
+     Tailwind v4 Theme Configuration Mappings
+     ------------------------------------------------------------- */
   --color-theme-text: var(--text-color);
   --color-theme-bg: var(--bg-color);
   --color-theme-border: var(--border-color);
@@ -146,8 +230,37 @@
 
   --color-theme-row-start: var(--table-row-start);
   --color-theme-row-end: var(--table-row-end);
+
+  /* Custom theme accent colors */
+  --color-theme-accent-primary: var(--accent-primary-text);
+  --color-theme-accent-primary-bg: var(--accent-primary-bg);
+
+  /* Custom theme interactive buttons */
+  --color-theme-icon-btn: var(--icon-btn-bg);
+  --color-theme-icon-btn-hover: var(--icon-btn-hover-bg);
+
+  /* Custom theme notification preview mappings */
+  --color-theme-inactive-bg: var(--inactive-btn-bg);
+  --color-theme-inactive-border: var(--inactive-btn-border);
+  --color-theme-preview-bg: var(--preview-bg);
+  --color-theme-preview-border: var(--preview-border);
+  --color-theme-empty-bg: var(--empty-bg);
+  --color-theme-accent-secondary: var(--accent-secondary-text);
+  --color-theme-accent-secondary-bg: var(--accent-secondary-bg);
+
+  /* Neutral Outline Button */
+  --color-theme-neutral-bg: var(--neutral-btn-bg);
+  --color-theme-neutral-border: var(--neutral-btn-border);
+  --color-theme-neutral-text: var(--neutral-btn-text);
+
+  /* Modal Overlay Surfaces */
+  --color-theme-modal: var(--modal-bg);
+  --color-theme-modal-border: var(--modal-border);
 }
 
+/* -------------------------------------------------------------
+   Global CSS Resets & Tag Styles
+   ------------------------------------------------------------- */
 *,
 *::before,
 *::after {
@@ -165,6 +278,9 @@ body {
   font-size: 14px;
 }
 
+/* -------------------------------------------------------------
+   Custom Scrollbar Styles
+   ------------------------------------------------------------- */
 ::-webkit-scrollbar {
   width: 8px;
   height: 0;
@@ -186,6 +302,9 @@ body {
   border-radius: 5px;
 }
 
+/* -------------------------------------------------------------
+   Interactive Transitions
+   ------------------------------------------------------------- */
 a,
 button,
 img,

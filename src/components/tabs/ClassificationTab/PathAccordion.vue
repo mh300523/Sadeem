@@ -32,7 +32,7 @@ function selectPath(key) {
 
 <template>
   <div
-    class="border border-white/10 rounded-[20px] p-4 sm:p-6 bg-[#1E293B]/40 backdrop-blur-xl"
+    class="border-subtle rounded-[20px] p-4 sm:p-6 rtl:bg-linear-to-l ltr:bg-linear-to-r from-theme-row-start to-theme-row-end backdrop-blur-xl"
   >
     <!-- Header -->
     <div class="flex items-center justify-between mb-4">
@@ -42,7 +42,7 @@ function selectPath(key) {
       <!-- Toggle Button -->
       <button
         @click="toggleExpanded"
-        class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-theme-text/70 hover:text-theme-text hover:bg-white/10 transition-all cursor-pointer focus:outline-none"
+        class="w-8 h-8 rounded-lg bg-theme-text/5 border border-theme-border/30 flex items-center justify-center text-theme-text/70 hover:text-theme-text hover:bg-theme-text/10 transition-all cursor-pointer focus:outline-none"
       >
         <span
           class="transform transition-transform duration-300"
@@ -69,16 +69,16 @@ function selectPath(key) {
         class="p-4 rounded-xl border transition-all duration-300 cursor-pointer text-right group"
         :class="
           modelValue === path.key
-            ? 'border-[#009DFE] bg-[#009DFE]/10 shadow-[0_0_15px_rgba(0,157,254,0.15)]'
-            : 'border-white/5 bg-white/2 hover:border-white/20 hover:bg-white/5'
+            ? 'border-theme-accent-secondary bg-theme-accent-secondary-bg shadow-[0_0_15px_rgba(2,132,199,0.15)]'
+            : 'border-theme-border/20 bg-theme-text/2 hover:border-theme-border/40 hover:bg-theme-text/5'
         "
       >
         <h4
           class="text-sm font-bold transition-colors"
           :class="
             modelValue === path.key
-              ? 'text-[#009DFE]'
-              : 'text-theme-text group-hover:text-[#009DFE]'
+              ? 'text-theme-accent-secondary'
+              : 'text-theme-text group-hover:text-theme-accent-secondary'
           "
         >
           {{ path.title }}
@@ -92,13 +92,13 @@ function selectPath(key) {
     <!-- Collapsed Summary View (shows selected only when collapsed) -->
     <div
       v-if="!isExpanded"
-      class="p-4 rounded-xl border border-[#009DFE] bg-[#009DFE]/10 text-right"
+      class="p-4 rounded-xl border border-theme-accent-secondary bg-theme-accent-secondary-bg text-right"
     >
       <div
         v-for="path in items.filter((p) => p.key === modelValue)"
         :key="path.key"
       >
-        <h4 class="text-sm font-bold text-[#009DFE]">
+        <h4 class="text-sm font-bold text-theme-accent-secondary">
           {{ path.title }}
         </h4>
         <p class="text-xs text-theme-text/50 mt-1">
