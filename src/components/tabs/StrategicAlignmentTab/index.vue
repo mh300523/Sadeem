@@ -34,7 +34,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
         <div class="">
           <!-- Header (Title & Badges) -->
           <div class="flex flex-wrap items-center gap-2">
-            <h3 class="text-theme-text text-sm md:text-base font-medium">
+            <h3 class="text-theme-text md:text-base font-medium">
               {{ strategy.title }}
             </h3>
 
@@ -46,7 +46,7 @@ const sidebarData = computed(() => alignmentData.value.sidebar || {});
 
               <!-- Alignment status badge -->
               <span
-                class="gradient-border px-4 py-1 rounded-full text-sm text-theme-text bg-[#06B6D4]/10"
+                class="gradient-border px-4 py-1 rounded-ful text-theme-text bg-[#06B6D4]/10"
               >
                 {{ strategy.alignmentType }}
               </span>

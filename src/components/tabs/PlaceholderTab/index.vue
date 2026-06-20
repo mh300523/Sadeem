@@ -54,9 +54,7 @@ const { t } = useI18n();
       - {{ t("details.coming_soon") }}
     </h3>
 
-    <p
-      class="text-slate-400 text-sm md:text-base max-w-md text-center leading-relaxed"
-    >
+    <p class="text-slate-400 md:text-base max-w-md text-center leading-relaxed">
       {{ t("details.coming_soon_desc") }}
     </p>
 

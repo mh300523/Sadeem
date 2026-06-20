@@ -104,7 +104,7 @@ const statStyles = {
         </h3>
       </div>
 
-      <h4 class="font-medium text-sm text-gray-400">
+      <h4 class="font-medium text-gray-400">
         {{ stat.title }}
       </h4>
     </div>

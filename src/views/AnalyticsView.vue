@@ -40,7 +40,14 @@ onMounted(async () => {
 
 // Extract configuration and payload from Pinia store
 const analyticsData = computed(() => {
-  return store.analyticsData || { liveSignal: {}, quickActions: [], screens: {}, drawerDetails: {} };
+  return (
+    store.analyticsData || {
+      liveSignal: {},
+      quickActions: [],
+      screens: {},
+      drawerDetails: {},
+    }
+  );
 });
 
 const liveSignal = computed(() => analyticsData.value.liveSignal || {});
@@ -161,9 +168,7 @@ const screens = computed(() => {
 
 // Load department list from main dashboard filter options for consistency
 const departmentsList = computed(() => {
-  const deptFilter = store.filters.find(
-    (f) => f.id === "department",
-  );
+  const deptFilter = store.filters.find((f) => f.id === "department");
   if (!deptFilter) return [];
   return deptFilter.options
     .filter((o) => o.value !== "all")
@@ -229,30 +234,43 @@ function handleSelectKpi(kpiId) {
 
 <template>
   <!-- Initial Loading State Skeleton -->
-  <div v-if="store.analyticsLoading" class="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full">
+  <div
+    v-if="store.analyticsLoading"
+    class="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full"
+  >
     <!-- Sidebar Skeleton -->
     <div class="lg:col-span-3">
       <BaseSkeleton type="box" height="h-[600px]" />
     </div>
     <!-- Main Content Skeleton -->
     <div class="lg:col-span-9">
-      <BaseSkeleton type="box" height="h-[600px]" custom-class="!rounded-[20px]" />
+      <BaseSkeleton
+        type="box"
+        height="h-[600px]"
+        custom-class="!rounded-[20px]"
+      />
     </div>
   </div>
 
   <!-- Global Error Panel -->
-  <div v-else-if="store.analyticsError" class="p-6 bg-red-950/20 border border-red-500/30 rounded-2xl text-center w-full">
+  <div
+    v-else-if="store.analyticsError"
+    class="p-6 bg-red-950/20 border border-red-500/30 rounded-2xl text-center w-full"
+  >
     <div class="text-red-400 font-medium mb-3">{{ store.analyticsError }}</div>
     <button
       @click="store.fetchAnalytics"
-      class="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-300 rounded-lg transition-colors text-sm border border-red-500/30"
+      class="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-300 rounded-lg transition-colors border border-red-500/30"
     >
       إعادة المحاولة
     </button>
   </div>
 
   <!-- Ready State -->
-  <div v-else-if="screens && screens.snapshot && liveSignal.sparkline" class="grid grid-cols-1 lg:grid-cols-12 gap-6 relative w-full">
+  <div
+    v-else-if="screens && screens.snapshot && liveSignal.sparkline"
+    class="grid grid-cols-1 lg:grid-cols-12 gap-6 relative w-full"
+  >
     <!-- Sidebar navigation area -->
     <AnalyticsSidebar
       :screens="screens"
@@ -264,7 +282,6 @@ function handleSelectKpi(kpiId) {
 
     <!-- Main Content Area -->
     <div class="lg:col-span-9">
-
       <BaseAnalyticBox class="border-gradient p-3 rounded-[20px]!">
         <!-- Topbar Header & Filters -->
         <AnalyticsToolbar
@@ -332,4 +349,3 @@ function handleSelectKpi(kpiId) {
   opacity: 0;
 }
 </style>
-

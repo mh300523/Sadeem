@@ -29,8 +29,8 @@ defineProps({
 <template>
   <RadioGroup
     v-model="modelValue"
-    class="flex items-center"
-    :class="variant === 'pills' ? 'flex-wrap gap-2' : 'gap-4'"
+    class="flex items-center flex-wrap"
+    :class="variant === 'pills' ? ' gap-2' : 'gap-4'"
   >
     <!-- Pills Variant -->
     <template v-if="variant === 'pills'">

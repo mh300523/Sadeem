@@ -66,8 +66,8 @@ const displayValue = computed(() => {
 
 <template>
   <div
-    class="w-full md:w-auto flex gap-3"
-    :class="classes ? classes : 'items-center '"
+    class="w-full md:w-auto flex flex-col md:flex-row gap-3"
+    :class="classes ? classes : 'md:items-center '"
   >
     <label
       v-if="label"
@@ -122,7 +122,7 @@ const displayValue = computed(() => {
         leave-to-class="opacity-0"
       >
         <ListboxOptions
-          class="absolute z-50 mt-2 max-h-100 min-w-full overflow-auto backdrop-blur-xl rounded-xl border"
+          class="absolute z-50 mt-2 max-h-100 min-w-full max-w-full overflow-auto backdrop-blur-xl rounded-xl border"
           :class="
             optionsClass
               ? optionsClass

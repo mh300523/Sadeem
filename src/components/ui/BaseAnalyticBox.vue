@@ -14,7 +14,7 @@ defineProps({
 </script>
 
 <template>
-  <BaseBox class="rounded-[20px] p-6" type="glass">
+  <BaseBox class="rounded-[20px] p-4 sm:p-6" type="glass">
     <h2
       v-if="title"
       class="text-base lg:text-lg font-bold primary-text-gradient mb-3"

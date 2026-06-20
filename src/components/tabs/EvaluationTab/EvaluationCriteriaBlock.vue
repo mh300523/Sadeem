@@ -42,7 +42,7 @@ defineEmits(["reset-criterion"]);
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
       <!-- Center: 8 Criteria sliders (Data-driven EvaluationCriteria!) -->
       <div class="lg:col-span-7">
-        <BaseBox class="p-6 border border-[#06B6D46B] rounded-2xl">
+        <BaseBox class="p-4 sm:p-6 border border-[#06B6D46B] rounded-2xl">
           <!-- Criteria sliders wrapper list -->
           <div class="">
             <EvaluationCriterion
@@ -60,7 +60,7 @@ defineEmits(["reset-criterion"]);
 
       <!-- Left card: Radar spider map & AI analysis results -->
       <div class="lg:col-span-5">
-        <BaseBox class="p-6 border border-[#06B6D46B] rounded-2xl">
+        <BaseBox class="p-4 sm:p-6 border border-[#06B6D46B] rounded-2xl">
           <h3
             class="text-theme-text text-sm md:text-base font-bold border-b border-white/10 pb-2"
           >

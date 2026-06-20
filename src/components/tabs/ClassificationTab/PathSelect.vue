@@ -28,7 +28,7 @@ const model = computed({
 
 <template>
   <!-- Content padding container -->
-  <BaseBox class="gradient-border p-6 !backdrop-blur-none">
+  <BaseBox class="gradient-border p-4 sm:p-6 backdrop-blur-none!">
     <BaseSelect
       v-model="model"
       :label="label"

@@ -1,27 +1,26 @@
-import { createI18n } from 'vue-i18n'
-import ar from './locales/ar.json'
-import en from './locales/en.json'
-
-const savedLocale =
-  localStorage.getItem('locale') ||
-  'ar'
+import { watch } from "vue";
+import { createI18n } from "vue-i18n";
+import ar from "./locales/ar.json";
+import en from "./locales/en.json";
 
 const i18n = createI18n({
   legacy: false,
-  locale: savedLocale,
-  fallbackLocale: 'en',
+  locale: localStorage.getItem("locale") || "ar",
+  fallbackLocale: "en",
   messages: {
     ar,
-    en
-  }
-})
+    en,
+  },
+});
 
-document.documentElement.lang =
-  savedLocale
+watch(
+  i18n.global.locale,
+  (val) => {
+    localStorage.setItem("locale", val);
+    document.documentElement.lang = val;
+    document.documentElement.dir = val === "ar" ? "rtl" : "ltr";
+  },
+  { immediate: true },
+);
 
-document.documentElement.dir =
-  savedLocale === 'ar'
-    ? 'rtl'
-    : 'ltr'
-
-export default i18n
+export default i18n;

@@ -20,7 +20,7 @@ const emit = defineEmits(["close"]);
     @close="emit('close')"
   >
     <!-- Modal Body Content -->
-    <div class="p-6">
+    <div class="p-4 sm:p-6">
       <div
         class="flex flex-col items-center justify-center text-center py-6 gap-4"
       >

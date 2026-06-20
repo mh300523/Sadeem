@@ -33,7 +33,7 @@ const props = defineProps({
       <li
         v-for="(item, idx) in items"
         :key="idx"
-        class="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full text-sm"
+        class="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full"
         :class="classes.pill"
       >
         <span

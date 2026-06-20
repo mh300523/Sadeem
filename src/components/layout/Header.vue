@@ -1,8 +1,16 @@
+<script setup>
+import LanguageSwitcher from "@/components/common/LanguageSwitcher.vue";
+import ThemeSwitcher from "@/components/common/ThemeSwitcher.vue";
+import SvgIcon from "@/components/ui/SvgIcon.vue";
+</script>
+
 <template>
-  <header class="header flex items-center justify-between p">
+  <header
+    class="header flex items-center justify-center lg:justify-between gap-4 lg:gap-2 flex-wrap bg-[url('@/assets/images/Header-bg.png')] bg-cover bg-center bg-no-repeat px-2 lg:px-10 pt-4 pb-14"
+  >
     <!-- Right side -->
-    <div class="welcome-area flex items-center gap-4">
-      <div class="welcome-logo w-[70px] h-[70px]">
+    <div class="welcome-area hidden lg:flex items-center gap-4">
+      <div class="welcome-logo w-[70px] h-[70px] shrink-0">
         <img
           src="@/assets/images/logo.png"
           alt="logo"
@@ -21,7 +29,7 @@
 
     <!-- Middle Navigation Switcher -->
     <nav
-      class="hidden lg:flex items-center gap-2 bg-[#091522]/80 border border-white/5 rounded-full p-1"
+      class="flex items-center gap-2 bg-[#091522]/80 border border-white/5 rounded-full p-1 order-last sm:order-0"
       :dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'"
     >
       <RouterLink
@@ -58,16 +66,18 @@
 
       <!-- Lock Icon -->
       <button
-        class="lock-icon w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md transition-transform hover:scale-105"
+        class="lock-icon w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md transition-transform hover:scale-105 shrink-0"
       >
         <SvgIcon name="lock" />
       </button>
 
       <!-- Profile Section -->
       <div
-        class="profile-section flex items-center gap-4 ps-6 border-s border-white"
+        class="profile-section flex items-center gap-2 ps-2 lg:ps-6 border-s border-white"
       >
-        <div class="profile-img w-[50px] h-[50px] rounded-full overflow-hidden">
+        <div
+          class="profile-img w-12 h-12 rounded-full overflow-hidden shrink-0"
+        >
           <img
             src="@/assets/images/logo.png"
             alt="profile"
@@ -75,7 +85,7 @@
           />
         </div>
         <div class="profile-info text-right">
-          <div class="text-theme-text font-bold text-[17px]">شمس حسان</div>
+          <div class="text-theme-text font-bold lg:text-base">شمس حسان</div>
           <div class="text-[#FCFCFD] text-xs">مقيم</div>
         </div>
       </div>
@@ -83,18 +93,4 @@
   </header>
 </template>
 
-<script setup>
-import LanguageSwitcher from "@/components/common/LanguageSwitcher.vue";
-import ThemeSwitcher from "@/components/common/ThemeSwitcher.vue";
-import SvgIcon from "@/components/ui/SvgIcon.vue";
-</script>
-<style scoped>
-.header {
-  background-image: url("../../assets/images/Header-bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 17px 50px;
-  padding-bottom: 60px;
-}
-</style>
+<style scoped></style>

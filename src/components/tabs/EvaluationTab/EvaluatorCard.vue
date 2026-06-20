@@ -22,12 +22,12 @@ defineEmits(["click"]);
     <div
       class="flex justify-between items-center gap-2 mb-3 pb-4 border-bottom-gradient relative rtl:after:bg-linear-to-l ltr:after:bg-linear-to-r after:from-[#434343] after:to-[#A9A9A900]"
     >
-      <h4 class="text-theme-text text-xl font-bold">
+      <h4 class="text-theme-text md:text-xl font-bold">
         {{ evaluator.name }}
       </h4>
       <div class="flex items-center gap-2">
         <span class="text-theme-text/70">{{ $t("evaluation.bias") }}</span>
-        <span class="text-theme-text text-xl font-bold">{{
+        <span class="text-theme-text md:text-xl font-bold">{{
           evaluator.bias
         }}</span>
       </div>

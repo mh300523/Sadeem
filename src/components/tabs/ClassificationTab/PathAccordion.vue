@@ -32,7 +32,7 @@ function selectPath(key) {
 
 <template>
   <div
-    class="border border-white/10 rounded-[20px] p-6 bg-[#1E293B]/40 backdrop-blur-xl"
+    class="border border-white/10 rounded-[20px] p-4 sm:p-6 bg-[#1E293B]/40 backdrop-blur-xl"
   >
     <!-- Header -->
     <div class="flex items-center justify-between mb-4">

@@ -32,7 +32,7 @@ const toggleOptions = [
 
 <template>
   <div
-    class="flex flex-col md:flex-row items-start md:items-center justify-between border-b border-[#A9A9A9]/10 py-4 last:border-b-0"
+    class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 border-b border-[#A9A9A9]/10 py-4 last:border-b-0"
   >
     <!-- Info Area -->
     <div class="">
@@ -59,7 +59,7 @@ const toggleOptions = [
     </div>
 
     <!-- Left side (in RTL): Checkbox Toggles & View Button -->
-    <div class="flex flex-col items-end gap-3">
+    <div class="flex flex-col lg:items-end gap-3">
       <!-- View Idea Button -->
       <BaseButton
         class="gradient-purple flex items-center gap-2 text-theme-text w-fit"

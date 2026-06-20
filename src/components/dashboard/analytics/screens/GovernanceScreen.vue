@@ -28,7 +28,7 @@ const props = defineProps({
 
         <!-- Custom value cell -->
         <template #cell(value)="{ value }">
-          <span class="text-theme-text font-medium text-sm md:text-base">
+          <span class="text-theme-text font-medium md:text-base">
             {{ value }}
           </span>
         </template>

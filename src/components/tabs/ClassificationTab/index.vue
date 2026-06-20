@@ -161,7 +161,7 @@ const handleExecutionPlanChange = (status) => {
       <!-- 2. Repeated Idea Duplicate Check (Image 3 layout) -->
       <BaseBox
         v-if="tabData.duplicateCheck"
-        class="rounded-[20px] p-6 gradient-border my-[14px]"
+        class="rounded-[20px] p-4 sm:p-6 gradient-border my-[14px]"
       >
         <div
           class="flex flex-col sm:flex-row sm:items-center justify-between gap-3"
@@ -202,10 +202,10 @@ const handleExecutionPlanChange = (status) => {
       <!-- 3. Implementation Plan Status Check (Screen 1 Layout) -->
       <BaseBox
         v-if="tabData.executionPlan"
-        class="rounded-[20px] p-6 gradient-border mb-[14px]"
+        class="rounded-[20px] p-4 sm:p-6 gradient-border mb-[14px]"
       >
         <!-- Card Header -->
-        <div class="">
+        <div class="mb-4">
           <h3 class="text-theme-text text-sm md:text-base font-medium mb-3">
             {{ tabData.executionPlan.label }}
           </h3>
@@ -229,7 +229,7 @@ const handleExecutionPlanChange = (status) => {
       <!-- 4. Merge Suggestions Row -->
       <BaseBox
         v-if="tabData.mergeSuggestion"
-        class="rounded-[20px] p-6 gradient-border"
+        class="rounded-[20px] p-4 sm:p-6 gradient-border"
       >
         <div class="border-b border-[#A9A9A9]/30 pb-4 mb-4">
           <h3 class="text-theme-text text-sm md:text-base font-medium mb-3">

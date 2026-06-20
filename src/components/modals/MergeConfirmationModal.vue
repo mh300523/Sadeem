@@ -29,7 +29,7 @@ const emit = defineEmits(["close", "confirm"]);
     @close="emit('close')"
   >
     <!-- Modal Body Content -->
-    <div class="p-6">
+    <div class="p-4 sm:p-6">
       <div class="pb-4">
         <div class="mb-4">
           <h4 class="text-theme-text text-base font-medium mb-2">

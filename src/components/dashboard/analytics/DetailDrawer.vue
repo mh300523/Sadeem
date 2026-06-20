@@ -48,7 +48,7 @@ function getMaxValue(bars) {
       ]"
     >
       <div
-        class="aside-container min-h-full gradient-border gradient-sky-blue bg-[#02142D] p-6 rounded-e-none! rounded-s-[40px]!"
+        class="aside-container min-h-full gradient-border gradient-sky-blue bg-[#02142D] p-4 sm:p-6 rounded-e-none! rounded-s-[40px]!"
       >
         <!-- Head Section -->
         <div class="flex justify-between items-start gap-4 mb-5">

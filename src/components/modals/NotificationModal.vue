@@ -61,7 +61,7 @@ const handleSend = () => {
     @close="emit('close')"
   >
     <!-- Modal Body Content -->
-    <div class="p-6">
+    <div class="p-4 sm:p-6">
       <!-- Paper Airplane Center Icon -->
       <div class="flex justify-center py-2">
         <SvgIcon name="send" />

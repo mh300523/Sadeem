@@ -69,7 +69,10 @@
       {{ error }}
     </p>
     <!-- Hint Text -->
-    <p v-if="hint && !error" class="mt-1 text-[11px] text-theme-text/40 text-right">
+    <p
+      v-if="hint && !error"
+      class="mt-1 text-[11px] text-theme-text/40 text-right"
+    >
       {{ hint }}
     </p>
   </div>
@@ -157,7 +160,7 @@ const inputClasses = computed(() => {
   const sizeClasses = {
     sm: "px-3 py-1.5 text-xs rounded-lg",
     md: "px-4 py-2.5 text-xs rounded-xl",
-    lg: "px-5 py-3.5 text-sm rounded-xl",
+    lg: "px-5 py-3.5  rounded-xl",
   };
 
   const stateClasses = props.error

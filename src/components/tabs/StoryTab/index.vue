@@ -118,7 +118,7 @@ function togglePlay() {
       <BaseBox
         v-for="step in storyData.timeline"
         :key="step.id"
-        class="white-border p-6 rounded-2xl mb-6 last:mb-0"
+        class="white-border p-4 sm:p-6 rounded-2xl mb-6 last:mb-0"
       >
         <!-- Step content card -->
         <div class="">
@@ -131,7 +131,7 @@ function togglePlay() {
               {{ step.id }}
             </span>
             <h4
-              class="text-theme-text text-base md:text-xl font-bold flex items-center gap-2"
+              class="text-theme-text text-base md:text-xl font-bold flex flex-wrap items-center gap-2"
             >
               {{ step.title }}
               <span
@@ -152,7 +152,7 @@ function togglePlay() {
           <!-- Sammy Card -->
           <div
             v-if="step.card && step.card.type === 'sammy'"
-            class="flex items-center gap-4.5 py-[30px] px-5 rounded-2xl white-border bg-[url('@/assets/images/sammy-card-bg.png')] bg-cover bg-center bg-no-repeat mt-4"
+            class="flex flex-col md:flex-row items-center gap-4.5 py-[30px] px-5 rounded-2xl white-border bg-[url('@/assets/images/sammy-card-bg.png')] bg-cover bg-center bg-no-repeat mt-4"
           >
             <div
               class="w-[100px] h-[100px] rounded-full rtl:bg-linear-to-l ltr:bg-linear-to-r from-[#0A2A40] to-[#1B4D72] backdrop-blur-xl text-theme-text flex items-center justify-center shrink-0 font-bold text-[22px] shadow-md"
@@ -161,10 +161,10 @@ function togglePlay() {
             </div>
 
             <div class="flex-1 flex flex-col gap-1">
-              <h3 class="text-theme-text text-xl font-bold">
+              <h3 class="text-theme-text md:text-xl font-bold">
                 {{ step.card.title }}
               </h3>
-              <p class="text-theme-text leading-relaxed">
+              <p class="text-theme-text leading-relaxed md:text-base">
                 {{ step.card.text }}
               </p>
             </div>
@@ -193,7 +193,7 @@ function togglePlay() {
             v-if="step.interactive"
             class="p-5 rounded-[20px] rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#FF6B35] to-[#8B5CF6] flex flex-col items-center"
           >
-            <h4 class="text-theme-text text-sm md:text-lg font-bold">
+            <h4 class="text-theme-text text-xs md:text-lg font-bold">
               {{ step.interactive.question }}
             </h4>
             <p class="text-theme-text text-xs md:text-sm my-2">
@@ -205,7 +205,7 @@ function togglePlay() {
               <button
                 v-for="(tag, idx) in step.interactive.tags"
                 :key="idx"
-                class="inline-flex items-center gap-1.5 px-4.5 py-2 rounded-full text-sm font-bold bg-white text-[#0A2A40] shadow-md cursor-pointer"
+                class="inline-flex items-center gap-1.5 px-4.5 py-2 rounded-full font-bold bg-white text-[#0A2A40] shadow-md cursor-pointer"
               >
                 <span>{{ tag.name }}</span>
               </button>

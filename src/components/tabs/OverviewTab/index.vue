@@ -28,7 +28,7 @@ const ownerData = computed(() => {
     <!-- Right Content Area -->
     <div class="lg:col-span-9">
       <!-- Idea Explanation Card -->
-      <BaseBox class="rounded-[20px] p-6 mb-6 white-border">
+      <BaseBox class="rounded-[20px] p-4 sm:p-6 mb-6 white-border">
         <h3 class="text-xs text-theme-text-50 uppercase tracking-wider mb-1">
           {{ data?.overview?.explanation?.label }}
         </h3>
@@ -56,7 +56,7 @@ const ownerData = computed(() => {
           <div
             v-for="(member, idx) in data?.sidebar?.team?.members"
             :key="idx"
-            class="flex items-center justify-between border border-white/6 rounded-xl p-[10px] text-theme-text text-sm backdrop-blur-xl mb-3"
+            class="flex items-center justify-between border border-white/6 rounded-xl p-[10px] text-theme-text backdrop-blur-xl mb-3"
           >
             <span>{{ member }}</span>
             <span

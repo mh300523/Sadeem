@@ -56,7 +56,7 @@ html[dir="ltr"] .sidebar-container::before {
   pointer-events: none;
 }
 .gradient-border {
-  @apply rtl:before:bg-linear-to-bl ltr:before:bg-linear-to-br before:from-[var(--gradient-border-from)] before:to-[var(--gradient-border-to)] rounded-[14px];
+  @apply rtl:before:bg-linear-to-bl ltr:before:bg-linear-to-br before:from-(--gradient-border-from) before:to-(--gradient-border-to) rounded-[14px];
 }
 .primary-text-gradient {
   @apply text-transparent bg-clip-text rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#8B5CF6] max-w-fit;
@@ -72,7 +72,7 @@ html[dir="ltr"] .sidebar-container::before {
   @apply rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#06B6D4] via-[#3B82F6] to-[#7F4FFF];
 }
 .gradient-sky-blue {
-  @apply rtl:bg-linear-to-bl ltr:bg-linear-to-br from-[var(--gradient-sky-from)] via-[var(--gradient-sky-via)] to-[var(--gradient-sky-to)];
+  @apply rtl:bg-linear-to-bl ltr:bg-linear-to-br from-(--gradient-sky-from) via-(--gradient-sky-via) to-(--gradient-sky-to);
 }
 .white-border {
   @apply border border-theme-border/10;

@@ -11,17 +11,17 @@ defineProps({
 
 <template>
   <BaseBox
-    class="gradient-border mb-[14px] last:mb-0 flex flex-col sm:flex-row sm:items-center justify-between px-9 py-8 rounded-[20px]"
+    class="gradient-border mb-[14px] last:mb-0 flex flex-col lg:flex-row lg:items-center justify-between gap-2 px-4 md:px-9 py-8 rounded-[20px] flex-wrap"
   >
     <!-- Right side (in RTL): Row Label -->
     <h4
-      class="text-theme-text text-xs md:text-sm font-medium leading-none flex-1"
+      class="text-theme-text text-xs md:text-sm font-medium leading-relaxed flex-1"
     >
       {{ row.label }}
     </h4>
 
     <!-- Left side (in RTL): Row Value Badge/Slider -->
-    <div class="flex-1 flex justify-end">
+    <div class="flex-1 flex lg:justify-end shrink-0">
       <!-- 1. level MODE -->
       <div
         v-if="row.type === 'level'"
@@ -53,7 +53,7 @@ defineProps({
         <div class="relative h-7.5 bg-white/5 gradient-border p-2 rounded-full">
           <!-- Striped Progress Fill -->
           <div
-            class="relative w-full h-full rounded-full bg-gradient-to-l from-[#273448] to-[#132135]"
+            class="relative w-full h-full rounded-full bg-linear-to-l from-[#273448] to-[#132135]"
           >
             <span
               class="absolute inset-y-0 striped-track inline-block h-full rounded-full"
@@ -61,7 +61,7 @@ defineProps({
             >
               <!-- Thumb -->
               <span
-                class="absolute w-3 h-3 bg-white rounded-full end-0 top-1/2 -translate-y-1/2 shadow-md cursor-pointer"
+                class="absolute w-3 h-3 bg-white rounded-full inset-e-0 top-1/2 -translate-y-1/2 shadow-md cursor-pointer"
               ></span>
             </span>
           </div>

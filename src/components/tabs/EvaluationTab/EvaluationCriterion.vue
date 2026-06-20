@@ -92,9 +92,9 @@ const thumbStyle = computed(() => {
       </span>
     </BaseBox>
 
-    <div class="py-4 px-5">
+    <div class="py-4 px-2.5 lg:px-5">
       <!-- Middle Row: Slider Scale + Track (Start) and Reset Button (End) -->
-      <div class="flex items-end gap-8">
+      <div class="flex items-end gap-2 lg:gap-8">
         <!-- Slider Wrapper (Scale + Track) -->
         <div class="flex-1 flex flex-col relative">
           <!-- Custom Slider Track and Thumb -->
@@ -109,7 +109,7 @@ const thumbStyle = computed(() => {
               <!-- Scale numbers 1 to 5 (Above the track, aligned with ticks) -->
 
               <div
-                class="absolute left-6 right-6 flex justify-between text-theme-text font-meduim mb-2 -top-8"
+                class="absolute left-6 right-6 flex justify-between text-theme-text font-meduim mb-2 -top-9"
               >
                 <span v-for="n in 5" :key="n">{{ n }}</span>
               </div>

@@ -26,7 +26,7 @@ const tabData = computed(() => props.data || {});
       >
         <!-- Title and Icon Badge -->
         <div class="flex items-center gap-3">
-          <h3 class="text-theme-text text-sm md:text-base font-medium">
+          <h3 class="text-theme-text md:text-base font-medium">
             {{ tabData.scoreCard.title }}
           </h3>
           <!-- Glow Score Badge -->
@@ -54,7 +54,7 @@ const tabData = computed(() => props.data || {});
         </div>
 
         <!-- Summary rows list -->
-        <div class="p-6">
+        <div class="p-4 sm:p-6">
           <IpSummaryRow
             v-for="(row, idx) in tabData.summaryCard.rows"
             :key="idx"
@@ -103,7 +103,7 @@ const tabData = computed(() => props.data || {});
 
           <BaseBox class="gradient-border p-4">
             <p
-              class="text-theme-text text-sm md:text-base font-medium leading-relaxed text-justify"
+              class="text-theme-text md:text-base font-medium leading-relaxed text-justify"
             >
               {{ tabData.sidebar.disclaimer.description }}
             </p>

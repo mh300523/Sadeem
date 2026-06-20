@@ -29,7 +29,7 @@ const emit = defineEmits(["merge-request", "view-idea"]);
     <!-- Center content -->
     <div class="flex-1 flex flex-col gap-1 py-1">
       <h4
-        class="primary-text-gradient text-sm md:text-base font-bold leading-relaxed line-clamp-2"
+        class="primary-text-gradient text-xs md:text-base font-bold leading-relaxed line-clamp-2"
       >
         {{ idea.title }}
       </h4>
@@ -39,10 +39,12 @@ const emit = defineEmits(["merge-request", "view-idea"]);
     </div>
 
     <!-- Bottom Buttons Row -->
-    <div class="flex items-center justify-center gap-2 pt-2">
+    <div
+      class="flex flex-col md:flex-row items-center justify-center gap-2 pt-2"
+    >
       <!-- View Idea Button -->
       <BaseButton
-        class="gradient-purple flex items-center gap-2 text-theme-text !text-xs"
+        class="gradient-purple flex items-center gap-2 text-theme-text text-xs! w-full md:w-auto"
         @click="emit('view-idea', idea)"
       >
         {{ $t("actions.view_idea") }}
@@ -63,7 +65,7 @@ const emit = defineEmits(["merge-request", "view-idea"]);
       <!-- Merge Button -->
       <BaseButton
         @click="emit('merge-request', idea)"
-        class="bg-[#32BEA6]/10 text-[#32BEA6] !text-xs"
+        class="bg-[#32BEA6]/10 text-[#32BEA6] text-xs! w-full md:w-auto"
       >
         {{ $t("actions.merge_with_this_idea") }}
       </BaseButton>

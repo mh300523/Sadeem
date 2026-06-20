@@ -36,11 +36,11 @@ const executionPlanOptions = [
     <!-- Project Info & Status (Right side in RTL) -->
     <div class="">
       <div class="flex items-center gap-3 mb-3">
-        <h4 class="primary-text-gradient font-bold text-sm md:text-base">
+        <h4 class="primary-text-gradient font-bold md:text-base">
           {{ project.title }}
         </h4>
         <span
-          class="px-3.5 py-1.5 rounded-full border border-[#009DFE] text-theme-text text-sm bg-[#009DFE]/10"
+          class="px-3.5 py-1.5 rounded-full border border-[#009DFE] text-theme-text bg-[#009DFE]/10 shrink-0"
         >
           {{ project.status }}
         </span>

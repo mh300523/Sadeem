@@ -17,7 +17,7 @@ const props = defineProps({
   },
   width: {
     type: [String, Number],
-    default: "",
+    default: "", // Default to empty string to detect if width is not specified
   },
 });
 
@@ -87,4 +87,16 @@ const mergedOptions = computed(() => {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+@media (max-width: 1023px) {
+  :deep(.vue-apexcharts),
+  :deep(.apexcharts-canvas),
+  :deep(.apexcharts-canvas svg) {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  :deep(.apexcharts-xaxis-label) {
+    font-size: 5px !important;
+  }
+}
+</style>

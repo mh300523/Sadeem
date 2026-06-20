@@ -39,7 +39,7 @@ defineEmits(["select-evaluator", "back"]);
   <!-- Dashboard header with back button -->
 
   <div class="lg:col-span-9">
-    <div class="flex items-start justify-between mb-10">
+    <div class="flex items-start justify-between flex-wrap gap-3 mb-10">
       <div class="flex gap-4">
         <!-- Back arrow button -->
         <BaseButton
@@ -79,7 +79,7 @@ defineEmits(["select-evaluator", "back"]);
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
       <!-- Center: Bias radar details & stats -->
       <div class="lg:col-span-7">
-        <BaseBox class="p-6 border border-[#06B6D46B] rounded-2xl">
+        <BaseBox class="p-4 sm:p-6 border border-[#06B6D46B] rounded-2xl">
           <div class="mb-4">
             <h2 class="text-theme-text text-lg md:text-2xl font-medium mb-3">
               {{ $t("evaluation.bias_comparison_title") }}
@@ -92,7 +92,7 @@ defineEmits(["select-evaluator", "back"]);
           <!-- Row display selected evaluator metrics -->
           <BaseBox
             type="glass"
-            class="grid grid-cols-3 gap-4 border border-[#06B6D4]/42 rounded-[20px] bg-[#161F30]/50"
+            class="grid sm:grid-cols-3 gap-4 border border-[#06B6D4]/42 rounded-[20px] bg-[#161F30]/50"
           >
             <!-- Selected Evaluator -->
             <div class="py-5 px-4 border border-[#06B6D4]/42 rounded-[12px]">
@@ -173,7 +173,7 @@ defineEmits(["select-evaluator", "back"]);
       </div>
       <!-- Left side (Evaluators list column using EvaluatorCard!) -->
       <div class="lg:col-span-5">
-        <BaseBox class="p-6 border border-[#06B6D46B] rounded-2xl">
+        <BaseBox class="p-4 sm:p-6 border border-[#06B6D46B] rounded-2xl">
           <h2
             class="gradient-purple py-4 px-5 rounded-2xl text-theme-text font-medium mb-4"
           >

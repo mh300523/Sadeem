@@ -41,11 +41,11 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
     <div class="lg:col-span-9">
       <!-- Interactive Experience Card -->
       <div
-        class="white-border rounded-2xl p-6 bg-[url('@/assets/images/storytab-side-bg.png')] bg-cover bg-center bg-no-repeat"
+        class="white-border rounded-2xl p-4 sm:p-6 bg-[url('@/assets/images/storytab-side-bg.png')] bg-cover bg-center bg-no-repeat"
       >
         <div class="mb-4">
           <h3
-            class="text-theme-text text-base md:text-xl font-bold flex items-center gap-2"
+            class="text-theme-text text-base md:text-xl font-bold flex items-center gap-2 flex-wrap"
           >
             {{ businessData.interactiveExperience.title }}
             <span
@@ -57,14 +57,14 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
         </div>
 
         <!-- Stats Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 lg:gap-6 mb-6">
           <div
             v-for="(stat, idx) in businessData.interactiveExperience.stats"
             :key="idx"
-            class="gradient-border p-4 gradient-sky-blue backdrop-blur-xl"
+            class="gradient-border p-2 lg:p-4 gradient-sky-blue backdrop-blur-xl"
           >
             <div
-              class="text-transparent bg-clip-text gradient-purple text-3xl font-extrabold mb-1 italic"
+              class="text-transparent bg-clip-text gradient-purple text-xl lg:text-3xl font-extrabold mb-1 italic"
             >
               {{ stat.value }}
             </div>
@@ -77,13 +77,13 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
         <!-- Action Buttons -->
         <div class="flex flex-wrap gap-4 justify-end">
           <BaseButton
-            class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#FF6B35] to-[#FF8E53] text-theme-text"
+            class="rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#FF6B35] to-[#FF8E53] text-theme-text w-full sm:w-auto"
           >
             {{ businessData.interactiveExperience.buttons?.brochure }}
           </BaseButton>
 
           <BaseButton
-            class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#018AAF] to-[#7F4FFF] text-theme-text"
+            class="rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#018AAF] to-[#7F4FFF] text-theme-text w-full sm:w-auto"
           >
             {{ businessData.interactiveExperience.buttons?.details }}
           </BaseButton>
@@ -105,7 +105,7 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
         </div>
 
         <!-- Canvas Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-4 sm:p-6">
           <div
             v-for="item in businessData.canvas.sections"
             :key="item.key"
@@ -116,7 +116,7 @@ const sidebarData = computed(() => businessData.value.sidebar || {});
             </div>
             <div class="">
               <h4
-                class="text-theme-text text-sm md:text-base font-medium leading-none mb-2"
+                class="text-theme-text md:text-base font-medium leading-none mb-2"
               >
                 {{ item.title }}
               </h4>

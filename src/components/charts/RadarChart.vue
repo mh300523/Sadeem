@@ -59,16 +59,6 @@ const resolvedOpacity = computed(() => {
   return props.series.length === 1 ? 0.5 : 0.12;
 });
 
-const resolvedHeight = computed(() => {
-  if (props.height !== undefined) return props.height;
-  return props.series.length === 1 ? 300 : 400;
-});
-
-const resolvedWidth = computed(() => {
-  if (props.width !== undefined) return props.width;
-  return props.series.length === 1 ? 300 : 400;
-});
-
 const chartOptions = computed(() => ({
   chart: {
     type: "radar",
@@ -105,8 +95,12 @@ const chartOptions = computed(() => ({
   plotOptions: {
     radar: {
       polygons: {
-        strokeColors: isDark.value ? "rgba(255, 255, 255, 0.06)" : "rgba(15, 23, 42, 0.08)",
-        connectorColors: isDark.value ? "rgba(255, 255, 255, 0.06)" : "rgba(15, 23, 42, 0.08)",
+        strokeColors: isDark.value
+          ? "rgba(255, 255, 255, 0.06)"
+          : "rgba(15, 23, 42, 0.08)",
+        connectorColors: isDark.value
+          ? "rgba(255, 255, 255, 0.06)"
+          : "rgba(15, 23, 42, 0.08)",
         fill: {
           colors: ["transparent"],
         },
@@ -142,12 +136,7 @@ const chartOptions = computed(() => ({
 </script>
 
 <template>
-  <BaseChart
-    :height="resolvedHeight"
-    :width="resolvedWidth"
-    :options="chartOptions"
-    :series="chartSeries"
-  />
+  <BaseChart :options="chartOptions" :series="chartSeries" />
 </template>
 
 <style scoped></style>

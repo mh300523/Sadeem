@@ -29,7 +29,7 @@ const emit = defineEmits(["close"]);
     <!-- Mascot positioned on top border (e.g., Astronaut/Robot) -->
     <div
       v-if="hasMascot"
-      class="absolute bottom-[calc(100%-65px)] z-[-1] left-1/2 -translate-x-1/2 z-50 pointer-events-none"
+      class="hidden lg:block absolute bottom-[calc(100%-65px)] left-1/2 -translate-x-1/2 z-[-1] pointer-events-none"
     >
       <SvgIcon name="modal-handle" classes="w-full h-full" />
     </div>
@@ -39,7 +39,7 @@ const emit = defineEmits(["close"]);
       class="gradient-purple flex items-center justify-between px-4 py-4.5 rounded-t-[20px]"
     >
       <!--  Title -->
-      <h3 class="text-theme-text text-sm font-bold">
+      <h3 class="text-theme-text font-bold">
         {{ title }}
       </h3>
       <!-- Close Button on the left in RTL / right in LTR -->

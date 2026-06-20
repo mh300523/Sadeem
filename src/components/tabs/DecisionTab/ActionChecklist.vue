@@ -64,7 +64,7 @@ const toggleItem = (group, item) => {
         @update:modelValue="(val) => handleGroupUpdate(group, val)"
       >
         <!-- Indented List of Child Checkboxes inside default slot -->
-        <div class="flex flex-col gap-2 ps-10 mt-3">
+        <div class="flex flex-col gap-2 ps-6 sm:ps-10 mt-3">
           <div
             v-for="item in group.items"
             :key="item.id"
@@ -73,7 +73,7 @@ const toggleItem = (group, item) => {
           >
             <!-- Sub-Checkbox Square -->
             <span
-              class="w-5 h-5 shrink-0 rounded-[4px] flex items-center justify-center transition-all duration-300"
+              class="w-4 h-4 sm:w-5 sm:h-5 shrink-0 rounded-[4px] flex items-center justify-center transition-all duration-300"
               :class="
                 modelValue[item.id]
                   ? 'bg-[#10B981] text-theme-text'
@@ -81,7 +81,7 @@ const toggleItem = (group, item) => {
               "
             >
               <svg
-                class="w-3.5 h-3.5 stroke-[3px]"
+                class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3px]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

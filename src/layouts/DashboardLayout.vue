@@ -1,7 +1,7 @@
 <template>
   <Header />
   <main
-    class="main-content-bg min-h-screen mt-[-40px] p-6 rounded-t-[40px]"
+    class="main-content-bg min-h-screen mt-[-40px] px-6 py-4 rounded-t-[40px]"
   >
     <RouterView />
   </main>

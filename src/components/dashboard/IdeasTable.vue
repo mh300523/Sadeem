@@ -26,14 +26,14 @@ function getBadgeConfig(statusId) {
   <BaseTable
     :headers="headers"
     :items="ideas"
-    tableClass="ideas-table border-separate border-spacing-y-3 min-w-[1350px]  border border-theme-card-border bg-theme-card/50 p-4 md:p-6 backdrop-blur-xl "
+    tableClass="ideas-table border-separate border-spacing-y-3 min-w-[1350px]  border border-theme-card-border bg-theme-card/50 p-4 sm:p-6 backdrop-blur-xl "
     headerClass="pt-0!"
-    rowClass="rtl:bg-linear-to-l ltr:bg-linear-to-r from-theme-row-start to-theme-row-end backdrop-blur-xl rounded-[20px]"
+    rowClass="rtl:bg-linear-to-l ltr:bg-linear-to-r from-theme-row-start to-theme-row-end backdrop-blur-xl"
     cellClass="border-y border-theme-border/10 group-hover:border-theme-border/20 first:border-s first:rounded-s-[20px] last:border-e last:rounded-e-[20px]"
   >
     <!-- Custom cell for Idea ID -->
     <template #cell(id)="{ item }">
-      <span class="text-theme-text/75 text-sm">
+      <span class="text-theme-text/75">
         {{ item.id }}
       </span>
     </template>
@@ -42,7 +42,7 @@ function getBadgeConfig(statusId) {
     <template #cell(title)="{ item }">
       <div class="flex items-start gap-2.5">
         <SvgIcon name="solar_clipboard" />
-        <span class="text-theme-text/75 text-sm leading-relaxed line-clamp-2">
+        <span class="text-theme-text/75 leading-relaxed line-clamp-2">
           {{ item.title }}
         </span>
       </div>
@@ -52,7 +52,7 @@ function getBadgeConfig(statusId) {
     <template #cell(submitter)="{ item }">
       <div class="flex items-center gap-2">
         <SvgIcon name="solar_user" />
-        <span class="text-theme-text/75 text-sm">
+        <span class="text-theme-text/75">
           {{ item.submitter }}
         </span>
       </div>
@@ -62,7 +62,7 @@ function getBadgeConfig(statusId) {
     <template #cell(department)="{ item }">
       <div class="flex items-center gap-2.5">
         <SvgIcon name="solar_pie-chart" />
-        <span class="text-theme-text/75 text-sm">
+        <span class="text-theme-text/75">
           {{ item.department }}
         </span>
       </div>
@@ -73,7 +73,7 @@ function getBadgeConfig(statusId) {
       <div class="flex items-center gap-1.5">
         <SvgIcon name="bulb-green" />
 
-        <span class="text-theme-text/75 text-sm">
+        <span class="text-theme-text/75">
           {{ item.innovationType }}
         </span>
       </div>
@@ -83,7 +83,7 @@ function getBadgeConfig(statusId) {
     <template #cell(timeHorizon)="{ item }">
       <div class="flex items-center gap-1.5">
         <SvgIcon name="solar_chart" />
-        <span class="text-theme-text/75 text-sm">{{ item.timeHorizon }}</span>
+        <span class="text-theme-text/75">{{ item.timeHorizon }}</span>
       </div>
     </template>
 
@@ -91,7 +91,7 @@ function getBadgeConfig(statusId) {
     <template #cell(track)="{ item }">
       <div class="flex items-center gap-1.5">
         <SvgIcon name="solar_branching-paths-up" />
-        <span class="line-clamp-2 text-sm" :title="item.track">
+        <span class="line-clamp-2" :title="item.track">
           {{ item.track }}
         </span>
       </div>
@@ -101,7 +101,7 @@ function getBadgeConfig(statusId) {
     <template #cell(evaluatorsCount)="{ item }">
       <div class="flex items-center gap-2">
         <SvgIcon name="solar_users-group" />
-        <span class="text-theme-text/80 text-sm">
+        <span class="text-theme-text/80">
           {{ item.evaluatorsCount }}
         </span>
       </div>
@@ -111,7 +111,7 @@ function getBadgeConfig(statusId) {
     <template #cell(averageRating)="{ item }">
       <div class="flex items-center gap-2">
         <SvgIcon name="solar_star" />
-        <span class="text-theme-text/80 text-sm">
+        <span class="text-theme-text/80">
           {{ item.averageRating }}
         </span>
       </div>
@@ -120,7 +120,7 @@ function getBadgeConfig(statusId) {
     <!-- Custom cell for Status Badge -->
     <template #cell(status)="{ item }">
       <div
-        class="flex items-center justify-center gap-1 px-4 py-2 min-w-[130px] min-h-[32px] rounded-full text-sm text-theme-text"
+        class="flex items-center justify-center gap-1 px-4 py-2 min-w-[130px] min-h-[32px] rounded-full text-theme-text"
         :class="[getBadgeConfig(item.status.id).bgClass]"
       >
         <!-- Icon -->
@@ -138,7 +138,7 @@ function getBadgeConfig(statusId) {
     <template #cell(submittedAt)="{ item }">
       <div class="flex items-center gap-2">
         <SvgIcon name="solar_calendar" />
-        <span class="text-theme-text/60 text-sm">
+        <span class="text-theme-text/60">
           {{ item.submittedAt }}
         </span>
       </div>
@@ -148,7 +148,7 @@ function getBadgeConfig(statusId) {
     <template #cell(action)="{ item }">
       <RouterLink
         :to="{ name: 'IdeaDetails', params: { id: item.id } }"
-        class="text-theme-text/75 hover:text-theme-text font-medium text-sm transition-colors duration-200 inline-flex items-center gap-1.5"
+        class="text-theme-text/75 hover:text-theme-text font-medium transition-colors duration-200 inline-flex items-center gap-1.5"
       >
         <span>{{ $t("actions.view") }}</span>
         <svg

@@ -115,7 +115,7 @@ const resolvedNotification = computed(() => {
       >
         <!-- Subject -->
 
-        <h3 class="font-medium text-theme-text text-xl md:text-2xl">
+        <h3 class="font-medium text-theme-text text-base md:text-2xl">
           {{ resolvedNotification.subject }}
         </h3>
 

@@ -31,7 +31,7 @@ const icon = computed(() => {
     :is="icon"
     fill="currentColor"
     :class="classes"
-    class="flex-shrink-0"
+    class="shrink-0"
   />
 </template>
 

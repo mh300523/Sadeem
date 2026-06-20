@@ -12,7 +12,7 @@
       </div>
       <button
         @click="store.fetchDashboard"
-        class="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-300 rounded-lg transition-colors text-sm border border-red-500/30"
+        class="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-300 rounded-lg transition-colors border border-red-500/30"
       >
         إعادة المحاولة
       </button>

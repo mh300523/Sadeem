@@ -15,7 +15,7 @@ defineProps({
 
 <template>
   <div
-    class="rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-[#FF8E53] to-[#FF6B35] p-[14px] rounded-[20px] mt-6"
+    class="rtl:bg-linear-to-l ltr:bg-linear-to-r from-[#FF8E53] to-[#FF6B35] p-[14px] rounded-[20px] mt-6"
   >
     <h4 class="text-theme-text/50 text-xs tracking-wide uppercase mb-1">
       {{ label }}

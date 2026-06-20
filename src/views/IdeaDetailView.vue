@@ -181,12 +181,12 @@ const tabsList = computed(() => {
     <!-- Error State -->
     <div
       v-else-if="store.detailsError"
-      class="mt-6 p-6 bg-red-950/20 border border-red-500/30 rounded-2xl text-center"
+      class="mt-6 p-4 sm:p-6 bg-red-950/20 border border-red-500/30 rounded-2xl text-center"
     >
       <div class="text-red-400 font-medium mb-3">{{ store.detailsError }}</div>
       <button
         @click="loadIdeaDetails"
-        class="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-300 rounded-lg transition-colors text-sm border border-red-500/30"
+        class="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-300 rounded-lg transition-colors border border-red-500/30"
       >
         إعادة المحاولة
       </button>
@@ -208,7 +208,7 @@ const tabsList = computed(() => {
               </span>
 
               <span
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm text-theme-text shadow-[0_2px_10px_rgba(0,0,0,0.25)] backdrop-blur-sm"
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-theme-text shadow-[0_2px_10px_rgba(0,0,0,0.25)] backdrop-blur-sm"
                 :class="[getBadgeConfig(ideaDetails.status?.id).bgClass]"
               >
                 <SvgIcon
@@ -275,7 +275,7 @@ const tabsList = computed(() => {
 
               <!-- 5. AI score badge (Cyan border, sparkle icon, text exactly matches screenshot) -->
               <div
-                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm bg-[#018AAF] text-theme-text backdrop-blur-2xl"
+                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#018AAF] text-theme-text backdrop-blur-2xl"
               >
                 <SvgIcon name="ai_icon" />
                 <span
@@ -303,7 +303,7 @@ const tabsList = computed(() => {
 
             <!-- Save Draft Button -->
             <BaseButton
-              class="rtl:bg-gradient-to-r ltr:bg-gradient-to-l from-[#018AAF]/20 to-[#7F4FFF]/20 text-[#7F4FFF] backdrop-blur-2xl"
+              class="rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#018AAF]/20 to-[#7F4FFF]/20 text-[#7F4FFF] backdrop-blur-2xl"
             >
               {{ $t("actions.save_draft") }}
             </BaseButton>

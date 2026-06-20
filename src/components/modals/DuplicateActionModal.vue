@@ -26,13 +26,11 @@ const emit = defineEmits([
     @close="emit('close')"
   >
     <!-- Modal Body Content -->
-    <div class="p-6">
+    <div class="p-4 sm:p-6">
       <div
         class="flex flex-col items-center justify-center text-center py-4 gap-6"
       >
-        <h3
-          class="text-theme-text text-sm md:text-base font-medium leading-relaxed"
-        >
+        <h3 class="text-theme-text md:text-base font-medium leading-relaxed">
           {{ $t("duplicate_modal_intro") }}
         </h3>
 
@@ -40,7 +38,7 @@ const emit = defineEmits([
           <!-- Button 1 -->
           <BaseButton
             @click="emit('link-contributor')"
-            class="!py-3.5 font-bold text-theme-text rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#05D989] to-[#018AAF]"
+            class="py-3.5! font-bold text-theme-text rtl:bg-linear-to-r ltr:bg-linear-to-l from-[#05D989] to-[#018AAF]"
           >
             {{ $t("actions.link_idea_contributor") }}
           </BaseButton>
@@ -48,7 +46,7 @@ const emit = defineEmits([
           <!-- Button 2   -->
           <BaseButton
             @click="emit('close-duplicate')"
-            class="!py-3.5 font-bold text-[#32BEA6] bg-[#32BEA6]/10 border border-[#32BEA6]"
+            class="py-3.5! font-bold text-[#32BEA6] bg-[#32BEA6]/10 border border-[#32BEA6]"
           >
             {{ $t("actions.close_duplicate") }}
           </BaseButton>
@@ -56,7 +54,7 @@ const emit = defineEmits([
           <!-- Button 3 -->
           <BaseButton
             @click="emit('send-notification')"
-            class="!py-3.5 font-bold text-[#94A3B8] bg-white/10 border border-white/20"
+            class="py-3.5! font-bold text-[#94A3B8] bg-white/10 border border-white/20"
           >
             {{ $t("actions.send_notification") }}
           </BaseButton>

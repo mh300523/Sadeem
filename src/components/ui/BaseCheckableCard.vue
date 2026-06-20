@@ -32,15 +32,15 @@ const toggleSelection = () => {
 <template>
   <BaseBox
     @click="toggleSelection"
-    class="py-4.5 px-5 rounded-[20px] border border-[#06B6D4]/32 gap-4 cursor-pointer"
+    class="py-3 px-3 sm:py-4.5 sm:px-5 rounded-[20px] border border-[#06B6D4]/32 gap-4 cursor-pointer"
   >
     <!-- Checkbox and Text Container -->
 
-    <div class="flex items-start justify-between gap-4">
-      <div class="flex items-center gap-4">
+    <div class="flex items-start justify-between gap-2 sm:gap-4">
+      <div class="flex items-center gap-2 sm:gap-4">
         <!-- Checkbox Square -->
         <span
-          class="w-6 h-6 mt-1 shrink-0 rounded-sm flex items-center justify-center transition-all duration-300"
+          class="w-4 h-4 sm:w-6 sm:h-6 mt-1 shrink-0 rounded-sm flex items-center justify-center transition-all duration-300"
           :class="
             modelValue
               ? 'bg-[#10B981] text-theme-text'
@@ -48,7 +48,7 @@ const toggleSelection = () => {
           "
         >
           <svg
-            class="w-4 h-4 stroke-[3px]"
+            class="w-3 h-3 sm:w-4 sm:h-4 stroke-[3px]"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -61,7 +61,7 @@ const toggleSelection = () => {
           </svg>
         </span>
 
-        <h4 class="text-theme-text md:text-base font-bold">
+        <h4 class="text-theme-text text-xs sm:text-base font-bold">
           {{ title }}
         </h4>
       </div>
@@ -69,12 +69,15 @@ const toggleSelection = () => {
       <!-- Optional Left Badge -->
       <span
         v-if="badgeText"
-        class="px-5 py-2.5 rounded-full bg-[#7DD3FC]/10 text-[#7DD3FC] font-medium shrink-0"
+        class="px-2 sm:px-5 py-2 rounded-full bg-[#7DD3FC]/10 text-[#7DD3FC] text-[10px] md:text-sm sm:font-medium shrink-0"
       >
         {{ badgeText }}
       </span>
     </div>
-    <p v-if="subtitle" class="text-theme-text/70 leading-relaxed mt-0.5 ms-10">
+    <p
+      v-if="subtitle"
+      class="text-theme-text/70 leading-relaxed mt-0.5 ms-6 sm:ms-10 text-xs sm:text-sm"
+    >
       {{ subtitle }}
     </p>
     <!-- Slot for nested content (e.g. sub-checklists) -->

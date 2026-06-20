@@ -240,7 +240,7 @@ const handleAction = async (actionKey) => {
     <template v-if="currentOption">
       <!-- Path title + description header -->
       <!-- Main config sections box -->
-      <BaseBox type="glass" class="p-6 mb-6">
+      <BaseBox type="glass" class="p-4 sm:p-6 mb-6">
         <div class="mb-5">
           <h3 class="primary-text-gradient text-lg md:text-xl font-medium mb-2">
             {{ currentOption.pathTitle }}
@@ -377,7 +377,7 @@ const handleAction = async (actionKey) => {
         )"
         :key="section.type"
       >
-        <BaseBox type="glass" class="p-6 mb-6">
+        <BaseBox type="glass" class="p-4 sm:p-6 mb-6">
           <NotificationPreview
             :section="section"
             :selected-option-key="selectedOptionKey"
@@ -394,7 +394,7 @@ const handleAction = async (actionKey) => {
      ════════════════════════════════════════════════════════════════════════ -->
     <BaseBox
       type="glass"
-      class="gradient-border rounded-2xl p-6 flex flex-col gap-4"
+      class="gradient-border rounded-2xl p-4 sm:p-6 flex flex-col gap-4"
     >
       <BaseTextarea
         v-model="feedbackNotes"

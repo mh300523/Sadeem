@@ -28,7 +28,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="w-full overflow-x-auto rounded-[24px]">
+  <div :key="$i18n.locale" class="w-full overflow-x-auto rounded-[24px]">
     <table class="w-full" :class="tableClass">
       <thead>
         <tr>

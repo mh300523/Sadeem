@@ -74,7 +74,7 @@ const inputClasses = computed(() => {
     ? "border-red-500/30 focus:border-red-500"
     : "border-theme-input-border focus:border-[#05D989]/50";
 
-  return [baseClasses, "px-4 py-3 text-sm rounded-lg", stateClasses]
+  return [baseClasses, "px-4 py-3  rounded-lg", stateClasses]
     .filter(Boolean)
     .join(" ");
 });
